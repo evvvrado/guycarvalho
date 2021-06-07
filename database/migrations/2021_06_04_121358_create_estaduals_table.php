@@ -19,7 +19,8 @@ class CreateEstadualsTable extends Migration
             $table->string("nome", 100)->nullable();
             $table->string("telefone", 16)->nullable();
             $table->string("whatsapp", 16)->nullable();
-            $table->string("whatsapp", 10)->nullable();
+            $table->string("slug", 10)->nullable();
+	    $table->tinyInteger("regiao");
             $table->string("email", 100)->nullable();
             $table->string("site")->nullable();
             $table->string("instagram")->nullable();
