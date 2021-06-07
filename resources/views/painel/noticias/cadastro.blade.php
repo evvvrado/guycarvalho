@@ -66,7 +66,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-12 col-lg-6 mt-3">
+                        <div class="form-group col-12 col-lg-4 mt-3">
                             <label for="">Categoria</label>
                             <select class="form-control" name="categoria_id">
                                 @foreach(\App\Models\Categoria::all() as $categoria)
@@ -74,10 +74,15 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group col-12 col-lg-6 mt-3">
+                        <div class="form-group col-12 col-lg-4 mt-3">
                             <label for="autor">Autor</label>
                             <input type="text" class="form-control" name="autor"
                                 id="autor" maxlenght="255">
+                        </div>
+                        <div class="form-group col-12 col-lg-4 mt-3">
+                            <label for="publicacao">Data de Publicação</label>
+                            <input type="date" class="form-control" name="publicacao"
+                                id="publicacao">
                         </div>
                     </div>
                     <div class="row">

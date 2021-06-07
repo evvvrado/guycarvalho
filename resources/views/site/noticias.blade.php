@@ -4,7 +4,7 @@
         "classe" => "blog"    
     ])
     <main class="main">
-        <section id="destaquesBlog" class="slider">
+        {{--  <section id="destaquesBlog" class="slider">
             <div class="sliderPreCorpo">
                 <div class="sliderCorpo">
                     <div class="sliderItem">
@@ -43,7 +43,7 @@
                 <button title="Anterior"><img width="32" height="32" src="/img/ico_setaEsq.svg" alt="Seta esquerda"></button>
                 <button title="Próximo" class="proximo"><img width="32" height="32" src="/img/ico_setaDir.svg" alt="Seta direita"></button>
             </div>
-        </section>
+        </section>  --}}
         <section id="categoriasBlog">
             <h2>Categorias</h2>
             <nav>
@@ -60,7 +60,7 @@
                         <a href="{{route('site.noticia', ['categoria' => $noticia->categoria->slug, 'noticia' => $noticia->slug])}}" class="blogItem"><img src="{{asset($noticia->preview)}}" alt="Ilustra blog 1" width="470" height="342"></a>
                         <div style="width: 100%;">
                             <a href="{{route('site.noticia', ['categoria' => $noticia->categoria->slug, 'noticia' => $noticia->slug])}}" class="blogItem"><h3>{{$noticia->titulo}}</h3></a>
-                            <a class="blogCat" href="/noticias/abs-brasil">{{$noticia->categoria->nome}}</a>
+                            <a class="blogCat" href="{{route('site.noticias', ['slug' => $noticia->categoria->slug])}}">{{$noticia->categoria->nome}}</a>
                             <p>
                                 <a href="{{route('site.noticia', ['categoria' => $noticia->categoria->slug, 'noticia' => $noticia->slug])}}">
                                     {!! $noticia->resumo !!}

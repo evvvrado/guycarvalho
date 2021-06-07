@@ -32,6 +32,7 @@ class NoticiasController extends Controller
         $noticia->titulo = $request->titulo;
         $noticia->subtitulo = $request->subtitulo;
         $noticia->autor = $request->autor;
+        $noticia->publicacao = $request->publicacao;
         $noticia->fonte = $request->fonte;
         $noticia->resumo = $request->resumo;
         $noticia->conteudo = $request->conteudo;
@@ -78,6 +79,10 @@ class NoticiasController extends Controller
 
         $noticia->titulo = $request->titulo;
         $noticia->subtitulo = $request->subtitulo;
+        $noticia->autor = $request->autor;
+        $noticia->publicacao = $request->publicacao;
+        $noticia->fonte = $request->fonte;
+        $noticia->resumo = $request->resumo;
         $noticia->conteudo = $request->conteudo;
         $noticia->slug = Str::slug($noticia->titulo);
         $noticia->categoria_id = $request->categoria_id;
@@ -108,6 +113,11 @@ class NoticiasController extends Controller
         foreach($request->tags as $tag){
             $noticia->tags()->attach($tag);
         }
+
+        $noticia->hashtags()->detach();
+        foreach($request->hashtags as $hashtag){
+            $noticia->hashtags()->attach($hashtag);
+        }  
 
         toastr()->success("Notícia salva com sucesso!");
 

@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-12 col-lg-6 mt-3">
+                        <div class="form-group col-12 col-lg-4 mt-3">
                             <label for="">Categoria</label>
                             <select class="form-control" name="categoria_id">
                                 @foreach(\App\Models\Categoria::all() as $categoria)
@@ -76,10 +76,15 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group col-12 col-lg-6 mt-3">
+                        <div class="form-group col-12 col-lg-4 mt-3">
                             <label for="autor">Autor</label>
                             <input type="text" class="form-control" name="autor"
                                 id="autor" value="{{$noticia->autor}}" maxlenght="255">
+                        </div>
+                        <div class="form-group col-12 col-lg-4 mt-3">
+                            <label for="publicacao">Data de Publicação</label>
+                            <input type="date" class="form-control" name="publicacao"
+                                id="publicacao" value="{{$noticia->publicacao}}">
                         </div>
                     </div>
                     <div class="row">
@@ -109,6 +114,12 @@
                                     <option value="{{$hashtag->id}}" @if($noticia->hashtags->contains($hashtag->id)) selected @endif>{{$hashtag->nome}}</option>
                                 @endforeach
                             </select>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <label for="">Resumo</label>
+                            <textarea class="form-control" name="resumo" rows="3" value="{{$noticia->resumo}}"></textarea>
                         </div>
                     </div>
                     <div class="row mt-3">
