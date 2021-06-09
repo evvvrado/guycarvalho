@@ -36,6 +36,7 @@ Route::post('/sistema/logar', [\App\Http\Controllers\PainelController::class, 'l
 Route::middleware(['admin'])->group(function () {
     
     Route::get('/sistema', [\App\Http\Controllers\PainelController::class, 'index'])->name("painel.index");
+    Route::get('/sistema/indisponivel', [\App\Http\Controllers\PainelController::class, 'indisponivel'])->name("painel.indisponivel");
     Route::get('/sistema/sair', [\App\Http\Controllers\PainelController::class, 'sair'])->name("painel.sair");
     Route::get('/sistema/leads', [\App\Http\Controllers\PainelController::class, 'leads'])->name("painel.leads");
 

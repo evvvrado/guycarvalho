@@ -18,7 +18,8 @@ class SiteController extends Controller
 
     public function index(){
         $pagina = Pagina::where("nome", "Home")->first();
-        return view("site.index", ["pagina" => $pagina]);
+        $destaques = Noticia::where("publicada", true)->orderBy("publicacao", "DESC")->take(4)->get();
+        return view("site.index", ["pagina" => $pagina, "destaques" => $destaques]);
     }
 
     public function quem_somos(){
@@ -77,11 +78,14 @@ class SiteController extends Controller
     public function noticias($slug = null){
         if($slug){
             $categoria = Categoria::where("slug", $slug)->first();
-            $noticias = $categoria->noticias->where("publicada", true);
+            $noticias = $categoria->noticias->where("publicada", true)->sortByDesc("publicacao");
+            $destaques = $categoria->noticias->where("publicada", true)->sortByDesc("publicacao")->take(3);
+
         }else{
-            $noticias = Noticia::where("publicada", true)->get();
+            $noticias = Noticia::where("publicada", true)->orderBy("publicacao", "DESC")->get();
+            $destaques = Noticia::where("publicada", true)->orderBy("publicacao", "DESC")->take(3)->get();
         }
-        return view("site.noticias", ["noticias" => $noticias]);
+        return view("site.noticias", ["noticias" => $noticias, "destaques" => $destaques]);
     }
 
     public function noticia($categoria, $noticia){

@@ -15,6 +15,10 @@ class PainelController extends Controller
         return view("painel.index");
     }
 
+    public function indisponivel(){
+        return view("painel.indisponivel");
+    }
+
     public function login(){
         return view("painel.login");
     }

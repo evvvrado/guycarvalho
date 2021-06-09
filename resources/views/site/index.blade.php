@@ -113,76 +113,82 @@
                 <div>
                     <div class="sliderPreCorpo" style="height:505px;">
                         <div class="gradeBlog sliderCorpo">
-                            <div class="sliderItem">
-                                <a href="/noticias/projeto-digital">
-                                    <img width="370" height="191" src="{{ asset('site/img/_blog1.jpg') }}"
-                                        alt="Ilustra Blog 1">
-                                    <p class="info">
-                                        <img width="18" height="19" src="{{ asset('site/img/ico_calendar.svg') }}"
-                                            alt="Icone calendário">3.Jun 2021
-                                    </p>
-                                </a>
-                                <a class="tag" href="/noticias/abs-brasil">ABS Brasil</a>
-                                <h3><a href="/noticias/projeto-digital" class="blogItem">Lançamento projeto digital
-                                        Associação Brasileira de Sommeliers - Brasil</a></h3>
-                                <p class="texto">
-                                    <a href="/noticias/projeto-digital">
-                                        A lançamento desse nosso site demonstra a maturidade de nossa Associação
-                                        Brasileira de Sommeliers - Brasil e a disposição dos vários Presidentes das
-                                        secções regionais para levarmos adiante esse produto arrojado
+                            @if(isset($destaques[0]))
+                                <div class="sliderItem">
+                                    <a href="{{route('site.noticia', ['categoria' => $destaques[0]->categoria->slug, 'noticia' => $destaque->slug])}}">
+                                        <img width="370" height="191" src="{{asset($destaques[0]->preview)}}"
+                                            alt="Ilustra Blog 1">
+                                        <p class="info">
+                                            <img width="18" height="19" src="{{ asset('site/img/ico_calendar.svg') }}"
+                                                alt="Icone calendário">{{date("d/m/y", strtotime($destaques[0]->publicacao))}}
+                                        </p>
                                     </a>
-                                </p>
-                            </div>
-                            <div class="sliderItem">
-                                <a href="/noticias/danio-braga">
-                                    <img width="370" height="191" src="{{ asset('site/img/_blog2.jpg') }}"
-                                        alt="Ilustra Blog 2">
-                                    <p class="info">
-                                        <img width="18" height="19" src="{{ asset('site/img/ico_calendar.svg') }}"
-                                            alt="Icone calendário">2.Jun 2021
+                                    <a class="tag" href="{{route('site.noticias', ['slug' => $destaques[0]->categoria->slug])}}">{{$destaques[0]->categoria->nome}}</a>
+                                    <h3><a href="{{route('site.noticia', ['categoria' => $destaques[0]->categoria->slug, 'noticia' => $destaque->slug])}}" class="blogItem">{{$destaques[0]->titulo}}</a></h3>
+                                    <p class="texto">
+                                        <a href="{{route('site.noticia', ['categoria' => $destaques[0]->categoria->slug, 'noticia' => $destaque->slug])}}">
+                                            {{$destaques[0]->resumo}}
+                                        </a>
                                     </p>
-                                </a>
-                                <a class="tag" href="/noticias/abs-brasil">ABS Brasil</a>
-                                <h3><a href="/noticias/danio-braga" class="blogItem">Danio Braga – Presidente
-                                        ABS-Brasil</a></h3>
-                                <p class="texto">
-                                    <a href="/noticias/danio-braga">
-                                        Caros amigos, quando me tornei Sommelier profissional no longínquo ano de 1978,
-                                        prestei meu exame a banca Julgadora da melhor qualidade, uma trinca e tanto:
-                                        Franco Colombani que era na época o Presidente AIS...
+                                </div>
+                            @endif
+                            @if(isset($destaques[1]))
+                                <div class="sliderItem">
+                                    <a href="{{route('site.noticia', ['categoria' => $destaques[1]->categoria->slug, 'noticia' => $destaque->slug])}}">
+                                        <img width="370" height="191" src="{{asset($destaques[1]->preview)}}"
+                                            alt="Ilustra Blog 1">
+                                        <p class="info">
+                                            <img width="18" height="19" src="{{ asset('site/img/ico_calendar.svg') }}"
+                                                alt="Icone calendário">{{date("d/m/y", strtotime($destaques[1]->publicacao))}}
+                                        </p>
                                     </a>
-                                </p>
-                            </div>
-                            <div class="sliderItem magro">
-                                <a href="/noticias/vinagre">
-                                    <img width="370" height="191" src="{{ asset('site/img/_blog3.jpg') }}"
-                                        alt="Ilustra Blog 3">
-                                    <p class="info">
-                                        <img width="18" height="19" src="{{ asset('site/img/ico_calendar.svg') }}"
-                                            alt="Icone calendário">3.Jun 2021
+                                    <a class="tag" href="{{route('site.noticias', ['slug' => $destaques[1]->categoria->slug])}}">{{$destaques[1]->categoria->nome}}</a>
+                                    <h3><a href="{{route('site.noticia', ['categoria' => $destaques[1]->categoria->slug, 'noticia' => $destaque->slug])}}" class="blogItem">{{$destaques[1]->titulo}}</a></h3>
+                                    <p class="texto">
+                                        <a href="{{route('site.noticia', ['categoria' => $destaques[1]->categoria->slug, 'noticia' => $destaque->slug])}}">
+                                            {{$destaques[1]->resumo}}
+                                        </a>
                                     </p>
-                                </a>
-                                <a class="tag" href="/noticias/abs-brasil">ABS Brasil</a>
-                                <h3><a href="/noticias/vinagre" class="blogItem">O vinagre, tao antigo quanto o
-                                        vinho</a></h3>
-                                <p class="texto"><a href="/noticias/vinagre">A profissão de sommelier, como outras,
-                                        exige constante atualização e a ABS-SP...</a></p>
-                            </div>
-                            <div class="sliderItem magro">
-                                <a href="/noticias/asi">
-                                    <img width="370" height="191" src="{{ asset('site/img/_blog4.jpg') }}"
-                                        alt="Ilustra Blog 4">
-                                    <p class="info">
-                                        <img width="18" height="19" src="{{ asset('site/img/ico_calendar.svg') }}"
-                                            alt="Icone calendário">30.Mai 2021
+                                </div>
+                            @endif
+                            @if(isset($destaques[2]))
+                                <div class="sliderItem magro">
+                                    <a href="{{route('site.noticia', ['categoria' => $destaques[2]->categoria->slug, 'noticia' => $destaque->slug])}}">
+                                        <img width="370" height="191" src="{{asset($destaques[2]->preview)}}"
+                                            alt="Ilustra Blog 1">
+                                        <p class="info">
+                                            <img width="18" height="19" src="{{ asset('site/img/ico_calendar.svg') }}"
+                                                alt="Icone calendário">{{date("d/m/y", strtotime($destaques[2]->publicacao))}}
+                                        </p>
+                                    </a>
+                                    <a class="tag" href="{{route('site.noticias', ['slug' => $destaques[2]->categoria->slug])}}">{{$destaques[2]->categoria->nome}}</a>
+                                    <h3><a href="{{route('site.noticia', ['categoria' => $destaques[2]->categoria->slug, 'noticia' => $destaque->slug])}}" class="blogItem">{{$destaques[2]->titulo}}</a></h3>
+                                    <p class="texto">
+                                        <a href="{{route('site.noticia', ['categoria' => $destaques[2]->categoria->slug, 'noticia' => $destaque->slug])}}">
+                                            {{$destaques[2]->resumo}}
+                                        </a>
                                     </p>
-                                </a>
-                                <a class="tag" href="/noticias/na-midia">Na Mídia</a>
-                                <h3><a href="/noticias/asi" class="blogItem">Association de la Sommellerie
-                                        Internationale - ASI</a></h3>
-                                <p class="texto"><a href="/noticias/asi">Fundada em junho de 1969 na França, a
-                                        Association de la Sommellerie Internationale...</a></p>
-                            </div>
+                                </div>
+                            @endif
+                            @if(isset($destaques[3]))
+                                <div class="sliderItem magro">
+                                    <a href="{{route('site.noticia', ['categoria' => $destaques[3]->categoria->slug, 'noticia' => $destaque->slug])}}">
+                                        <img width="370" height="191" src="{{asset($destaques[3]->preview)}}"
+                                            alt="Ilustra Blog 1">
+                                        <p class="info">
+                                            <img width="18" height="19" src="{{ asset('site/img/ico_calendar.svg') }}"
+                                                alt="Icone calendário">{{date("d/m/y", strtotime($destaques[3]->publicacao))}}
+                                        </p>
+                                    </a>
+                                    <a class="tag" href="{{route('site.noticias', ['slug' => $destaques[3]->categoria->slug])}}">{{$destaques[3]->categoria->nome}}</a>
+                                    <h3><a href="{{route('site.noticia', ['categoria' => $destaques[3]->categoria->slug, 'noticia' => $destaque->slug])}}" class="blogItem">{{$destaques[3]->titulo}}</a></h3>
+                                    <p class="texto">
+                                        <a href="{{route('site.noticia', ['categoria' => $destaques[3]->categoria->slug, 'noticia' => $destaque->slug])}}">
+                                            {{$destaques[3]->resumo}}
+                                        </a>
+                                    </p>
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <div class="sliderBtn">
@@ -248,16 +254,10 @@
                     height="647">
                 <div class="cidades">
                     <h2 class="traco">Onde estamos</h2>
-                    <a href="/estaduais/sp">Associação Brasileira de Sommeliers - São Paulo</a>
-                    <a href="/estaduais/sc">Associação Brasileira de Sommeliers - Santa Catarina</a>
-                    <a href="/estaduais/rj">Associação Brasileira de Sommeliers - Rio de Janeiro</a>
-                    <a href="/estaduais/mg">Associação Brasileira de Sommeliers - Minas Gerias</a>
-                    <a href="/estaduais/rs">Associação Brasileira de Sommeliers - Rio Grande do Sul</a>
-                    <a href="/estaduais/pr">Associação Brasileira de Sommeliers - Paraná</a>
-                    <a href="/estaduais/pe">Associação Brasileira de Sommeliers - Pernambuco</a>
-                    <a href="/estaduais/ce">Associação Brasileira de Sommeliers - Ceará</a>
-                    <a href="/estaduais/go">Associação Brasileira de Sommeliers - Goiás</a>
-                    <a href="/estaduais/df">Associação Brasileira de Sommeliers - Distrito Federal</a>
+                    @foreach(\App\Models\Estadual::all() as $estadual)
+                        <a href="{{route('site.estadual', ['slug' => $estadual->slug])}}">Associação Brasileira de Sommeliers - São Paulo</a>
+                    @endforeach
+                    
                 </div>
             </div>
         </section>

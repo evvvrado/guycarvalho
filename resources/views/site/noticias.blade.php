@@ -4,46 +4,50 @@
         "classe" => "blog"    
     ])
     <main class="main">
-        {{--  <section id="destaquesBlog" class="slider">
-            <div class="sliderPreCorpo">
-                <div class="sliderCorpo">
-                    <div class="sliderItem">
-                        <img src="{{asset('site/img/_blogDestaque1.jpg')}}" alt="Blog destaque 1" width="389" height="532">
-                        <div>
+        @if($destaques)
+            <section id="destaquesBlog" class="slider">
+                <div class="sliderPreCorpo">
+                    <div class="sliderCorpo">
+                        @foreach($destaques as $destaque)
+                            <div class="sliderItem">
+                                <img src="{{asset($destaque->preview)}}" alt="{{$destaque->titulo}}" width="389" height="532">
+                                <div>
+                                    <div>
+                                        <h3><a href="{{route('site.noticia', ['categoria' => $destaque->categoria->slug, 'noticia' => $destaque->slug])}}">{{$destaque->titulo}}</a></h3>
+                                        <a class="blogCat" href="{{route('site.noticias', ['slug' => $destaque->categoria->slug])}}">{{$destaque->categoria->nome}}</a>
+                                        <a class="blogItem" href="{{route('site.noticia', ['categoria' => $destaque->categoria->slug, 'noticia' => $destaque->slug])}}">Saiba mais</a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                        {{-- <div class="sliderItem">
+                            <img src="{{asset('site/img/_blogDestaque2.jpg')}}" alt="Blog destaque 2" width="389" height="532">
                             <div>
-                                <h3><a href="/noticias/projeto-digital">Lançamento projeto digital Associação Brasileira de Sommeliers - Brasil</a></h3>
-                                <a class="blogCat" href="/noticias/abs-brasil">ABS Brasil</a>
-                                <a class="blogItem" href="/noticias/projeto-digital">Saiba mais</a>
+                                <div>
+                                    <h3><a href="/noticias/danio-braga">Danio Braga – Presidente ABS-Brasil</a></h3>
+                                    <a class="blogCat" href="/noticias/abs-brasil">ABS Brasil</a>
+                                    <a class="blogItem" href="/noticias/danio-braga">Saiba mais</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="sliderItem">
-                        <img src="{{asset('site/img/_blogDestaque2.jpg')}}" alt="Blog destaque 2" width="389" height="532">
-                        <div>
+                        <div class="sliderItem">
+                            <img src="{{asset('site/img/_blogDestaque3.jpg')}}" alt="Blog destaque 3" width="389" height="532">
                             <div>
-                                <h3><a href="/noticias/danio-braga">Danio Braga – Presidente ABS-Brasil</a></h3>
-                                <a class="blogCat" href="/noticias/abs-brasil">ABS Brasil</a>
-                                <a class="blogItem" href="/noticias/danio-braga">Saiba mais</a>
+                                <div>
+                                    <h3><a href="/noticias/vinagre"></a>O vinagre, tao antigo quanto o vinho</h3>
+                                    <a class="blogCat" href="/noticias/abs-estaduais">ABS Brasil</a>
+                                    <a class="blogItem" href="/noticias/vinagre">Saiba mais</a>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="sliderItem">
-                        <img src="{{asset('site/img/_blogDestaque3.jpg')}}" alt="Blog destaque 3" width="389" height="532">
-                        <div>
-                            <div>
-                                <h3><a href="/noticias/vinagre"></a>O vinagre, tao antigo quanto o vinho</h3>
-                                <a class="blogCat" href="/noticias/abs-estaduais">ABS Brasil</a>
-                                <a class="blogItem" href="/noticias/vinagre">Saiba mais</a>
-                            </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
-            </div>
-            <div class="sliderBtn">
-                <button title="Anterior"><img width="32" height="32" src="/img/ico_setaEsq.svg" alt="Seta esquerda"></button>
-                <button title="Próximo" class="proximo"><img width="32" height="32" src="/img/ico_setaDir.svg" alt="Seta direita"></button>
-            </div>
-        </section>  --}}
+                <div class="sliderBtn">
+                    <button title="Anterior"><img width="32" height="32" src="/img/ico_setaEsq.svg" alt="Seta esquerda"></button>
+                    <button title="Próximo" class="proximo"><img width="32" height="32" src="/img/ico_setaDir.svg" alt="Seta direita"></button>
+                </div>
+            </section> 
+        @endif
         <section id="categoriasBlog">
             <h2>Categorias</h2>
             <nav>

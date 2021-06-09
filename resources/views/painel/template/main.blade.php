@@ -256,13 +256,13 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                             <li>
                                 <a href="{{route('painel.index')}}" class="waves-effect">
                                     <i class="bx bxs-dashboard" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Dashboard (Indisponível)</span>
+                                    <span key="t-dashboards">Dashboard (i)</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('painel.index')}}" class="waves-effect">
+                                <a href="{{route('painel.indisponivel')}}" class="waves-effect">
                                     <i class="bx bx-money" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Pagamentos (Indisponível)</span>
+                                    <span key="t-dashboards">Pagamentos (i)</span>
                                 </a>
                             </li>
                             <li>
@@ -271,7 +271,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     <span key="t-dashboards">Cursos</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.index')}}" key="t-default">Turma (Indisponível)</a></li>
+                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Turma (i)</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -280,7 +280,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     <span key="t-dashboards">Eventos</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.index')}}" key="t-default">Locais (Indisponível)</a></li>
+                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Locais (i)</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -289,13 +289,13 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     <span key="t-dashboards">Cadastros</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.index')}}" key="t-default">Alunos (Indisponível)</a></li>
+                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Alunos (i)</a></li>
                                 </ul>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.index')}}" key="t-default">Professores (Indisponível)</a></li>
+                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Professores (i)</a></li>
                                 </ul>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.index')}}" key="t-default">Diretores (Indisponível)</a></li>
+                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Diretores (i)</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -304,10 +304,10 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     <span key="t-dashboards">Relacionamento</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.index')}}" key="t-default">Pessoa Física (Indisponível)</a></li>
+                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Pessoa Física (i)</a></li>
                                 </ul>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.index')}}" key="t-default">Pessoa Jurídica (Indisponível)</a></li>
+                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Pessoa Jurídica (i)</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -317,8 +317,8 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{route('painel.mensagens')}}" key="t-default">Mensagem</a></li>
-                                    <li><a href="{{route('painel.index')}}" key="t-default">Assinante de Newsletter (Indisponível)</a></li>
-                                    <li><a href="{{route('painel.index')}}" key="t-default">E-mail Marketing (Indisponível)</a></li>
+                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Assinante de Newsletter (i)</a></li>
+                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">E-mail Marketing (i)</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -332,8 +332,8 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     <li><a href="{{route('painel.tags')}}" key="t-default">Tags</a></li>
                                     <li><a href="{{route('painel.hashtags')}}" key="t-default">Hashtags</a></li>
                                     <li><a href="{{route('painel.estaduais')}}" key="t-default">ABS Estaduais</a></li>
-                                    <li><a href="{{route('painel.index')}}" key="t-default">Slides (Indisponível)</a></li>
-                                    <li><a href="{{route('painel.index')}}" key="t-default">Destaque Suspenso (Indisponível)</a></li>
+                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Slides (i)</a></li>
+                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Destaque Suspenso (i)</a></li>
                                     <li><a href="{{route('painel.leads')}}" key="t-default">Leads</a></li>
                                 </ul>
                             </li>
@@ -344,7 +344,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{route('painel.usuarios')}}" key="t-default">Usuários</a></li>
-                                    <li><a href="{{route('painel.index')}}" key="t-default">Log de Notificação (Indisponível)</a></li>
+                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Log de Notificação (i)</a></li>
                                 </ul>
                             </li>
                             <li class="menu-title" key="t-menu">Configurações</li>
@@ -361,15 +361,15 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('painel.index')}}" class="waves-effect">
+                                <a href="{{route('painel.indisponivel')}}" class="waves-effect">
                                     <i class="bx bx-mobile" aria-hidden="true"></i>
-                                    <span key="t-dashboards">App Link (Indisponível)</span>
+                                    <span key="t-dashboards">App Link (i)</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('painel.index')}}" class="waves-effect">
+                                <a href="{{route('painel.indisponivel')}}" class="waves-effect">
                                     <i class="bx bx-image" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Imagens (Indisponível)</span>
+                                    <span key="t-dashboards">Imagens (i)</span>
                                 </a>
                             </li>
                         </ul>
@@ -418,7 +418,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                             </div>  --}}
                             <div class="col-sm-6">
                                 <div class="text-sm-end d-none d-sm-block">
-                                    Design & Develop by 7 Seven Trends
+                                    Desenvolvido por 7 Seven Trends 
                                 </div>
                             </div>
                         </div>
