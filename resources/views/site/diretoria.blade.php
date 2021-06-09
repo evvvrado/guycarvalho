@@ -1,6 +1,12 @@
 @include('site.includes.head')
 <body class="brasil" style="overflow:hidden;">
-    @include('site.includes.bodyHeader', ["classe" => "brasil"])
+    @include('site.includes.bodyHeader', [
+        "classe" => "brasil info-header",
+        "adicional" => '<div class="direita" style="bottom: 0!important">
+            <h1>Diretoria</h1>
+            <a href="' . route('site.quem_somos') . '">Quem somos</a>
+        </div>'    
+    ])
     <main class="main">
         @include('site.includes.menuBrasil')
         <section id="diretoria">
@@ -86,7 +92,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="{{asset('site/img/_diretor.jpg')}}" alt="Nome do diretor 2" width="470" height="342">
+                    <img src="{{asset('site/img/foto-andersen.jpg')}}" alt="Nome do diretor 2" width="470" height="342">
                     <div>
                         <h3>Andersen Jorge Silva Prado</h3>
                         <h4>Diretor Executivo</h4>

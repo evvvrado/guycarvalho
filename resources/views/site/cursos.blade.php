@@ -1,8 +1,9 @@
 @include('site.includes.head')
 <body class="cursos" style="overflow:hidden;">
     @include('site.includes.bodyHeader', [
-        "classe" => "brasil",
-        "adicional" => '<div class="direita">
+        "classe" => "brasil cursos",
+        "adicional" => '<div class="direita" style="padding-right: 150px;padding-bottom: 50px;">
+            <h1>Cursos</h1>
             <a href="' . route('site.quem_somos') . '">Quem somos</a>
         </div>'    
     ])
@@ -16,7 +17,7 @@
                 <div>
                     <img src="{{asset('site/img/_cursoItem1.jpg')}}" alt="Ilustração curso 1" width="328" height="183">
 <!-- 						<h4><span>Em breve</span><span>Em breve</span><span>35 Turmas</span></h4> -->
-                    <h4><span>Em breve</span><span>Em breve</span><span>Em breve</span></h4>
+                    <h4 class="mt-3"><span>Em breve</span><span>Em breve</span><span>Em breve</span></h4>
                     <h2>Aguardem - Vem novidades! </h2>
                     <h3>On-line</h3>
 <!-- 						<p>O curso Aguardem - Vem novidades!  é a porta de entrada nesse fascinante mundo, o mais abrangente e completo curso de Aguardem - Vem novidades! . Objetivo, levar informações e curiosidades gerais sobre este universo tão vasto, porém de forma muito leve e descontraída.</p> -->

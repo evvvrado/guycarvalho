@@ -1,8 +1,16 @@
 @include('site.includes.head')
 <body class="brasil" style="overflow:hidden;">
-    @include('site.includes.bodyHeader', ["classe" => "brasil"])
+     @include('site.includes.bodyHeader', [
+        "classe" => "brasil info-header",
+        "adicional" => '<div class="direita">
+            <h1 style="padding-right: 150px">Quem<br> somos</h1>
+            <a href="' . route('site.sommelier') . '">Descubra mais</a>
+        </div>'    
+    ])
     <main class="main">
         @include('site.includes.menuBrasil')
+        
+
         <section id="quemSomos">
             <h1>ABS Brasil, <span>uma entidade a serviço do vinho.</span></h1>
             <div class="colunas">

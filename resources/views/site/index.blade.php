@@ -19,13 +19,13 @@
             </a>
         </div>-->
         <div class="curso">
-            <img src="' . asset('site/img/curso1.jpg') . '" width="328" height="183" alt="Imagem curso Header">
-            <div>
+            <img src="' . asset('site/img/curso1.jpg') . '" width="328" height="192px" alt="Imagem curso Header">
+            <div style="display: flex; flex-direction: column;">
                 <p>Aguardem - Vem novidades!  -</p>
                 <h3>On-line</h3>
                 <h4><!--10x <span>R$</span>550<span>,00</span>--> <span>R$ Aguardem!</span> </h4>
                 <a href="' . route('site.cadastro') . '">EM BREVE TURMAS</a>
-                <div>
+                <div class="mt-3 d-flex align-items-center align-content-center justify-content-between">
                     <p><img src="' . asset('site/img/ico_alarme.svg') . '" width="20" height="20" alt="Ícone despertador">Em breve</p>
                     <p><img src="' . asset('site/img/ico_calendario.svg') . '" width="18" height="20" alt="Ícone calendário">Em breve</p>
                 </div>
@@ -45,21 +45,21 @@
                 <div class="cursos">
                     <div class="linha"></div>
                     <div class="meses">
-                        <button class="mes">Maio</button>
+                        <button class="mes">Junho</button>
                         <!--							<button class="mes">Março</button>
                         <button class="mes">Abril</button>-->
                     </div>
                     <div class="curso branco">
-                        <img src="{{ asset('site/img/curso1.jpg') }}" width="328" height="183"
+                        <img src="{{ asset('site/img/curso1.jpg') }}" width="328" height="192"
                             alt="Imagem curso Header">
-                        <div>
+                        <div style="display: flex; flex-direction: column;">
                             <p>Aguardem - Vem novidades!</p>
                             <h3>On-line</h3>
                             <h4>
                                 <!--10x <span>R$</span>550<span>,00</span>--> <span>R$ Aguardem!</span>
                             </h4>
                             <a href="/cadastro">EM BREVE TURMAS</a>
-                            <div>
+                            <div style=" class="d-flex align-items-center align-content-center justify-content-between"">
                                 <p><img src="{{asset('site/img/ico_calendario.svg')}}" width="18" height="20" alt="Ícone calendário">Em
                                     breve</p>
                                 <p><img src="{{asset('site/img/ico_alarme.svg')}}" width="20" height="20" alt="Ícone despertador">Em
@@ -68,16 +68,16 @@
                         </div>
                     </div>
                     <div class="curso">
-                        <img src="{{ asset('site/img/curso1.jpg') }}" width="328" height="183"
+                        <img src="{{ asset('site/img/curso1.jpg') }}" width="328" height="192"
                             alt="Imagem curso Header">
-                        <div>
+                        <div style="display: flex; flex-direction: column;">
                             <p>Aguardem - Vem novidades!</p>
                             <h3>On-line</h3>
                             <h4>
                                 <!--10x <span>R$</span>550<span>,00</span>--> <span>R$ Aguardem!</span>
                             </h4>
                             <a href="/cadastro">EM BREVE TURMAS</a>
-                            <div>
+                            <div class="mt-3 d-flex align-items-center align-content-center justify-content-between">
                                 <p><img src="{{ asset('site/img/ico_calendario.svg') }}" width="18" height="20"
                                         alt="Ícone calendário">Em breve</p>
                                 <p><img src="{{ asset('site/img/ico_alarme.svg') }}" width="20" height="20"
@@ -195,7 +195,7 @@
                 <div>
         </section>
         <section id="numeros">
-            <img class="banner" src="{{ asset('site/img/banner_numeros.jpg') }}" alt="Queijos e vinho" width="405"
+            <img class="banner" src="{{ asset('site/img/banner_numeros.jpg') }}" alt="Queijos e vinho"
                 height="467">
             <div class="intro">
                 <h2 class="traco">A ABS</h2>
@@ -248,7 +248,6 @@
                     height="647">
                 <div class="cidades">
                     <h2 class="traco">Onde estamos</h2>
-                    <h4>Cidades</h4>
                     <a href="/estaduais/sp">Associação Brasileira de Sommeliers - São Paulo</a>
                     <a href="/estaduais/sc">Associação Brasileira de Sommeliers - Santa Catarina</a>
                     <a href="/estaduais/rj">Associação Brasileira de Sommeliers - Rio de Janeiro</a>
@@ -265,14 +264,7 @@
         <hr>
         <section id="apoio">
             <nav>
-                <a target="_blank" rel="noopener" title="Navegar para apoio 1" href="#"><img
-                        src="{{ asset('site/img/apoio4.jpg') }}" width="117" height="117" alt="Logomarca Apoio 4"></a>
-                <a target="_blank" rel="noopener" title="Navegar para apoio 2" href="#"><img
-                        src="{{ asset('site/img/apoio2.jpg') }}" width="117" height="117" alt="Logomarca Apoio 2"></a>
-                <a target="_blank" rel="noopener" title="Navegar para apoio 3" href="#"><img
-                        src="{{ asset('site/img/apoio3.jpg') }}" width="117" height="117" alt="Logomarca Apoio 3"></a>
-                <a target="_blank" rel="noopener" title="Navegar para apoio 4" href="#"><img
-                        src="{{ asset('site/img/apoio4.jpg') }}" width="117" height="117" alt="Logomarca Apoio 4"></a>
+            <img style="filter: contrast(0) brightness();" src="https://homolog.abs-brasil.com/site/img/logo_7seven.svg" alt="7Seven Trends" width="200">  
             </nav>
         </section>
     </main>
