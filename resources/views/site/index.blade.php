@@ -115,7 +115,7 @@
                         <div class="gradeBlog sliderCorpo">
                             @if(isset($destaques[0]))
                                 <div class="sliderItem">
-                                    <a href="{{route('site.noticia', ['categoria' => $destaques[0]->categoria->slug, 'noticia' => $destaque->slug])}}">
+                                    <a href="{{route('site.noticia', ['categoria' => $destaques[0]->categoria->slug, 'noticia' => $destaques[0]->slug])}}">
                                         <img width="370" height="191" src="{{asset($destaques[0]->preview)}}"
                                             alt="Ilustra Blog 1">
                                         <p class="info">
@@ -134,7 +134,7 @@
                             @endif
                             @if(isset($destaques[1]))
                                 <div class="sliderItem">
-                                    <a href="{{route('site.noticia', ['categoria' => $destaques[1]->categoria->slug, 'noticia' => $destaque->slug])}}">
+                                    <a href="{{route('site.noticia', ['categoria' => $destaques[1]->categoria->slug, 'noticia' => $destaques[1]->slug])}}">
                                         <img width="370" height="191" src="{{asset($destaques[1]->preview)}}"
                                             alt="Ilustra Blog 1">
                                         <p class="info">
@@ -153,7 +153,7 @@
                             @endif
                             @if(isset($destaques[2]))
                                 <div class="sliderItem magro">
-                                    <a href="{{route('site.noticia', ['categoria' => $destaques[2]->categoria->slug, 'noticia' => $destaque->slug])}}">
+                                    <a href="{{route('site.noticia', ['categoria' => $destaques[2]->categoria->slug, 'noticia' => $destaques[2]->slug])}}">
                                         <img width="370" height="191" src="{{asset($destaques[2]->preview)}}"
                                             alt="Ilustra Blog 1">
                                         <p class="info">
@@ -172,7 +172,7 @@
                             @endif
                             @if(isset($destaques[3]))
                                 <div class="sliderItem magro">
-                                    <a href="{{route('site.noticia', ['categoria' => $destaques[3]->categoria->slug, 'noticia' => $destaque->slug])}}">
+                                    <a href="{{route('site.noticia', ['categoria' => $destaques[3]->categoria->slug, 'noticia' => $destaques[3]->slug])}}">
                                         <img width="370" height="191" src="{{asset($destaques[3]->preview)}}"
                                             alt="Ilustra Blog 1">
                                         <p class="info">

@@ -72,7 +72,7 @@
                             </p>
                             <div style="width: 100%;">
                                 <a href="{{route('site.noticia', ['categoria' => $noticia->categoria->slug, 'noticia' => $noticia->slug])}}" class="seta"><img src="{{asset('site/img/ico_setaAmarela.svg')}}" alt="seta" width="15" height="8"></a>
-                                <p>{{date("d/m/Y", strtotime($noticia->created_at))}}</p>
+                                <p>{{date("d/m/Y", strtotime($noticia->publicacao))}}</p>
                                 <p></p>
                             </div>
                         </div>
