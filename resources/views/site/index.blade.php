@@ -124,9 +124,9 @@
                                         </p>
                                     </a>
                                     <a class="tag" href="{{route('site.noticias', ['slug' => $destaques[0]->categoria->slug])}}">{{$destaques[0]->categoria->nome}}</a>
-                                    <h3><a href="{{route('site.noticia', ['categoria' => $destaques[0]->categoria->slug, 'noticia' => $destaque->slug])}}" class="blogItem">{{$destaques[0]->titulo}}</a></h3>
+                                    <h3><a href="{{route('site.noticia', ['categoria' => $destaques[0]->categoria->slug, 'noticia' => $destaques[0]->slug])}}" class="blogItem">{{$destaques[0]->titulo}}</a></h3>
                                     <p class="texto">
-                                        <a href="{{route('site.noticia', ['categoria' => $destaques[0]->categoria->slug, 'noticia' => $destaque->slug])}}">
+                                        <a href="{{route('site.noticia', ['categoria' => $destaques[0]->categoria->slug, 'noticia' => $destaques[0]->slug])}}">
                                             {{$destaques[0]->resumo}}
                                         </a>
                                     </p>
@@ -143,9 +143,9 @@
                                         </p>
                                     </a>
                                     <a class="tag" href="{{route('site.noticias', ['slug' => $destaques[1]->categoria->slug])}}">{{$destaques[1]->categoria->nome}}</a>
-                                    <h3><a href="{{route('site.noticia', ['categoria' => $destaques[1]->categoria->slug, 'noticia' => $destaque->slug])}}" class="blogItem">{{$destaques[1]->titulo}}</a></h3>
+                                    <h3><a href="{{route('site.noticia', ['categoria' => $destaques[1]->categoria->slug, 'noticia' => $destaques[1]->slug])}}" class="blogItem">{{$destaques[1]->titulo}}</a></h3>
                                     <p class="texto">
-                                        <a href="{{route('site.noticia', ['categoria' => $destaques[1]->categoria->slug, 'noticia' => $destaque->slug])}}">
+                                        <a href="{{route('site.noticia', ['categoria' => $destaques[1]->categoria->slug, 'noticia' => $destaques[1]->slug])}}">
                                             {{$destaques[1]->resumo}}
                                         </a>
                                     </p>
@@ -162,9 +162,9 @@
                                         </p>
                                     </a>
                                     <a class="tag" href="{{route('site.noticias', ['slug' => $destaques[2]->categoria->slug])}}">{{$destaques[2]->categoria->nome}}</a>
-                                    <h3><a href="{{route('site.noticia', ['categoria' => $destaques[2]->categoria->slug, 'noticia' => $destaque->slug])}}" class="blogItem">{{$destaques[2]->titulo}}</a></h3>
+                                    <h3><a href="{{route('site.noticia', ['categoria' => $destaques[2]->categoria->slug, 'noticia' => $destaques[2]->slug])}}" class="blogItem">{{$destaques[2]->titulo}}</a></h3>
                                     <p class="texto">
-                                        <a href="{{route('site.noticia', ['categoria' => $destaques[2]->categoria->slug, 'noticia' => $destaque->slug])}}">
+                                        <a href="{{route('site.noticia', ['categoria' => $destaques[2]->categoria->slug, 'noticia' => $destaques[2]->slug])}}">
                                             {{$destaques[2]->resumo}}
                                         </a>
                                     </p>
@@ -181,9 +181,9 @@
                                         </p>
                                     </a>
                                     <a class="tag" href="{{route('site.noticias', ['slug' => $destaques[3]->categoria->slug])}}">{{$destaques[3]->categoria->nome}}</a>
-                                    <h3><a href="{{route('site.noticia', ['categoria' => $destaques[3]->categoria->slug, 'noticia' => $destaque->slug])}}" class="blogItem">{{$destaques[3]->titulo}}</a></h3>
+                                    <h3><a href="{{route('site.noticia', ['categoria' => $destaques[3]->categoria->slug, 'noticia' => $destaques[3]->slug])}}" class="blogItem">{{$destaques[3]->titulo}}</a></h3>
                                     <p class="texto">
-                                        <a href="{{route('site.noticia', ['categoria' => $destaques[3]->categoria->slug, 'noticia' => $destaque->slug])}}">
+                                        <a href="{{route('site.noticia', ['categoria' => $destaques[3]->categoria->slug, 'noticia' => $destaques[3]->slug])}}">
                                             {{$destaques[3]->resumo}}
                                         </a>
                                     </p>
