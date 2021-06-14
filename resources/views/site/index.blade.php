@@ -255,7 +255,7 @@
                 <div class="cidades">
                     <h2 class="traco">Onde estamos</h2>
                     @foreach(\App\Models\Estadual::all() as $estadual)
-                        <a href="{{route('site.estadual', ['slug' => $estadual->slug])}}">Associação Brasileira de Sommeliers - São Paulo</a>
+                        <a href="{{route('site.estadual', ['slug' => $estadual->slug])}}">{{$estadual->nome}}</a>
                     @endforeach
                     
                 </div>

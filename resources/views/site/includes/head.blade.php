@@ -26,7 +26,9 @@
     <link rel='canonical' href='https://homolog.abs-brasil.com'>
     
     <meta property='og:url' content='https://homolog.abs-brasil.com'>
-    
+    <meta http-equiv=Pragma content=no-cache>
+    <meta http-equiv=Expires content=-1>
+    <meta http-equiv=CACHE-CONTROL content=NO-CACHE>    
     <meta name='theme-color' content='#8A143A'>
     <meta name='msapplication-navbutton-color' content='#8A143A'>
     <meta name='apple-mobile-web-app-status-bar-style' content='#8A143A'>

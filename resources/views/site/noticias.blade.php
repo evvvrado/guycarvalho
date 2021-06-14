@@ -43,8 +43,10 @@
                     </div>
                 </div>
                 <div class="sliderBtn">
-                    <button title="Anterior"><img width="32" height="32" src="/img/ico_setaEsq.svg" alt="Seta esquerda"></button>
-                    <button title="Próximo" class="proximo"><img width="32" height="32" src="/img/ico_setaDir.svg" alt="Seta direita"></button>
+                        <button title="Anterior"><img width="32" height="32"
+                                src="{{ asset('site/img/ico_setaEsq.svg') }}" alt="Seta esquerda"></button>
+                        <button title="Próximo" class="proximo"><img width="32" height="32"
+                                src="{{ asset('site/img/ico_setaDir.svg') }}" alt="Seta direita"></button>
                 </div>
             </section> 
         @endif

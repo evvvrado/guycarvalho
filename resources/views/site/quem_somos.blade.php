@@ -3,7 +3,7 @@
      @include('site.includes.bodyHeader', [
         "classe" => "brasil info-header",
         "adicional" => '<div class="direita">
-            <h1 style="padding-right: 150px">Quem<br> somos</h1>
+            <h1 style="padding-right: 175px">Quem<br> somos</h1>
             <a href="' . route('site.sommelier') . '">Descubra mais</a>
         </div>'    
     ])

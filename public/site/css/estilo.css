@@ -1036,7 +1036,7 @@ body>main.main>section .gradeBlog>.sliderItem .info {
     background: white;
     flex-direction: column;
     font-family: Spartan;
-    font-size: 14px;
+    font-size: 13px!important;
     line-height: 16px;
     text-align: center;
     color: #e81f60;
@@ -1206,8 +1206,9 @@ body>main.main>section .cursosNA:not(.sliderCorpo) {
     margin-bottom: 100px;
 }
 
-body>main.main>section .cursosNA>div {
-    max-width: 400px;
+body>main.main>section .cursosNA>div {    
+    width: 400px;
+    max-width: 90vw;
     position: relative;
     padding: 20px;
     background: #fff;
@@ -1415,6 +1416,7 @@ body>main.main>section#agenda .cursos .curso {
 
 body>main.main>section#agenda .cursos .curso.branco {
     opacity: 0;
+    margin-left: -8px;
 }
 
 body>main.main>section#agenda .taca {
@@ -1515,7 +1517,7 @@ body>main.main>section#blogHome div.base {
 }
 
 body>main.main>section#blogHome div.base>div {
-    width: calc(100% - var(--margem) * 2);
+    /* width: calc(100% - var(--margem) * 2); */
 }
 
 body>main.main>section#blogHome div.base:before {
@@ -2204,6 +2206,9 @@ body>main.main>section#blog .zigzag .blogItem {
     display: contents;
 }
 
+body>main.main>section#blog .zigzag .blogItem img {
+    max-width: 100%;
+}
 body>main.main>section#blog .zigzag>div>div>div {
     display: flex;
     align-items: center;
@@ -2971,6 +2976,98 @@ body>footer>section>.maxSec {
     margin-right: auto;
 }
 
+#_mobiletext{
+    display: none;
+}
+
+
+
+    
+#categoriasEstaduais #nav{
+    display: flex;
+    margin-top: 52px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(183,177,177,0.5);
+}
+
+#categoriasEstaduais #nav a{
+    width: 100%;
+    display: inline-block;
+    font-family: Spartan;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    color: #686868;
+    padding: 0 1vw;
+    line-height: 200%;
+    margin-bottom: -1px;
+    border-bottom: 2px solid transparent;
+}
+
+.contato {
+    display: flow-root;
+    margin-bottom: 100px;
+}
+
+.zigzag h3{
+    color: var(--corAmarelo);
+}
+
+.zigzag .estadoimg{
+    height: 100% ;
+}
+
+.zigzog{
+    width: 100% ;
+    height: 100% ;
+    box-sizing: border-box ;
+    padding: 50px ;
+    display: flex ;
+    flex-direction: column ;
+    align-items: baseline ;
+    justify-content: center ;
+} 
+
+.zogzig{
+    width: 100% ;
+    height: 100% ;
+    box-sizing: border-box  ;
+    padding: 25px  ;
+    display: flex  ;
+    flex-direction: column  ;
+    align-items: baseline  ;
+    justify-content: center  ;
+}
+
+a.ativo{
+    border-bottom: 2px solid var(--corVinho1)!important;
+}
+
+#saibamais{
+    background-color: black;
+    float: right;
+    height: 40px;
+    width: fit-content;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    background-color: var(--corAmarelo);
+    color: #674c00;
+}
+
+#saibamais p::before{
+    display: none ;
+}
+
+.estaduaiscase{
+    height: 340px;
+    display: flex;
+    padding:0;
+    align-items: center;
+}
+
+
 @media (min-width: 1441px) {
     body>header>section {
         padding-right: calc(var(--margem) * 2);
@@ -3280,6 +3377,85 @@ body>footer>section>.maxSec {
 }
 
 @media (max-width: 768px) {
+    .estaduaiscase{
+        height: auto;
+
+    }
+    #saibamais{
+        align-items: center;
+        margin: 0 auto;
+        margin-top: 3rem!important;
+        position: unset!important;
+    }
+    .zigzog{
+        width: auto ;
+        padding: 0;
+        height: auto !important;
+    }
+
+    section#agenda{
+        display: flex;
+    }
+    section#agenda .traco{
+        display: none;
+    }
+    #categoriasEstaduais #nav{
+        flex-direction: column;
+    }
+    #blogItem .sobe{
+        display: flex;
+        align-content: center;
+        flex-direction: column;
+    }
+    #blogItem .sobe .direita{
+        margin: 0 auto;
+    }
+    #blogItem .author{
+        margin: 0 auto;
+    }
+    #quemSomos .colunas p{
+        margin-top: 15px;
+    }
+    .zigzag.diretoria{
+        max-width: 100%;
+    }
+    body>main.main>section#menuBrasil nav,
+    body>main.main>section#menuCurso nav,
+    body>main.main>section#categoriasBlog nav {
+        display: flex;
+        flex-direction: column;
+    }
+    body>main.main>section#menuBrasil nav a,
+    body>main.main>section#menuCurso nav a,
+    body>main.main>section#categoriasBlog nav a {
+        width: 100%;
+    }
+    #onde .base {
+        display:flex;
+        flex-direction: column;
+    }
+
+    #onde .base .cidades {
+        /* display:flex;
+        flex-direction: column; */
+        align-self: center;
+    }
+    
+    body>footer.footer>section#copy>div:last-child p:first-child {
+        text-align: left;
+    }
+    
+    #_mobiletext{
+        display: flex;
+    }
+    #_desktoptext{
+        display: none;
+    }
+
+    #quem-somos img{
+        margin-top: 0!important;
+    }
+
     body>header.header .direita {
         position: unset;
     }
@@ -3314,7 +3490,7 @@ body>footer>section>.maxSec {
 
     body>main.main>section#numeros .intro {
         padding-right: 0;
-        margin: 0 auto;
+        /* margin: 0 auto; */
         display: block;
     }
 

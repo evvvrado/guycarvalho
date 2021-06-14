@@ -1,92 +1,4 @@
 @include('site.includes.head')
-<style>
-
-
-    
-    #categoriasEstaduais #nav{
-        display: flex;
-        margin-top: 52px;
-        margin-bottom: 30px;
-        border-bottom: 1px solid rgba(183,177,177,0.5);
-    }
-
-    #categoriasEstaduais #nav a{
-        width: 100%;
-        display: inline-block;
-        font-family: Spartan;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 18px;
-        text-align: center;
-        color: #686868;
-        padding: 0 1vw;
-        line-height: 200%;
-        margin-bottom: -1px;
-        border-bottom: 2px solid transparent;
-    }
-
-    .contato {
-        display: flow-root;
-        margin-bottom: 100px;
-    }
-
-    .zigzag h3{
-        color: var(--corAmarelo)!important;
-    }
-
-    .zigzag .estadoimg{
-        height: 100% !important;
-    }
-
-    .zigzog{
-        width: 100% !important;
-        height: 100% !important;
-        box-sizing: border-box !important;
-        padding: 50px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: baseline !important;
-        justify-content: center !important;
-    } 
-
-    .zogzig{
-        width: 100% !important;
-        height: 100% !important;
-        box-sizing: border-box  !important;
-        padding: 25px  !important;
-        display: flex  !important;
-        flex-direction: column  !important;
-        align-items: baseline  !important;
-        justify-content: center  !important;
-    }
-
-    a.ativo{
-        border-bottom: 2px solid var(--corVinho1) !important;
-    }
-
-    #saibamais{
-        background-color: black;
-        float: right;
-        height: 40px;
-        width: fit-content;
-        display: flex;
-        font-weight: bold;
-        align-items: center;
-        background-color: var(--corAmarelo);
-        color: #674c00;
-    }
-
-    #saibamais p::before{
-        display: none !important;
-    }
-
-    .estaduaiscase{
-        height: 340px;
-        display: flex;
-        padding:0;
-        align-items: center;
-    }
-</style>
 <body class="estaduais" style="overflow:hidden;">
     @include('site.includes.bodyHeader', [
         "classe" => "estaduais",
@@ -146,11 +58,11 @@
                             <a href="{{route('site.estadual', ['slug' => $estadual->slug])}}" class="blogItem"><h3>{{$estadual->nome}}</h3></a>
                             <a class="blogCat" href="{{route('site.estaduais.filtro', ['slug' => Illuminate\Support\Str::slug(config('globals.regioes')[$estadual->regiao])])}}">{{config("globals.regioes")[$estadual->regiao]}}</a>
                             <p style=" overflow: initial;">
-                                <span><a class="fone" href="tel:{{$estadual->telefone}}" target="_blank" rel="nofollow noopener"><b style="color: var(--corAmarelo)"><i class="fas fa-phone-alt"></i></b> {{$estadual->telefone}}</a></span>
-                                <span><a class="site pt-3" href="{{$estadual->site}}" target="_blank" rel="nofollow noopener"><b style="color: var(--corAmarelo)"><i class="far fa-window-maximize"></i></b> {{$estadual->site}}</a></span>
-                                <span><a class="email pt-3" href="mailto:{{$estadual->email}}" target="_blank" rel="nofollow noopener"><b style="color: var(--corAmarelo)"><i class="fas fa-envelope"></i></b> {{$estadual->email}}</a></span>
-                                <span><a class="face pt-3" href="{{$estadual->facebook}}" target="_blank" rel="nofollow noopener"><b style="color: var(--corAmarelo)"><i class="fab fa-facebook"></i></b> {{$estadual->facebook}}</a></span>
-                                <span><a class="insta pt-3" href="{{$estadual->instagram}}" target="_blank" rel="nofollow noopener"><b style="color: var(--corAmarelo)"><i class="fab fa-instagram"></i></b> {{$estadual->instagram}}</a></span>
+                                <span><a class="fone" href="tel:{{$estadual->telefone}}" target="_blank" rel="nofollow noopener"><b style="color: var(--corAmarelo)"><i class="fas fa-phone-alt pr-3"></i></b><span class="doque">{{$estadual->telefone}}</span> </a></span>
+                                <span><a class="site pt-3" href="{{$estadual->site}}" target="_blank" rel="nofollow noopener"><b style="color: var(--corAmarelo)"><i class="far fa-window-maximize pr-3"></i></b><span class="doque"> {{$estadual->site}}</span></a></span>
+                                <span><a class="email pt-3" href="mailto:{{$estadual->email}}" target="_blank" rel="nofollow noopener"><b style="color: var(--corAmarelo)"><i class="fas fa-envelope pr-3"></i></b><span class="doque"> {{$estadual->email}}</span></a></span>
+                                <span><a class="face pt-3" href="{{$estadual->facebook}}" target="_blank" rel="nofollow noopener"><b style="color: var(--corAmarelo)"><i class="fab fa-facebook pr-3"></i></b><span class="doque"> {{$estadual->facebook}}</span></a></span>
+                                <span><a class="insta pt-3" href="{{$estadual->instagram}}" target="_blank" rel="nofollow noopener"><b style="color: var(--corAmarelo)"><i class="fab fa-instagram pr-3"></i></b><span class="doque"> {{$estadual->instagram}}</span></a></span>
                             </p>
 
                             <div style="width: 100%;">
@@ -170,5 +82,13 @@
     </main>
     @include('site.includes.footer')
 </body>
+<script>
 
+$(".doque").each((index, element)=>{
+        
+        element.innerHTML = element.innerHTML.replace('https://', '');
+
+})
+
+</script>
 </html>
