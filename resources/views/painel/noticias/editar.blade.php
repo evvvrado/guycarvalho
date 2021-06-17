@@ -119,7 +119,7 @@
                     <div class="row mt-3">
                         <div class="col-12">
                             <label for="">Resumo</label>
-                            <textarea class="form-control" name="resumo" rows="3" value="{{$noticia->resumo}}"></textarea>
+                            <textarea class="form-control" name="resumo" rows="3">{!!$noticia->resumo!!}</textarea>
                         </div>
                     </div>
                     <div class="row mt-3">

@@ -41,7 +41,8 @@
                                             <i class="fas fa-search" aria-hidden="true"></i>
                                         </a>
                                         <div class="dropdown-menu" style="margin: 0px;">
-                                            <a href="" id="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditaPagina{{$pagina->id}}" role="button">Editar</a>
+                                            <a  id="" class="dropdown-item cpointer" data-bs-toggle="modal" data-bs-target="#modalEditaPagina{{$pagina->id}}"><i class="bx bx-edit-alt pr-3"></i> Editar</a>
+                                            {{--  <a href="" id="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditaPagina{{$pagina->id}}" role="button">Editar</a>  --}}
                                         </div>
                                     </div>
                                 </td>

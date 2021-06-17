@@ -8,6 +8,8 @@ use App\Models\Noticia;
 use App\Models\Categoria;
 use App\Models\Pagina;
 use App\Models\Estadual;
+use App\Models\Visitas;
+use App\Models\DestaqueSuspenso;
 
 class SiteController extends Controller
 {
@@ -17,9 +19,16 @@ class SiteController extends Controller
     }
 
     public function index(){
+        
         $pagina = Pagina::where("nome", "Home")->first();
         $destaques = Noticia::where("publicada", true)->orderBy("publicacao", "DESC")->take(4)->get();
-        return view("site.index", ["pagina" => $pagina, "destaques" => $destaques]);
+        if(!session()->get("destaque")){
+            $destaque_suspenso = DestaqueSuspenso::where([["inicio", "<=", date("Y-m-d H:i:s")], ["fim", ">=", date("Y-m-d H:i:s")]])->orderBy("created_at")->first();
+            session()->put(["destaque" => true]);
+            return view("site.index", ["pagina" => $pagina, "destaques" => $destaques, "destaque_suspenso" => $destaque_suspenso]);
+        }else{
+            return view("site.index", ["pagina" => $pagina, "destaques" => $destaques]);
+        }
     }
 
     public function quem_somos(){
@@ -90,10 +99,43 @@ class SiteController extends Controller
 
     public function noticia($categoria, $noticia){
         $noticia = Noticia::where("slug", $noticia)->first();
+        $noticia->visualizacoes += 1;
+        $noticia->save();
+        if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+            //ip from share internet
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+            //ip pass from proxy
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }else{
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+    
+        $estado = null;
+        $cidade = null;
+        $cep = null;
+    
+        $query = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip));
+    
+        if($query && $query["status"] == "success"){
+            $estado = $query["region"];
+            $cidade = $query["city"];
+            $cep = $query["zip"];
+        }
+
+        $visita = new Visitas;
+        $visita->noticia_id = $noticia->id;
+        $visita->ip = $ip;
+        $visita->estado = $estado;
+        $visita->cidade = $cidade;
+        $visita->cep = $cep;
+
+        $visita->save();
         return view("site.noticia", ["noticia" => $noticia]);
     }
 
     public function recuperar_senha(){
         return view("site.recuperar_senha");
     }
+
 }

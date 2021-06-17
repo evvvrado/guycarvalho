@@ -269,6 +269,41 @@
         </section>
     </main>
     @include('site.includes.footer')
+    <!-- Modal -->
+    @if(isset($destaque_suspenso))
+        <div class="modal fade" id="modalDestaque" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-destaque">
+                        <h5 class="modal-title">{{$destaque_suspenso->titulo}}</h5>
+                            <button type="button" class="close close-destaque" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                    <div class="modal-body px-0 pt-0">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12 px-0">
+                                    <img src="{{asset($destaque_suspenso->imagem)}}" style="width: 100%;" alt="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 mt-3 modal-destaque-content">
+                                    {!! $destaque_suspenso->descricao !!}
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $("#modalDestaque").modal();
+            });
+        </script>
+    @endif
 </body>
 
 </html>

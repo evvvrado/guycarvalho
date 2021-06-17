@@ -27,13 +27,13 @@ class PainelController extends Controller
         $usuario = Usuario::where("usuario", $request->usuario)->first();
         if($usuario){
             if(!$usuario->ativo){
-                Log::channel('atividade')->info('LOGIN: O usuario bloqueado ' . $usuario->usuario . ' tentou logar no sistema.');
+                Log::channel('acessos')->info('LOGIN: O usuario bloqueado ' . $usuario->usuario . ' tentou logar no sistema.');
                 toastr()->error("O seu usuário está bloqueado no sistema!");
                 return redirect()->route("painel.index");
             }
             if(Hash::check($request->senha, $usuario->senha)){
                 session()->put(["usuario" => $usuario->toArray()]);
-                Log::channel('atividade')->info('LOGIN: O usuario ' . $usuario->usuario . ' logou no sistema.');
+                Log::channel('acessos')->info('LOGIN: O usuario ' . $usuario->usuario . ' logou no sistema.');
                 return redirect()->route("painel.index");
             }else{
                 toastr()->error("Informações de usuário incorretas!");
@@ -46,6 +46,7 @@ class PainelController extends Controller
     }
 
     public function sair(){
+        Log::channel('acessos')->info('LOGIN: O usuario ' . session()->get("usuario")["usuario"] . ' saiu do sistema.');
         session()->forget("usuario");
         return redirect()->route("painel.login");
     }

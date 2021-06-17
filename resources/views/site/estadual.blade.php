@@ -36,7 +36,6 @@
                                     <h3>{{$diretoria->nome}}</h3>
                                 </div>
                             @endforeach
-                            
                         </div>
                     </div>
                 </div>

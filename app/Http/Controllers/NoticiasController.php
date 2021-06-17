@@ -61,7 +61,7 @@ class NoticiasController extends Controller
             $noticia->hashtags()->attach($hashtag);
         }  
         
-        Log::channel('atividade')->info('NOVA NOTÍCIA: O usuario ' . session()->get("usuario")["usuario"] . ' cadastrou a noticia ' . $noticia->titulo . '.');
+        Log::channel('noticias')->info('<b>CADASTRANDO NOTICIA</b>: O usuario <b>' . session()->get("usuario")["usuario"] . '</b> cadastrou a noticia <b>' . $noticia->titulo . '</b>');
         toastr()->success("Notícia salva com sucesso!");
 
         return redirect()->route("painel.noticias");
@@ -76,6 +76,8 @@ class NoticiasController extends Controller
         // $request->validate([
         //     'titulo' => 'unique:noticias,titulo,'.$noticia->id,
         // ]);
+
+        $old = $noticia->getOriginal();
 
         $noticia->titulo = $request->titulo;
         $noticia->subtitulo = $request->subtitulo;
@@ -105,7 +107,7 @@ class NoticiasController extends Controller
         
         foreach($noticia->getChanges() as $campo => $valor){
             if(!in_array($campo, ["updated_at", "slug"])){
-                Log::channel('atividade')->info('EDITANDO NOTÍCIA #' . $noticia->id . ': O usuario ' . session()->get("usuario")["usuario"] . ' alterou o valor do campo ' . $campo . ' para ' . $valor);
+                Log::channel('noticias')->info('<b>EDITANDO NOTICIA #'.$noticia->id.'</b>: O usuario <b>' . session()->get("usuario")["usuario"] . '</b> alterou o valor do campo <b>' . $campo . '</b> de <b>' . $old[$campo] . '</b> para <b>' . $valor . '</b>');
             }
         }
 

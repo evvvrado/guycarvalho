@@ -3549,3 +3549,16 @@ a.ativo{
         height: 110px;
     }
 }
+
+.modal-header-destaque{
+    background-color: var(--corVinho2);
+    color: white;
+}
+
+.modal-destaque-content{
+    font-size: 20px;
+}
+
+.close-destaque{
+    color: white !important;
+}

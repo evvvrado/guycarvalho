@@ -7,69 +7,44 @@
 @endsection
 
 @section('titulo')
-    Listagem de Notícias
+    Listagem de Apps
 @endsection
 
 @section('botoes')
-    <a name="" id="" class="btn btn-success" href="{{route('painel.noticia.cadastro')}}" role="button">Nova Notícia</a>
+<a name="" id="" class="btn btn-success" href="{{route('painel.app.cadastro')}}" role="button">Novo App</a>
 @endsection
 
 @section('conteudo')
-<div class="row mt-3">
+<div class="row">
     <div class="col-12">
         <div class="card">
-            <div class="card-body" style="overflow-x: scroll; min-height: 80vh;">
-                <table id="datatable" class="table table-bordered dt-responsive text-center nowrap w-100">
+            <div class="card-body" style="overflow-x: scroll;">
+                <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                     <thead>
                         <tr>
+                            <th>Nome</th>
+                            <th>Slug</th>
+                            <th>Whatsapp</th>
                             <th></th>
-                            <th>Título</th>
-                            <th>Categoria</th>
-                            <th>Autor</th>
-                            <th>Publicada</th>
-                            <th>Data</th>
                         </tr>
                     </thead>
 
 
                     <tbody>
-
-                        @foreach($noticias as $noticia)
+                        @foreach($apps as $app)
                             <tr>
+                                <td>{{$app->nome}}</td>
+                                <td>{{$app->slug}}</td>
+                                <td>{{$app->whatsapp}}</td>
                                 <td>
-                                    <div class="dropdown mt-4 mt-sm-0">
-                                        <a href="#" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fas fa-search" aria-hidden="true"></i>
-                                        </a>
-                                        <div class="dropdown-menu" style="margin: 0px;">
-                                            <a target="_blank" href="{{route('painel.noticia.preview', ['noticia' => $noticia])}}" id="" class="dropdown-item" role="button"><i class="bx bx-card pr-3"></i> Preview</a>
-                                            <a href="{{route('painel.noticia.editar', ['noticia' => $noticia])}}" id="" class="dropdown-item" role="button"><i class="bx bx-edit-alt pr-3"></i> Editar</a>
-                                            <a href="{{route('painel.noticia.deletar', ['noticia' => $noticia])}}" id="" class="dropdown-item" role="button"><i class="fas fa-trash-alt pr-3"></i> Excluir</a>
-                                            @if($noticia->publicada)
-                                                <a href="{{route('painel.noticia.publicar', ['noticia' => $noticia])}}" id="" class="dropdown-item" role="button"><i class="bx bx-hide pr-3"></i> Esconder</a>
-                                            @else
-                                                <a href="{{route('painel.noticia.publicar', ['noticia' => $noticia])}}" id="" class="dropdown-item" role="button"><i class="bx bx-show-alt pr-3"></i> Publicar</a>
-                                            @endif
-                                            <a href="{{route('painel.noticia.visitas', ['noticia' => $noticia])}}" id="" class="dropdown-item" role="button"><i class="fas fa-user-friends pr-3"></i> Visitas</a>
-                                        </div>
-                                    </div>
+                                    <a name="" id="" class="btn btn-warning" href="{{route('painel.app.editar', ['app' => $app])}}" role="button">Editar</a>
+                                    <a class="btn btn-primary mx-1" href="{{route('painel.app.relatorio', ['app' => $app])}}">Relatório</a>
                                 </td>
-                                <td>{{$noticia->titulo}}</td>
-                                <td>{{$noticia->categoria->nome}}</td>
-                                <td>{{$noticia->autor}}</td>
-                                <td class="text-center">
-                                    @if(!$noticia->publicada)
-                                        <i class="fas fa-times" style="color: red;"></i>
-                                    @else
-                                        <i class="fas fa-check" style="color: green;"></i>
-                                    @endif
-                                </td>
-                                <td>{{date("d/m/Y", strtotime($noticia->publicacao))}}</td>
-
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+
             </div>
         </div>
     </div> <!-- end col -->

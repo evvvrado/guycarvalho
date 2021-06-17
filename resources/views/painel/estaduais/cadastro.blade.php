@@ -72,7 +72,7 @@
                         <div class="form-group col-12 col-lg-2 mt-3">
                             <label for="slug">Slug</label>
                             <input type="text" class="form-control" name="slug"
-                                id="slug" maxlenght="10">
+                                id="slug" maxlenght="50">
                         </div>
                     </div>
                     <div class="row">
@@ -112,6 +112,14 @@
                             <label for="facebook">Link do Facebook</label>
                             <input type="text" class="form-control" name="facebook"
                                 id="facebook" maxlenght="255">
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="form-group col-12">
+                            <label for="titulo">Título</label>
+                            <input type="text" class="form-control" name="titulo"
+                                id="titulo" maxlenght="255">
                         </div>
                     </div>
 

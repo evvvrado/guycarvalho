@@ -47,6 +47,60 @@ return [
             'level' => env('LOG_LEVEL', 'debug'),
         ],
 
+        'acessos' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/acessos.log'),
+            'level' => env('LOG_LEVEL', 'info'),
+        ],
+
+        'noticias' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/noticias.log'),
+            'level' => env('LOG_LEVEL', 'info'),
+        ],
+
+        'categorias' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/categorias.log'),
+            'level' => env('LOG_LEVEL', 'info'),
+        ],
+
+        'tags' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/tags.log'),
+            'level' => env('LOG_LEVEL', 'info'),
+        ],
+
+        'hashtags' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/hashtags.log'),
+            'level' => env('LOG_LEVEL', 'info'),
+        ],
+
+        'estaduais' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/estaduais.log'),
+            'level' => env('LOG_LEVEL', 'info'),
+        ],
+
+        'usuarios' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/usuarios.log'),
+            'level' => env('LOG_LEVEL', 'info'),
+        ],
+
+        'configuracoes' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/configuracoes.log'),
+            'level' => env('LOG_LEVEL', 'info'),
+        ],
+
+        'app' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/app.log'),
+            'level' => env('LOG_LEVEL', 'info'),
+        ],
+
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),

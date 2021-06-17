@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHashtagsTable extends Migration
+class AlterTableEstaduals extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateHashtagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('hashtags', function (Blueprint $table) {
-            $table->id();
-            $table->string("nome", 255)->nullable();
-            $table->timestamps();
+        //
+        Schema::table('estaduals', function (Blueprint $table) {
+            $table->string("titulo")->nullable();
         });
     }
 
@@ -27,6 +26,6 @@ class CreateHashtagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hashtags');
+        //
     }
 }

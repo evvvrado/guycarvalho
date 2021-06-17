@@ -36,12 +36,6 @@ class CreateConfiguracaosTable extends Migration
             $table->string("linkedin")->nullable();
             $table->string("pinterest")->nullable();
             $table->string("google_negocio")->nullable();
-            $table->boolean("destaque_suspenso")->default(false);
-            $table->string("destaque_suspenso_imagem")->nullable();
-            $table->string("destaque_suspenso_titulo")->nullable();
-            $table->text("destaque_suspenso_descricao")->nullable();
-            $table->date("destaque_suspenso_inicio")->nullable();
-            $table->date("destaque_suspenso_fim")->nullable();
             $table->timestamps();
         });
 

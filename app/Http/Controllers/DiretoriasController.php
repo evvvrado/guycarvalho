@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\EstadualDiretoria;
 use App\Models\Estadual;
+use Illuminate\Support\Facades\Log;
 
 class DiretoriasController extends Controller
 {

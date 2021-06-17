@@ -30,6 +30,9 @@ Route::get('/noticias/{slug?}', [\App\Http\Controllers\SiteController::class, 'n
 Route::get('/noticia/{categoria}/{noticia}', [\App\Http\Controllers\SiteController::class, 'noticia'])->name("site.noticia");
 Route::get('/recuperar-senha', [\App\Http\Controllers\SiteController::class, 'recuperar_senha'])->name("site.recuperar-senha");
 
+Route::get('/links/{slug}', [\App\Http\Controllers\AppController::class, 'index'])->name("site.app");
+Route::post('/api/click', [\App\Http\Controllers\AppController::class, 'click'])->name("site.app.click");
+
 Route::get('/sistema/login', [\App\Http\Controllers\PainelController::class, 'login'])->name("painel.login");
 Route::post('/sistema/logar', [\App\Http\Controllers\PainelController::class, 'logar'])->name("painel.logar");
 
@@ -102,6 +105,23 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/sistema/configuracoes/contato/salvar', [\App\Http\Controllers\ConfiguracoesController::class, 'contato_salvar'])->name("painel.configuracoes.contato.salvar");
     Route::get('/sistema/configuracoes/seo', [\App\Http\Controllers\ConfiguracoesController::class, 'seo'])->name("painel.configuracoes.seo");
     Route::post('/sistema/configuracoes/seo/salvar/{pagina}', [\App\Http\Controllers\ConfiguracoesController::class, 'seo_salvar'])->name("painel.configuracoes.seo.salvar");
+    
+    Route::get('/sistema/destaques', [\App\Http\Controllers\DestaquesController::class, 'index'])->name("painel.destaques");
+    Route::post('/sistema/destaques/cadastrar', [\App\Http\Controllers\DestaquesController::class, 'cadastrar'])->name("painel.destaque.cadastrar");
+    Route::post('/sistema/destaques/salvar/{destaque}', [\App\Http\Controllers\DestaquesController::class, 'salvar'])->name("painel.destaque.salvar");
+    Route::get('/sistema/destaques/deletar/{destaque}', [\App\Http\Controllers\DestaquesController::class, 'deletar'])->name("painel.destaque.deletar");
 
-    Route::get('/sistema/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+    // ROTAS DE APPS
+    Route::get('/sistema/app', [\App\Http\Controllers\AppController::class, 'consultar'])->name("painel.app");
+    Route::get('/sistema/app/cadastro', [\App\Http\Controllers\AppController::class, 'cadastro'])->name("painel.app.cadastro");
+    Route::post('/sistema/app/cadastrar', [\App\Http\Controllers\AppController::class, 'cadastrar'])->name("painel.app.cadastrar");
+    Route::get('/sistema/app/relatorio/{app}', [\App\Http\Controllers\AppController::class, 'relatorio'])->name("painel.app.relatorio");
+    Route::get('/sistema/app/editar/{app}', [\App\Http\Controllers\AppController::class, 'editar'])->name("painel.app.editar");
+    Route::post('/sistema/app/salvar/{app}', [\App\Http\Controllers\AppController::class, 'salvar'])->name("painel.app.salvar");
+    Route::post('/sistema/app/rede/{app}', [\App\Http\Controllers\AppController::class, 'rede'])->name("painel.app.getree.rede");
+    Route::post('/sistema/app/rede/adicionar/{app}', [\App\Http\Controllers\AppController::class, 'adicionar_rede'])->name("painel.app.rede.adicionar");
+    Route::post('/sistema/app/rede/salvar/{elemento}', [\App\Http\Controllers\AppController::class, 'salvar_rede'])->name("painel.app.rede.salvar");
+    Route::get('/sistema/app/rede/remover/{elemento}', [\App\Http\Controllers\AppController::class, 'remover_rede'])->name("painel.app.rede.remover");
+
+    Route::get('/sistema/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')->name("painel.logs");
 });

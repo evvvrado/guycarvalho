@@ -50,7 +50,7 @@
             </div>
         </div> -->
 
-        <div class="zigzag"> 
+        <div class="zigzag" id="lista-estaduais"> 
                 @foreach($estaduais as $estadual)
                     <div class="estaduaiscase">
                         <a href="{{route('site.estadual', ['slug' => $estadual->slug])}}" class="blogItem"><img src="{{asset($estadual->foto)}}" alt="Ilustra blog 1" width="470" height="400" class="estadoimg"></a>
@@ -82,6 +82,19 @@
     </main>
     @include('site.includes.footer')
 </body>
+
+@if(isset($slug))
+
+<script>
+    $(document).ready(function(){
+        $([document.documentElement, document.body]).animate({
+            scrollTop: ($("#blog").offset().top - 100)
+        }, 1000);
+    });
+</script>
+
+@endif
+
 <script>
 
 $(".doque").each((index, element)=>{

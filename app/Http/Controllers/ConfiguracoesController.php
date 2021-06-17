@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Configuracao;
 use App\Models\Pagina;
+use Illuminate\Support\Facades\Log;
 
 class ConfiguracoesController extends Controller
 {
@@ -17,6 +18,8 @@ class ConfiguracoesController extends Controller
 
     public function contato_salvar(Request $request){
         $configuracoes = Configuracao::first();
+
+        $old = $configuracoes->getOriginal();
 
         $configuracoes->rua = $request->rua;
         $configuracoes->numero = $request->numero;
@@ -37,6 +40,14 @@ class ConfiguracoesController extends Controller
         $configuracoes->google_negocio = $request->google_negocio;
 
         $configuracoes->save();
+
+        foreach($configuracoes->getChanges() as $campo => $valor){
+            if(!in_array($campo, ["updated_at"])){
+                Log::channel('configuracoes')->info('<b>EDITANDO CONFIGURAÇÕES</b>: O usuario <b>' . session()->get("usuario")["usuario"] . '</b> alterou o valor do campo <b>' . $campo . '</b> de <b>' . $old[$campo] . '</b> para <b>' . $valor . '</b>');
+            }
+        }
+
+
         toastr()->success("Informações de contato salvas com sucesso!");
         return redirect()->back();
     }
@@ -47,11 +58,25 @@ class ConfiguracoesController extends Controller
     }
 
     public function seo_salvar(Request $request, Pagina $pagina){
+        $old = $pagina->getOriginal();
+
         $pagina->titulo = $request->titulo;
         $pagina->descricao = $request->descricao;
         $pagina->palavras = $request->palavras;
         $pagina->save();
+
+        foreach($pagina->getChanges() as $campo => $valor){
+            if(!in_array($campo, ["updated_at"])){
+                Log::channel('configuracoes')->info('<b>EDITANDO PAGINA "'.$pagina->nome.'"</b>: O usuario <b>' . session()->get("usuario")["usuario"] . '</b> alterou o valor do campo <b>' . $campo . '</b> de <b>' . $old[$campo] . '</b> para <b>' . $valor . '</b>');
+            }
+        }
+        
         toastr()->success("Alterações salvas com sucesso");
         return redirect()->back();
+    }
+
+    public function destaque_suspenso(){
+        $configuracoes = Configuracao::first();
+        return view("painel.configuracoes.destaque_suspenso", ["configuracoes" => $configuracoes]);
     }
 }

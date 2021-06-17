@@ -36,6 +36,7 @@ class EstaduaisController extends Controller
         $estadual->facebook = $request->facebook;
         $estadual->instagram = $request->instagram;
         $estadual->regiao = $request->regiao;
+        $estadual->titulo = $request->titulo;
         $estadual->sobre = $request->sobre;
 
         if($request->file("foto")){
@@ -49,6 +50,9 @@ class EstaduaisController extends Controller
         }
 
         $estadual->save();
+
+        Log::channel('estaduais')->info('<b>CADASTRANDO ESTADUAL</b>: O usuario <b>' . session()->get("usuario")["usuario"] . '</b> cadastrou a estadual <b>' . $estadual->nome . '</b>');
+
         toastr()->success("Estadual salva com sucesso !");
         return redirect()->route("painel.estaduais");
     }
@@ -62,7 +66,7 @@ class EstaduaisController extends Controller
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        
+        $old = $estadual->getOriginal();
 
         $estadual->nome = $request->nome;
         $estadual->email = $request->email;
@@ -73,6 +77,7 @@ class EstaduaisController extends Controller
         $estadual->facebook = $request->facebook;
         $estadual->instagram = $request->instagram;
         $estadual->regiao = $request->regiao;
+        $estadual->titulo = $request->titulo;
         $estadual->sobre = $request->sobre;
 
         if($request->file("foto")){
@@ -87,6 +92,13 @@ class EstaduaisController extends Controller
         }
 
         $estadual->save();
+
+        foreach($estadual->getChanges() as $campo => $valor){
+            if(!in_array($campo, ["updated_at", "slug"])){
+                Log::channel('estaduais')->info('<b>EDITANDO ESTADUAL #'.$estadual->id.'</b>: O usuario <b>' . session()->get("usuario")["usuario"] . '</b> alterou o valor do campo <b>' . $campo . '</b> de <b>' . $old[$campo] . '</b> para <b>' . $valor . '</b>');
+            }
+        }
+
         toastr()->success("Estadual salva com sucesso !");
         return redirect()->route("painel.estaduais");
     }

@@ -256,7 +256,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                             <li>
                                 <a href="{{route('painel.index')}}" class="waves-effect">
                                     <i class="bx bxs-dashboard" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Dashboard (i)</span>
+                                    <span key="t-dashboards">Dashboard</span>
                                 </a>
                             </li>
                             <li>
@@ -333,7 +333,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     <li><a href="{{route('painel.hashtags')}}" key="t-default">Hashtags</a></li>
                                     <li><a href="{{route('painel.estaduais')}}" key="t-default">ABS Estaduais</a></li>
                                     <li><a href="{{route('painel.indisponivel')}}" key="t-default">Slides (i)</a></li>
-                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Destaque Suspenso (i)</a></li>
+                                    <li><a href="{{route('painel.destaques')}}" key="t-default">Destaque Suspenso</a></li>
                                     <li><a href="{{route('painel.leads')}}" key="t-default">Leads</a></li>
                                 </ul>
                             </li>
@@ -344,7 +344,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{route('painel.usuarios')}}" key="t-default">Usuários</a></li>
-                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Log de Notificação (i)</a></li>
+                                    <li><a href="{{route('painel.logs')}}" target="_blank" key="t-default">Log de Notificação</a></li>
                                 </ul>
                             </li>
                             <li class="menu-title" key="t-menu">Configurações</li>
@@ -361,9 +361,9 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('painel.indisponivel')}}" class="waves-effect">
+                                <a href="{{route('painel.app')}}" class="waves-effect">
                                     <i class="bx bx-mobile" aria-hidden="true"></i>
-                                    <span key="t-dashboards">App Link (i)</span>
+                                    <span key="t-dashboards">App Link</span>
                                 </a>
                             </li>
                             <li>
@@ -445,6 +445,16 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                 <!-- Settings -->
                 <hr class="mt-0" />           
                 <div class="p-4 lista-atualizacoes">
+                    <h6 class="text-left mb-3 mt-4">16/06/2021 - V 0.7</h6>
+                    <ul class="">
+                        <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Sistema de cadastro e gerenciamento de destaque suspenso ao acessar o site.</span></li>
+                        <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de árvore de links (App link).</span></li>
+                    </ul>
+                    <h6 class="text-left mb-3 mt-4">15/06/2021 - V 0.6</h6>
+                    <ul class="">
+                        <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de logs.</span></li>
+                        <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição de implementação inicial da dashboard.</span></li>
+                    </ul>
                     <h6 class="text-left mb-3 mt-4">07/06/2021 - V 0.5</h6>
                     <ul class="">
                         <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de notícias.</span></li>
@@ -466,15 +476,13 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                 <div class="p-4 lista-atualizacoes">
                     <h6 class="text-left mb-3 mt-4">Atualizações futuras</h6>
                     <ul class="">
-                        <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de log</span></li>
-                        <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de árvore de links (App link)</span></li>
                         <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de imagens de compartilhamento (imagem que aparece quando se envia o link de uma página pelo whatsapp) e favicons.</span></li>
                         <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de imagem no destaque do site.</span></li>
                         <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de destaque suspenso ao acessar o site.</span></li>
                         <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de Newsletter</span></li>
                         <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de Email Marketing</span></li>
                         <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de relacionamentos com pessoas físicas e jurídicas</span></li>
-                        <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Dashboard - Gráficos de resultados</span></li>
+                        <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Melhoramento da dashboard</span></li>
                         <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de cursos</span></li>
                         <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de configuração de parâmetros de gateway de pagamento</span></li>
                         <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de alunos, professores e diretores.</span></li>
