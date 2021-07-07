@@ -12,10 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/testes', [\App\Http\Controllers\GerencianetController::class, 'teste']);
 
 Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name("site.index");
 Route::get('/quem-somos', [\App\Http\Controllers\SiteController::class, 'quem_somos'])->name("site.quem_somos");
 Route::get('/cursos', [\App\Http\Controllers\SiteController::class, 'cursos'])->name("site.cursos");
+Route::get('/curso', [\App\Http\Controllers\SiteController::class, 'curso'])->name("site.curso");
 Route::get('/contato', [\App\Http\Controllers\SiteController::class, 'contato'])->name("site.contato");
 Route::post('/contato/salvar', [\App\Http\Controllers\MensagemController::class, 'salvar'])->name("site.contato.salvar");
 Route::get('/cadastro', [\App\Http\Controllers\SiteController::class, 'cadastro'])->name("site.cadastro");

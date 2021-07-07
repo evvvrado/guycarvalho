@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f057297a97bb0f36006ba7a6ad941cc",
+    "content-hash": "9c3121af6d5e8e73f640362b6e57e70e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -522,6 +522,78 @@
                 "laravel"
             ],
             "time": "2021-04-26T11:24:25+00:00"
+        },
+        {
+            "name": "gerencianet/gerencianet-sdk-php",
+            "version": "4.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gerencianet/gn-api-sdk-php.git",
+                "reference": "133a8c0113e2787f85d944567ad27d95ad017062"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gerencianet/gn-api-sdk-php/zipball/133a8c0113e2787f85d944567ad27d95ad017062",
+                "reference": "133a8c0113e2787f85d944567ad27d95ad017062",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.0",
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Gerencianet": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cecília Deveza"
+                },
+                {
+                    "name": "Danniel Hugo"
+                },
+                {
+                    "name": "Francisco Thiene"
+                },
+                {
+                    "name": "Talita Campos"
+                },
+                {
+                    "name": "Thomaz Feitoza"
+                },
+                {
+                    "name": "Filipe Mata"
+                },
+                {
+                    "name": "Thiago Resende"
+                },
+                {
+                    "name": "Jéssica Gava"
+                },
+                {
+                    "name": "Guilherme Cota"
+                },
+                {
+                    "name": "Sady Coimbra"
+                },
+                {
+                    "name": "Matheus Rodrigues"
+                },
+                {
+                    "name": "João Oliveira"
+                },
+                {
+                    "name": "Paloma Brito"
+                }
+            ],
+            "description": "GN API SDK PHP",
+            "time": "2021-05-31T18:36:20+00:00"
         },
         {
             "name": "graham-campbell/result-type",

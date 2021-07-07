@@ -39,6 +39,10 @@ class SiteController extends Controller
         return view("site.cursos");
     }
 
+    public function curso(){
+        return view("site.curso");
+    }
+
     public function contato(){
         return view("site.contato");
     }

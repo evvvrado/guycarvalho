@@ -1,0 +1,307 @@
+/* RESET */
+  
+  @media (prefers-reduced-motion: no-preference) {
+    :root {
+      scroll-behavior: smooth;
+    }
+  }
+  
+  html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+  }
+  
+  html::-webkit-scrollbar {
+    display: none;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    list-style: none;
+    outline: none;
+    text-decoration: none;
+  
+    font-family: 'Spartan', sans-serif;
+    font-size: 1.6rem;
+  }
+  
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  
+  button {
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  ul,
+  ol {
+    margin: 0;
+  }
+  
+  /* GRID */
+  .container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .container-fav {
+    width: 100%;
+    max-width: calc(973px + 30px);
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  
+
+
+/* CUSTOM DEF */
+body{
+    background-color:#EEEEEE;
+}
+section.s_detail .container-fav {
+    display: flex;
+    position: relative;
+}
+section.s_detail .container-fav ._card{
+    height: 398px;
+    width: 100%;
+    max-width: 270px;
+    background-color: white;
+    box-shadow: 3.03279px 4.04372px 16.1749px -3.03279px rgba(0, 0, 0, 0.25);
+    padding-top: 13px ;
+    margin-bottom: 36px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section.s_detail .container-fav{
+    justify-content: space-between;
+}
+section.s_detail .container-fav ._imgs {
+    margin-left: 31px;
+}
+section.s_detail .container-fav ._imgs ._card{
+    top: 0;
+    height: auto;
+    width: 270px;
+    padding-bottom: 47px;
+    position: sticky;
+    margin-top: 310px;
+}
+section.s_detail .container-fav ._card ._top{
+    font-family: 'Abril Fatface';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30.4598px;
+    line-height: 33px;
+
+    color: white;
+    background-color: #4D0D1B;
+
+    width: 100%;
+    max-width: 246px;
+    padding: 7px 29px 11px 29px;
+}
+section.s_detail .container-fav ._imgs .png{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    max-width: 700px;
+    height: 800px;
+    
+    margin-left: 170px;
+    margin-top: -110px;
+
+}
+section.s_detail .container-fav ._imgs .png img{
+    height: 100%;
+}
+
+section.s_detail .container-fav ._imgs ._card ._top{
+    background: transparent;
+    color: rgba(0, 31, 27, 0.74);
+    font-size: 30.4598px;
+    text-align: center;
+    padding: 0;
+    margin-top: 15px;
+}
+section.s_detail .container-fav ._card main{
+    width: 100%;
+    max-width: 174px;
+}
+section.s_detail .container-fav ._card main .row{
+    display: flex;
+    align-items: center;
+    margin-top: 21px;
+    
+    font-weight: 500;
+    font-size: 15.7922px;
+    line-height: 18px;
+    text-transform: capitalize;
+    
+    color: rgba(0, 31, 27, 0.74);
+    
+
+}
+section.s_detail .container-fav ._card main .row .svg img{
+    margin-right: 11px;
+}
+
+section.s_detail .container-fav ._card main button{
+    background: #0D7117;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 42px;
+    width: 100%;
+    max-width: 170px;
+
+    font-family: 'Abril Fatface';
+    font-size: 22px;
+    line-height: 29px;
+
+    color: #F7F7F7;
+
+    margin-top: 35px;
+
+}
+
+
+section.s_detail .container-fav nav{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 156px;
+    margin-left: 51px;
+    height: 78px;
+}
+section.s_detail .container-fav nav:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid rgba(183, 177, 177, 0.5);
+    margin-top: 77px;
+    margin-right: -323px;
+    right: 0;
+}
+section.s_detail .container-fav nav .nav-component{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    gap: 17px;
+
+    color: #686868;
+    
+    padding-bottom: 11px;
+}
+section.s_detail .container-fav ._text{
+    width: 100%;
+    max-width: 564px;
+    margin-top: 40px;
+}
+section.s_detail .container-fav ._text h2{
+    font-family: 'Abril Fatface', sans-serif;
+    font-weight: normal;
+    font-size: 30.4598px;
+    line-height: 33px;
+
+    color: rgba(0, 31, 27, 0.74);
+
+    margin-bottom: 14px;
+}
+section.s_detail .container-fav ._text p{
+    font-family: 'Spartan';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 180%;
+    margin-bottom: 20px;
+
+    text-justify:unset;
+
+    color: #7B7B7B;
+}
+section.s_detail .container-fav ._certify{
+    margin-top: 56px;
+    max-width: 324px;
+    position: relative;
+}
+section.s_detail .container-fav ._certify:after{
+    content: '';
+    position: absolute;
+    top: -9px;
+    background:linear-gradient(269.99deg, #E81F60 7.8%, #90143C 83.67%);
+    height: 1px;
+    width: 68px;
+}
+section.s_detail .container-fav ._certify h2{
+  color: black;
+}
+section.s_detail .container-fav ._certify .logo{
+    margin-top: 16px;
+    display: flex;
+    gap: 50px;
+}
+section.s_detail .container-fav ._card.__alternative{
+    margin-top: 500px;
+}
+
+section.s_detail .container-fav ._card.__alternative ._top{
+    font-size: 25.4598px;
+    line-height: 33px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* identical to box height */
+    
+    
+    color: rgba(0, 0, 0, 0.74);
+}
+section.s_detail .container-fav ._card.__alternative ._top p{
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: capitalize;
+    text-align: left;
+    max-width: 200px;
+    margin-top: 14px;
+
+    color: #000000;
+}
+section.s_detail .container-fav ._card.__alternative main button{
+    background: #E2B63A;
+    margin-top: 0;
+}
+section.s_detail .container-fav ._card.__alternative h3{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 52px;
+    font-weight: bold;
+    text-transform: capitalize;
+
+    margin-top: 24px;
+
+    color: #E2B63A;
+
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 992px) {
+}
+
+@media only screen and (max-width: 600px) {
+}
