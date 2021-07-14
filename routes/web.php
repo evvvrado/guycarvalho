@@ -18,6 +18,9 @@ Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name("s
 Route::get('/quem-somos', [\App\Http\Controllers\SiteController::class, 'quem_somos'])->name("site.quem_somos");
 Route::get('/cursos', [\App\Http\Controllers\SiteController::class, 'cursos'])->name("site.cursos");
 Route::get('/curso', [\App\Http\Controllers\SiteController::class, 'curso'])->name("site.curso");
+Route::get('/curso/instrutores', [\App\Http\Controllers\SiteController::class, 'instrutores'])->name("site.curso-instrutores");
+Route::get('/curso/local', [\App\Http\Controllers\SiteController::class, 'local'])->name("site.curso-local");
+Route::get('/curso/programacao', [\App\Http\Controllers\SiteController::class, 'programacao'])->name("site.curso-programacao");
 Route::get('/contato', [\App\Http\Controllers\SiteController::class, 'contato'])->name("site.contato");
 Route::post('/contato/salvar', [\App\Http\Controllers\MensagemController::class, 'salvar'])->name("site.contato.salvar");
 Route::get('/cadastro', [\App\Http\Controllers\SiteController::class, 'cadastro'])->name("site.cadastro");

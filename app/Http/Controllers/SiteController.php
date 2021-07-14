@@ -42,7 +42,15 @@ class SiteController extends Controller
     public function curso(){
         return view("site.curso");
     }
-
+    public function instrutores(){
+        return view("site.curso-instrutores");
+    }
+    public function local(){
+        return view("site.curso-local");
+    }
+    public function programacao(){
+        return view("site.curso-programacao");
+    }
     public function contato(){
         return view("site.contato");
     }
