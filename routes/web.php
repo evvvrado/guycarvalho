@@ -111,6 +111,27 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/configuracoes/seo', [\App\Http\Controllers\ConfiguracoesController::class, 'seo'])->name("painel.configuracoes.seo");
     Route::post('/sistema/configuracoes/seo/salvar/{pagina}', [\App\Http\Controllers\ConfiguracoesController::class, 'seo_salvar'])->name("painel.configuracoes.seo.salvar");
     
+    // ROTAS DE CURSOS
+    Route::get('/sistema/cursos/api/getCurso/{curso}', [\App\Http\Controllers\CursosController::class, 'getCurso']);
+    Route::get('/sistema/cursos', [\App\Http\Controllers\CursosController::class, 'consultar'])->name("painel.cursos");
+    Route::get('/sistema/curso/ativo/{curso}', [\App\Http\Controllers\CursosController::class, 'ativo'])->name("painel.curso.ativo");
+    Route::post('/sistema/cursos/cadastrar', [\App\Http\Controllers\CursosController::class, 'cadastrar'])->name("painel.curso.cadastrar");
+    Route::get('/includes/curso/formulario', function(){
+        return view("painel.cursos.formulario");
+    });
+
+    // ROTAS DE TURMAS
+    Route::get('/sistema/curso/{curso}/turmas', [\App\Http\Controllers\TurmasController::class, 'consultar'])->name("painel.turmas");
+    Route::post('/sistema/turmas/cadastrar', [\App\Http\Controllers\TurmasController::class, 'cadastrar'])->name("painel.turma.cadastrar");
+    Route::get('/sistema/turmas/api/getTurma/{turma}', [\App\Http\Controllers\TurmasController::class, 'getTurma']);
+    Route::get('/sistema/turma/ativo/{turma}', [\App\Http\Controllers\TurmasController::class, 'ativo'])->name("painel.turma.ativo");
+    Route::get('/sistema/turma/inscricao/{turma}', [\App\Http\Controllers\TurmasController::class, 'inscricao'])->name("painel.turma.inscricao");
+    Route::get('/includes/turma/formulario', function(){
+        return view("painel.turmas.formulario");
+    });
+    
+    
+    // ROTAS DE DESTAQUES
     Route::get('/sistema/destaques', [\App\Http\Controllers\DestaquesController::class, 'index'])->name("painel.destaques");
     Route::post('/sistema/destaques/cadastrar', [\App\Http\Controllers\DestaquesController::class, 'cadastrar'])->name("painel.destaque.cadastrar");
     Route::post('/sistema/destaques/salvar/{destaque}', [\App\Http\Controllers\DestaquesController::class, 'salvar'])->name("painel.destaque.salvar");
@@ -127,6 +148,13 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/sistema/app/rede/adicionar/{app}', [\App\Http\Controllers\AppController::class, 'adicionar_rede'])->name("painel.app.rede.adicionar");
     Route::post('/sistema/app/rede/salvar/{elemento}', [\App\Http\Controllers\AppController::class, 'salvar_rede'])->name("painel.app.rede.salvar");
     Route::get('/sistema/app/rede/remover/{elemento}', [\App\Http\Controllers\AppController::class, 'remover_rede'])->name("painel.app.rede.remover");
+
+    // ROTAS DE INCLUDES
+    Route::get('/includes/loading', function(){
+        return view("painel.includes.loading");
+    });
+
+    
 
     Route::get('/sistema/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')->name("painel.logs");
 });

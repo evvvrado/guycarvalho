@@ -23,6 +23,10 @@ return [
         8 => "Tiktok",
         9 => "Email"
     ],
+    'periodos' => [
+        0 => "Diurno",
+        1 => "Noturno"
+    ]
 ];
 
 ?>
