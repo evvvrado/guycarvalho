@@ -71,6 +71,23 @@ class SiteController extends Controller
         return view("site.diretoria");
     }
 
+
+
+    public function pagamento(){
+        return view("site.carrinho-pagamento");
+    }
+    public function identificacao(){
+        return view("site.carrinho-identificacao");
+    }
+    public function confirmacao(){
+        return view("site.carrinho-confirmacao");
+    }
+    public function dados(){
+        return view("site.carrinho-dados");
+    }
+
+
+    
     public function estaduais(){
         $estaduais = Estadual::all();
         return view("site.estaduais", ["estaduais" => $estaduais, "slug" => null]);

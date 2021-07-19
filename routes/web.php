@@ -28,6 +28,9 @@ Route::get('/login', [\App\Http\Controllers\SiteController::class, 'login'])->na
 Route::get('/associe-se', [\App\Http\Controllers\SiteController::class, 'associese'])->name("site.associe-se");
 Route::get('/diretoria', [\App\Http\Controllers\SiteController::class, 'diretoria'])->name("site.diretoria");
 Route::get('/estaduais', [\App\Http\Controllers\SiteController::class, 'estaduais'])->name("site.estaduais");
+
+
+
 Route::get('/estaduais/{slug}', [\App\Http\Controllers\SiteController::class, 'estaduais_filtro'])->name("site.estaduais.filtro");
 Route::get('/estadual/{slug}', [\App\Http\Controllers\SiteController::class, 'estadual'])->name("site.estadual");
 Route::get('/sommelier', [\App\Http\Controllers\SiteController::class, 'sommelier'])->name("site.sommelier");
@@ -57,6 +60,14 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/usuarios/editar/{usuario}', [\App\Http\Controllers\UsuariosController::class, 'editar'])->name("painel.usuario.editar");
     Route::post('/sistema/usuarios/salvar/{usuario}', [\App\Http\Controllers\UsuariosController::class, 'salvar'])->name("painel.usuario.salvar");
     Route::get('/sistema/usuarios/bloqueio/{usuario}', [\App\Http\Controllers\UsuariosController::class, 'bloqueio'])->name("painel.usuario.bloqueio");
+
+    //ROTAS DE CARRINHO
+    Route::get('/carrinho/pagamento', [\App\Http\Controllers\SiteController::class, 'pagamento'])->name("site.carrinho-pagamento");
+    Route::get('/carrinho/identificacao', [\App\Http\Controllers\SiteController::class, 'identificacao'])->name("site.carrinho-identificacao");
+    Route::get('/carrinho/confirmacao', [\App\Http\Controllers\SiteController::class, 'confirmacao'])->name("site.carrinho-confirmacao");
+    Route::get('/carrinho/dados', [\App\Http\Controllers\SiteController::class, 'dados'])->name("site.carrinho-dados");
+
+
 
     //ROTAS DE ESTADUAIS
     Route::get('/sistema/estaduais', [\App\Http\Controllers\EstaduaisController::class, 'consultar'])->name("painel.estaduais");
