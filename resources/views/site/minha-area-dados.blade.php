@@ -77,39 +77,39 @@
   <body class="_minhaArea">
     <!-- HEADER -->
     <header class="container-fluid">
-    <div class="container-fav">
-        <main>
-        <div class="logos _hi">
-            <a href="/" class="logo-abspe">
-            <img src="/img/_logo92.png" alt="Logo ABS-Brasil" />
-            </a>
+        <div class="container-fav">
+            <main>
+                <div class="logos _hi">
+                    <a href="/" class="logo-abspe">
+                    <img src="{{asset('site/img/_logo92.png')}}" alt="Logo ABS-Brasil" />
+                    </a>
 
-            <a href="/" class="logo-asi">
-            <img src="/img/_logoASI_92.png" alt="Logo ASI" />
-            </a>
-        </div>
+                    <a href="/" class="logo-asi">
+                    <img src="{{asset('site/img/_logoASI_92.png')}}" alt="Logo ASI" />
+                    </a>
+                </div>
 
-        <nav>
-            <ul class="_hi">
-            <li><a href="/home.html">Home</a></li>
-            <li><a href="/cursos-e-eventos.html">Cursos e Eventos</a></li>
-            <li><a href="/quem-somos.html">ABS - PE</a></li>
-            <li><a href="/experiencias.html">Experiencias</a></li>
-            <li><a href="/blog.html">Blog</a></li>
-            <li><a href="/galeria.html">Galeria</a></li>
-            <li><a href="/imprensa.html">Imprensa</a></li>
-            </ul>
-        </nav>
+                <nav>
+                    <ul class="_hi">
+                    <li><a href="/home.html">Home</a></li>
+                    <li><a href="/cursos-e-eventos.html">Cursos e Eventos</a></li>
+                    <li><a href="/quem-somos.html">ABS - PE</a></li>
+                    <li><a href="/experiencias.html">Experiencias</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="/galeria.html">Galeria</a></li>
+                    <li><a href="/imprensa.html">Imprensa</a></li>
+                    </ul>
+                </nav>
 
-        <button class="menu-item btn-primary">Contato</a></button>
+                <button class="menu-item btn-primary">Contato</a></button>
 
-        <button class="menu-item hamburguer-menu">
-            <img src="/img/hamburguer.svg" alt="" />
-        </button>
+                <button class="menu-item hamburguer-menu">
+                    <img src="{{asset('site/img/hamburguer.svg')}}" alt="" />
+                </button>
 
-        <img class="h_gradient" src="/img/gradient.png" alt="" />
-        </main>
-    </div>
+                <img class="h_gradient" src="{{asset('site/img/gradient.png')}}" alt="" />
+            </main>
+            </div>
     </header>
 
     <section class="container-fluid _menu">
@@ -119,7 +119,7 @@
                 <li>
                     <a href="/minha-area">
                         <div class="svg">
-                            <img src="asset{{('/img/sistema/user.svg')}}" alt="">
+                            <img src="{{asset('site/img/sistema/user.svg')}}" alt="">
                         </div>
                         Minha Área
                     </a>
@@ -127,7 +127,7 @@
                     <li>
                         <a href="/minha-area/compras">
                             <div class="svg">
-                                <img src="asset{{('/img/sistema/bag.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/bag.svg')}}" alt="">
                             </div>
                             Meus Pedidos
                         </a>
@@ -135,7 +135,7 @@
                     <li>
                         <a href="/minha-area/matriculas">
                             <div class="svg">
-                                <img src="asset{{('/img/sistema/page.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/page.svg')}}" alt="">
                             </div>
                             Minhas Matrículas
                         </a>
@@ -143,7 +143,7 @@
                     <li class="_active">
                         <a href="/minha-area/dados">
                             <div class="svg">
-                                <img src="asset{{('/img/sistema/clipboard.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/clipboard.svg')}}" alt="">
                             </div>
                             Meus Dados
                         </a>
@@ -152,7 +152,7 @@
             </nav>
             <div class="_user">
                 <div class="_img">
-                    <img src="asset{{('/img/sistema/user.svg')}}" alt="">
+                    <img src="{{asset('site/img/sistema/user.svg')}}" alt="">
                 </div>
                 <div class="_text">
                     Olá <span class="_username">Everaldo</span>
@@ -172,46 +172,57 @@
                     <h2>Meus Dados</h2>                
                 </div>
                 <div class="_dados">
-                    <div class="_dadosComponent">
-                        <div class="_icon">
-                            <img src="{{asset('/img/sistema/userData.svg')}}" alt="">
+                    <div class="dados-div">
+                        <div class="_dadosComponent">
+                            <div class="_icon">
+                                <img src="{{asset('site/img/sistema/userData.svg')}}" alt="">
+                            </div>
+                            Everaldo Cristiano Reis Júnior
                         </div>
-                        Everaldo Cristiano Reis Júnior
+                        <div class="_dadosComponent">
+                            <div class="_icon">
+                                <img src="{{asset('site/img/sistema/mailData.svg')}}" alt="">
+                            </div>
+                            everaldocrj@gmail.com
+                        </div>
+                        <div class="_dadosComponent">
+                            <div class="_icon">
+                                <img src="{{asset('site/img/sistema/userData.svg')}}" alt="">
+                            </div>
+                            158.828.820-20
+                        </div> 
+                        <div class="_dadosComponent">
+                            <div class="_icon">
+                                <img src="{{asset('site/img/sistema/phoneData.svg')}}" alt="">
+                            </div>
+                            35 9 8809-0305
+                        </div>
                     </div>
-                    <div class="_dadosComponent">
-                        <div class="_icon">
-                            <img src="{{asset('/img/sistema/mailData.svg')}}" alt="">
+                    <div class="dados-div">
+                        <div class="_dadosComponent">
+                            <div class="_icon">
+                                <img src="{{asset('site/img/sistema/userData.svg')}}" alt="">
+                            </div>
+                            Rua João Cesário, 180
                         </div>
-                        everaldocrj@gmail.com
-                    </div>
-                    <div class="_dadosComponent">
-                        <div class="_icon">
-                            <img src="{{asset('/img/sistema/userData.svg')}}" alt="">
+                        <div class="_dadosComponent">
+                            <div class="_icon">
+                                <img src="{{asset('site/img/sistema/mailData.svg')}}" alt="">
+                            </div>
+                            Alfenas
                         </div>
-                        158.828.820-20
-                    </div> <div class="_dadosComponent">
-                        <div class="_icon">
-                            <img src="{{asset('/img/sistema/userData.svg')}}" alt="">
+                        <div class="_dadosComponent">
+                            <div class="_icon">
+                                <img src="{{asset('site/img/sistema/userData.svg')}}" alt="">
+                            </div>
+                            Minas Gerais
                         </div>
-                        Rua João Cesário, 180
-                    </div>
-                    <div class="_dadosComponent">
-                        <div class="_icon">
-                            <img src="{{asset('/img/sistema/mailData.svg')}}" alt="">
+                        <div class="_dadosComponent">
+                            <div class="_icon">
+                                <img src="{{asset('site/img/sistema/userData.svg')}}" alt="">
+                            </div>
+                            Brasil
                         </div>
-                        Alfenas
-                    </div>
-                    <div class="_dadosComponent">
-                        <div class="_icon">
-                            <img src="{{asset('/img/sistema/userData.svg')}}" alt="">
-                        </div>
-                        Minas Gerais
-                    </div>
-                    <div class="_dadosComponent">
-                        <div class="_icon">
-                            <img src="{{asset('/img/sistema/phoneData.svg')}}" alt="">
-                        </div>
-                        35 9 8809-0305
                     </div>
                     
                 </div>
@@ -221,13 +232,13 @@
                 <div class="_dados">
                     <div class="_dadosComponent">
                         <div class="_icon">
-                            <img src="{{asset('/img/sistema/lockData.svg')}}" alt="">
+                            <img src="{{asset('site/img/sistema/lockData.svg')}}" alt="">
                         </div>
                         ••••••••••••••  
                     </div>
                     <div class="_dadosComponent">
                         <div class="_icon">
-                            <img src="{{asset('/img/sistema/lockData.svg')}}" alt="">
+                            <img src="{{asset('site/img/sistema/lockData.svg')}}" alt="">
                         </div>
                         ••••••••••••••  
                     </div>
@@ -236,7 +247,7 @@
             </div>
             <div class="_left">
                 <div class="userImg">
-                    <img src="{{asset('/img/sistema/userBig.svg')}}" alt="">
+                    <img src="{{asset('site/img/sistema/userBig.svg')}}" alt="">
                 </div>
                 <a href="/">Alterar Imagem</a>
             </div>

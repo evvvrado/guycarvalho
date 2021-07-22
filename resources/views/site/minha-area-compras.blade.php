@@ -81,11 +81,11 @@
             <main>
             <div class="logos _hi">
                 <a href="/" class="logo-abspe">
-                <img src="/img/_logo92.png" alt="Logo ABS-Brasil" />
+                <img src="{{asset('site/img/_logo92.png')}}" alt="Logo ABS-Brasil" />
                 </a>
 
                 <a href="/" class="logo-asi">
-                <img src="/img/_logoASI_92.png" alt="Logo ASI" />
+                <img src="{{asset('site/img/_logoASI_92.png')}}" alt="Logo ASI" />
                 </a>
             </div>
 
@@ -107,7 +107,7 @@
                 <img src="/img/hamburguer.svg" alt="" />
             </button>
 
-            <img class="h_gradient" src="/img/gradient.png" alt="" />
+            <img class="h_gradient" src="{{asset('site/img/gradient.png')}}" alt="" />
             </main>
         </div>
     </header>
@@ -118,7 +118,7 @@
                 <li>
                     <a href="/minha-area">
                         <div class="svg">
-                            <img src="asset{{('/img/sistema/user.svg')}}" alt="">
+                            <img src="{{asset('site/img/sistema/user.svg')}}" alt="">
                         </div>
                         Minha Área
                     </a>
@@ -126,7 +126,7 @@
                     <li class="_active">
                         <a href="/minha-area/compras">
                             <div class="svg">
-                                <img src="asset{{('/img/sistema/bag.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/bag.svg')}}" alt="">
                             </div>
                             Meus Pedidos
                         </a>
@@ -134,7 +134,7 @@
                     <li>
                         <a href="/minha-area/matriculas">
                             <div class="svg">
-                                <img src="asset{{('/img/sistema/page.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/page.svg')}}" alt="">
                             </div>
                             Minhas Matrículas
                         </a>
@@ -142,7 +142,7 @@
                     <li>
                         <a href="/minha-area/dados">
                             <div class="svg">
-                                <img src="asset{{('/img/sistema/clipboard.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/clipboard.svg')}}" alt="">
                             </div>
                             Meus Dados
                         </a>
@@ -151,7 +151,7 @@
             </nav>
             <div class="_user">
                 <div class="_img">
-                    <img src="asset{{('/img/sistema/user.svg')}}" alt="">
+                    <img src="{{asset('site/img/sistema/user.svg')}}" alt="">
                 </div>
                 <div class="_text">
                     Olá <span class="_username">Everaldo</span>
@@ -172,7 +172,7 @@
                 <div class="_topbutton">
                     <p>Status da Compra</p>
                     <div class="_btn">
-                        <img src="{{asset('/img/sistema/threeDots.svg')}}" alt="">
+                        <img src="{{asset('site/img/sistema/threeDots.svg')}}" alt="">
                     </div>
                 </div>
             </div>
@@ -182,13 +182,13 @@
                     <div class="_info">
                         <div class="data">
                             <div class="_svg">
-                                <img src="{{asset('/img/sistema/calendar.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/calendar.svg')}}" alt="">
                             </div>
                             <p>12.05.2020</p>
                         </div>
                         <div class="numero">
                             <div class="_svg">
-                                <img src="{{asset('/img/sistema/plane.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/plane.svg')}}" alt="">
                             </div>
                             <p>03 Produtos</p>
                         </div>
@@ -196,12 +196,12 @@
                     <button class="btn-primary">
                         Mais detalhes
                         <div class="_svg">
-                            <img src="{{asset('/img/sistema/buttonArrowRight.svg')}}" alt="">
+                            <img src="{{asset('site/img/sistema/buttonArrowRight.svg')}}" alt="">
                         </div>
                     </button>
                     <div class="_status _waiting">
                         <div class="_icon">
-                            <img src="{{asset('/img/sistema/dollar.svg')}} " alt="">
+                            <img src="{{asset('site/img/sistema/dollar.svg')}} " alt="">
                         </div>
                         <div class="_text">
                             <span>Aguardando Pag.</span>
@@ -214,13 +214,13 @@
                     <div class="_info">
                         <div class="data">
                             <div class="_svg">
-                                <img src="{{asset('/img/sistema/calendar.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/calendar.svg')}}" alt="">
                             </div>
                             <p>12.05.2020</p>
                         </div>
                         <div class="numero">
                             <div class="_svg">
-                                <img src="{{asset('/img/sistema/plane.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/plane.svg')}}" alt="">
                             </div>
                             <p>03 Produtos</p>
                         </div>
@@ -228,12 +228,12 @@
                     <button class="btn-primary">
                         Mais detalhes
                         <div class="_svg">
-                            <img src="{{asset('/img/sistema/buttonArrowRight.svg')}}" alt="">
+                            <img src="{{asset('site/img/sistema/buttonArrowRight.svg')}}" alt="">
                         </div>
                     </button>
                     <div class="_status _approved">
                         <div class="_icon">
-                            <img src="{{asset('/img/sistema/approved.svg')}} " alt="">
+                            <img src="{{asset('site/img/sistema/approved.svg')}} " alt="">
                         </div>
                         <div class="_text">
                             <span>Pag. Aprovado</span>
@@ -246,13 +246,13 @@
                     <div class="_info">
                         <div class="data">
                             <div class="_svg">
-                                <img src="{{asset('/img/sistema/calendar.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/calendar.svg')}}" alt="">
                             </div>
                             <p>12.05.2020</p>
                         </div>
                         <div class="numero">
                             <div class="_svg">
-                                <img src="{{asset('/img/sistema/plane.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/plane.svg')}}" alt="">
                             </div>
                             <p>03 Produtos</p>
                         </div>
@@ -260,12 +260,12 @@
                     <button class="btn-primary">
                         Mais detalhes
                         <div class="_svg">
-                            <img src="{{asset('/img/sistema/buttonArrowRight.svg')}}" alt="">
+                            <img src="{{asset('site/img/sistema/buttonArrowRight.svg')}}" alt="">
                         </div>
                     </button>
                     <div class="_status _approved">
                         <div class="_icon">
-                            <img src="{{asset('/img/sistema/approved.svg')}} " alt="">
+                            <img src="{{asset('site/img/sistema/approved.svg')}} " alt="">
                         </div>
                         <div class="_text">
                             <span>Pag. Aprovado</span>
@@ -278,13 +278,13 @@
                     <div class="_info">
                         <div class="data">
                             <div class="_svg">
-                                <img src="{{asset('/img/sistema/calendar.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/calendar.svg')}}" alt="">
                             </div>
                             <p>12.05.2020</p>
                         </div>
                         <div class="numero">
                             <div class="_svg">
-                                <img src="{{asset('/img/sistema/plane.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/plane.svg')}}" alt="">
                             </div>
                             <p>03 Produtos</p>
                         </div>
@@ -292,12 +292,12 @@
                     <button class="btn-primary">
                         Mais detalhes
                         <div class="_svg">
-                            <img src="{{asset('/img/sistema/buttonArrowRight.svg')}}" alt="">
+                            <img src="{{asset('site/img/sistema/buttonArrowRight.svg')}}" alt="">
                         </div>
                     </button>
                     <div class="_status _canceled">
                         <div class="_icon">
-                            <img src="{{asset('/img/sistema/canceled.svg')}} " alt="">
+                            <img src="{{asset('site/img/sistema/canceled.svg')}} " alt="">
                         </div>
                         <div class="_text">
                             <span>Cancelado</span>

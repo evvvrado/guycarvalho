@@ -80,11 +80,11 @@
         <main>
         <div class="logos _hi">
             <a href="/" class="logo-abspe">
-            <img src="/img/_logo92.png" alt="Logo ABS-Brasil" />
+            <img src="{{asset('site/img/_logo92.png')}}" alt="Logo ABS-Brasil" />
             </a>
 
             <a href="/" class="logo-asi">
-            <img src="/img/_logoASI_92.png" alt="Logo ASI" />
+            <img src="{{asset('site/img/_logoASI_92.png')}}" alt="Logo ASI" />
             </a>
         </div>
 
@@ -103,10 +103,10 @@
         <button class="menu-item btn-primary">Contato</a></button>
 
         <button class="menu-item hamburguer-menu">
-            <img src="/img/hamburguer.svg" alt="" />
+            <img src="{{asset('site/img/hamburguer.svg')}}" alt="" />
         </button>
 
-        <img class="h_gradient" src="/img/gradient.png" alt="" />
+        <img class="h_gradient" src="{{asset('site/img/gradient.png')}}" alt="" />
         </main>
     </div>
     </header>
@@ -117,7 +117,7 @@
                 <li class="_active">
                     <a href="/minha-area">
                         <div class="svg">
-                            <img src="asset{{('/img/sistema/user.svg')}}" alt="">
+                            <img src="{{asset('site/img/sistema/user.svg')}}" alt="">
                         </div>
                         Minha Área
                     </a>
@@ -125,7 +125,7 @@
                     <li>
                         <a href="/minha-area/compras">
                             <div class="svg">
-                                <img src="asset{{('/img/sistema/bag.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/bag.svg')}}" alt="">
                             </div>
                             Meus Pedidos
                         </a>
@@ -133,7 +133,7 @@
                     <li>
                         <a href="/minha-area/matriculas">
                             <div class="svg">
-                                <img src="asset{{('/img/sistema/page.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/page.svg')}}" alt="">
                             </div>
                             Minhas Matrículas
                         </a>
@@ -141,7 +141,7 @@
                     <li>
                         <a href="/minha-area/dados">
                             <div class="svg">
-                                <img src="asset{{('/img/sistema/clipboard.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/clipboard.svg')}}" alt="">
                             </div>
                             Meus Dados
                         </a>
@@ -150,7 +150,7 @@
             </nav>
             <div class="_user">
                 <div class="_img">
-                    <img src="asset{{('/img/sistema/user.svg')}}" alt="">
+                    <img src="{{asset('site/img/sistema/user.svg')}}" alt="">
                 </div>
                 <div class="_text">
                     Olá <span class="_username">Everaldo</span>
@@ -162,6 +162,56 @@
 
     </section>
 
+
+    <section class="container-fluid _minhasMatriculas">
+        <div class="container-fav">
+            <div class="_top">
+                <h2>Minha Área</h2>
+                <div class="_topbutton">
+                    <p>Ver mais +</p>
+                    <div class="_btn">
+                        <img src="{{asset('site/img/sistema/threeDots.svg')}}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="_matriculasList">
+                <div class="_matricula">
+                    <div class="_image">
+                        <img src="{{asset('site/img/sistema/capaMatricula.jpg')}}" alt="">
+                    </div>
+                    <div class="_content">
+                        <h3>Minhas Matrículas</h3>
+                        <p>Total de 15 Matrículas</p>
+                        <p>Última matrícula hoje</p>
+                        <button class="btn-primary" onclick="window.location.href = '/minha-area/matriculas'">
+                          Ver matrículas
+                            <div class="_svg">
+                                <img src="{{asset('site/img/sistema/buttonArrowRight.svg')}}" alt="">
+                            </div>
+                        </button>
+                    </div>
+
+                </div>
+                <div class="_matricula">
+                    <div class="_image">
+                        <img src="{{asset('site/img/sistema/capaMatricula.jpg')}}" alt="">
+                    </div>
+                    <div class="_content">
+                        <h3>Minhas Compras</h3>
+                        <p>Total de 15 Compras</p>
+                        <p>Última compra ontem</p>
+                        <button class="btn-primary" onclick="window.location.href = '/minha-area/compras'">
+                          Ver Compras
+                            <div class="_svg">
+                                <img src="{{asset('site/img/sistema/buttonArrowRight.svg')}}" alt="">
+                            </div>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
 
   
 

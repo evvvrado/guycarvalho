@@ -85,6 +85,18 @@ class SiteController extends Controller
     public function dados(){
         return view("site.carrinho-dados");
     }
+    public function minhaArea(){
+        return view("site.minha-area");
+    }
+    public function minhaAreaCompras(){
+        return view("site.minha-area-compras");
+    }
+    public function minhaAreaDados(){
+        return view("site.minha-area-dados");
+    }
+    public function minhaAreaMatricula(){
+        return view("site.minha-area-matricula");
+    }
 
 
     

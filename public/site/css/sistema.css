@@ -598,7 +598,6 @@ section._meusDados .container-fav {
 }
 section._meusDados .container-fav ._right {
   width: 100%;
-  max-width: 40rem;
 }
 section._meusDados .container-fav ._right ._top {
   margin-bottom: 3.2rem;
@@ -608,8 +607,13 @@ section._meusDados .container-fav ._right ._top:nth-child(3) {
 }
 section._meusDados .container-fav ._right ._dados {
   display: flex;
+  gap: 1.2rem;
+}
+section._meusDados .container-fav ._dados .dados-div {
+  display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  width: 100%;
 }
 
 section._meusDados .container-fav ._dados ._dadosComponent {
@@ -632,7 +636,7 @@ section._meusDados .container-fav ._dados ._dadosComponent ._icon {
 }
 
 section._meusDados .container-fav ._left {
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

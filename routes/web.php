@@ -67,6 +67,13 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/carrinho/confirmacao', [\App\Http\Controllers\SiteController::class, 'confirmacao'])->name("site.carrinho-confirmacao");
     Route::get('/carrinho/dados', [\App\Http\Controllers\SiteController::class, 'dados'])->name("site.carrinho-dados");
 
+    //ROTAS DE MINHA ÁREA
+    Route::get('/minha-area', [\App\Http\Controllers\SiteController::class, 'minhaArea'])->name("site.minha-area");
+    Route::get('/minha-area/compras', [\App\Http\Controllers\SiteController::class, 'minhaAreaCompras'])->name("site.minha-area-compras");
+    Route::get('/minha-area/dados', [\App\Http\Controllers\SiteController::class, 'minhaAreaDados'])->name("site.minha-area-dados");
+    Route::get('/minha-area/matriculas', [\App\Http\Controllers\SiteController::class, 'minhaAreaMatricula'])->name("site.minha-area-matricula");
+   
+    
 
 
     //ROTAS DE ESTADUAIS
