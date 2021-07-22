@@ -18,9 +18,10 @@ Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name("s
 Route::get('/quem-somos', [\App\Http\Controllers\SiteController::class, 'quem_somos'])->name("site.quem_somos");
 Route::get('/cursos', [\App\Http\Controllers\SiteController::class, 'cursos'])->name("site.cursos");
 Route::get('/curso', [\App\Http\Controllers\SiteController::class, 'curso'])->name("site.curso");
-Route::get('/curso/instrutores', [\App\Http\Controllers\SiteController::class, 'instrutores'])->name("site.curso-instrutores");
-Route::get('/curso/local', [\App\Http\Controllers\SiteController::class, 'local'])->name("site.curso-local");
-Route::get('/curso/programacao', [\App\Http\Controllers\SiteController::class, 'programacao'])->name("site.curso-programacao");
+Route::get('/curso/{slug}', [\App\Http\Controllers\SiteController::class, 'curso'])->name("site.curso");
+Route::get('/curso/{slug}/instrutores', [\App\Http\Controllers\SiteController::class, 'instrutores'])->name("site.curso.instrutores");
+Route::get('/curso/{slug}/local', [\App\Http\Controllers\SiteController::class, 'local'])->name("site.curso.local");
+Route::get('/curso/{slug}/programacao', [\App\Http\Controllers\SiteController::class, 'programacao'])->name("site.curso.programacao");
 Route::get('/contato', [\App\Http\Controllers\SiteController::class, 'contato'])->name("site.contato");
 Route::post('/contato/salvar', [\App\Http\Controllers\MensagemController::class, 'salvar'])->name("site.contato.salvar");
 Route::get('/cadastro', [\App\Http\Controllers\SiteController::class, 'cadastro'])->name("site.cadastro");
@@ -28,9 +29,6 @@ Route::get('/login', [\App\Http\Controllers\SiteController::class, 'login'])->na
 Route::get('/associe-se', [\App\Http\Controllers\SiteController::class, 'associese'])->name("site.associe-se");
 Route::get('/diretoria', [\App\Http\Controllers\SiteController::class, 'diretoria'])->name("site.diretoria");
 Route::get('/estaduais', [\App\Http\Controllers\SiteController::class, 'estaduais'])->name("site.estaduais");
-
-
-
 Route::get('/estaduais/{slug}', [\App\Http\Controllers\SiteController::class, 'estaduais_filtro'])->name("site.estaduais.filtro");
 Route::get('/estadual/{slug}', [\App\Http\Controllers\SiteController::class, 'estadual'])->name("site.estadual");
 Route::get('/sommelier', [\App\Http\Controllers\SiteController::class, 'sommelier'])->name("site.sommelier");
@@ -129,6 +127,27 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/configuracoes/seo', [\App\Http\Controllers\ConfiguracoesController::class, 'seo'])->name("painel.configuracoes.seo");
     Route::post('/sistema/configuracoes/seo/salvar/{pagina}', [\App\Http\Controllers\ConfiguracoesController::class, 'seo_salvar'])->name("painel.configuracoes.seo.salvar");
     
+    // ROTAS DE CURSOS
+    Route::get('/sistema/cursos/api/getCurso/{curso}', [\App\Http\Controllers\CursosController::class, 'getCurso']);
+    Route::get('/sistema/cursos', [\App\Http\Controllers\CursosController::class, 'consultar'])->name("painel.cursos");
+    Route::get('/sistema/curso/ativo/{curso}', [\App\Http\Controllers\CursosController::class, 'ativo'])->name("painel.curso.ativo");
+    Route::post('/sistema/cursos/cadastrar', [\App\Http\Controllers\CursosController::class, 'cadastrar'])->name("painel.curso.cadastrar");
+    Route::get('/includes/curso/formulario', function(){
+        return view("painel.cursos.formulario");
+    });
+
+    // ROTAS DE TURMAS
+    Route::get('/sistema/curso/{curso}/turmas', [\App\Http\Controllers\TurmasController::class, 'consultar'])->name("painel.turmas");
+    Route::post('/sistema/turmas/cadastrar', [\App\Http\Controllers\TurmasController::class, 'cadastrar'])->name("painel.turma.cadastrar");
+    Route::get('/sistema/turmas/api/getTurma/{turma}', [\App\Http\Controllers\TurmasController::class, 'getTurma']);
+    Route::get('/sistema/turma/ativo/{turma}', [\App\Http\Controllers\TurmasController::class, 'ativo'])->name("painel.turma.ativo");
+    Route::get('/sistema/turma/inscricao/{turma}', [\App\Http\Controllers\TurmasController::class, 'inscricao'])->name("painel.turma.inscricao");
+    Route::get('/includes/turma/formulario', function(){
+        return view("painel.turmas.formulario");
+    });
+    
+    
+    // ROTAS DE DESTAQUES
     Route::get('/sistema/destaques', [\App\Http\Controllers\DestaquesController::class, 'index'])->name("painel.destaques");
     Route::post('/sistema/destaques/cadastrar', [\App\Http\Controllers\DestaquesController::class, 'cadastrar'])->name("painel.destaque.cadastrar");
     Route::post('/sistema/destaques/salvar/{destaque}', [\App\Http\Controllers\DestaquesController::class, 'salvar'])->name("painel.destaque.salvar");
@@ -145,6 +164,13 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/sistema/app/rede/adicionar/{app}', [\App\Http\Controllers\AppController::class, 'adicionar_rede'])->name("painel.app.rede.adicionar");
     Route::post('/sistema/app/rede/salvar/{elemento}', [\App\Http\Controllers\AppController::class, 'salvar_rede'])->name("painel.app.rede.salvar");
     Route::get('/sistema/app/rede/remover/{elemento}', [\App\Http\Controllers\AppController::class, 'remover_rede'])->name("painel.app.rede.remover");
+
+    // ROTAS DE INCLUDES
+    Route::get('/includes/loading', function(){
+        return view("painel.includes.loading");
+    });
+
+    
 
     Route::get('/sistema/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')->name("painel.logs");
 });
