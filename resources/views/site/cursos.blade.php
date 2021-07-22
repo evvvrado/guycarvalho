@@ -14,15 +14,25 @@
                 <p>A ABS-Brasil oferece ampla gama de cursos do mundo do vinho. Seja para você, que é iniciante, ou para quem deseja se profissionalizar e entrar no mercado de trabalho.</p>
             </div>
             <div class="cursosNA">
-                <div>
-                    <img src="{{asset('site/img/_cursoItem1.jpg')}}" alt="Ilustração curso 1" width="328" height="183">
-<!-- 						<h4><span>Em breve</span><span>Em breve</span><span>35 Turmas</span></h4> -->
-                    <h4 class="mt-3"><span>Em breve</span><span>Em breve</span><span>Em breve</span></h4>
-                    <h2>Aguardem - Vem novidades! </h2>
-                    <h3>On-line</h3>
-<!-- 						<p>O curso Aguardem - Vem novidades!  é a porta de entrada nesse fascinante mundo, o mais abrangente e completo curso de Aguardem - Vem novidades! . Objetivo, levar informações e curiosidades gerais sobre este universo tão vasto, porém de forma muito leve e descontraída.</p> -->
-                    <a href="/cadastro">EM BREVE TURMAS</a>
-                </div>
+                @foreach($cursos as $curso)
+                    @php
+                        $turma = $curso->turmas->sortBy("data")->first();
+                    @endphp
+                    <div>
+                        <img src="{{asset($curso->miniatura)}}" alt="{{$curso->titulo}}" width="328" height="183">
+    <!-- 						<h4><span>Em breve</span><span>Em breve</span><span>35 Turmas</span></h4> -->
+                        @if($turma)
+                            <h4 class="mt-3"><span>{{date("d.m.Y", strtotime($turma->data))}}</span><span>{{date("H:i", strtotime($turma->horario))}}</span><span>{{$turma->vagas}} vagas</span></h4>
+                        @else
+                            <h4 class="mt-3"><span>Em breve</span><span>Em breve</span><span>Em breve</span></h4>
+                        @endif
+                        <h2>{{$curso->titulo}}</h2>
+                        <h3>On-line</h3>
+    <!-- 						<p>O curso Aguardem - Vem novidades!  é a porta de entrada nesse fascinante mundo, o mais abrangente e completo curso de Aguardem - Vem novidades! . Objetivo, levar informações e curiosidades gerais sobre este universo tão vasto, porém de forma muito leve e descontraída.</p> -->
+                        
+                        <a href="{{route('site.curso', ['slug' => $curso->slug])}}">VER MAIS</a>
+                    </div>
+                @endforeach
 <!--					<div>
                     <img src="/img/_cursoItem2.jpg" alt="Ilustração curso 2" width="328" height="183">
                     <h4><span>Em breve</span><span>Em breve</span><span>Em breve</span></h4>

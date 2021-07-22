@@ -65,7 +65,7 @@ class CursosController extends Controller
                 mkdir($destinationPath);
             }
             $img = Image::make($image->path());
-            $img->resize(360, 200)->save($destinationPath.'/'.$input['imagename']);
+            $img->resize(1200, 546)->save($destinationPath.'/'.$input['imagename']);
             $curso->banner = 'site/imagens/cursos/' . $curso->id . "/" . $input['imagename'];
         }
 

@@ -10,6 +10,7 @@ use App\Models\Pagina;
 use App\Models\Estadual;
 use App\Models\Visitas;
 use App\Models\DestaqueSuspenso;
+use App\Models\Curso;
 
 class SiteController extends Controller
 {
@@ -36,21 +37,31 @@ class SiteController extends Controller
     }
 
     public function cursos(){
-        return view("site.cursos");
+        $cursos = Curso::where("ativo", true)->get();
+        return view("site.cursos", ["cursos" => $cursos]);
     }
 
-    public function curso(){
-        return view("site.curso");
+    public function curso($slug){
+        $curso = Curso::where("slug", $slug)->first();
+        $turma = $curso->turmas->where("ativo", true)->sortBy("data")->first();
+        return view("site.curso", ["curso" => $curso, "turma" => $turma, "aba" => "detalhes"]);
     }
-    public function instrutores(){
-        return view("site.curso-instrutores");
+    public function instrutores($slug){
+        $curso = Curso::where("slug", $slug)->first();
+        $turma = $curso->turmas->where("ativo", true)->sortBy("data")->first();
+        return view("site.curso", ["curso" => $curso, "turma" => $turma, "aba" => "instrutores"]);
     }
-    public function local(){
-        return view("site.curso-local");
+    public function local($slug){
+        $curso = Curso::where("slug", $slug)->first();
+        $turma = $curso->turmas->where("ativo", true)->sortBy("data")->first();
+        return view("site.curso", ["curso" => $curso, "turma" => $turma, "aba" => "local"]);
     }
-    public function programacao(){
-        return view("site.curso-programacao");
+    public function programacao($slug){
+        $curso = Curso::where("slug", $slug)->first();
+        $turma = $curso->turmas->where("ativo", true)->sortBy("data")->first();
+        return view("site.curso", ["curso" => $curso, "turma" => $turma, "aba" => "programacao"]);
     }
+
     public function contato(){
         return view("site.contato");
     }
@@ -70,8 +81,6 @@ class SiteController extends Controller
     public function diretoria(){
         return view("site.diretoria");
     }
-
-
 
     public function pagamento(){
         return view("site.carrinho-pagamento");

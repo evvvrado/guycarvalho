@@ -1,7 +1,7 @@
 <div id="backdrop" style="background:#e5e5e5">
     <div class="logo"><img src="{{asset('site/img/logoABS.png')}}" width="115" height="115" alt="Logomarca ABS - Brasil"></div>
 </div>
-<header class="header {{$classe}}">
+<header class="header {{$classe}}" @if($classe == "brasil cursos" && isset($curso)) style="background-image: url({{asset($curso->banner)}})"  @endif>
     <section class="logos" style="max-width: 1250px!important;">
         <a class="ancora" href="/" title="Home"><img src="{{asset('site/img/logoABS.png')}}" width="115" height="115" alt="Logomarca ABS - Brasil"></a>
         <a class="asi" target="_blank" rel="noopener" title="Navegar para ASI" href="https://www.asi.info/"><img src="{{asset('site/img/logoASI.png')}}" width="115" height="115"  alt="Logomarca ASI"></a>

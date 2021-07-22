@@ -460,9 +460,9 @@ body>header.header.estaduais{
     background-image: url('/site/img/header_estaduais.jpg')!important;
 }
 
-body>header.header.cursos {
+/* body>header.header.cursos {
     background-image: url('/site/img/banner_curso.jpg')!important;
-}
+} */
 body>header.info-header{
     background-image: url('/site/img/banner_quemsomos.jpg')!important;
 }
@@ -3561,4 +3561,12 @@ a.ativo{
 
 .close-destaque{
     color: white !important;
+}
+
+._intro > p{
+    text-align: center !important;
+    max-width:  650px;
+    color: var(--corVinho2) !important; 
+    font-size: 18px!important; 
+    margin-bottom: 35px;
 }
