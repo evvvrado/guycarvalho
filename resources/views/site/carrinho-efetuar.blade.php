@@ -80,6 +80,8 @@
     />
   
 
+
+
     <!-- HEADER -->
     <header class="container-fluid">
       <div class="container-fav">
@@ -87,6 +89,9 @@
           <div class="_logos">
             <img src="{{asset('site/img/_logo92.png')}}" alt="" />
             <img src="{{asset('site/img/_logoASI_92.png')}}" alt="" />
+            <div class="_carButton">
+              <img src="{{asset('site/img/sistema/car.svg')}}" alt="" />
+            </div>
           </div>
 
           <div class="_duvidas">
@@ -101,6 +106,7 @@
             <div class="_title">
               <div class="_icon">
                 <img src="{{asset('site/img/sistema/car.svg')}}" alt="" />
+                <img src="{{asset('site/img/sistema/cancel.svg')}}" alt="" />
               </div>
               <span>Meu Carrinho</span>
             </div>
@@ -254,17 +260,17 @@
           <div class="_top">
             <div class="_title _active">
               <div class="_img">
-                <img src="{{asset('/img/sistema/personIdentificacao.svg')}}" alt="" />
+                <img src="{{asset('site/img/sistema/personIdentificacao.svg')}}" alt="" />
               </div>
               <h2>Identificação</h2>
             </div>
             <div class="arrow _title _active">
-              <img src="{{asset('/img/sistema/loadingArrow.svg')}}" alt="" />
+              <img src="{{asset('site/img/sistema/loadingArrow.svg')}}" alt="" />
             </div>
 
             <div class="_title _active">
               <div class="_img">
-                <img src="{{asset('/img/sistema/card.svg')}}" alt="" />
+                <img src="{{asset('site/img/sistema/card.svg')}}" alt="" />
               </div>
               <h2>Pagamento</h2>
             </div>
@@ -274,7 +280,7 @@
               <div class="row">
                 <div class="_name">
                   <div class="_img">
-                    <img src="{{asset('/img/sistema/user.svg')}}" alt="" />
+                    <img src="{{asset('site/img/sistema/user.svg')}}" alt="" />
                   </div>
                   <p>Everaldo Júnior</p>
                 </div>
@@ -300,11 +306,11 @@
               <div class="_input">
                 <div class="_form">
                   <div class="_svg">
-                    <img src="{{asset('/img/sistema/cupom.svg')}}" alt="" />
+                    <img src="{{asset('site/img/sistema/cupom.svg')}}" alt="" />
                   </div>
                   <input type="text" placeholder="#AbsÉ10" />
                   <button>
-                    <img src="{{asset('/img/sistema/arrowright.svg')}}" alt="" />
+                    <img src="{{asset('site/img/sistema/arrowright.svg')}}" alt="" />
                   </button>
                 </div>
                 <p>- R$ 20 aplicado na sua compra</p>
@@ -318,7 +324,7 @@
               <div class="_buttons">
                 <div class="bolet button">
                   <div class="_icon">
-                    <img src="{{asset('/img/sistema/boleto.svg')}}" alt="" />
+                    <img src="{{asset('site/img/sistema/boleto.svg')}}" alt="" />
                   </div>
                   <div class="_text">
                     <span>Boleto Bancário</span>
@@ -326,9 +332,9 @@
                   </div>
                 </div>
 
-                <div class="creditCard button">
+                <div class="creditCard button" onclick="window.location.href = '/carrinho/pagamento'">
                   <div class="_icon">
-                    <img src="{{asset('/img/sistema/creditcard.svg')}}" alt="" />
+                    <img src="{{asset('site/img/sistema/creditcard.svg')}}" alt="" />
                   </div>
                   <div class="_text">
                     <span>Cartão de Crédito</span>
@@ -421,5 +427,34 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
+    <script>
+      $("form label input,form label textarea").focus(function () {
+        $(this).parent().find("span").addClass("active");
+      });
+
+      $("form label input,form label textarea").focusout(function () {
+        if ($(this).val() == "") {
+          $(this).parent().find("span").removeClass("active");
+        }
+      });
+            
+
+      $("._carButton").click(() => {
+        $("._meuCarrinho").animate(
+          {
+            top: "0",
+          },
+          400
+        );
+      });
+      $(" section._meuCarrinho ._top ._title ._icon img:last-child").click(() => {
+        $("._meuCarrinho").animate(
+          {
+            top: "-200vh",
+          },
+          400
+        );
+      });
+    </script>
   </body>
 </html>

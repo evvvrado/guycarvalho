@@ -17,15 +17,15 @@ Route::get('/testes', [\App\Http\Controllers\GerencianetController::class, 'test
 Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name("site.index");
 Route::get('/quem-somos', [\App\Http\Controllers\SiteController::class, 'quem_somos'])->name("site.quem_somos");
 Route::get('/cursos', [\App\Http\Controllers\SiteController::class, 'cursos'])->name("site.cursos");
-Route::get('/curso', [\App\Http\Controllers\SiteController::class, 'curso'])->name("site.curso");
 Route::get('/curso/{slug}', [\App\Http\Controllers\SiteController::class, 'curso'])->name("site.curso");
 Route::get('/curso/{slug}/instrutores', [\App\Http\Controllers\SiteController::class, 'instrutores'])->name("site.curso.instrutores");
 Route::get('/curso/{slug}/local', [\App\Http\Controllers\SiteController::class, 'local'])->name("site.curso.local");
 Route::get('/curso/{slug}/programacao', [\App\Http\Controllers\SiteController::class, 'programacao'])->name("site.curso.programacao");
 Route::get('/contato', [\App\Http\Controllers\SiteController::class, 'contato'])->name("site.contato");
 Route::post('/contato/salvar', [\App\Http\Controllers\MensagemController::class, 'salvar'])->name("site.contato.salvar");
-Route::get('/cadastro', [\App\Http\Controllers\SiteController::class, 'cadastro'])->name("site.cadastro");
-Route::get('/login', [\App\Http\Controllers\SiteController::class, 'login'])->name("site.login");
+// Route::get('/cadastro', [\App\Http\Controllers\SiteController::class, 'cadastro'])->name("site.cadastro");
+// Route::get('/login', [\App\Http\Controllers\SiteController::class, 'login'])->name("site.login");
+Route::get('/minha-conta', [\App\Http\Controllers\SiteController::class, 'minhaConta'])->name("site.minha-conta");
 Route::get('/associe-se', [\App\Http\Controllers\SiteController::class, 'associese'])->name("site.associe-se");
 Route::get('/diretoria', [\App\Http\Controllers\SiteController::class, 'diretoria'])->name("site.diretoria");
 Route::get('/estaduais', [\App\Http\Controllers\SiteController::class, 'estaduais'])->name("site.estaduais");
@@ -63,7 +63,7 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/carrinho/pagamento', [\App\Http\Controllers\SiteController::class, 'pagamento'])->name("site.carrinho-pagamento");
     Route::get('/carrinho/identificacao', [\App\Http\Controllers\SiteController::class, 'identificacao'])->name("site.carrinho-identificacao");
     Route::get('/carrinho/confirmacao', [\App\Http\Controllers\SiteController::class, 'confirmacao'])->name("site.carrinho-confirmacao");
-    Route::get('/carrinho/dados', [\App\Http\Controllers\SiteController::class, 'dados'])->name("site.carrinho-dados");
+    Route::get('/carrinho/efetuar', [\App\Http\Controllers\SiteController::class, 'efetuar'])->name("site.carrinho-efetuar");
 
     //ROTAS DE MINHA ÁREA
     Route::get('/minha-area', [\App\Http\Controllers\SiteController::class, 'minhaArea'])->name("site.minha-area");

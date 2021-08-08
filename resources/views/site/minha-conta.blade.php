@@ -76,7 +76,7 @@
       <div class="_half">
         <div class="container-fav">
           <div class="logos">
-            <a href="/">
+            <a href="/index.html">
               <img src="{{asset('site/img/_logo136.png')}}" alt="Logo ABS Pernambuco" />
             </a>
             <img src="{{asset('site/img/_logoASI_136.png')}}" alt="Logo ASI" />
@@ -88,7 +88,8 @@
             <p>Voltar a página principal</p>
           </a>
           <div class="_text">
-            Nos envie uma mensagem!
+            Bem-vindo de volta, digite suas credenciais para fazer login com
+            segurança em sua conta.
           </div>
           <div class="_contact">
             <div class="_c">
@@ -106,7 +107,7 @@
             <div class="_c">
               <div class="svg">
                 <img src="{{asset('site/img/email.svg')}}" alt="" />
-                <span>contato@abs-brasil.com.br</span>
+                <span>contato@abs-pe.com.br</span>
               </div>
             </div>
           </div>
@@ -123,61 +124,138 @@
       </div>
 
       <div class="_otherhalf">
-        <div class="_sendmessage">
+        <div class="_login">
           <div class="container-fav">
-          <div class="title">
+            <div class="title">
               <div class="svg">
-                <img src="https://abs-brasil.com/site/img/loginuser.svg" alt="">
+                <img src="{{asset('site/img/loginuser.svg')}}" alt="" />
               </div>
-              <h2>Nos envie uma mensagem!</h2>
+              <h2>Identificação</h2>
             </div>
-            <form action="">
+            <form method="POST" onsubmit="return false">
               <label>
-                <span>Nome</span>
-                <input type="text" />
+                <span>Meu e-mail</span>
+                <input type="email" />
               </label>
               <label>
-                <span>Email</span>
+                <span>Digite sua senha</span>
+                <input type="password" />
+              </label>
+              <button>Acessar <img src="{{asset('site/img/arrowlong.svg')}}" alt="" /></button>
+            </form>
+            <div class="_forgot">
+              <span>Esqueceu a<strong> sua senha ?</strong></span>
+            </div>
+            <div class="_toregister">
+              <div class="img">
+                <img src="{{asset('site/img/card.svg')}}" alt="" />
+              </div>
+              <span>Faça seu cadastro</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="_register">
+          <div class="container-fav">
+            <div class="title">
+              <div class="svg">
+                <img src="{{asset('site/img/loginuser.svg')}}" alt="" />
+              </div>
+              <h2>Cadastre-se</h2>
+            </div>
+            <form method="POST" onsubmit="return false">
+              <label>
+                <span>Nome</span>
+                <input type="name" />
+              </label>
+              <label>
+                <span>Digite seu e-mail</span>
                 <input type="email" />
               </label>
               <label>
                 <span>Telefone</span>
                 <input type="tel" />
               </label>
+              <button>Cadastrar<img src="{{asset('site/img/arrowlong.svg')}}" alt="" /></button>
+            </form>
+            <div class="_forgot">
+              <span>Esqueceu a<strong> sua senha ?</strong></span>
+            </div>
+            <div class="_toregister _tologin">
+              <div class="img">
+                <img src="{{asset('site/img/card.svg')}}" alt="" />
+              </div>
+              <span>Faça seu login</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="_sendmessage">
+          <div class="container-fav">
+            <div class="title">
+              <div class="svg">
+                <img src="{{asset('site/img/loginuser.svg')}}" alt="" />
+              </div>
+              <h2>Esqueceu sua senha?</h2>
+            </div>
+            <form method="POST" onsubmit="return false">
               <label>
-                <span>Cidade - UF</span>
-                <input type="text" />
-              </label>
-              <label>
-                <span>Digite sua mensagem</span>
-                <textarea
-                  class=".textA"
-                  name="message"
-                  id=""
-                  cols="30"
-                  rows="10"
-                ></textarea>
+                <span>Email</span>
+                <input type="email" name="email" />
               </label>
 
               <button>Enviar <img src="{{asset('site/img/arrowlong.svg')}}" alt="" /></button>
+
+              <div class="_tologin">
+                <span>Pronto para<strong> entrar?</strong></span>
+              </div>
             </form>
           </div>
         </div>
       </div>
     </header>
-
     <script>        
-        $("form label input,form label textarea").focus(function () {
-        $(this).parent().find("span").addClass("active");
-        });
+        
 
-        $("form label input,form label textarea").focusout(function () {
-        if ($(this).val() == "") {
-            $(this).parent().find("span").removeClass("active");
-        }
-        });
+    $("form label input,form label textarea").focus(function () {
+    $(this).parent().find("span").addClass("active");
+    });
+
+    $("form label input,form label textarea").focusout(function () {
+    if ($(this).val() == "") {
+        $(this).parent().find("span").removeClass("active");
+    }
+    });
+      
+    if($(window).width() <= 960){
+      
+      $("._otherhalf ._toregister").click(() => {
+      $("._otherhalf").scrollLeft(400);
+      });
+
+      $("._otherhalf ._forgot").click(() => {
+      $("._otherhalf").scrollLeft(400 * 2);
+      });
+      $("._otherhalf ._tologin").click(() => {
+      $("._otherhalf").scrollLeft(0);
+      });
+    }else{
+      $("._otherhalf ._toregister").click(() => {
+      $("._otherhalf").scrollTop($("._otherhalf").height());
+      });
+
+      $("._otherhalf ._forgot").click(() => {
+      $("._otherhalf").scrollTop($("._otherhalf").height() * 2);
+      });
+      $("._otherhalf ._tologin").click(() => {
+      $("._otherhalf").scrollTop(0);
+      });
+
+    }
+
+
     </script>
-    <script src="{{ asset('site/js/script.js') }}"></script>
+    <script src="{{asset('site/js/script.js') }}"></script>
     <script src="/_ifl1/ifl1formatador.js"></script>
     <script src="/_ifl1/ifl1validador.js"></script>
 </body>

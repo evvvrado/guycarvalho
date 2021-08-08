@@ -81,6 +81,7 @@
     />
   
 
+
     <!-- HEADER -->
     <header class="container-fluid">
       <div class="container-fav">
@@ -88,6 +89,9 @@
           <div class="_logos">
             <img src="{{asset('site/img/_logo92.png')}}" alt="" />
             <img src="{{asset('site/img/_logoASI_92.png')}}" alt="" />
+            <div class="_carButton">
+              <img src="{{asset('site/img/sistema/car.svg')}}" alt="" />
+            </div>
           </div>
 
           <div class="_duvidas">
@@ -102,6 +106,7 @@
             <div class="_title">
               <div class="_icon">
                 <img src="{{asset('site/img/sistema/car.svg')}}" alt="" />
+                <img src="{{asset('site/img/sistema/cancel.svg')}}" alt="" />
               </div>
               <span>Meu Carrinho</span>
             </div>
@@ -274,7 +279,7 @@
             <h2>Já sou Cadastrado</h2>
             <div class="_offtitle">
               <div class="_left">
-                <form action="">
+                <form action="/carrinho/efetuar">
                   <label>
                     <span>Meu e-mail</span>
                     <input type="email" />
@@ -416,6 +421,24 @@
         if ($(this).val() == "") {
           $(this).parent().find("span").removeClass("active");
         }
+      });
+            
+
+      $("._carButton").click(() => {
+        $("._meuCarrinho").animate(
+          {
+            top: "0",
+          },
+          400
+        );
+      });
+      $(" section._meuCarrinho ._top ._title ._icon img:last-child").click(() => {
+        $("._meuCarrinho").animate(
+          {
+            top: "-200vh",
+          },
+          400
+        );
       });
     </script>
   </body>

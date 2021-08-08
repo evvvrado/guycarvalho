@@ -66,12 +66,8 @@ class SiteController extends Controller
         return view("site.contato");
     }
 
-    public function cadastro(){
-        return view("site.cadastro");
-    }
-
-    public function login(){
-        return view("site.login");
+    public function minhaConta(){
+        return view("site.minha-conta");
     }
 
     public function associese(){
@@ -91,8 +87,8 @@ class SiteController extends Controller
     public function confirmacao(){
         return view("site.carrinho-confirmacao");
     }
-    public function dados(){
-        return view("site.carrinho-dados");
+    public function efetuar(){
+        return view("site.carrinho-efetuar");
     }
     public function minhaArea(){
         return view("site.minha-area");

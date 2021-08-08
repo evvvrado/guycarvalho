@@ -4,7 +4,8 @@
 <head>
     <meta charset='utf-8'>
     @if(isset($pagina))
-        <title>{{$pagina->titulo}}</title>
+        <!-- <title>{{$pagina->titulo}}</title> -->
+        <title>Associação Brasileira de Sommeliers - Brasil</title>
         <meta name='keywords' content='{{$pagina->palavras}}'>
         <meta name='description' content='{{$pagina->descricao}}'>
         <meta property='og:title' content='{{$pagina->titulo}}'>

@@ -80,6 +80,8 @@
     />
   
 
+
+
     <!-- HEADER -->
     <header class="container-fluid">
       <div class="container-fav">
@@ -87,6 +89,9 @@
           <div class="_logos">
             <img src="{{asset('site/img/_logo92.png')}}" alt="" />
             <img src="{{asset('site/img/_logoASI_92.png')}}" alt="" />
+            <div class="_carButton">
+              <img src="{{asset('site/img/sistema/car.svg')}}" alt="" />
+            </div>
           </div>
 
           <div class="_duvidas">
@@ -101,6 +106,7 @@
             <div class="_title">
               <div class="_icon">
                 <img src="{{asset('site/img/sistema/car.svg')}}" alt="" />
+                <img src="{{asset('site/img/sistema/cancel.svg')}}" alt="" />
               </div>
               <span>Meu Carrinho</span>
             </div>
@@ -248,81 +254,94 @@
     </header>
     <!-- HEADER -->
 
-    <section class="container-fluid s_identificacao">
+    <section class="s_compraRealizada">
       <div class="container-fav">
         <div class="_half">
           <div class="_top">
-            <div class="_title _active">
-              <div class="_img">
-                <img src="{{asset('/img/sistema/personIdentificacao.svg')}}" alt="" />
+            <div class="_topItem">
+              <div class="_icon">
+                <img src="{{asset('site/img/sistema/approved2.svg')}}" alt="" />
               </div>
-              <h2>Identificação</h2>
+              <span>Compra Realizada com sucesso!</span>
             </div>
-            <div class="arrow _title">
-              <img src="{{asset('/img/sistema/loadingArrow.svg')}}" alt="" />
-            </div>
-
-            <div class="_title">
-              <div class="_img">
-                <img src="{{asset('/img/sistema/card.svg')}}" alt="" />
+            <div class="_topItem">
+              <div class="_icon">
+                <img src="{{asset('site/img/sistema//happyemoji.svg')}}" alt="" />
               </div>
-              <h2>Pagamento</h2>
+              <span>Obrigado por fazer parte da ABS!</span>
             </div>
           </div>
-          <div class="content">
-            <h2>Já sou Cadastrado</h2>
-            <div class="_offtitle">
-              <div class="_left">
-                <form action="">
-                  <label>
-                    <span>Meu e-mail</span>
-                    <input type="email" />
-                  </label>
-                  <label>
-                    <span>Digite sua senha</span>
-                    <input type="password" />
-                  </label>
-                  <button>
-                    Acessar <img src="{{asset('/img/arrowlong.svg')}}" alt="" />
-                  </button>
-                </form>
-
-                <a href="/" class="_forgotPass">
-                  <div class="_svg">
-                    <img src="{{asset('/img/sistema/lockData.svg')}}" alt="" />
-                  </div>
-                  Esqueci minha senha
-                </a>
-
-                <div class="_others">
-                  <h2>Login com um clique</h2>
-                  <div class="_buttons">
-                    <div class="_button">
-                      <div class="_img">
-                        <img src="{{asset('img/sistema/google.')}}" alt="" />
-                      </div>
-                      Google
-                    </div>
-                    <div class="_button">
-                      <div class="_img">
-                        <img src="{{asset('img/sistema/facebook.svg')}}" alt="" />
-                      </div>
-                      Facebook
-                    </div>
-                  </div>
-                </div>
+          <div class="_title">
+            <h2>Pedido - 552666588636</h2>
+            <div class="_sendtoEmail">
+              <div class="_svg">
+                <img src="{{asset('site/img/sistema/mailData.svg')}}" alt="" />
               </div>
-
-              <div class="_right">
-                <div class="_icon">
-                  <img src="{{asset('/img/sistema/register.svg')}}" alt="" />
-                </div>
-                <span
-                  >É a sua primeira vez?
-                  <strong>Cadastre-se Agora!</strong>
-                </span>
+              <div class="_text">
+                <p>
+                  Toda as informações de sua compra<br />
+                  foi enviada para seu email.
+                </p>
               </div>
             </div>
+          </div>
+          <div class="_info">
+            <div class="_id _infoItem">
+              <div class="_name">
+                <div class="text">
+                  <div class="_svg">
+                    <img src="{{asset('site/img/sistema/userData.svg')}}" alt="" />
+                  </div>
+                  <span>Identificação</span>
+                </div>
+                <div class="_arrow">
+                  <img src="{{asset('site/img/sistema/arrowright.svg')}}" alt="" />
+                </div>
+              </div>
+              <div class="_userINFO">
+                <p class="_userNAME">Everaldo Júnior</p>
+              </div>
+              <div class="_userINFO">
+                <p class="_userEMAIL">everaldocrj@gmail.com</p>
+              </div>
+            </div>
+            <div class="_pag _infoItem">
+              <div class="_name">
+                <div class="text">
+                  <div class="svg">
+                    <img src="{{asset('site/img/sistema/card.svg')}}" alt="" />
+                  </div>
+                  <span>Pagamento</span>
+                </div>
+                <div class="_arrow">
+                  <img src="{{asset('site/img/sistema/arrowright.svg')}}" alt="" />
+                </div>
+              </div>
+              <div class="_pagInfo">
+                <div class="_cCard">
+                  <p>Cartão de Crédito<br />Mater Card **** ***** **** 5526</p>
+                </div>
+                <div class="_payment">5x R$ 25,00</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="_buttons">
+            <button
+              class="btn-primary"
+              onclick="window.location.href = '/minha-area'"
+            >
+              Acessar minha área
+              <div class="_svg">
+                <img src="{{asset('site/img/sistema/buttonArrowRight.svg')}}" alt="" />
+              </div>
+            </button>
+            <button
+              class="btn-primary _secundary"
+              onclick="window.location.href = '/index.html'"
+            >
+              Realizar outra compra
+            </button>
           </div>
         </div>
       </div>
@@ -408,5 +427,34 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
+    <script>
+      $("form label input,form label textarea").focus(function () {
+        $(this).parent().find("span").addClass("active");
+      });
+
+      $("form label input,form label textarea").focusout(function () {
+        if ($(this).val() == "") {
+          $(this).parent().find("span").removeClass("active");
+        }
+      });
+            
+
+      $("._carButton").click(() => {
+        $("._meuCarrinho").animate(
+          {
+            top: "0",
+          },
+          400
+        );
+      });
+      $(" section._meuCarrinho ._top ._title ._icon img:last-child").click(() => {
+        $("._meuCarrinho").animate(
+          {
+            top: "-200vh",
+          },
+          400
+        );
+      });
+    </script>
   </body>
 </html>

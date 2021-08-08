@@ -24,7 +24,7 @@
                 <p>Aguardem - Vem novidades!  -</p>
                 <h3>On-line</h3>
                 <h4><!--10x <span>R$</span>550<span>,00</span>--> <span>R$ Aguardem!</span> </h4>
-                <a href="' . route('site.cadastro') . '">EM BREVE TURMAS</a>
+                <a href="' . route('site.minha-conta') . '">EM BREVE TURMAS</a>
                 <div class="mt-3 d-flex align-items-center align-content-center justify-content-between">
                     <p><img src="' . asset('site/img/ico_alarme.svg') . '" width="20" height="20" alt="Ícone despertador">Em breve</p>
                     <p><img src="' . asset('site/img/ico_calendario.svg') . '" width="18" height="20" alt="Ícone calendário">Em breve</p>
@@ -58,7 +58,7 @@
                             <h4>
                                 <!--10x <span>R$</span>550<span>,00</span>--> <span>R$ Aguardem!</span>
                             </h4>
-                            <a href="/cadastro">EM BREVE TURMAS</a>
+                            <a href="/minha-conta">EM BREVE TURMAS</a>
                             <div style=" class="d-flex align-items-center align-content-center justify-content-between"">
                                 <p><img src="{{asset('site/img/ico_calendario.svg')}}" width="18" height="20" alt="Ícone calendário">Em
                                     breve</p>
@@ -76,7 +76,7 @@
                             <h4>
                                 <!--10x <span>R$</span>550<span>,00</span>--> <span>R$ Aguardem!</span>
                             </h4>
-                            <a href="/cadastro">EM BREVE TURMAS</a>
+                            <a href="/minha-conta">EM BREVE TURMAS</a>
                             <div class="mt-3 d-flex align-items-center align-content-center justify-content-between">
                                 <p><img src="{{ asset('site/img/ico_calendario.svg') }}" width="18" height="20"
                                         alt="Ícone calendário">Em breve</p>

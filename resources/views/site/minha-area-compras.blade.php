@@ -75,48 +75,70 @@
 
 
   <body class="_minhaArea">
-    <!-- HEADER -->
-    <header class="container-fluid">
-        <div class="container-fav">
-            <main>
-            <div class="logos _hi">
-                <a href="/" class="logo-abspe">
-                <img src="{{asset('site/img/_logo92.png')}}" alt="Logo ABS-Brasil" />
-                </a>
-
-                <a href="/" class="logo-asi">
-                <img src="{{asset('site/img/_logoASI_92.png')}}" alt="Logo ASI" />
-                </a>
-            </div>
-
-            <nav>
-                <ul class="_hi">
-                <li><a href="/home.html">Home</a></li>
-                <li><a href="/cursos-e-eventos.html">Cursos e Eventos</a></li>
-                <li><a href="/quem-somos.html">ABS - PE</a></li>
-                <li><a href="/experiencias.html">Experiencias</a></li>
-                <li><a href="/blog.html">Blog</a></li>
-                <li><a href="/galeria.html">Galeria</a></li>
-                <li><a href="/imprensa.html">Imprensa</a></li>
-                </ul>
-            </nav>
-
-            <button class="menu-item btn-primary">Contato</a></button>
-
-            <button class="menu-item hamburguer-menu">
-                <img src="/img/hamburguer.svg" alt="" />
-            </button>
-
-            <img class="h_gradient" src="{{asset('site/img/gradient.png')}}" alt="" />
-            </main>
-        </div>
-    </header>
     <section class="container-fluid _menu">
         <div class="container-fav">
             <nav>
                 <ul>
                 <li>
                     <a href="/minha-area">
+                        <div class="svg">
+                            <img src="{{asset('site/img/sistema/user.svg')}}" alt="">
+                        </div>
+                        Minha Área
+                    </a>
+                </li>
+                    <li class="_active">
+                        <a href="/minha-area/compras">
+                            <div class="svg">
+                                <img src="{{asset('site/img/sistema/bag.svg')}}" alt="">
+                            </div>
+                            Meus Pedidos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/minha-area/matriculas">
+                            <div class="svg">
+                                <img src="{{asset('site/img/sistema/page.svg')}}" alt="">
+                            </div>
+                            Minhas Matrículas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/minha-area/dados">
+                            <div class="svg">
+                                <img src="{{asset('site/img/sistema/clipboard.svg')}}" alt="">
+                            </div>
+                            Meus Dados
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="_user">
+                <div class="_img">
+                    <img src="{{asset('site/img/sistema/user.svg')}}" alt="">
+                </div>
+                <div class="_text">
+                    Olá <span class="_username">Everaldo</span>
+                    <a href="/" class="_sair">
+                        Sair
+                    </a></div>
+            </div>
+        </div>
+
+    </section>
+    
+    <div class="_menuMax">
+        <img src="{{asset('site/img/arrowright.svg')}}" alt="">
+    </div>
+    <section class="container-fluid _menu _mobileMenu">
+        <div class="_closeButton">
+            <img src="{{asset('site/img/arrowleft.svg')}}" alt="">
+        </div>
+        <div class="container-fav">
+            <nav>
+                <ul>
+                <li>
+                    <a href="/minha-area/">
                         <div class="svg">
                             <img src="{{asset('site/img/sistema/user.svg')}}" alt="">
                         </div>
@@ -390,5 +412,29 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
+    <script>
+                
+        $("._menuMax").click(() => {
+        $("._mobileMenu").css("display", "flex");
+        $("._mobileMenu").animate(
+            {
+            left: "0",
+            top:"0",
+            },
+            500
+        );
+        });
+
+        $("section._mobileMenu ._closeButton").click(() => {
+        $("._mobileMenu").animate(
+            {
+            left: "-200vw",
+            top:"0",
+            },
+            500
+        );
+        });
+
+    </script>
   </body>
 </html>

@@ -74,48 +74,70 @@
 </head>
 
   <body class="_minhaArea">
-    <!-- HEADER -->
-    <header class="container-fluid">
-    <div class="container-fav">
-        <main>
-        <div class="logos _hi">
-            <a href="/" class="logo-abspe">
-            <img src="{{asset('site/img/_logo92.png')}}" alt="Logo ABS-Brasil" />
-            </a>
-
-            <a href="/" class="logo-asi">
-            <img src="{{asset('site/img/_logoASI_92.png')}}" alt="Logo ASI" />
-            </a>
-        </div>
-
-        <nav>
-            <ul class="_hi">
-            <li><a href="/home.html">Home</a></li>
-            <li><a href="/cursos-e-eventos.html">Cursos e Eventos</a></li>
-            <li><a href="/quem-somos.html">ABS - PE</a></li>
-            <li><a href="/experiencias.html">Experiencias</a></li>
-            <li><a href="/blog.html">Blog</a></li>
-            <li><a href="/galeria.html">Galeria</a></li>
-            <li><a href="/imprensa.html">Imprensa</a></li>
-            </ul>
-        </nav>
-
-        <button class="menu-item btn-primary">Contato</a></button>
-
-        <button class="menu-item hamburguer-menu">
-            <img src="{{asset('site/img/hamburguer.svg')}}" alt="" />
-        </button>
-
-        <img class="h_gradient" src="{{asset('site/img/gradient.png')}}" alt="" />
-        </main>
-    </div>
-    </header>
     <section class="container-fluid _menu">
         <div class="container-fav">
             <nav>
                 <ul>
                 <li class="_active">
                     <a href="/minha-area">
+                        <div class="svg">
+                            <img src="{{asset('site/img/sistema/user.svg')}}" alt="">
+                        </div>
+                        Minha Área
+                    </a>
+                </li>
+                    <li>
+                        <a href="/minha-area/compras">
+                            <div class="svg">
+                                <img src="{{asset('site/img/sistema/bag.svg')}}" alt="">
+                            </div>
+                            Meus Pedidos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/minha-area/matriculas">
+                            <div class="svg">
+                                <img src="{{asset('site/img/sistema/page.svg')}}" alt="">
+                            </div>
+                            Minhas Matrículas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/minha-area/dados">
+                            <div class="svg">
+                                <img src="{{asset('site/img/sistema/clipboard.svg')}}" alt="">
+                            </div>
+                            Meus Dados
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="_user">
+                <div class="_img">
+                    <img src="{{asset('site/img/sistema/user.svg')}}" alt="">
+                </div>
+                <div class="_text">
+                    Olá <span class="_username">Everaldo</span>
+                    <a href="/" class="_sair">
+                        Sair
+                    </a></div>
+            </div>
+        </div>
+
+    </section>
+    
+    <div class="_menuMax">
+        <img src="{{asset('site/img/arrowright.svg')}}" alt="">
+    </div>
+    <section class="container-fluid _menu _mobileMenu">
+        <div class="_closeButton">
+            <img src="{{asset('site/img/arrowleft.svg')}}" alt="">
+        </div>
+        <div class="container-fav">
+            <nav>
+                <ul>
+                <li class="_active">
+                    <a href="/minha-area/">
                         <div class="svg">
                             <img src="{{asset('site/img/sistema/user.svg')}}" alt="">
                         </div>
@@ -175,16 +197,15 @@
                 </div>
             </div>
             <div class="_matriculasList">
-                <div class="_matricula">
+                <div class="_matricula" style="height: auto;">
                     <div class="_image">
-                        <img src="{{asset('site/img/sistema/capaMatricula.jpg')}}" alt="">
+                        <img src="{{asset('site/img/sistema/Icone (2).png')}}" alt="">
                     </div>
                     <div class="_content">
-                        <h3>Minhas Matrículas</h3>
-                        <p>Total de 15 Matrículas</p>
-                        <p>Última matrícula hoje</p>
+                        <h3>Cursos</h3>
+                        <p>Nenhuma Matrícula</p>
                         <button class="btn-primary" onclick="window.location.href = '/minha-area/matriculas'">
-                          Ver matrículas
+                          + VER CURSOS
                             <div class="_svg">
                                 <img src="{{asset('site/img/sistema/buttonArrowRight.svg')}}" alt="">
                             </div>
@@ -192,16 +213,31 @@
                     </div>
 
                 </div>
-                <div class="_matricula">
+                <div class="_matricula" style="height: auto;">
                     <div class="_image">
-                        <img src="{{asset('site/img/sistema/capaMatricula.jpg')}}" alt="">
+                        <img src="{{asset('site/img/sistema/Icone (3).png')}}" alt="">
                     </div>
                     <div class="_content">
-                        <h3>Minhas Compras</h3>
-                        <p>Total de 15 Compras</p>
-                        <p>Última compra ontem</p>
-                        <button class="btn-primary" onclick="window.location.href = '/minha-area/compras'">
-                          Ver Compras
+                        <h3>Eventos</h3>
+                        <p>Nenhuma Inscrição</p>
+                        <button class="btn-primary" style="background-color: orange;" onclick="window.location.href = '/minha-area/compras'">
+                         + VER EVENTOS
+                            <div class="_svg">
+                                <img src="{{asset('site/img/sistema/buttonArrowRight.svg')}}" alt="">
+                            </div>
+                        </button>
+                    </div>
+
+                </div>
+                <div class="_matricula" style="height: auto;">
+                    <div class="_image">
+                        <img src="{{asset('site/img/sistema/Icone (1).png')}}" alt="">
+                    </div>
+                    <div class="_content">
+                        <h3>Contribuições</h3>
+                        <p>Não Associado</p>
+                        <button class="btn-primary" style="background-color: green;"  onclick="window.location.href = '/minha-area/compras'">
+                         QUERO ME ASSOCIAR
                             <div class="_svg">
                                 <img src="{{asset('site/img/sistema/buttonArrowRight.svg')}}" alt="">
                             </div>
@@ -294,5 +330,29 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
+    <script>
+                
+        $("._menuMax").click(() => {
+        $("._mobileMenu").css("display", "flex");
+        $("._mobileMenu").animate(
+            {
+            left: "0",
+            top:"0",
+            },
+            500
+        );
+        });
+
+        $("section._mobileMenu ._closeButton").click(() => {
+        $("._mobileMenu").animate(
+            {
+            left: "-200vw",
+            top:"0",
+            },
+            500
+        );
+        });
+
+    </script>
   </body>
 </html>

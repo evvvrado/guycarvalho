@@ -12,7 +12,7 @@
             <div class="menuLateral">
                 <button class="menu ativo" title="Menu"><img width="18" height="12" src="{{asset('site/img/ico_menu.svg')}}" alt="Menu"></button>
                 <a href="/" title="Home" class="ancora"><img width="23" height="21" src="{{asset('site/img/ico_home.svg')}}" alt="Home"></a>
-                <a href="#" title="Usuário"><img width="23" height="23" src="{{asset('site/img/ico_user.svg')}}" alt="Usuário"></a>
+                <a href="/minha-conta" title="Usuário"><img width="23" height="23" src="{{asset('site/img/ico_user.svg')}}" alt="Usuário"></a>
                 <a href="{{route('site.contato')}}" title="Ajuda"><img width="23" height="23" src="{{asset('site/img/ico_ajuda.svg')}}" alt="Ajuda"></a>
                 <a href="{{$configuracoes->youtube}}" title="Youtube" target="_blank" rel="nofollow noopener"><img width="27" height="27" src="{{asset('site/img/ico_youtube.svg')}}" alt="Youtube"></a>
                 <a href="{{$configuracoes->instagram}}" title="Instagram" target="_blank" rel="nofollow noopener"><img width="27" height="27" src="{{asset('site/img/ico_insta.svg')}}" alt="Instagram"></a>
