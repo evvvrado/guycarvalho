@@ -117,7 +117,7 @@
                     <img src="{{asset('site/img/sistema/user.svg')}}" alt="">
                 </div>
                 <div class="_text">
-                    Olá <span class="_username">Everaldo</span>
+                    Olá <span class="_username">{{explode(" ", session()->get("aluno")["nome"])[0]}}</span>
                     <a href="/" class="_sair">
                         Sair
                     </a></div>
@@ -175,7 +175,7 @@
                     <img src="{{asset('site/img/sistema/user.svg')}}" alt="">
                 </div>
                 <div class="_text">
-                    Olá <span class="_username">Everaldo</span>
+                    Olá <span class="_username">{{session()->get("aluno")["nome"]}}</span>
                     <a href="/" class="_sair">
                         Sair
                     </a></div>

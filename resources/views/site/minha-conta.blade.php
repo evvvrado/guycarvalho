@@ -1,16 +1,15 @@
-
 <head>
     <meta charset='utf-8'>
-    @if(isset($pagina))
-        <title>{{$pagina->titulo}}</title>
-        <meta name='keywords' content='{{$pagina->palavras}}'>
-        <meta name='description' content='{{$pagina->descricao}}'>
-        <meta property='og:title' content='{{$pagina->titulo}}'>
-        <meta property='og:site_name' content='{{$pagina->titulo}}'>
-        <meta name='twitter:title' content='{{$pagina->titulo}}'>
-        <meta property='og:description' content='{{$pagina->descricao}}'>
-        <meta name='twitter:description' content='{{$pagina->descricao}}'>
-        
+    @if (isset($pagina))
+        <title>{{ $pagina->titulo }}</title>
+        <meta name='keywords' content='{{ $pagina->palavras }}'>
+        <meta name='description' content='{{ $pagina->descricao }}'>
+        <meta property='og:title' content='{{ $pagina->titulo }}'>
+        <meta property='og:site_name' content='{{ $pagina->titulo }}'>
+        <meta name='twitter:title' content='{{ $pagina->titulo }}'>
+        <meta property='og:description' content='{{ $pagina->descricao }}'>
+        <meta name='twitter:description' content='{{ $pagina->descricao }}'>
+
     @else
         <title>Associação Brasileira de Sommeliers - Brasil</title>
         <meta name='keywords' content=''>
@@ -22,11 +21,11 @@
         <meta name='twitter:description' content=''>
     @endif
     <link rel='canonical' href='https://homolog.abs-brasil.com'>
-    
+
     <meta property='og:url' content='https://homolog.abs-brasil.com'>
     <meta http-equiv=Pragma content=no-cache>
     <meta http-equiv=Expires content=-1>
-    <meta http-equiv=CACHE-CONTROL content=NO-CACHE>    
+    <meta http-equiv=CACHE-CONTROL content=NO-CACHE>
     <meta name='theme-color' content='#8A143A'>
     <meta name='msapplication-navbutton-color' content='#8A143A'>
     <meta name='apple-mobile-web-app-status-bar-style' content='#8A143A'>
@@ -59,203 +58,221 @@
     <link rel='preload' type='application/javascript' as='script' href='https://code.jquery.com/jquery-3.5.1.min.js'
         integrity='sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=' crossorigin='anonymous' />
     <link rel='preload' type='application/javascript' as='script' href='{{ asset('site/js/script.js') }}'>
-    
-    <link rel='preload' type='text/css' as='style' href='https://use.fontawesome.com/releases/v5.15.1/css/all.css' crossorigin='anonymous'/><link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.15.1/css/all.css' crossorigin='anonymous'>
-   
+
+    <link rel='preload' type='text/css' as='style' href='https://use.fontawesome.com/releases/v5.15.1/css/all.css'
+        crossorigin='anonymous' />
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.15.1/css/all.css' crossorigin='anonymous'>
+
     <link rel='stylesheet'
         href='https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Lato&family=Roboto:wght@500&family=Spartan:wght@400;700&display=swap'
         crossorigin='anonymous'>
-    <link rel='stylesheet' href='{{ asset("site/css/reset.css") }}'>
-    <link rel='stylesheet' href='{{ asset("site/css/custom.css") }}'>
+    <link rel='stylesheet' href='{{ asset('site/css/reset.css') }}'>
+    <link rel='stylesheet' href='{{ asset('site/css/custom.css') }}'>
     <script src='https://code.jquery.com/jquery-3.5.1.min.js'
         integrity='sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=' crossorigin='anonymous'></script>
 </head>
 
 <body class="form _minha-conta" style="overflow:hidden;">
-<header>
-      <div class="_half">
-        <div class="container-fav">
-          <div class="logos">
-            <a href="/index.html">
-              <img src="{{asset('site/img/_logo136.png')}}" alt="Logo ABS Pernambuco" />
-            </a>
-            <img src="{{asset('site/img/_logoASI_136.png')}}" alt="Logo ASI" />
-          </div>
-          <a href="/" class="_back">
-            <div class="svg">
-              <img src="{{asset('site/img/arrowlong_left.svg')}}" alt="" />
-            </div>
-            <p>Voltar a página principal</p>
-          </a>
-          <div class="_text">
-            Bem-vindo de volta, digite suas credenciais para fazer login com
-            segurança em sua conta.
-          </div>
-          <div class="_contact">
-            <div class="_c">
-              <div class="svg">
-                <img src="{{asset('site/img/WhatsappLogo.svg')}}" alt="" />
-                <span>xx 9999 9999</span>
-              </div>
-            </div>
-            <div class="_c">
-              <div class="svg">
-                <img src="{{asset('site/img/WhatsappLogo.svg')}}" alt="" />
-                <span>xx 9999 9999</span>
-              </div>
-            </div>
-            <div class="_c">
-              <div class="svg">
-                <img src="{{asset('site/img/email.svg')}}" alt="" />
-                <span>contato@abs-pe.com.br</span>
-              </div>
-            </div>
-          </div>
+    <header>
+        <div class="_half">
+            <div class="container-fav">
+                <div class="logos">
+                    <a href="/index.html">
+                        <img src="{{ asset('site/img/_logo136.png') }}" alt="Logo ABS Pernambuco" />
+                    </a>
+                    <img src="{{ asset('site/img/_logoASI_136.png') }}" alt="Logo ASI" />
+                </div>
+                <a href="/" class="_back">
+                    <div class="svg">
+                        <img src="{{ asset('site/img/arrowlong_left.svg') }}" alt="" />
+                    </div>
+                    <p>Voltar a página principal</p>
+                </a>
+                <div class="_text">
+                    Bem-vindo de volta, digite suas credenciais para fazer login com
+                    segurança em sua conta.
+                </div>
+                <div class="_contact">
+                    <div class="_c">
+                        <div class="svg">
+                            <img src="{{ asset('site/img/WhatsappLogo.svg') }}" alt="" />
+                            <span>xx 9999 9999</span>
+                        </div>
+                    </div>
+                    <div class="_c">
+                        <div class="svg">
+                            <img src="{{ asset('site/img/WhatsappLogo.svg') }}" alt="" />
+                            <span>xx 9999 9999</span>
+                        </div>
+                    </div>
+                    <div class="_c">
+                        <div class="svg">
+                            <img src="{{ asset('site/img/email.svg') }}" alt="" />
+                            <span>contato@abs-pe.com.br</span>
+                        </div>
+                    </div>
+                </div>
 
-          <div class="_credit">
-            <p>Desenvolvido por</p>
-            <div class="logo7seven">
-              <a href="https://7seventrends.com">
-                <img src="{{asset('site/img/_logo7seven.png')}}" alt="" />
-              </a>
+                <div class="_credit">
+                    <p>Desenvolvido por</p>
+                    <div class="logo7seven">
+                        <a href="https://7seventrends.com">
+                            <img src="{{ asset('site/img/_logo7seven.png') }}" alt="" />
+                        </a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="_otherhalf">
-        <div class="_login">
-          <div class="container-fav">
-            <div class="title">
-              <div class="svg">
-                <img src="{{asset('site/img/loginuser.svg')}}" alt="" />
-              </div>
-              <h2>Identificação</h2>
-            </div>
-            <form method="POST" onsubmit="return false">
-              <label>
-                <span>Meu e-mail</span>
-                <input type="email" />
-              </label>
-              <label>
-                <span>Digite sua senha</span>
-                <input type="password" />
-              </label>
-              <button>Acessar <img src="{{asset('site/img/arrowlong.svg')}}" alt="" /></button>
-            </form>
-            <div class="_forgot">
-              <span>Esqueceu a<strong> sua senha ?</strong></span>
-            </div>
-            <div class="_toregister">
-              <div class="img">
-                <img src="{{asset('site/img/card.svg')}}" alt="" />
-              </div>
-              <span>Faça seu cadastro</span>
-            </div>
-          </div>
         </div>
 
-        <div class="_register">
-          <div class="container-fav">
-            <div class="title">
-              <div class="svg">
-                <img src="{{asset('site/img/loginuser.svg')}}" alt="" />
-              </div>
-              <h2>Cadastre-se</h2>
+        <div class="_otherhalf">
+            <div class="_login">
+                <div class="container-fav">
+                    <div class="title">
+                        <div class="svg">
+                            <img src="{{ asset('site/img/loginuser.svg') }}" alt="" />
+                        </div>
+                        <h2>Identificação</h2>
+                    </div>
+                    {{--  MENSAGENS DE ERRO  --}}
+                    @if(session()->get("erro"))
+                        {{--  {{session()->get("erro")}} para escrever a mensagem  --}}
+                        {{--  EX: <span>{{session()->get("erro")}}</span>  --}}
+                    @endif
+                    <form action="{{route('site.aluno.logar')}}" method="POST">
+                        @csrf
+                        <label>
+                            <span>Meu e-mail</span>
+                            <input type="email" name="email" required />
+                        </label>
+                        <label>
+                            <span>Digite sua senha</span>
+                            <input type="password" name="senha" required/>
+                        </label>
+                        <button>Acessar <img src="{{ asset('site/img/arrowlong.svg') }}" alt="" /></button>
+                    </form>
+                    <div class="_forgot">
+                        <span>Esqueceu a<strong> sua senha ?</strong></span>
+                    </div>
+                    <div class="_toregister">
+                        <div class="img">
+                            <img src="{{ asset('site/img/card.svg') }}" alt="" />
+                        </div>
+                        <span>Faça seu cadastro</span>
+                    </div>
+                </div>
             </div>
-            <form method="POST" onsubmit="return false">
-              <label>
-                <span>Nome</span>
-                <input type="name" />
-              </label>
-              <label>
-                <span>Digite seu e-mail</span>
-                <input type="email" />
-              </label>
-              <label>
-                <span>Telefone</span>
-                <input type="tel" />
-              </label>
-              <button>Cadastrar<img src="{{asset('site/img/arrowlong.svg')}}" alt="" /></button>
-            </form>
-            <div class="_forgot">
-              <span>Esqueceu a<strong> sua senha ?</strong></span>
+
+            <div class="_register">
+                <div class="container-fav">
+                    <div class="title">
+                        <div class="svg">
+                            <img src="{{ asset('site/img/loginuser.svg') }}" alt="" />
+                        </div>
+                        <h2>Cadastre-se</h2>
+                    </div>
+                    {{--  MENSAGENS DE ERRO  --}}
+                    @if(session()->get("erro"))
+                        {{--  {{session()->get("erro")}} para escrever a mensagem  --}}
+                        {{--  EX: <span>{{session()->get("erro")}}</span>  --}}
+                    @endif
+                    <form action="{{route('site.aluno.cadastrar')}}" method="POST">
+                        @csrf
+                        <label>
+                            <span>Nome</span>
+                            <input type="name" name="nome" maxlenght="50" required/>
+                        </label>
+                        <label>
+                            <span>Digite seu e-mail</span>
+                            <input type="email" name="email" maxlenght="50" required/>
+                        </label>
+                        <label>
+                            <span>Digite sua senha</span>
+                            <input type="password" name="senha" required/>
+                        </label>
+						<label>
+                            <span>Digite seu CPF</span>
+                            <input type="cpf" name="cpf" maxlenght="15" required/>
+                        </label>
+                        <label>
+                            <span>Telefone</span>
+                            <input type="tel" name="telefone" maxlenght="15" required/>
+                        </label>
+                        <button type="submit">Cadastrar<img src="{{ asset('site/img/arrowlong.svg') }}" alt="" /></button>
+                    </form>
+                    <div class="_forgot">
+                        <span>Esqueceu a<strong> sua senha ?</strong></span>
+                    </div>
+                    <div class="_toregister _tologin">
+                        <div class="img">
+                            <img src="{{ asset('site/img/card.svg') }}" alt="" />
+                        </div>
+                        <span>Faça seu login</span>
+                    </div>
+                </div>
             </div>
-            <div class="_toregister _tologin">
-              <div class="img">
-                <img src="{{asset('site/img/card.svg')}}" alt="" />
-              </div>
-              <span>Faça seu login</span>
+
+            <div class="_sendmessage">
+                <div class="container-fav">
+                    <div class="title">
+                        <div class="svg">
+                            <img src="{{ asset('site/img/loginuser.svg') }}" alt="" />
+                        </div>
+                        <h2>Esqueceu sua senha?</h2>
+                    </div>
+                    <form method="POST" onsubmit="return false">
+                        <label>
+                            <span>Email</span>
+                            <input type="email" name="email" />
+                        </label>
+
+                        <button>Enviar <img src="{{ asset('site/img/arrowlong.svg') }}" alt="" /></button>
+
+                        <div class="_tologin">
+                            <span>Pronto para<strong> entrar?</strong></span>
+                        </div>
+                    </form>
+                </div>
             </div>
-          </div>
         </div>
-
-        <div class="_sendmessage">
-          <div class="container-fav">
-            <div class="title">
-              <div class="svg">
-                <img src="{{asset('site/img/loginuser.svg')}}" alt="" />
-              </div>
-              <h2>Esqueceu sua senha?</h2>
-            </div>
-            <form method="POST" onsubmit="return false">
-              <label>
-                <span>Email</span>
-                <input type="email" name="email" />
-              </label>
-
-              <button>Enviar <img src="{{asset('site/img/arrowlong.svg')}}" alt="" /></button>
-
-              <div class="_tologin">
-                <span>Pronto para<strong> entrar?</strong></span>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
     </header>
-    <script>        
-        
+    <script>
+        $("form label input,form label textarea").focus(function() {
+            $(this).parent().find("span").addClass("active");
+        });
 
-    $("form label input,form label textarea").focus(function () {
-    $(this).parent().find("span").addClass("active");
-    });
+        $("form label input,form label textarea").focusout(function() {
+            if ($(this).val() == "") {
+                $(this).parent().find("span").removeClass("active");
+            }
+        });
 
-    $("form label input,form label textarea").focusout(function () {
-    if ($(this).val() == "") {
-        $(this).parent().find("span").removeClass("active");
-    }
-    });
-      
-    if($(window).width() <= 960){
-      
-      $("._otherhalf ._toregister").click(() => {
-      $("._otherhalf").scrollLeft(400);
-      });
+        if ($(window).width() <= 960) {
 
-      $("._otherhalf ._forgot").click(() => {
-      $("._otherhalf").scrollLeft(400 * 2);
-      });
-      $("._otherhalf ._tologin").click(() => {
-      $("._otherhalf").scrollLeft(0);
-      });
-    }else{
-      $("._otherhalf ._toregister").click(() => {
-      $("._otherhalf").scrollTop($("._otherhalf").height());
-      });
+            $("._otherhalf ._toregister").click(() => {
+                $("._otherhalf").scrollLeft(400);
+            });
 
-      $("._otherhalf ._forgot").click(() => {
-      $("._otherhalf").scrollTop($("._otherhalf").height() * 2);
-      });
-      $("._otherhalf ._tologin").click(() => {
-      $("._otherhalf").scrollTop(0);
-      });
+            $("._otherhalf ._forgot").click(() => {
+                $("._otherhalf").scrollLeft(400 * 2);
+            });
+            $("._otherhalf ._tologin").click(() => {
+                $("._otherhalf").scrollLeft(0);
+            });
+        } else {
+            $("._otherhalf ._toregister").click(() => {
+                $("._otherhalf").scrollTop($("._otherhalf").height());
+            });
 
-    }
+            $("._otherhalf ._forgot").click(() => {
+                $("._otherhalf").scrollTop($("._otherhalf").height() * 2);
+            });
+            $("._otherhalf ._tologin").click(() => {
+                $("._otherhalf").scrollTop(0);
+            });
 
-
+        }
     </script>
-    <script src="{{asset('site/js/script.js') }}"></script>
+    <script src="{{ asset('site/js/script.js') }}"></script>
     <script src="/_ifl1/ifl1formatador.js"></script>
     <script src="/_ifl1/ifl1validador.js"></script>
 </body>

@@ -25,7 +25,6 @@ Route::get('/contato', [\App\Http\Controllers\SiteController::class, 'contato'])
 Route::post('/contato/salvar', [\App\Http\Controllers\MensagemController::class, 'salvar'])->name("site.contato.salvar");
 // Route::get('/cadastro', [\App\Http\Controllers\SiteController::class, 'cadastro'])->name("site.cadastro");
 // Route::get('/login', [\App\Http\Controllers\SiteController::class, 'login'])->name("site.login");
-Route::get('/minha-conta', [\App\Http\Controllers\SiteController::class, 'minhaConta'])->name("site.minha-conta");
 Route::get('/associe-se', [\App\Http\Controllers\SiteController::class, 'associese'])->name("site.associe-se");
 Route::get('/diretoria', [\App\Http\Controllers\SiteController::class, 'diretoria'])->name("site.diretoria");
 Route::get('/estaduais', [\App\Http\Controllers\SiteController::class, 'estaduais'])->name("site.estaduais");
@@ -35,6 +34,24 @@ Route::get('/sommelier', [\App\Http\Controllers\SiteController::class, 'sommelie
 Route::get('/noticias/{slug?}', [\App\Http\Controllers\SiteController::class, 'noticias'])->name("site.noticias");
 Route::get('/noticia/{categoria}/{noticia}', [\App\Http\Controllers\SiteController::class, 'noticia'])->name("site.noticia");
 Route::get('/recuperar-senha', [\App\Http\Controllers\SiteController::class, 'recuperar_senha'])->name("site.recuperar-senha");
+
+//ROTAS DE CARRINHO
+Route::get('/carrinho/pagamento', [\App\Http\Controllers\SiteController::class, 'pagamento'])->name("site.carrinho-pagamento");
+Route::get('/carrinho/identificacao', [\App\Http\Controllers\SiteController::class, 'identificacao'])->name("site.carrinho-identificacao");
+Route::get('/carrinho/confirmacao', [\App\Http\Controllers\SiteController::class, 'confirmacao'])->name("site.carrinho-confirmacao");
+Route::get('/carrinho/efetuar', [\App\Http\Controllers\SiteController::class, 'efetuar'])->name("site.carrinho-efetuar");
+
+Route::get('/minha-conta', [\App\Http\Controllers\SiteController::class, 'minhaConta'])->name("site.minha-conta");
+Route::post('/aluno/cadastrar', [\App\Http\Controllers\AlunosController::class, 'cadastrar'])->name("site.aluno.cadastrar");
+Route::post('/aluno/logar', [\App\Http\Controllers\AlunosController::class, 'logar'])->name("site.aluno.logar");
+
+Route::middleware(['aluno'])->group(function () {
+    //ROTAS DE MINHA ÁREA
+    Route::get('/minha-area', [\App\Http\Controllers\SiteController::class, 'minhaArea'])->name("site.minha-area");
+    Route::get('/minha-area/compras', [\App\Http\Controllers\SiteController::class, 'minhaAreaCompras'])->name("site.minha-area-compras");
+    Route::get('/minha-area/dados', [\App\Http\Controllers\SiteController::class, 'minhaAreaDados'])->name("site.minha-area-dados");
+    Route::get('/minha-area/matriculas', [\App\Http\Controllers\SiteController::class, 'minhaAreaMatricula'])->name("site.minha-area-matricula");
+});
 
 Route::get('/links/{slug}', [\App\Http\Controllers\AppController::class, 'index'])->name("site.app");
 Route::post('/api/click', [\App\Http\Controllers\AppController::class, 'click'])->name("site.app.click");
@@ -58,21 +75,6 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/usuarios/editar/{usuario}', [\App\Http\Controllers\UsuariosController::class, 'editar'])->name("painel.usuario.editar");
     Route::post('/sistema/usuarios/salvar/{usuario}', [\App\Http\Controllers\UsuariosController::class, 'salvar'])->name("painel.usuario.salvar");
     Route::get('/sistema/usuarios/bloqueio/{usuario}', [\App\Http\Controllers\UsuariosController::class, 'bloqueio'])->name("painel.usuario.bloqueio");
-
-    //ROTAS DE CARRINHO
-    Route::get('/carrinho/pagamento', [\App\Http\Controllers\SiteController::class, 'pagamento'])->name("site.carrinho-pagamento");
-    Route::get('/carrinho/identificacao', [\App\Http\Controllers\SiteController::class, 'identificacao'])->name("site.carrinho-identificacao");
-    Route::get('/carrinho/confirmacao', [\App\Http\Controllers\SiteController::class, 'confirmacao'])->name("site.carrinho-confirmacao");
-    Route::get('/carrinho/efetuar', [\App\Http\Controllers\SiteController::class, 'efetuar'])->name("site.carrinho-efetuar");
-
-    //ROTAS DE MINHA ÁREA
-    Route::get('/minha-area', [\App\Http\Controllers\SiteController::class, 'minhaArea'])->name("site.minha-area");
-    Route::get('/minha-area/compras', [\App\Http\Controllers\SiteController::class, 'minhaAreaCompras'])->name("site.minha-area-compras");
-    Route::get('/minha-area/dados', [\App\Http\Controllers\SiteController::class, 'minhaAreaDados'])->name("site.minha-area-dados");
-    Route::get('/minha-area/matriculas', [\App\Http\Controllers\SiteController::class, 'minhaAreaMatricula'])->name("site.minha-area-matricula");
-   
-    
-
 
     //ROTAS DE ESTADUAIS
     Route::get('/sistema/estaduais', [\App\Http\Controllers\EstaduaisController::class, 'consultar'])->name("painel.estaduais");
