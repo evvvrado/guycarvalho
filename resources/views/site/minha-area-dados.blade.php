@@ -131,6 +131,7 @@
     <div class="_menuMax">
         <img src="{{asset('site/img/arrowright.svg')}}" alt="">
     </div>
+    
     <section class="container-fluid _menu _mobileMenu">
         <div class="_closeButton">
             <img src="{{asset('site/img/arrowleft.svg')}}" alt="">
@@ -193,78 +194,91 @@
                 <div class="_top">
                     <h2>Meus Dados</h2>                
                 </div>
-                <div class="_dados">
+                <form action="return 0" class="_dados">
                     <div class="dados-div">
-                        <div class="_dadosComponent">
+                        <label>                            
+                            <input type="text" name="_username" value="Everaldo Cristiano Reis Júnior" class="_dadosComponent">
                             <div class="_icon">
                                 <img src="{{asset('site/img/sistema/userData.svg')}}" alt="">
                             </div>
-                            Everaldo Cristiano Reis Júnior
-                        </div>
-                        <div class="_dadosComponent">
+                                
+                        </label>
+
+                       <label>
+                            <input type="email" name="_useremail" value="everaldocrj@gmail.com" class="_dadosComponent">
                             <div class="_icon">
                                 <img src="{{asset('site/img/sistema/mailData.svg')}}" alt="">
                             </div>
-                            everaldocrj@gmail.com
-                        </div>
-                        <div class="_dadosComponent">
+                       </label>
+
+                        <label>
+                            <input type="tel" name="_usercpf" value="158.828.820-20" class="_dadosComponent">
                             <div class="_icon">
                                 <img src="{{asset('site/img/sistema/userData.svg')}}" alt="">
                             </div>
-                            158.828.820-20
-                        </div> 
-                        <div class="_dadosComponent">
+                        </label>                    
+
+                        <label>    
+                            <input type="tel" name="_usertel" value="35 9 8809-0305" class="_dadosComponent">
                             <div class="_icon">
                                 <img src="{{asset('site/img/sistema/phoneData.svg')}}" alt="">
-                            </div>
-                            35 9 8809-0305
-                        </div>
+                            </div>                       
+                        </label>
                     </div>
+
                     <div class="dados-div">
-                        <div class="_dadosComponent">
+
+                        <label>                            
+                            <input type="text" name="_userendereco" value="Rua João Cesário, 180" class="_dadosComponent">
                             <div class="_icon">
-                                <img src="{{asset('site/img/sistema/userData.svg')}}" alt="">
-                            </div>
-                            Rua João Cesário, 180
-                        </div>
-                        <div class="_dadosComponent">
+                                <img src="{{asset('site/img/sistema/doorData.svg')}}" alt="">
+                            </div>                                
+                        </label>
+
+                       <label>
+                            <input type="text" name="_usercity" value="Alfenas" class="_dadosComponent">
                             <div class="_icon">
-                                <img src="{{asset('site/img/sistema/mailData.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/pinData.svg')}}" alt="">
                             </div>
-                            Alfenas
-                        </div>
-                        <div class="_dadosComponent">
+                       </label>
+
+                        <label>
+                            <input type="text" name="_userUF" value="Minas Gerias" class="_dadosComponent">
                             <div class="_icon">
-                                <img src="{{asset('site/img/sistema/userData.svg')}}" alt="">
+                                <img src="{{asset('site/img/sistema/pinData.svg')}}" alt="">
                             </div>
-                            Minas Gerais
-                        </div>
-                        <div class="_dadosComponent">
+                        </label>                    
+
+                        <label>    
+                            <input type="text" name="_userCountry" value="Brasil" class="_dadosComponent">
                             <div class="_icon">
-                                <img src="{{asset('site/img/sistema/userData.svg')}}" alt="">
-                            </div>
-                            Brasil
-                        </div>
+                                <img src="{{asset('site/img/sistema/flagData.svg')}}" alt="">
+                            </div>                       
+                        </label>
+
+                        <button class="btn-primary">Salvar</button>
                     </div>
                     
-                </div>
+                </form>
                 <div class="_top">
                     <h2>Senha de Acesso</h2>                
                 </div>
-                <div class="_dados">
-                    <div class="_dadosComponent">
-                        <div class="_icon">
-                            <img src="{{asset('site/img/sistema/lockData.svg')}}" alt="">
-                        </div>
-                        ••••••••••••••  
-                    </div>
-                    <div class="_dadosComponent">
-                        <div class="_icon">
-                            <img src="{{asset('site/img/sistema/lockData.svg')}}" alt="">
-                        </div>
-                        ••••••••••••••  
-                    </div>
-                </div>
+                <form class="_dados">
+                    <label>                        
+                        <input type="password" name="_useroldpass" value="**********" class="_dadosComponent">
+                            <div class="_icon">
+                                <img src="{{asset('site/img/sistema/lockData.svg')}}" alt="">
+                            </div>
+                    </label>
+                    <label>                        
+                        <input type="password" name="_usernewpass" value="**********" class="_dadosComponent">
+                            <div class="_icon">
+                                <img src="{{asset('site/img/sistema/lockData.svg')}}" alt="">
+                            </div>
+                    </label>
+
+                    <button class="btn-primary">Salvar</button>
+                </form>
 
             </div>
             <div class="_left">

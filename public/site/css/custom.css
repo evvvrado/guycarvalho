@@ -2752,7 +2752,11 @@ body._minha-conta ._otherhalf ._card .row span {
   transform: translateY(80px);
   transition: 0.32s;
 }
-/* RESPONSIVO */
+
+
+.alert{position:relative;padding:.75rem 1.25rem;margin-bottom:1rem;border:1px solid transparent;border-radius:.25rem;}
+.alert-danger{color:#721c24;background-color:#f8d7da;border-color:#f5c6cb;}
+
 
 @media (max-width: 1400px) {
   header main nav {

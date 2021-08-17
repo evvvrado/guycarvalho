@@ -30,13 +30,13 @@
                 </header>
                 <main>
                     <div class='container-fluid d-flex align-content-center my-5'> 
-                        <h3 style='margin:auto; max-width: 500px; text-align:center; font-weight:normal;'>
+                        <h3 style='margin:auto; width: 100%; max-width: 500px; text-align:center; font-weight:normal;'>
                             {{$noticia->subtitulo}}
                         </h3> 
                     </div>
                     <div style="margin: auto; background-image: url('{{asset('site/img/_linedivider.png')}}'); background-size: 100%; width: 250px; height: 50px;"></div>
                     <div class='container-fluid d-flex align-content-center my-5'> 
-                        <div style='margin:auto; max-width: 500px;'>
+                        <div style='margin:auto; width: 100%; max-width: 500px;'>
                             {!! $noticia->conteudo !!}
                         </div>
                     </div>

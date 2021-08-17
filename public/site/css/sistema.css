@@ -215,6 +215,7 @@ section._menu .container-fav ._user ._text span {
 }
 section._menu .container-fav ._user ._text ._sair {
   color: black;
+  display: block;
   font-weight: 600;
   font-size: 1.4rem;
 }
@@ -659,7 +660,6 @@ section._meusDados .container-fav ._dados .dados-div {
   gap: 1.2rem;
   width: 100%;
 }
-
 section._meusDados .container-fav ._dados ._dadosComponent {
   width: 100%;
   max-width: 40rem;
@@ -668,15 +668,48 @@ section._meusDados .container-fav ._dados ._dadosComponent {
   border-radius: 0.4rem;
 
   padding: 1.7rem 0 1.7rem 6.9rem;
-  position: relative;
 
   color: var(--orange2);
   font-size: 1.4rem;
   align-items: center;
 }
-section._meusDados .container-fav ._dados ._dadosComponent ._icon {
+section._meusDados .container-fav ._dados label {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+section._meusDados .container-fav ._dados label ._icon {
   position: absolute;
   left: 2.8rem;
+}
+
+section._meusDados .container-fav ._dados button{
+  
+  width: 100%;
+  height: 5.2rem;
+  border-radius: 0.4rem;
+
+  display: flex;
+  justify-content: center;
+  gap: 2.4rem;
+  align-items: center;
+
+  background: var(--orange2);
+}
+section._meusDados .container-fav ._dados:last-child{
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+section._meusDados .container-fav ._dados:last-child label{
+  max-width: 49%;
+}
+section._meusDados .container-fav ._dados:last-child button{
+  max-width: 49%;
+  float: right;
 }
 
 section._meusDados .container-fav ._left {
@@ -1659,10 +1692,24 @@ body._carrinho
   }
 
   section._meusDados .container-fav {
-    flex-direction: column-reverse;
+    flex-direction: column-reverse;    
+   align-items: center;
     gap: 3rem;
   }
-  section._meusDados .container-fav ._right ._dados {
+  section._meusDados .container-fav ._right{
+    max-width: 43rem;
+  }
+  section._meusDados .container-fav ._left{
+    max-width: 43rem;
+    margin-left: 0;
+    align-items: center;
+  }
+  section._meusDados .container-fav ._left a{
+    margin-left: 0;
+  }
+
+
+    section._meusDados .container-fav ._right ._dados {
     width: 100%;
     flex-direction: column;
     align-items: center;
@@ -1675,9 +1722,23 @@ body._carrinho
     align-items: center;
     justify-content: center;
   }
+  section._meusDados .container-fav ._right ._dados label{
+    gap: 1.5rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+  }
+  
+  section._meusDados .container-fav ._dados:last-child button{
+    max-width: 100%;
+  }
   section._meusDados .container-fav ._dados ._dadosComponent {
     max-width: 43rem;
-    padding-bottom: 4rem;
+  }
+  
+  section._meusDados .container-fav ._dados:last-child label{
+    max-width: 100%;
   }
 }
 

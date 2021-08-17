@@ -136,7 +136,15 @@
                     {{--  MENSAGENS DE ERRO  --}}
                     @if(session()->get("erro"))
                         {{--  {{session()->get("erro")}} para escrever a mensagem  --}}
-                        {{--  EX: <span>{{session()->get("erro")}}</span>  --}}
+                        {{--  EX: <span>{{session()->get("erro")}}</span>  --}}                        
+                        <div class="alert alert-danger">
+                            {{session()->get("erro")}}
+                        </div>
+
+                        <style>
+                            .alert{position:relative;padding:.75rem 1.25rem;margin-bottom:1rem;border:1px solid transparent;border-radius:.25rem;}
+                            .alert-danger{color:#721c24;background-color:#f8d7da;border-color:#f5c6cb;font-family: "Spartan", sans-serif;font-weight: bold;font-size: 2rem;line-height: 22px;}
+                        </style>
                     @endif
                     <form action="{{route('site.aluno.logar')}}" method="POST">
                         @csrf
