@@ -36,7 +36,7 @@ class TurmasController extends Controller
         $turma->vagas = $request->vagas; 
         $turma->botao_comprar = $request->botao_comprar;
         $turma->periodo = $request->periodo;
-        $turma->ativo = false;
+        $turma->ativo = true;
         $turma->save();
         return redirect()->back();
     }
