@@ -10,6 +10,6 @@ class Curso extends Model
     use HasFactory;
 
     public function turmas(){
-        return $this->hasMany(Turma::class);
+        return $this->hasMany(Turma::class, "curso_id", "id");
     }
 }
