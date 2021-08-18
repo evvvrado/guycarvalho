@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Curso;
 use Illuminate\Support\Facades\Storage;
 use Image;
+use Illuminate\Support\Str;
 
 class CursosController extends Controller
 {
@@ -24,10 +25,12 @@ class CursosController extends Controller
         if($request->curso_id){
             $curso = Curso::find($request->curso_id);
             $curso->titulo = $request->titulo;
+            $curso->slug = Str::slug($request->titulo);
             toastr()->success("Curso salvo com sucesso");
         }else{
             $curso = new Curso;
             $curso->titulo = $request->titulo;
+            $curso->slug = Str::slug($request->titulo);
             $curso->save();
             toastr()->success("Curso criado com sucesso!");
         }
