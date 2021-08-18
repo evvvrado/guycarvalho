@@ -60,6 +60,14 @@
         </div>
     </div>
     <div class="row mt-3">
+        <div class="form-group col-12 col-lg-12">
+            <label for="botao_comprar">Botão de Pagamento</label>
+            <input type="text" class="form-control" name="botao_comprar"
+                id="botao_comprar" value="" required 
+            >
+        </div>
+    </div>
+    <div class="row mt-3">
         <div class="col-12 text-end">
             <button type="submit"
                 class="btn btn-primary">Salvar</button>

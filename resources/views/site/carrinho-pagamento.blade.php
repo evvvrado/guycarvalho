@@ -422,6 +422,7 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
+    @include('site.includes.gerencianet')
     <script>
       $("form label input,form label textarea").focus(function () {
         $(this).parent().find("span").addClass("active");

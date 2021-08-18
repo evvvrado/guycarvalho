@@ -4,7 +4,7 @@ namespace App\Classes\Gerencianet;
 use Gerencianet\Exception\GerencianetException;
 use Gerencianet\Gerencianet;
 
-class GerencianetRequisicao{
+class GerencianetRequisicaoBoleto{
 
     public $clientId;
     public $clientSecret;

@@ -64,7 +64,7 @@
                             </div>
                             <div class="row">
                                 @if($turma->aberto)
-                                    <button>Inscreva-se</button>
+                                    {!! $turma->botao_comprar !!}
                                 @else
                                     <button>Encerrado</button>
                                 @endif

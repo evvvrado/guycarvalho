@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Classes\Gerencianet\GerencianetRequisicao;
+use App\Classes\Gerencianet\GerencianetRequisicaoBoleto;
 
 class GerencianetController extends Controller
 {
     //
     public function teste(){
-        $gerencianet = new GerencianetRequisicao();
+        $gerencianet = new GerencianetRequisicaoBoleto();
         $gerencianet->enviarBoletoEmail(1334034, 'gusouza980@gmail.com');
         // $gerencianet->addItem([
         //     'name' => 'Item 1', // nome do item, produto ou serviço
