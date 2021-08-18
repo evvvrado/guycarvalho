@@ -49,6 +49,7 @@ class SiteController extends Controller
     }
     public function instrutores($slug){
         $curso = Curso::where("slug", $slug)->first();
+        dd($curso->turmas);
         $turma = $curso->turmas->where("ativo", true)->sortBy("data")->first();
         return view("site.curso", ["curso" => $curso, "turma" => $turma, "aba" => "instrutores"]);
     }
