@@ -44,12 +44,11 @@ class SiteController extends Controller
     public function curso($slug){
         $curso = Curso::where("slug", $slug)->first();
         $turma = $curso->turmas->where("ativo", true)->sortBy("data")->first();
-        dd($turma);
+        dd($curso);
         return view("site.curso", ["curso" => $curso, "turma" => $turma, "aba" => "detalhes"]);
     }
     public function instrutores($slug){
         $curso = Curso::where("slug", $slug)->first();
-        dd($curso);
         $turma = $curso->turmas->where("ativo", true)->sortBy("data")->first();
         return view("site.curso", ["curso" => $curso, "turma" => $turma, "aba" => "instrutores"]);
     }
