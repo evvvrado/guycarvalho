@@ -17,6 +17,14 @@
         </div>
     </div>
     <div class="row mt-3">
+        <div class="form-group col-12">
+            <label for="texto_turma">Subtitulo</label>
+            <input type="text" class="form-control" name="texto_turma"
+                id="texto_turma" aria-describedby="helpId" maxlength="255" value="" required 
+            >
+        </div>
+    </div>
+    <div class="row mt-3">
         <div class="form-group col-12 col-lg-4">
             <label for="periodo">Período</label>
             <select class="form-select" name="periodo" id="periodo">

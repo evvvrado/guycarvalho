@@ -15,7 +15,7 @@
                 <path d="M16 17.5C16.8284 17.5 17.5 16.8284 17.5 16C17.5 15.1716 16.8284 14.5 16 14.5C15.1716 14.5 14.5 15.1716 14.5 16C14.5 16.8284 15.1716 17.5 16 17.5Z" fill="#E2B63A"/>
                 <path d="M22 17.5C22.8284 17.5 23.5 16.8284 23.5 16C23.5 15.1716 22.8284 14.5 22 14.5C21.1716 14.5 20.5 15.1716 20.5 16C20.5 16.8284 21.1716 17.5 22 17.5Z" fill="#E2B63A"/>
                 </svg>
-                Aulas ministradas online (ao vivo)
+                '.$turma->texto_turma.'
                 </span>
                 <div class="_price">
                     '.$turma->parcelas.'X <span>R$'.number_format($turma->preco/$turma->parcelas, 2, ",",".").'</span>
