@@ -44,7 +44,7 @@
             <div>
                 <a target="_blank" rel="noopener" title="Ver mapa" href="'.CONTATO_GMAPS.'"><img
                         src="{{ asset('site/img/ico_user.svg') }}" width="20" height="22"
-                        alt="Ícone usuário">{{$configuracoes->rua . ", " . $configuracoes->numero}} @if($configuracoes->complemento) {{"- " . $configuracoes->complemento}} @endif - {{$configuracoes->bairro}} / {{$configuracoes->cidade}} - {{$configuracoes->estado}}
+                        alt="Ícone usuário">{{$configuracoes->rua . ", " . $configuracoes->numero}} @if($configuracoes->complemento) {{"- " . $configuracoes->complemento}} @endif - {{$configuracoes->bairro}} <br> {{$configuracoes->cidade}} - {{$configuracoes->estado}}
                 </a>
                 <!--<a target="_blank" rel="noopener" title="Telefone" href="tel:{{$configuracoes->telefone}}"><img src="{{ asset('site/img/ico_fone.svg') }}" width="25" height="25" alt="Ícone Telefone">{{$configuracoes->telefone}}</a>
                 <a class="whatsapp" target="_blank" rel="noopener" title="WhatsApp" href="https://api.whatsapp.com/send?phone=55{{$configuracoes->whatsapp}}"><img src="{{ asset('site/img/ico_whats.svg') }}" width="27" height="27" alt="Ícone WhatsApp">{{$configuracoes->whatsapp}}</a>

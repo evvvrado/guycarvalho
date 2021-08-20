@@ -31,6 +31,9 @@ a:hover {
   text-transform: none;
 }
 
+body.curso-detalhes header{
+  background-size: auto 100%;
+}
 body.curso-detalhes .curso {
   position: static !important;
   display: none;
@@ -39,11 +42,10 @@ body.curso-detalhes p {
   margin-top: 50px;
   max-width: 800px;
   margin-bottom: 50px;
-  font-family: "Inter";
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
-  text-align: justify;
+  /*text-align: justify;*/
   line-height: 180%;
   margin-bottom: 20px;
 }
@@ -62,6 +64,7 @@ section.s_detail .container-fav:nth-child(2) {
 }
 section.s_detail .container-fav ._card {
   height: 398px;
+  
   width: 100%;
   max-width: 270px;
   background-color: white;
@@ -84,8 +87,8 @@ section.s_detail .container-fav .card-relative {
 section.s_detail .container-fav .card-area {
   position: absolute;
   height: calc(100vh + 200px);
-  top: -170px;
-  left: -111px;
+  top: -118px;
+  left: -18px;
   width: 100%;
   max-width: 300px;
 }
@@ -200,6 +203,7 @@ section.s_detail .container-fav nav:after {
   width: 700px;
   border-bottom: 1px solid rgba(183, 177, 177, 0.5);
   margin-top: 77px;
+  z-index: 1;
   right: 0;
 }
 section.s_detail .container-fav nav .nav-component a img {
@@ -243,17 +247,18 @@ section.s_detail .container-fav ._text h2 {
 
   margin-bottom: 14px;
 }
-section.s_detail .container-fav ._text p {
-  font-family: "Inter";
-  font-style: normal;
+section.s_detail .container-fav ._text p,
+section.s_detail .container-fav ._text span {
+  font-style: normal !important;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 180%;
-  margin-bottom: 20px;
-
+  font-size: 16px !important;
+  line-height: 180% !important;
+  margin-bottom: 0 !important;
+  margin-top: 20px!important;
   text-justify: unset;
+  text-align: justify;
 
-  color: #7b7b7b;
+  color: #7b7b7b ;
 }
 section.s_detail .container-fav ._certify {
   margin-top: 56px;
@@ -316,7 +321,7 @@ section.s_detail .container-fav ._card.__alternative h3 {
 
   color: #e2b63a;
 }
-._headertitle span:first-child {
+._headertitle span.chat {
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
@@ -335,7 +340,10 @@ section.s_detail .container-fav ._card.__alternative h3 {
   color: var(--SIS_COR_HOVER);
 }
 ._price span {
-  font-size: 25px;
+    font-family: 'Bebas Neue';
+    font-size: 25px;
+    margin-right: 9px;
+
 }
 
 body._curso-detalhes section.s_curso-conteudo.s_instrutores {
@@ -918,6 +926,11 @@ body._carrinho header .h_gradient {
   height: calc(100% + 40px);
 }
 
+
+ section.s_detail .container-fav .card-button{
+  display: none;
+ }
+
 body._carrinho header main,
 body._carrinho header ._hi {
   display: flex;
@@ -1107,18 +1120,99 @@ section._menu .container-fav ._user ._img {
 }
 
 @media (max-width: 992px) {
-  .card-area {
-    display: none;
+
+
+  ._headertitle ._price{
+    margin-top: 0;
   }
+
+ section.s_detail .container-fav .card-button{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 314px;
+  height: 0;
+
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgba(138, 20, 58, 0.8);
+
+
+
+  border-bottom: 56px solid var(--corAmarelo);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+
+
+  left: 0;
+  right: 0;
+  margin: auto auto;
+
+
+  position: fixed;
+  bottom: 0;
+
+
+  line-height: 4;
+
+  z-index: 666;
+
+
+ }
+ section.s_detail .container-fav .card-button::after{
+  content:  "Faça sua matrícula";
+ }
+
+ section.s_detail .container-fav .card-button i{transition: 0.32s;}
+  section.s_detail .container-fav .card-button.active::after{content:  "Fechar";}
+
+ section.s_detail .container-fav{
+  position: static;
+ }
+
+ section.s_detail .container-fav .card-area{
+  position: fixed;
+  height: 398px;
+
+  top: unset;
+  bottom: -400px;
+  left: 0;
+  right: 0;
+  margin:  0 auto;
+  transition: 0.32s;
+  width: unset;
+   
+  } 
+
+ section.s_detail .container-fav .card-relative{
+  position: static;
+  height: auto;
+
+  }
+
+
+  section.s_detail .container-fav .card-area.active{
+    bottom: 0;
+  }
+  section.s_detail .container-fav ._card{
+    max-width: 100%;
+  }
+
   section.s_detail .container-fav nav {
-    flex-direction: column;
+    /*flex-direction: column;*/
     height: auto;
   }
-  section.s_detail .container-fav nav::after {
+  section.s_detail .container-fav .nav-component span{
     display: none;
   }
+  section.s_detail .container-fav nav::after {
+    /*display: none;*/
+    margin-top: 54px;
+  }
   section.s_detail .container-fav ._intro {
-    width: auto;
+    width: 100%;
   }
   section.s_detail .container-fav:last-child div:nth-child(2) {
     margin-right: 0 !important;

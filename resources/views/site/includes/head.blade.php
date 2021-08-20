@@ -6,13 +6,22 @@
     @if(isset($pagina))
         <!-- <title>{{$pagina->titulo}}</title> -->
         <title>Associação Brasileira de Sommeliers - Brasil</title>
-        <meta name='keywords' content='{{$pagina->palavras}}'>
+        
+        <meta name='keywords' content=''>
+        <meta name='description' content=''>
+        <meta property='og:title' content='Associação Brasileira de Sommeliers - Brasil'>
+        <meta property='og:site_name' content='Associação Brasileira de Sommeliers - Brasil'>
+        <meta name='twitter:title' content='Associação Brasileira de Sommeliers - Brasil'>
+        <meta property='og:description' content=''>
+        <meta name='twitter:description' content=''>
+        
+        <!-- <meta name='keywords' content='{{$pagina->palavras}}'>
         <meta name='description' content='{{$pagina->descricao}}'>
         <meta property='og:title' content='{{$pagina->titulo}}'>
         <meta property='og:site_name' content='{{$pagina->titulo}}'>
         <meta name='twitter:title' content='{{$pagina->titulo}}'>
         <meta property='og:description' content='{{$pagina->descricao}}'>
-        <meta name='twitter:description' content='{{$pagina->descricao}}'>
+        <meta name='twitter:description' content='{{$pagina->descricao}}'> -->
         
     @else
         <title>Associação Brasileira de Sommeliers - Brasil</title>
@@ -24,9 +33,9 @@
         <meta property='og:description' content=''>
         <meta name='twitter:description' content=''>
     @endif
-    <link rel='canonical' href='https://homolog.abs-brasil.com'>
+    <link rel='canonical' href='https://abs-brasil.com'>
     
-    <meta property='og:url' content='https://homolog.abs-brasil.com'>
+    <meta property='og:url' content='https://abs-brasil.com'>
     <meta http-equiv=Pragma content=no-cache>
     <meta http-equiv=Expires content=-1>
     <meta http-equiv=CACHE-CONTROL content=NO-CACHE>    
@@ -34,9 +43,9 @@
     <meta name='msapplication-navbutton-color' content='#8A143A'>
     <meta name='apple-mobile-web-app-status-bar-style' content='#8A143A'>
     <meta property='og:type' content='website'>
-    <meta name='twitter:image' content='https://homolog.abs-brasil.com/img/og_home.jpg'>
-    <meta property='og:image' content='https://homolog.abs-brasil.com/img/og_home.jpg'>
-    <meta property='og:image:secure_url' content='https://homolog.abs-brasil.com/img/og_home.jpg'>
+    <meta name='twitter:image' content='https://abs-brasil.com/img/_og140.png'>
+    <meta property='og:image' content='https://abs-brasil.com/img/_og140.png'>
+    <meta property='og:image:secure_url' content='https://abs-brasil.com/img/_og140.png'>
     <meta name='twitter:image:alt' content='Associação Brasileira de Sommeliers - Brasil'>
     <meta property='og:image:alt' content='Associação Brasileira de Sommeliers - Brasil'>
     <meta property='og:image:width' content='1200'>

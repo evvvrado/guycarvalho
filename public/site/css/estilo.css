@@ -1201,6 +1201,7 @@ body>main.main>section .zigzag:not(.diretoria)>div p::-webkit-scrollbar-thumb:ve
 
 body>main.main>section .cursosNA:not(.sliderCorpo) {
     display: grid;
+    max-width: 100%;
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(393px, 1fr));
     margin-bottom: 100px;
@@ -3268,6 +3269,12 @@ a.ativo{
 }
 
 @media (max-width: 1310px) {
+    
+    body>main.main>section .cursosNA:not(.sliderCorpo) {
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+    }
     body .curso {
         max-width: 300px;
     }
@@ -3548,6 +3555,8 @@ a.ativo{
     body>main.main>section#estaduais>.base .cidades>details[open] {
         height: 110px;
     }
+    
+
 }
 
 .modal-header-destaque{

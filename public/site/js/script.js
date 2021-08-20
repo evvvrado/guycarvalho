@@ -253,3 +253,9 @@ $(window).on('load',function(){
 	wfform.init();
 });
 
+
+
+$(' section.s_detail .container-fav .card-button').click(()=>{
+	$('section.s_detail .container-fav .card-area').toggleClass('active');
+	$(' section.s_detail .container-fav .card-button').toggleClass('active');
+})
