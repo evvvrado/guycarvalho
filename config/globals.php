@@ -24,8 +24,9 @@ return [
         9 => "Email"
     ],
     'periodos' => [
-        0 => "Diurno",
-        1 => "Noturno"
+        0 => "Manhã",
+        1 => "Tarde",
+        2 => "Noite"
     ]
 ];
 

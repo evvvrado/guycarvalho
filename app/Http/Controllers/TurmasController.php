@@ -28,6 +28,7 @@ class TurmasController extends Controller
             toastr()->success("Turma cadastrada com sucesso!");
         }
         $turma->nome = $request->nome;
+        $turma->texto_turma = $request->texto_turma;
         $turma->local = $request->local;
         $turma->data = $request->data;
         $turma->horario = $request->horario;

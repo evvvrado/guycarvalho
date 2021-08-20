@@ -176,6 +176,7 @@
                         $("#form-edicao input[id='parcelas']").val(data.parcelas);
                         $("#form-edicao input[id='vagas']").val(data.vagas);
                         $("#form-edicao input[id='botao_comprar']").val(data.botao_comprar);
+                        $("#form-edicao input[id='texto_turma']").val(data.texto_turma);
                     }
                     xhr.send();
                 },
