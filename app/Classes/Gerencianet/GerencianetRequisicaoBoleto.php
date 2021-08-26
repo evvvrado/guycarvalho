@@ -71,9 +71,7 @@ class GerencianetRequisicaoBoleto{
         try {
             $api = new Gerencianet($this->options);
             $pay_charge = $api->oneStep([],$body);
-            echo '<pre>';
-            print_r($pay_charge);
-            echo '<pre>';
+            return $pay_charge;
             
         } catch (GerencianetException $e) {
             print_r($e->code);

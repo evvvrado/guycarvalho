@@ -66,7 +66,9 @@
                             </div>
                             <div class="row">
                                 @if($turma->aberto)
-                                    {!! $turma->botao_comprar !!}
+                                    {{--  {!! $turma->botao_comprar !!}  --}}
+
+                                    <a href="{{route('site.carrinho-adicionar', ['turma' => $turma])}}">Inscrever-se</a>
                                 @else
                                     <button>Encerrado</button>
                                 @endif

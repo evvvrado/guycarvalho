@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/testes', [\App\Http\Controllers\GerencianetController::class, 'teste']);
+Route::get('/testes', [\App\Http\Controllers\CieloController::class, 'teste']);
 
 Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name("site.index");
 Route::get('/quem-somos', [\App\Http\Controllers\SiteController::class, 'quem_somos'])->name("site.quem_somos");
@@ -36,10 +36,18 @@ Route::get('/noticia/{categoria}/{noticia}', [\App\Http\Controllers\SiteControll
 Route::get('/recuperar-senha', [\App\Http\Controllers\SiteController::class, 'recuperar_senha'])->name("site.recuperar-senha");
 
 //ROTAS DE CARRINHO
-Route::get('/carrinho/pagamento', [\App\Http\Controllers\SiteController::class, 'pagamento'])->name("site.carrinho-pagamento");
-Route::get('/carrinho/identificacao', [\App\Http\Controllers\SiteController::class, 'identificacao'])->name("site.carrinho-identificacao");
-Route::get('/carrinho/confirmacao', [\App\Http\Controllers\SiteController::class, 'confirmacao'])->name("site.carrinho-confirmacao");
-Route::get('/carrinho/efetuar', [\App\Http\Controllers\SiteController::class, 'efetuar'])->name("site.carrinho-efetuar");
+Route::get('/carrinho/adicionar/{turma}', [\App\Http\Controllers\CarrinhoController::class, 'adicionar'])->name("site.carrinho-adicionar");
+Route::get('/carrinho/pagamento', [\App\Http\Controllers\CarrinhoController::class, 'pagamento'])->name("site.carrinho-pagamento");
+Route::get('/carrinho/identificacao', [\App\Http\Controllers\CarrinhoController::class, 'identificacao'])->name("site.carrinho-identificacao");
+Route::post('/carrinho/identificar', [\App\Http\Controllers\CarrinhoController::class, 'identificar'])->name("site.carrinho-identificar");
+Route::get('/carrinho/confirmacao', [\App\Http\Controllers\CarrinhoController::class, 'confirmacao'])->name("site.carrinho-confirmacao");
+Route::get('/carrinho/efetuar', [\App\Http\Controllers\CarrinhoController::class, 'efetuar'])->name("site.carrinho-efetuar");
+Route::get('/carrinho/finalizar/boleto', [\App\Http\Controllers\CarrinhoController::class, 'finalizar_boleto'])->name("site.carrinho.finalizar.boleto");
+Route::post('/carrinho/finalizar/credito/cielo', [\App\Http\Controllers\CieloController::class, 'finalizar_credito'])->name("site.carrinho.finalizar.credito.cielo");
+
+// ROTAS GERENCIANET
+Route::get('/carrinho/finalizar/boleto/gerencianet', [\App\Http\Controllers\GerencianetController::class, 'boleto'])->name("site.carrinho.finalizar.boleto.gerencianet");
+
 
 Route::get('/minha-conta', [\App\Http\Controllers\SiteController::class, 'minhaConta'])->name("site.minha-conta");
 Route::post('/aluno/cadastrar', [\App\Http\Controllers\AlunosController::class, 'cadastrar'])->name("site.aluno.cadastrar");
