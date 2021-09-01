@@ -31,6 +31,7 @@ class CursosController extends Controller
             $curso = new Curso;
             $curso->titulo = $request->titulo;
             $curso->slug = Str::slug($request->titulo);
+            $curso->preco = null;
             $curso->save();
             toastr()->success("Curso criado com sucesso!");
         }
