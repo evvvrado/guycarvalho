@@ -31,8 +31,8 @@ class CursosController extends Controller
             $curso = new Curso;
             $curso->titulo = $request->titulo;
             $curso->slug = Str::slug($request->titulo);
-            $curso->preco = null;
-            $curso->tipo = null;
+            $curso->preco = 0;
+            $curso->tipo = 0;
             $curso->save();
             toastr()->success("Curso criado com sucesso!");
         }
@@ -73,8 +73,8 @@ class CursosController extends Controller
             $img->resize(1200, 546)->save($destinationPath.'/'.$input['imagename']);
             $curso->banner = 'site/imagens/cursos/' . $curso->id . "/" . $input['imagename'];
         }
-        $curso->preco = null;
-        $curso->tipo = null;
+        $curso->preco = 0;
+        $curso->tipo = 0;
         $curso->save();
         return redirect()->back();
     }
