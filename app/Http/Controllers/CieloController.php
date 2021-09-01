@@ -29,7 +29,7 @@ class CieloController extends Controller
         $cielo->addCustomer($request->nome);
         $cielo->addPayment($carrinho->total);
         // $cielo->addCreditCard($request->numero, $bandeira, $request->expiracao, $request->cvv, $request->nome, $request->parcelas);
-        $cielo->addCreditCard('0000.0000.0000.0003', $bandeira, $request->expiracao, $request->cvv, $request->nome, $request->parcelas);
+        $cielo->addCreditCard($request->numero, $bandeira, $request->expiracao, $request->cvv, $request->nome, $request->parcelas);
         $res = $cielo->efetuar();
 
         if($res["status"] == 200){
