@@ -71,7 +71,7 @@ class CursosController extends Controller
             $img->resize(1200, 546)->save($destinationPath.'/'.$input['imagename']);
             $curso->banner = 'site/imagens/cursos/' . $curso->id . "/" . $input['imagename'];
         }
-
+        $curso->preco = null;
         $curso->save();
         return redirect()->back();
     }
