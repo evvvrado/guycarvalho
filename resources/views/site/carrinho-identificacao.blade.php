@@ -280,6 +280,23 @@
                     <h2>Já sou Cadastrado</h2>
                     <div class="_offtitle">
                         <div class="_left">
+                            
+                            {{--  MENSAGENS DE ERRO  --}}
+                            @if(session()->get("erro"))
+                                {{--  {{session()->get("erro")}} para escrever a mensagem  --}}
+                                {{--  EX: <span>{{session()->get("erro")}}</span>  --}}  
+                                                
+                                <div class="alert alert-danger">
+                                    {{session()->get("erro")}}
+                                </div>
+
+                                <style>
+                                    .alert{position:relative;padding:.75rem 1.25rem;margin-bottom:1rem;border:1px solid transparent;border-radius:.25rem;}
+                                    .alert-danger{color:#721c24;background-color:#f8d7da;border-color:#f5c6cb;font-family: "Spartan", sans-serif;font-weight: bold;font-size: 2rem;line-height: 22px;}
+                                </style>
+                            @endif
+
+
                             <form action="{{route('site.carrinho-identificar')}}" method="POST">
 								@csrf
                                 <label>
@@ -295,7 +312,7 @@
                                 </button>
                             </form>
 
-                            <a href="/" class="_forgotPass">
+                            <a href="/minha-conta" class="_forgotPass">
                                 <div class="_svg">
                                     <img src="{{ asset('site/img/sistema/lockData.svg') }}" alt="" />
                                 </div>
@@ -321,14 +338,14 @@
                             </div>  --}}
                         </div>
 
-                        <div class="_right">
+                        <a href="/minha-conta" class="_right">
                             <div class="_icon">
                                 <img src="{{ asset('site/img/sistema/register.svg') }}" alt="" />
                             </div>
                             <span>É a sua primeira vez?
                                 <strong>Cadastre-se Agora!</strong>
                             </span>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>

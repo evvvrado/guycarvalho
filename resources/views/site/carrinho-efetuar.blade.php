@@ -182,6 +182,52 @@
     </header>
     <!-- HEADER -->
 
+    <div class="pop-up-confirmacao">
+  
+        <div class="pop-up-box">
+            
+            <div class="pop-up-header">
+            <div class="logos">        
+                    <img src="{{ asset('site/img/_logo92.png') }}" alt="" />      
+                    <img src="{{ asset('site/img/_logoASI_92.png') }}" alt="" />
+            </div>
+            
+            <div class="icon">
+                <img src="{{ asset('site/img/sistema/happyemoji.svg') }}" alt="" />
+            </div>
+            
+            <p>Tudo pronto para finalizar?</p>
+            
+            </div>
+            <div class="pop-up-middle">
+            
+            <div class="icon">
+                <img src="{{ asset('site/img/sistema/mailData.svg') }}"/>
+            </div>
+            
+            <p>Toda as informações de sua compra<br> serão enviadas para seu email.</p>
+            
+            </div>
+            
+            <div class="pop-up-buttons">
+            <button class="cancel" onclick="activepopup()">Cancelar</button>
+            <button class="confirm" onclick="window.location = '{{route('site.carrinho.finalizar.boleto')}}'" >Finalizar Compra</button>
+            </div>
+            
+        </div>
+
+        <script>
+            function activepopup(){
+               $('.pop-up-confirmacao').toggleClass('active')
+            }        
+        </script>
+    
+    <div class="pop-up-blackground"></div>
+  
+    </div>
+
+
+
     <section class="container-fluid s_identificacao">
         <div class="container-fav">
             <div class="_half">
@@ -250,7 +296,7 @@
                             <p>Selecione qual opçao deseja realizar o pagamento</p>
                         </div>
                         <div class="_buttons">
-                            <div class="bolet button" onclick="window.location = '{{route('site.carrinho.finalizar.boleto')}}'">
+                            <div class="bolet button" onclick="activepopup()">
                                 <div class="_icon">
                                     <img src="{{ asset('site/img/sistema/boleto.svg') }}" alt="" />
                                 </div>
