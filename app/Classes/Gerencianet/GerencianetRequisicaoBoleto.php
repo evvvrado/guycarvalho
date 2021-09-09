@@ -144,6 +144,57 @@ class GerencianetRequisicaoBoleto{
         }
     }
 
+    public function notificacao($token){
+        $params = [
+            'token' => $token
+          ];
+           
+          try {
+              $api = new Gerencianet($this->options);
+              $chargeNotification = $api->getNotification($params, []);
+              dd($chargeNotification);
+            // Para identificar o status atual da sua transação você deverá contar o número de situações contidas no array, pois a última posição guarda sempre o último status. Veja na um modelo de respostas na seção "Exemplos de respostas" abaixo.
+            
+            // Veja abaixo como acessar o ID e a String referente ao último status da transação.
+              
+              // Conta o tamanho do array data (que armazena o resultado)
+              $i = count($chargeNotification["data"]);
+              // Pega o último Object chargeStatus
+              $ultimoStatus = $chargeNotification["data"][$i-1];
+              // Acessando o array Status
+              $status = $ultimoStatus["status"];
+              // Obtendo o ID da transação    
+              $charge_id = $ultimoStatus["identifiers"]["charge_id"];
+              // Obtendo a String do status atual
+              $statusAtual = $status["current"];
+              
+              // Com estas informações, você poderá consultar sua base de dados e atualizar o status da transação especifica, uma vez que você possui o "charge_id" e a String do STATUS
+            $return = [
+                "code" => 200,
+                "charge_id" => $charge_id,
+                "status" => $statusAtual
+            ];
+              echo "O id da transação é: ".$charge_id." seu novo status é: ".$statusAtual;
+           
+              //print_r($chargeNotification);
+          } catch (GerencianetException $e) {
+            $return = [
+                "code" => $e->code,
+                "erro" => $e->error,
+                "descricao" => $e->errorDescription
+            ];
+            //   print_r($e->code);
+            //   print_r($e->error);
+            //   print_r($e->errorDescription);
+              
+          } catch (Exception $e) {
+            $return = [
+                "code" => -1,
+                "erro" => $e->getMessage(),
+            ];
+          }
+    }
+
 }
 
 ?>

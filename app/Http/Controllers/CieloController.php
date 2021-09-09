@@ -63,7 +63,7 @@ class CieloController extends Controller
                 return redirect()->route("site.carrinho-pagamento");
             }
         }else{
-            session()->flash("erro", "Erro na comunicação com a cielo. Tente novamente mais tarde");
+            session()->flash("erro", "Erro nos dados do cartão. Verifique se as informações estão corretas e tente novamente.");
             return redirect()->route("site.carrinho-pagamento");
         }
 

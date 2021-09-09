@@ -338,7 +338,7 @@
                             <img src="{{ asset('site/img/sistema/buttonArrowRight.svg') }}" alt="" />
                         </div>
                     </button>
-                    <button class="btn-primary _secundary" onclick="window.location.href = '/index.html'">
+                    <button class="btn-primary _secundary" onclick="window.location.href = '/'">
                         Realizar outra compra
                     </button>
                 </div>

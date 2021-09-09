@@ -11,6 +11,11 @@ class AlunosController extends Controller
 {
     //
 
+    public function consultar(){
+        $alunos = Aluno::all();
+        return view("painel.alunos.consultar", ["alunos" => $alunos]);
+    }
+
     public function cadastrar(Request $request){
         $validated = $request->validate([
             'nome' => 'max:50',

@@ -15,6 +15,7 @@ class CreatePagamentoCartaosTable extends Migration
     {
         Schema::create('pagamento_cartaos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("venda_id")->nullable();
             $table->string("codigo", 50)->nullable();
             $table->string("numero", 17)->nullable();
             $table->tinyInteger("status")->default(0);

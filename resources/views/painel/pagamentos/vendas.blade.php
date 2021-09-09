@@ -7,11 +7,10 @@
 @endsection
 
 @section('titulo')
-    Listagem de ABS Estaduais
+    Listagem de Vendas
 @endsection
 
 @section('botoes')
-    <a name="" id="" class="btn btn-success" href="{{route('painel.estadual.cadastro')}}" role="button">Nova ABS Estadual</a>
 @endsection
 
 @section('conteudo')
@@ -23,17 +22,18 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Nome</th>
-                            <th>Telefone</th>
-                            <th>Whatsapp</th>
-                            <th>Email</th>
+                            <th>Código</th>
+                            <th>Aluno</th>
+                            <th>Forma</th>
+                            <th>Status</th>
+                            <th>Total</th>
                         </tr>
                     </thead>
 
 
                     <tbody>
 
-                        @foreach($estaduais as $estadual)
+                        @foreach($vendas as $venda)
                             <tr>
                                 <td>
                                     <div class="dropdown mt-4 mt-sm-0">
@@ -41,16 +41,17 @@
                                             <i class="fas fa-bars" aria-hidden="true"></i>
                                         </a>
                                         <div class="dropdown-menu" style="margin: 0px;">
-                                            <a href="{{route('painel.estadual.editar', ['estadual' => $estadual])}}" id="" class="dropdown-item" role="button"><i class="bx bx-edit-alt pr-3"></i> Editar</a>
+                                            {{--  <a href="{{route('painel.estadual.editar', ['estadual' => $estadual])}}" id="" class="dropdown-item" role="button"><i class="bx bx-edit-alt pr-3"></i> Editar</a>
                                             <a href="{{route('painel.estadual.deletar', ['estadual' => $estadual])}}" id="" class="dropdown-item" role="button"><i class="fas fa-trash-alt pr-3"></i> Excluir</a>
-                                            <a href="{{route('painel.diretorias', ['estadual' => $estadual])}}" id="" class="dropdown-item" role="button"><i class="fas fa-user pr-3"></i> Diretoria</a>
+                                            <a href="{{route('painel.diretorias', ['estadual' => $estadual])}}" id="" class="dropdown-item" role="button"><i class="fas fa-user pr-3"></i> Diretoria</a>  --}}
                                         </div>
                                     </div>
                                 </td>
-                                <td>{{$estadual->nome}}</td>
-                                <td>{{$estadual->telefone}}</td>
-                                <td>{{$estadual->whatsapp}}</td>
-                                <td>{{$estadual->email}}</td>
+                                <td>{{$venda->codigo}}</td>
+                                <td>{{$venda->aluno->nome}}</td>
+                                <td>{{config("pagamento.formas")[$venda->forma]}}</td>
+                                <td>{{config("pagamento.status")[$venda->status]}}</td>
+                                <td>R${{number_format($venda->total, 2, ",", ".")}}</td>
 
                             </tr>
                         @endforeach

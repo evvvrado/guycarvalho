@@ -66,6 +66,8 @@ class GerencianetController extends Controller
         ]);
         
         $res = $gerencianet->gerarBoleto();
+
+        dd($res);
         // dd($res);
         if($res["code"] == 200){
             
@@ -107,5 +109,12 @@ class GerencianetController extends Controller
         }
         
         return redirect()->route("site.carrinho-efetuar");
+    }
+
+    public function notificacao(){
+        Log::channel('notificacoes')->info('Tentativa de notificação no token ' . $_POST['notification']);
+        $gerencianet = new GerencianetRequisicaoBoleto();
+        $res = $gerencianet->notificacao($_POST["notification"]);
+        dd($res);
     }
 }

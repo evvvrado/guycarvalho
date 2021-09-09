@@ -7,11 +7,10 @@
 @endsection
 
 @section('titulo')
-    Listagem de ABS Estaduais
+    Listagem de Alunos
 @endsection
 
 @section('botoes')
-    <a name="" id="" class="btn btn-success" href="{{route('painel.estadual.cadastro')}}" role="button">Nova ABS Estadual</a>
 @endsection
 
 @section('conteudo')
@@ -24,16 +23,16 @@
                         <tr>
                             <th></th>
                             <th>Nome</th>
-                            <th>Telefone</th>
-                            <th>Whatsapp</th>
                             <th>Email</th>
+                            <th>Telefone</th>
+                            <th>CPF</th>
                         </tr>
                     </thead>
 
 
                     <tbody>
 
-                        @foreach($estaduais as $estadual)
+                        @foreach($alunos as $aluno)
                             <tr>
                                 <td>
                                     <div class="dropdown mt-4 mt-sm-0">
@@ -41,17 +40,16 @@
                                             <i class="fas fa-bars" aria-hidden="true"></i>
                                         </a>
                                         <div class="dropdown-menu" style="margin: 0px;">
-                                            <a href="{{route('painel.estadual.editar', ['estadual' => $estadual])}}" id="" class="dropdown-item" role="button"><i class="bx bx-edit-alt pr-3"></i> Editar</a>
+                                            {{--  <a href="{{route('painel.estadual.editar', ['estadual' => $estadual])}}" id="" class="dropdown-item" role="button"><i class="bx bx-edit-alt pr-3"></i> Editar</a>
                                             <a href="{{route('painel.estadual.deletar', ['estadual' => $estadual])}}" id="" class="dropdown-item" role="button"><i class="fas fa-trash-alt pr-3"></i> Excluir</a>
-                                            <a href="{{route('painel.diretorias', ['estadual' => $estadual])}}" id="" class="dropdown-item" role="button"><i class="fas fa-user pr-3"></i> Diretoria</a>
+                                            <a href="{{route('painel.diretorias', ['estadual' => $estadual])}}" id="" class="dropdown-item" role="button"><i class="fas fa-user pr-3"></i> Diretoria</a>  --}}
                                         </div>
                                     </div>
                                 </td>
-                                <td>{{$estadual->nome}}</td>
-                                <td>{{$estadual->telefone}}</td>
-                                <td>{{$estadual->whatsapp}}</td>
-                                <td>{{$estadual->email}}</td>
-
+                                <td>{{$aluno->nome}}</td>
+                                <td>{{$aluno->email}}</td>
+                                <td>{{$aluno->telefone}}</td>
+                                <td>{{$aluno->cpf}}</td>
                             </tr>
                         @endforeach
                     </tbody>

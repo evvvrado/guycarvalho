@@ -111,7 +111,7 @@
                         <span>Meu Carrinho</span>
                     </div>
                     <div class="_numberofItems">
-                        <span>2</span>
+                        <span>{{$carrinho->produtos->count()}}</span>
                     </div>
                 </div>
                 <div class="_value">
@@ -119,109 +119,36 @@
                     <div class="_svg">
                         <img src="{{ asset('site/img/sistema/arrowright.svg') }}" alt="" />
                     </div>
-                    <strong>R$ <span class="_total">160,00</span></strong>
+                    <strong>R$ <span class="_total">{{number_format($carrinho->total, 2, ",", ".")}}</span></strong>
                 </div>
                 <div class="_innerCar">
-                    <div class="_innerItem">
-                        <div class="_img">
-                            <img src="{{ asset('site/img/sistema/carrinhoExample.jpg') }}" alt="" />
-                        </div>
-                        <div class="_content">
-                            <h3 class="isOnline">Curso Online</h3>
-                            <h2 class="itemName">Meeting de Musculação</h2>
-                            <p class="itemExtra">Certificado de 10hs</p>
-                            <div class="itemValue">
-                                <strong>R$ <span class="_itemValue">100,00</span></strong>
-                                <div class="_controls">
-                                    <div class="itemControl cancel">
-                                        <div class="_img">
-                                            <img src="{{ asset('site/img/sistema/cancel.svg') }}" alt="" />
-                                        </div>
-                                    </div>
-                                    <div class="itemControl more">
-                                        <div class="_img">
-                                            <img src="{{ asset('site/img/sistema/more.svg') }}" alt="" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="_innerItem">
-                        <div class="_img">
-                            <img src="{{ asset('site/img/sistema/carrinhoExample.jpg') }}" alt="" />
-                        </div>
-                        <div class="_content">
-                            <h3 class="isOnline">Curso Online</h3>
-                            <h2 class="itemName">Meeting de Musculação</h2>
-                            <p class="itemExtra">Certificado de 10hs</p>
-                            <div class="itemValue">
-                                <strong>R$ <span class="_itemValue">100,00</span></strong>
-                                <div class="_controls">
-                                    <div class="itemControl cancel">
-                                        <div class="_img">
-                                            <img src="{{ asset('site/img/sistema/cancel.svg') }}" alt="" />
-                                        </div>
-                                    </div>
-                                    <div class="itemControl more">
-                                        <div class="_img">
-                                            <img src="{{ asset('site/img/sistema/more.svg') }}" alt="" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="_innerItem">
-                        <div class="_img">
-                            <img src="{{ asset('site/img/sistema/carrinhoExample.jpg') }}" alt="" />
-                        </div>
-                        <div class="_content">
-                            <h3 class="isOnline">Curso Online</h3>
-                            <h2 class="itemName">Meeting de Musculação</h2>
-                            <p class="itemExtra">Certificado de 10hs</p>
-                            <div class="itemValue">
-                                <strong>R$ <span class="_itemValue">100,00</span></strong>
-                                <div class="_controls">
-                                    <div class="itemControl cancel">
-                                        <div class="_img">
-                                            <img src="{{ asset('site/img/sistema/cancel.svg') }}" alt="" />
-                                        </div>
-                                    </div>
-                                    <div class="itemControl more">
-                                        <div class="_img">
-                                            <img src="{{ asset('site/img/sistema/more.svg') }}" alt="" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="_innerItem">
-                        <div class="_img">
-                            <img src="{{ asset('site/img/sistema/carrinhoExample.jpg') }}" alt="" />
-                        </div>
-                        <div class="_content">
-                            <h3 class="isOnline">Curso Online</h3>
-                            <h2 class="itemName">Meeting de Musculação</h2>
-                            <p class="itemExtra">Certificado de 10hs</p>
-                            <div class="itemValue">
-                                <strong>R$ <span class="_itemValue">100,00</span></strong>
-                                <div class="_controls">
-                                    <div class="itemControl cancel">
-                                        <div class="_img">
-                                            <img src="{{ asset('site/img/sistema/cancel.svg') }}" alt="" />
-                                        </div>
-                                    </div>
-                                    <div class="itemControl more">
-                                        <div class="_img">
-                                            <img src="{{ asset('site/img/sistema/more.svg') }}" alt="" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+					@foreach($carrinho->produtos as $produto)
+						<div class="_innerItem">
+							<div class="_img">
+								<img src="{{ asset('site/img/sistema/carrinhoExample.jpg') }}" alt="" />
+							</div>
+							<div class="_content">
+								{{--  <h3 class="isOnline">Curso Online</h3>  --}}
+								<h2 class="itemName">{{$produto->turma->curso->titulo}}</h2>
+								{{--  <p class="itemExtra">Certificado de 10hs</p>  --}}
+								<div class="itemValue">
+									<strong>R$ <span class="_itemValue">{{number_format($produto->total, 2, ",", ".")}}</span></strong>
+									<div class="_controls">
+										<div class="itemControl cancel">
+											<div class="_img">
+												<img src="{{ asset('site/img/sistema/cancel.svg') }}" alt="" />
+											</div>
+										</div>
+										{{--  <div class="itemControl more">
+											<div class="_img">
+												<img src="{{ asset('site/img/sistema/more.svg') }}" alt="" />
+											</div>
+										</div>  --}}
+									</div>
+								</div>
+							</div>
+						</div>
+					@endforeach
                 </div>
                 <div class="_bottom">
                     <div class="_subTotal _bottomSub">
@@ -231,15 +158,15 @@
                         <div class="_svg">
                             <img src="{{ asset('site/img/sistema/arrowright.svg') }}" alt="" />
                         </div>
-                        <span>R$ <span class="_subtotalValue">160,00</span></span>
+                        <span>R$ <span class="_subtotalValue">{{number_format($carrinho->total, 2, ",", ".")}}</span></span>
                     </div>
-                    <div class="_subDesconto _bottomSub">
+                    {{--  <div class="_subDesconto _bottomSub">
                         <span>Desconto</span>
                         <div class="_svg">
                             <img src="{{ asset('site/img/sistema/arrowright.svg') }}" alt="" />
                         </div>
                         <span><span class="_subdescontoValue">-</span></span>
-                    </div>
+                    </div>  --}}
                 </div>
 
                 <div class="_finalTotal _bottomSub">
@@ -247,7 +174,7 @@
                     <div class="_svg">
                         <img src="{{ asset('site/img/sistema/arrowright.svg') }}" alt="" />
                     </div>
-                    <strong>R$ <span class="_finaltotalValue">160,00</span> </strong>
+                    <strong>R$ <span class="_finaltotalValue">{{number_format($carrinho->total, 2, ",", ".")}}</span> </strong>
                 </div>
             </section>
         </div>
@@ -282,20 +209,9 @@
                                 <div class="_img">
                                     <img src="{{ asset('site/img/sistema/user.svg') }}" alt="" />
                                 </div>
-                                <p>Everaldo Júnior</p>
+                                <p>{{ $aluno->nome }}</p>
                             </div>
-                            <p>everaldocrj@gmail.com</p>
-                        </div>
-                        <div class="row">
-                            <div>
-                                <p>
-                                    Rua Rio Grande do Sul - Centro Poços de Caldas - MG Numero
-                                    42 Apartamento - 301
-                                </p>
-                            </div>
-                            <div>
-                                <span>JAD Log - R$ 19,90</span>
-                            </div>
+                            <p>{{ $aluno->email }}</p>
                         </div>
                     </div>
 
@@ -330,7 +246,7 @@
                                 </label>
                                 <label>
                                     <span>Parcelas</span>
-                                    <input type="number" name="parcelas" max="10" min="0" step="1"/>
+                                    <input type="number" name="parcelas" max="10" min="1" step="1" required/>
                                 </label>
                                 <button type="submit">
                                     Efetuar pagamento <img src="{{ asset('site/img/arrowlong.svg') }}" alt="" />

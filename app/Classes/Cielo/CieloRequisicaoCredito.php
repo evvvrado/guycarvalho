@@ -89,7 +89,7 @@ class CieloRequisicaoCredito{
                 "erro" => $error
             ];
 
-            return $error;
+            return $return;
         }
     }
 

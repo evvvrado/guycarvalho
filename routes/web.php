@@ -67,6 +67,8 @@ Route::post('/api/click', [\App\Http\Controllers\AppController::class, 'click'])
 Route::get('/sistema/login', [\App\Http\Controllers\PainelController::class, 'login'])->name("painel.login");
 Route::post('/sistema/logar', [\App\Http\Controllers\PainelController::class, 'logar'])->name("painel.logar");
 
+Route::post('/gerencianet/notificacao', [\App\Http\Controllers\GerencianetController::class, 'notificacao'])->name("gerencianet.notificacao")->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);;
+
 Route::middleware(['admin'])->group(function () {
     
     Route::get('/sistema', [\App\Http\Controllers\PainelController::class, 'index'])->name("painel.index");
@@ -155,8 +157,13 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/includes/turma/formulario', function(){
         return view("painel.turmas.formulario");
     });
+
+    //ROTAS DE VENDAS
+    Route::get('/sistema/vendas', [\App\Http\Controllers\PagamentosController::class, 'vendas'])->name("painel.vendas");
     
-    
+    //ROTAS DE ALUNOS
+    Route::get('/sistema/alunos', [\App\Http\Controllers\AlunosController::class, 'consultar'])->name("painel.alunos");
+
     // ROTAS DE DESTAQUES
     Route::get('/sistema/destaques', [\App\Http\Controllers\DestaquesController::class, 'index'])->name("painel.destaques");
     Route::post('/sistema/destaques/cadastrar', [\App\Http\Controllers\DestaquesController::class, 'cadastrar'])->name("painel.destaque.cadastrar");
@@ -181,6 +188,9 @@ Route::middleware(['admin'])->group(function () {
     });
 
     
-
+    
+    Route::get('/teste', function(){
+        return view("site.teste");
+    });
     Route::get('/sistema/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')->name("painel.logs");
 });

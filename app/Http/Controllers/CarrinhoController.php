@@ -66,7 +66,12 @@ class CarrinhoController extends Controller
     }
 
     public function pagamento(){
-        return view("site.carrinho-pagamento");
+        if(!session()->get("carrinho")){
+            return redirect()->route('site.index');
+        }
+        $carrinho = Carrinho::find(session()->get("carrinho"));
+        $aluno = $carrinho->aluno;
+        return view("site.carrinho-pagamento", ["carrinho" => $carrinho, "aluno" => $aluno]);
     }
 
     public function identificacao(){
