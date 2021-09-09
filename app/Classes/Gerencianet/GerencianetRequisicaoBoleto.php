@@ -19,20 +19,24 @@ class GerencianetRequisicaoBoleto{
     public $boleto;
 
     public function __construct(){
-        $this->clientId = env('GERENCIANET_CLIENT');
-        $this->clientSecret = env('GERENCIANET_SECRET');
-        $this->notify_url = env('GERENCIANET_NOTIFY');
+        
         if(env('GERENCIANET_ENV') == 'sandbox'){
+            $this->clientId = env('GERENCIANET_CLIENT_SANDBOX');
+            $this->clientSecret = env('GERENCIANET_SECRET_SANDBOX');
+            $this->notify_url = env('GERENCIANET_NOTIFY');
             $this->options = [
                 'client_id' => $this->clientId,
                 'client_secret' => $this->clientSecret,
                 'sandbox' => true // altere conforme o ambiente (true = homologação e false = producao)
             ];
         }else{
+            $this->clientId = env('GERENCIANET_CLIENT');
+            $this->clientSecret = env('GERENCIANET_SECRET');
+            $this->notify_url = env('GERENCIANET_NOTIFY');
             $this->options = [
                 'client_id' => $this->clientId,
                 'client_secret' => $this->clientSecret,
-                'sandbox' => false // altere conforme o ambiente (true = homologação e false = producao)
+                'sandbox' => false, // altere conforme o ambiente (true = homologação e false = producao)
             ];
         }
             
