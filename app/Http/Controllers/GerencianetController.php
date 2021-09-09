@@ -67,8 +67,6 @@ class GerencianetController extends Controller
         
         $res = $gerencianet->gerarBoleto();
 
-        dd($res);
-        // dd($res);
         if($res["code"] == 200){
             
             $venda = new Venda;
@@ -112,9 +110,17 @@ class GerencianetController extends Controller
     }
 
     public function notificacao(){
-        Log::channel('notificacoes')->info('Tentativa de notificação no token ' . $_POST['notification']);
+        Log::channel('notificacoes')->info('NOTIFICAÇÃO: Tentativa de notificação no token ' . $_POST['notification']);
         $gerencianet = new GerencianetRequisicaoBoleto();
         $res = $gerencianet->notificacao($_POST["notification"]);
-        dd($res);
+        if($res["code"] == 200){
+            $pagamento = PagamentoBoleto::where("charge_id", $res["charge_id"])->first();
+            $pagamento->status = $res["status"];
+            $pagamento->save();
+        }elseif($res["code"] == -1){
+            Log::channel('notificacoes')->error('ERRO:' . $res["erro"]);
+        }else{
+            Log::channel('notificacoes')->error('ERRO:' . $res["erro"] . "\n" . $res["descricao"]);
+        }
     }
 }

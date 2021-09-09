@@ -11,7 +11,7 @@
   </head>
   <body>
     <form action="{{route('gerencianet.notificacao')}}" method="POST">
-        <input type="hidden" name="token" value="09027955-5e06-4ff0-a9c7-46b47b8f1b27">
+        <input type="hidden" name="notification" value="09027955-5e06-4ff0-a9c7-46b47b8f1b27">
         <button type="submit">Enviar</button>
     </form>
     <!-- Optional JavaScript -->
