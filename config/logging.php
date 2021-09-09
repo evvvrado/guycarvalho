@@ -101,6 +101,12 @@ return [
             'level' => env('LOG_LEVEL', 'info'),
         ],
 
+        'boletos' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/boletos.log'),
+            'level' => env('LOG_LEVEL', 'info'),
+        ],
+
         'app' => [
             'driver' => 'single',
             'path' => storage_path('logs/app.log'),

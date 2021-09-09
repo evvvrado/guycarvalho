@@ -3,6 +3,7 @@
 namespace App\Classes\Gerencianet;
 use Gerencianet\Exception\GerencianetException;
 use Gerencianet\Gerencianet;
+use Illuminate\Support\Facades\Log;
 
 class GerencianetRequisicaoBoleto{
 
@@ -83,11 +84,15 @@ class GerencianetRequisicaoBoleto{
             return $pay_charge;
             
         } catch (GerencianetException $e) {
+            Log::channel('boletos')->error('ERRO:' . $e->error . "\n" . $e->errorDescription);
             print_r($e->code);
             print_r($e->error);
             print_r($e->errorDescription);
+            die();
         } catch (Exception $e) {
+            Log::channel('boletos')->error('ERRO:' . $e->getMessage());
             print_r($e->getMessage());
+            die();
         }
     }
 
