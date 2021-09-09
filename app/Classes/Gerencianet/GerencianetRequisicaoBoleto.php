@@ -191,8 +191,8 @@ class GerencianetRequisicaoBoleto{
                 "charge_id" => $charge_id,
                 "status" => $statusAtual
             ];
-              echo "O id da transação é: ".$charge_id." seu novo status é: ".$statusAtual;
-           
+            // echo "O id da transação é: ".$charge_id." seu novo status é: ".$statusAtual;
+            return $return;
               //print_r($chargeNotification);
           } catch (GerencianetException $e) {
             $return = [
@@ -203,12 +203,14 @@ class GerencianetRequisicaoBoleto{
             //   print_r($e->code);
             //   print_r($e->error);
             //   print_r($e->errorDescription);
+            return $return;
               
           } catch (Exception $e) {
             $return = [
                 "code" => -1,
                 "erro" => $e->getMessage(),
             ];
+            return $return;
           }
     }
 
