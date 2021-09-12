@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use App\Models\Venda;
 use App\Classes\Cartao;
+use App\Models\Configuracao;
 
 class CarrinhoController extends Controller
 {
@@ -65,13 +66,24 @@ class CarrinhoController extends Controller
         }
     }
 
-    public function pagamento(){
+    public function pagamento_cartao(){
         if(!session()->get("carrinho")){
             return redirect()->route('site.index');
         }
+        $configuracao = Configuracao::first();
         $carrinho = Carrinho::find(session()->get("carrinho"));
         $aluno = $carrinho->aluno;
-        return view("site.carrinho-pagamento", ["carrinho" => $carrinho, "aluno" => $aluno]);
+        return view("site.carrinho-pagamento", ["forma" =>"cartao", "carrinho" => $carrinho, "aluno" => $aluno, "configuracao" => $configuracao]);
+    }
+
+    public function pagamento_boleto(){
+        if(!session()->get("carrinho")){
+            return redirect()->route('site.index');
+        }
+        $configuracao = Configuracao::first();
+        $carrinho = Carrinho::find(session()->get("carrinho"));
+        $aluno = $carrinho->aluno;
+        return view("site.carrinho-pagamento", ["forma" =>"boleto", "carrinho" => $carrinho, "aluno" => $aluno, "configuracao" => $configuracao]);
     }
 
     public function identificacao(){
@@ -97,8 +109,8 @@ class CarrinhoController extends Controller
         return view("site.carrinho-efetuar", ["carrinho" => $carrinho, "aluno" => $aluno]);
     }
 
-    public function finalizar_boleto(){
-        return redirect()->route("site.carrinho.finalizar.boleto.gerencianet");
+    public function finalizar_boleto(Request $request){
+        return redirect()->route("site.carrinho.finalizar.boleto.gerencianet", ["parcelas" => $request->parcelas]);
     }
 
     // public function finalizar_cartao(Request $request){

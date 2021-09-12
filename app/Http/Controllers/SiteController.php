@@ -92,8 +92,6 @@ class SiteController extends Controller
     public function minhaAreaMatricula(){
         return view("site.minha-area-matricula");
     }
-
-
     
     public function estaduais(){
         $estaduais = Estadual::all();

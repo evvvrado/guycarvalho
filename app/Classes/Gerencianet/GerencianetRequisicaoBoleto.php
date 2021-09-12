@@ -17,6 +17,7 @@ class GerencianetRequisicaoBoleto{
     public $discount;
     public $conditional_discount;
     public $boleto;
+    public $parcelas;
 
     public function __construct(){
         
@@ -71,6 +72,10 @@ class GerencianetRequisicaoBoleto{
         $this->boleto = $boleto;
     }
 
+    public function addParcelas($parcelas){
+        $this->parcelas = intval($parcelas);
+    }
+
     public function gerarBoleto(){
         $payment = [
             'banking_billet' => $this->boleto
@@ -97,6 +102,46 @@ class GerencianetRequisicaoBoleto{
             Log::channel('boletos')->error('ERRO:' . $e->getMessage());
             print_r($e->getMessage());
             die();
+        }
+    }
+
+    public function gerarCarne(){
+        $body = [
+            'items' => $this->items,
+            'customer' => $this->customer,
+            'expire_at' => date("Y-m-d", strtotime("+15 days")),
+            'repeats' => $this->parcelas,
+            'metadata' => [
+                'notification_url' => $this->notify_url
+            ],
+            'split_items' => true
+        ];
+        // dd($body);
+        try {
+            $api = new Gerencianet($this->options);
+            $pay_charge = $api->createCarnet([],$body);
+            // dd($pay_charge);
+            return $pay_charge;
+            
+        } catch (GerencianetException $e) {
+            Log::channel('boletos')->error('ERRO:' . $e->code . " - " . $e->error . "\n" . $e->errorDescription);
+            $return = [
+                "code" => $e->code,
+                "erro" => $e->error,
+                "descricao" => $e->errorDescription
+            ];
+            // print_r($e->code);
+            // print_r($e->error);
+            // print_r($e->errorDescription);
+            return $return;
+        } catch (Exception $e) {
+            Log::channel('boletos')->error('ERRO:' . $e->getMessage());
+            $return = [
+                "code" => -1,
+                "erro" => $e->getMessage(),
+                "descricao" => "Erro geral"
+            ];
+            return $return;
         }
     }
 

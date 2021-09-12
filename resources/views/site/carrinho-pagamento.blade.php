@@ -216,43 +216,71 @@
                     </div>
 
                     <div class="_pagamentoCartao">
-                        <div class="_text">
-                            <span>Pagamento Cartão de Crédito</span>
-                            <p>Digite os dados do seu cartão abaixo:</p>
-                        </div>
-                        <div class="_form">
-							<div>
-								<small style="color: red;">{{session()->get("erro")}}</small>
-							</div>
-                            
-                            <form action="{{route('site.carrinho.finalizar.credito.cielo')}}" method="POST">
-								@csrf
-                                <label>
-                                    <span>N. Cartão</span>
-                                    <input type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}"
-                                        autocomplete="cc-number" name="numero" maxlength="19" />
-                                </label>
-                                <label>
-                                    <span>Nome do cartão</span>
-                                    <input type="text" name="nome"/>
-                                </label>
-                                <label>
-                                    <span>Validade</span>
-                                    <input type="tel" inputmode="numeric" name="expiracao" maxlength="7" />
-                                </label>
-                                <label>
-                                    <span>CVV</span>
-                                    <input type="tel" maxlength="3" name="cvv"/>
-                                </label>
-                                <label>
-                                    <span>Parcelas</span>
-                                    <input type="number" name="parcelas" max="10" min="1" step="1" required/>
-                                </label>
-                                <button type="submit">
-                                    Efetuar pagamento <img src="{{ asset('site/img/arrowlong.svg') }}" alt="" />
-                                </button>
-                            </form>
-                        </div>
+                        @if($forma == 'cartão')
+                            <div class="_text">
+                                <span>Pagamento Cartão de Crédito</span>
+                                <p>Digite os dados do seu cartão abaixo:</p>
+                            </div>
+                            <div class="_form">
+                                <div>
+                                    <small style="color: red;">{{session()->get("erro")}}</small>
+                                </div>
+                                
+                                <form action="{{route('site.carrinho.finalizar.credito.cielo')}}" method="POST">
+                                    @csrf
+                                    <label>
+                                        <span>N. Cartão</span>
+                                        <input type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}"
+                                            autocomplete="cc-number" name="numero" maxlength="19" />
+                                    </label>
+                                    <label>
+                                        <span>Nome do cartão</span>
+                                        <input type="text" name="nome"/>
+                                    </label>
+                                    <label>
+                                        <span>Validade</span>
+                                        <input type="tel" inputmode="numeric" name="expiracao" maxlength="7" />
+                                    </label>
+                                    <label>
+                                        <span>CVV</span>
+                                        <input type="tel" maxlength="3" name="cvv"/>
+                                    </label>
+                                    <label>
+                                        <span>Parcelas</span>
+                                        <input type="number" name="parcelas" max="10" min="1" step="1" required/>
+                                    </label>
+                                    <button type="submit">
+                                        Efetuar pagamento <img src="{{ asset('site/img/arrowlong.svg') }}" alt="" />
+                                    </button>
+                                </form>
+                            </div>
+                        @else
+                            <div class="_text">
+                                <span>Pagamento por boleto ou carnê</span>
+                                <p>Escolha o número de parcelas desejadas:</p>
+                            </div>
+                            <div class="_form">
+                                <div>
+                                    <small style="color: red;">{{session()->get("erro")}}</small>
+                                </div>
+                                
+                                <form action="{{route('site.carrinho.finalizar.boleto')}}" method="POST">
+                                    @csrf
+                                    <label>
+                                        <span>Parcelas</span>
+                                        <select name="parcelas" required>
+                                            <option value="1">1x de {{$carrinho->total - ($carrinho->total * 10 / 100)}}</option>
+                                            @for($i = 2; ((($carrinho->total / $i) > $configuracao->min_valor_parcela_boleto) && $i <= $configuracao->max_parcelas_boleto); $i++)
+                                                <option value="{{$i}}">{{$i}}x de {{number_format($carrinho->total / $i, 2, ",", ".")}}</option>
+                                            @endfor
+                                        </select>
+                                    </label>
+                                    <button type="submit">
+                                        Efetuar pagamento <img src="{{ asset('site/img/arrowlong.svg') }}" alt="" />
+                                    </button>
+                                </form>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

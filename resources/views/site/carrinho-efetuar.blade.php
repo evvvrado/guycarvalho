@@ -187,31 +187,31 @@
         <div class="pop-up-box">
             
             <div class="pop-up-header">
-            <div class="logos">        
-                    <img src="{{ asset('site/img/_logo92.png') }}" alt="" />      
-                    <img src="{{ asset('site/img/_logoASI_92.png') }}" alt="" />
-            </div>
+                <div class="logos">        
+                        <img src="{{ asset('site/img/_logo92.png') }}" alt="" />      
+                        <img src="{{ asset('site/img/_logoASI_92.png') }}" alt="" />
+                </div>
+                
+                <div class="icon">
+                    <img src="{{ asset('site/img/sistema/happyemoji.svg') }}" alt="" />
+                </div>
             
-            <div class="icon">
-                <img src="{{ asset('site/img/sistema/happyemoji.svg') }}" alt="" />
-            </div>
-            
-            <p>Tudo pronto para finalizar?</p>
+                <p>Tudo pronto para finalizar?</p>
             
             </div>
             <div class="pop-up-middle">
             
-            <div class="icon">
-                <img src="{{ asset('site/img/sistema/mailData.svg') }}"/>
-            </div>
-            
-            <p>Toda as informações de sua compra<br> serão enviadas para seu email.</p>
+                <div class="icon">
+                    <img src="{{ asset('site/img/sistema/mailData.svg') }}"/>
+                </div>
+                
+                <p>Toda as informações de sua compra<br> serão enviadas para seu email.</p>
             
             </div>
             
             <div class="pop-up-buttons">
-            <button class="cancel" onclick="activepopup()">Cancelar</button>
-            <button class="confirm" onclick="window.location = '{{route('site.carrinho.finalizar.boleto')}}'" >Finalizar Compra</button>
+                <button class="cancel" onclick="activepopup()">Cancelar</button>
+                <button class="confirm" onclick="window.location = '{{route('site.carrinho.finalizar.boleto')}}'" >Finalizar Compra</button>
             </div>
             
         </div>
@@ -296,7 +296,7 @@
                             <p>Selecione qual opçao deseja realizar o pagamento</p>
                         </div>
                         <div class="_buttons">
-                            <div class="bolet button" onclick="activepopup()">
+                            <div class="bolet button" onclick="window.location.href = '{{route('site.carrinho.pagamento.boleto')}}'">
                                 <div class="_icon">
                                     <img src="{{ asset('site/img/sistema/boleto.svg') }}" alt="" />
                                 </div>
@@ -306,7 +306,7 @@
                                 </div>
                             </div>
 
-                            <div class="creditCard button" onclick="window.location.href = '/carrinho/pagamento'">
+                            <div class="creditCard button" onclick="window.location.href = '{{route('site.carrinho.pagamento.cartao')}}'">
                                 <div class="_icon">
                                     <img src="{{ asset('site/img/sistema/creditcard.svg') }}" alt="" />
                                 </div>

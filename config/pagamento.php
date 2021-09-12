@@ -3,7 +3,8 @@
 return [
     'formas' => [
         0 => "Boleto",
-        1 => "Cartão"
+        1 => "Cartão",
+        2 => "Carnê"
     ],
     'status' => [
         0 => "Aguardando Pagamento",

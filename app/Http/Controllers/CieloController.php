@@ -69,5 +69,11 @@ class CieloController extends Controller
 
         
     }
+
+    public function capturar(){
+        $pagamento = PagamentoCartao::first();
+        $cielo = new CieloRequisicaoCredito();
+        $res = $cielo->capturar($pagamento->codigo, $pagamento->venda->total);
+    }
     
 }

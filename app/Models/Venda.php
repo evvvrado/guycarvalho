@@ -17,6 +17,10 @@ class Venda extends Model
         return $this->hasOne(PagamentoBoleto::class);
     }
 
+    public function carne(){
+        return $this->hasOne(PagamentoCarne::class);
+    }
+
     public function cartao(){
         return $this->hasOne(PagamentoCartao::class);
     }

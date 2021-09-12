@@ -228,7 +228,9 @@
                             </div>
                             <div class="_text">
                                 <span>Aguardando Pag.</span>
-                                <p>{{date("d.m.Y", strtotime($pedido->boleto->expira))}}</p>                            
+                                @if($pedido->forma == 0)
+                                    <p>{{date("d.m.Y", strtotime($pedido->boleto->expira))}}</p>
+                                @endif
                             </div>
                         </div>
                     </div>

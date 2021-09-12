@@ -370,6 +370,12 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                 </a>
                             </li>
                             <li>
+                                <a href="{{route('painel.configuracoes.meios-pagamento')}}" class="waves-effect">
+                                    <i class="fas fa-qrcode" aria-hidden="true"></i>
+                                    <span key="t-dashboards">Meios de Pagamento</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{route('painel.indisponivel')}}" class="waves-effect">
                                     <i class="bx bx-image" aria-hidden="true"></i>
                                     <span key="t-dashboards">Imagens (i)</span>
