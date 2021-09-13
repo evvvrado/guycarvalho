@@ -1,27 +1,34 @@
-<section id="numeros">
-    <img class="banner" src="{{ asset('site/img/banner_numeros.jpg') }}" alt="Queijos e vinho" width="405"
-        height="467">
-    <div class="intro">
-        <h2 class="traco">A ABS</h2>
-        <p>Foi fundada no Rio de Janeiro, em 1983, por iniciativa do sommelier e restaurateur Danio Braga. Em
-            2011 liderou campanha que culminou com a regulamentação da profissão de Sommelier</p>
-    </div>
-    <div class="direita">
-        <div class="caixas">
-            <div>
-                <img src="{{ asset('site/img/ico_tacas.svg') }}" width="58" height="58" alt="Taças">
-                <p><span class="grande">38</span>anos de história</p>
-            </div>
-            <div>
-                <img src="{{ asset('site/img/ico_globo.svg') }}" width="51" height="51" alt="Pessoas globo">
-                <p><span>10</span>ABS Estaduais</p>
-            </div>
-            <div>
-                <img src="{{ asset('site/img/ico_livros.svg') }}" width="50" height="50" alt="Livros">
-                <p><span>1</span>Curso</p>
-            </div>
+<section class="container-fluid s_numeros">
+    <div class="container-fav showin">
+        <div class="img">
+            <img src="{{asset('site/img/nossosnumeros.jpg')}}" alt="Duas taças">
         </div>
-        <h2>Fonte de formação de sommeliers profissionais do país</h2>
-        <a href="{{route('site.quem_somos')}}" class="botao">Quem somos</a>
+
+        <div class="text">
+            <h2>Nossos Números</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus sed felis ipsum mattis at. Duis
+                consequat dis dolor pellentesque tincidunt sit sit diam mattis. Imperdiet tristique felis etiam est.
+                Cursus sit potenti at ut a maecenas elit.</p>
+
+            <div class="number-card">
+                <div class="cards">
+                    <h1>31</h1>
+                    <span>Anos de história</span>
+                </div>
+                <div class="cards">
+                    <span>mais de</span>
+                    <h1>150</h1>
+                    <span>Associados</span>
+                </div>
+                <div class="cards">
+                    <h1>41</h1>
+                    <span>Instrutores</span>
+                </div>
+            </div>
+
+            <button class="btn-primary">
+                Seja um associado e tenha inúmeras vantagens
+            </button>
+        </div>
     </div>
 </section>

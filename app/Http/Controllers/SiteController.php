@@ -79,9 +79,22 @@ class SiteController extends Controller
         return view("site.diretoria");
     }
 
+    public function experiencia(){
+        return view("site.experiencia");
+    }
+
+    public function galerias(){
+        return view("site.galerias");
+    }
+
+    public function imprensa(){
+        return view("site.imprensa");
+    }
+
     public function minhaArea(){
         return view("site.minha-area");
     }
+
     public function minhaAreaCompras(){
         $aluno = Aluno::find(session()->get("aluno")["id"]);
         return view("site.minha-area-compras", ["aluno" => $aluno]);
