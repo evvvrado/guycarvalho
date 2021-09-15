@@ -166,6 +166,10 @@ Route::middleware(['admin'])->group(function () {
 
     //ROTAS DE VENDAS
     Route::get('/sistema/vendas', [\App\Http\Controllers\PagamentosController::class, 'vendas'])->name("painel.vendas");
+
+
+    //ROTAS DE MAPA
+    Route::get('/sistema/mapa', [\App\Http\Controllers\PagamentosController::class, 'mapa'])->name("painel.mapa");
     
     //ROTAS DE ALUNOS
     Route::get('/sistema/alunos', [\App\Http\Controllers\AlunosController::class, 'consultar'])->name("painel.alunos");

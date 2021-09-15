@@ -10,12 +10,12 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
 <head>
         
         <meta charset="utf-8" />
-        <title>ABS - Painel Administrativo</title>
+        <title>ENAF - Painel Administrativo</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="_token" content="{{ csrf_token() }}">
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{asset('admin/images/favicon.png')}}">
+        <link rel="shortcut icon" href="{{asset('admin/images/favicon.ico')}}">
 
         <!-- Bootstrap Css -->
         <link href="{{asset('admin/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -42,19 +42,19 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                         <div class="navbar-brand-box">
                             <a href="{{route('painel.index')}}" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="{{asset('site/img/logo32.png')}}" alt="" width="32">
+                                    <img src="{{asset('site/img/_logo47_Color.png')}}" alt="" width="32">
                                 </span>
                                  <span class="logo-lg">
-                                    <img src="{{asset('site/img/logo32.png')}}" alt="" width="32">
+                                    <img src="{{asset('site/img/_logo47_Color.png')}}" alt="" width="32">
                                 </span> 
                             </a>
 
                             <a href="{{route('painel.index')}}" class="logo logo-light">
                                  <span class="logo-sm">
-                                    <img src="{{asset('site/img/logo32.png')}}" alt="" width="32">
+                                    <img src="{{asset('site/img/_logo57.svg')}}" alt="" width="32">
                                 </span> 
                                 <span class="logo-lg">
-                                    <img class="" src="{{asset('site/img/logo64.png')}}" alt="" width="64">
+                                    <img class="" src="{{asset('site/img/_logo57.svg')}}" alt="" width="64">
                                 </span>
                             </a>
                         </div>
@@ -261,125 +261,12 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                             </li>
                             <li>
                                 <a href="javascript: void(0);" class="waves-effect">
-                                    <i class="bx bx-money" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Pagamentos</span>
+                                    <i class="bx bx-map-alt" aria-hidden="true"></i>
+                                    <span key="t-dashboards">Mapa do Site</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.vendas')}}" key="t-default">Vendas</a></li>
+                                    <li><a href="{{route('painel.mapa')}}" key="t-default">Mapa</a></li>
                                 </ul>
-                            </li>
-                            <li>
-                                <a href="{{route('painel.cursos')}}" class="waves-effect">
-                                    <i class="bx bx-font-family" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Cursos</span>
-                                </a>
-                                {{--  <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Turma (i)</a></li>
-                                </ul>  --}}
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" class="waves-effect">
-                                    <i class="bx bx-calendar-event" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Eventos</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Locais (i)</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" class="waves-effect">
-                                    <i class="bx bx-user-plus" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Cadastros</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.alunos')}}" key="t-default">Alunos</a></li>
-                                </ul>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Professores (i)</a></li>
-                                </ul>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Diretores (i)</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" class="waves-effect">
-                                    <i class="fas fa-handshake menu-icon" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Relacionamento</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Pessoa Física (i)</a></li>
-                                </ul>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Pessoa Jurídica (i)</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" class="waves-effect">
-                                    <i class="bx bxs-contact" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Marketing</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.mensagens')}}" key="t-default">Mensagem</a></li>
-                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Assinante de Newsletter (i)</a></li>
-                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">E-mail Marketing (i)</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" class="waves-effect">
-                                    <i class="far fa-sticky-note" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Institucional</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.noticias')}}" key="t-default">Notícias do Vinho</a></li>
-                                    <li><a href="{{route('painel.categorias')}}" key="t-default">Categorias</a></li>
-                                    <li><a href="{{route('painel.tags')}}" key="t-default">Tags</a></li>
-                                    <li><a href="{{route('painel.hashtags')}}" key="t-default">Hashtags</a></li>
-                                    <li><a href="{{route('painel.estaduais')}}" key="t-default">ABS Estaduais</a></li>
-                                    <li><a href="{{route('painel.indisponivel')}}" key="t-default">Slides (i)</a></li>
-                                    <li><a href="{{route('painel.destaques')}}" key="t-default">Destaque Suspenso</a></li>
-                                    <li><a href="{{route('painel.leads')}}" key="t-default">Leads</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" class="waves-effect">
-                                    <i class="bx bx-slider-alt" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Administração</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.usuarios')}}" key="t-default">Usuários</a></li>
-                                    <li><a href="{{route('painel.logs')}}" target="_blank" key="t-default">Log de Notificação</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-title" key="t-menu">Configurações</li>
-                            <li>
-                                <a href="{{route('painel.configuracoes.contato')}}" class="waves-effect">
-                                    <i class="bx bx-phone-call" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Contato</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('painel.configuracoes.seo')}}" class="waves-effect">
-                                    <i class="bx bx-globe" aria-hidden="true"></i>
-                                    <span key="t-dashboards">SEO</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('painel.app')}}" class="waves-effect">
-                                    <i class="bx bx-mobile" aria-hidden="true"></i>
-                                    <span key="t-dashboards">App Link</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('painel.configuracoes.meios-pagamento')}}" class="waves-effect">
-                                    <i class="fas fa-qrcode" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Meios de Pagamento</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('painel.indisponivel')}}" class="waves-effect">
-                                    <i class="bx bx-image" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Imagens (i)</span>
-                                </a>
                             </li>
                         </ul>
                     </div>

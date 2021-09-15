@@ -12,4 +12,9 @@ class PagamentosController extends Controller
         $vendas = Venda::all();
         return view("painel.pagamentos.vendas", ["vendas" => $vendas]);
     }
+
+    
+    public function mapa(){
+        return view("painel.mapa.mapa");
+    }
 }

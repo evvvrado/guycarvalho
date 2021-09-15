@@ -5,7 +5,7 @@
 <head>
         
         <meta charset="utf-8" />
-        <title>ABS - Painel Administrativo</title>
+        <title>ENAF - Painel Administrativo</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Painel de controle da Gefit" name="description" />
         <meta content="Luis Gustavo de Souza Carvalho" name="author" />
@@ -33,7 +33,7 @@
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     
-                    <div class="col-xl-9" style="background: url(/admin/images/background-login.jpg); background-size: cover; background-position:center;">
+                    <div class="col-xl-9" style="background: url(/admin/images/bg-auth-overlay.png); background-size: cover; background-position:center;">
                         <div class="auth-full-bg pt-lg-5 p-4">
                             <div class="w-100">
                                 <div class="bg-overlay"></div>
@@ -52,7 +52,7 @@
                     </div>
                     <!-- end col -->
 
-                    <div class="col-xl-3" style="background-color: #8a143a;">
+                    <div class="col-xl-3" style="background-color:#3c445b;">
                         <div class="auth-full-page-content p-md-5 p-4">
                             <div class="w-100">
 
