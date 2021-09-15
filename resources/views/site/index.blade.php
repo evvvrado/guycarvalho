@@ -1,463 +1,936 @@
 @include("site.includes.head")
-<body class="_home">
-
-    <section class="container-fluid _infobox">
-        <div class="_box">
-            <span id="_info"></span>
-        </div>
-        <div class="_loadingBox">
-        </div>
-    </section>
 
 
-    <div class="_toUp">
-        <img src="{{asset('site/img/arrow.svg')}}" alt="Seta para cima">
+<body id="home">
+
+@include("site.includes.navbar")
+
+<section class="container-fluid s_hero">
+    <div class="container-fav">
+      <div class="_h1 fade">
+        <h6>WORKSHOPS AO VIVO</h6>
+        <h1>Invista em você</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua.
+        </p>
+        <button name="hero_button">
+          <img src="{{ asset('site/img/arrowright.svg') }}" alt="" />
+        </button>
+      </div>
     </div>
+  </section>
 
-
-    <div id="backdrop">
-        <div class="logo"><img src="{{asset('site/img/_logo91.png')}}" alt="Logo ABS-Brasil"></div>
+  <section class="container-fluid s_publi">
+    <div class="container-fav">
+      <a
+        target="_blank"
+        rel="noopener"
+        href="https://www.sistemasca.com/inicio"
+        title="Conheça o Sistema SCA - Gestão de Academias"
+      >
+        <img src="{{ asset('site/img/banner_publicidade.jpg') }}" rel="noopener" alt="Publicidade ~ SISTEMA SCA" />
+      </a>
     </div>
+  </section>
 
-    <!-- MENU LATERAL -->
-    @include("site.includes.menu_lateral")
-    <!-- MENU LATERAL -->
+  <section class="container-fluid s_nextEvent">
+    <div class="container-fav">
+      <div class="_case fade">
+        <div class="_buttons">
+          <div class="_previous">
+            <img src="{{ asset('site/img/halfarrowleft.svg') }}" alt="Evento Anterior" />
+          </div>
+          <div class="_next">
+            <img src="{{ asset('site/img/halfarrowright.svg') }}" alt="Próximo Evento" />
+          </div>
+        </div>
+        <div class="_img">
+          <img src="{{ asset('site/img/case_nextEvent.jpg') }}" alt="Próximo evento aqui no ENAF" />
+        </div>
+      </div>
+      <div class="_content">
+        <h6>Próximo evento</h6>
+        <h2 class="event_name">Enaf Day Strong</h2>
+        <span class="event_date">Sábado: 08h às 18h</span>
+        <p class="event_local">São Paulo - SP</p>
+        <button name="event_button">
+          <img src="{{ asset('site/img/arrowright_white.svg') }}" alt="Vamos nessa!" title="Vamos nessa!" />
+        </button>
+      </div>
+    </div>
+  </section>
 
-    {{--  BARRA DE LOGIN E CADASTRE-SE  --}}
-    @include("site.includes.barra_login")
-
-    
-    {{--  NAVBAR SUPEROR  --}}
-    @include("site.includes.navbar")
-    <!-- BARRA SUPERIOR DE LOGIN E HEADER-->
-
-
-    <!-- SECTION HERO -->
-    <section class="container-fluid s_hero">
-        <div class="hero_cards">
-            <div>
-                <img src="{{asset('site/img/calendarpointed.svg')}}" alt="" />
-                <span>04.02.21</span>
+  <section class="container-fluid s_events">
+    <div class="container-fav">
+      <div class="_eventList">
+        <div class="_event">
+          <div class="_pic">
+            <img src="{{ asset('site/img/events_Pic (1).jpg') }}" alt="Imagem deste evento" />
+          </div>
+          <div class="_content">
+            <div class="_top">
+              <h4 class="event_name">Strong Day</h4>
+              <p class="event_local">Poços de Caldas - MG</p>
             </div>
-            <div>
-                <img src="{{asset('site/img/alarm.svg')}}" alt="" />
-                <span>Às 20hs</span>
+            <div class="_bottom">
+              <span class="event_date">20 de Jun.</span>
+              <p class="event_time">Sábado: 08h às 18h</p>
             </div>
+          </div>
+        </div>
+        <div class="_event">
+          <div class="_pic">
+            <img src="{{ asset('site/img/events_Pic (2).jpg') }}" alt="Imagem deste evento" />
+          </div>
+          <div class="_content">
+            <div class="_top">
+              <h4 class="event_name">Enaf Life of Life</h4>
+              <p class="event_local">Rio de Janeiro - RJ</p>
+            </div>
+            <div class="_bottom">
+              <span class="event_date">20 a 22 de Ago.</span>
+              <p class="event_time">Sábado: 08h às 18h</p>
+            </div>
+          </div>
+        </div>
+        <div class="_event">
+          <div class="_pic">
+            <img src="{{ asset('site/img/events_Pic (3).jpg') }}" alt="Imagem deste evento" />
+          </div>
+          <div class="_content">
+            <div class="_top">
+              <h4 class="event_name">Fitness World</h4>
+              <p class="event_local">Rio de Janeiro - RJ</p>
+            </div>
+            <div class="_bottom">
+              <span class="event_date">08 a 12 de Out.</span>
+              <p class="event_time">Sábado: 08h às 18h</p>
+            </div>
+          </div>
+        </div>
+        <div class="_event">
+          <div class="_pic">
+            <img src="{{ asset('site/img/events_Pic (4).jpg') }}" alt="Imagem deste evento" />
+          </div>
+          <div class="_content">
+            <div class="_top">
+              <h4 class="event_name">25 Anos Fitness</h4>
+              <p class="event_local">Alfenas - MG</p>
+            </div>
+            <div class="_bottom">
+              <span class="event_date">12 de Jan.</span>
+              <p class="event_time">Sábado: 08h às 18h</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid s_destaque">
+    <div class="container-fav">
+      <div class="_content fade">
+        <div class="_line">
+          <button>
+            <img src="{{ asset('site/img/arrowright.svg') }}" alt="Seta para direita" />
+          </button>
+        </div>
+        <h6></h6>
+        <div class="_svg">
+          <img src="{{ asset('site/img/svg_poweroflife_white.svg') }}" alt="Power of Life" />
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid s_cursos">
+    <div class="container-fav">
+      <div class="title">
+        <h4>Cursos</h4>
+        <div class="_filter">
+          <nav>
+            <div class="_filterItem active">Online</div>
+            <div class="_filterItem">Presenciais</div>
+          </nav>
+        </div>
+      </div>
+      <div class="_cursosList">
+        <div class="_curso online">
+          <div class="_pic">
+            <img src="{{ asset('site/img/curso_Pic (1).jpg') }}" alt="Imagem deste curso" />
+          </div>
+          <div class="_content">
+            <div class="_top">
+              <h4 class="curso_name">Meeting de musculação</h4>
+              <p class="curso_description">
+                Treinamentos para hipertrofia muscular e suplementação combinada
+              </p>
+            </div>
+            <div class="_bottom">
+              <p class="curso_certificate">Certificado de 10hs</p>
+            </div>
+          </div>
+        </div>
+        <div class="_curso online">
+          <div class="_pic">
+            <img src="{{ asset('site/img/curso_Pic (2).jpg') }}" alt="Imagem deste curso" />
+          </div>
+          <div class="_content">
+            <div class="_top">
+              <h4 class="curso_name">Treinamento Multifuncional</h4>
+              <p class="curso_description">& Longevidade Saudável Aplicação Prática</p>
+            </div>
+            <div class="_bottom">
+              <p class="curso_certificate">Certificado de 10hs</p>
+            </div>
+          </div>
+        </div>
+        <div class="_curso online">
+          <div class="_pic">
+            <img src="{{ asset('site/img/curso_Pic (3).jpg') }}" alt="Imagem deste curso" />
+          </div>
+          <div class="_content">
+            <div class="_top">
+              <h4 class="curso_name">Cross Training</h4>
+              <p class="curso_description">Baseado na metodologia do CrossFit</p>
+            </div>
+            <div class="_bottom">
+              <p class="curso_certificate">Certificado de 10hs</p>
+            </div>
+          </div>
+        </div>
+        <div class="_curso online">
+          <div class="_pic">
+            <img src="{{ asset('site/img/curso_Pic (4).jpg') }}" alt="Imagem deste curso" />
+          </div>
+          <div class="_content">
+            <div class="_top">
+              <h4 class="curso_name">Musculação Feminina</h4>
+              <p class="curso_description">Programa para maximizar os resultados</p>
+            </div>
+            <div class="_bottom">
+              <p class="curso_certificate">Certificado de 10hs</p>
+            </div>
+          </div>
         </div>
 
-        <div class="container-fav">
-            <div class="text">
-                <div class="curso_online">
-                    <img src="{{asset('site/img/greenball.svg')}}" alt="" />
-                    <p>Curso online</p>
-                </div>
-                <div class="title">
-                    <h1>Curso de formação de sommeliers e profissionais</h1>
-                </div>
-                <div class="info">
-                    <p class="minitext">Apenas</p>
-                    <h1>
-                        10X<span class="lowsized">R$</span>550<span class="lowsized">,00</span>
-                    </h1>
-                </div>
-                <button class="btn-primary">Inscreva-se</button>
+        <div class="_curso presencial">
+          <div class="_pic">
+            <img src="{{ asset('site/img/curso_Pic (4).jpg') }}" alt="Imagem deste curso" />
+          </div>
+          <div class="_content">
+            <div class="_top">
+              <h4 class="curso_name">Musculação Feminina</h4>
+              <p class="curso_description">Programa para maximizar os resultados</p>
             </div>
-
-            <div class="hero_indicator">
-                <div>
-                    <img src="{{asset('site/img/heroindicator_A.svg')}}" alt="" />
-                </div>
-
-                <div>
-                    <img src="{{asset('site/img/heroindicator_B.svg')}}" alt="" />
-                </div>
-                <!-- 
-          <div>
-            <img src="{{asset('site/img/heroindicator_B.svg')}}" alt="" />
-          </div> -->
+            <div class="_bottom">
+              <p class="curso_certificate">Certificado de 10hs</p>
             </div>
+          </div>
         </div>
-    </section>
-    <!-- SECTION HERO -->
-
-    <!-- SECTIONS EXTRAS -->
-    <section class="container-fluid s_cursos ">
-        <div class="container-fav showin">
-            <div class="content">
-                <div class="title">
-                    <h2>Confira nossa agenda para os próximos dias</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas
-                        malesuada sagittis.
-                    </p>
-                </div>
-
-                <div class="curso-group">
-                    <div class="curso-item">
-                        <div class="curso-pic">
-                            <div class="img">
-                                <img src="{{asset('site/img/_curso2.png')}}" alt="" />
-                            </div>
-                            <div class="curso_online">
-                                <img src="{{asset('site/img/greenball.svg')}}" alt="" />
-                                <p>Curso online</p>
-                            </div>
-                        </div>
-                        <div class="curso-content">
-                            <div class="row">
-                                <div class="icon-group">
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/calendar.svg')}}" alt="" />
-                                    </div>
-                                    <span>Ás 20hs</span>
-                                </div>
-                                <div class="icon-group">
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/bUser.svg')}}" alt="" />
-                                    </div>
-                                    <span>Presencial</span>
-                                </div>
-                                <div class="icon-group">
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/clock.svg')}}" alt="" />
-                                    </div>
-                                    <span>Ás 20hs</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="text">
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/cup.svg')}}" alt="" />
-                                    </div>
-                                    <span>Curso de formação de Sommelier</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="price">
-                                    10X<span class="lowsized">R$</span>550<span class="lowsized">,00</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <button class="btn-primary">
-                                    Inscreva-se
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/arrowlong.svg')}}" alt="" />
-                                    </div>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="curso-item">
-                        <div class="curso-pic">
-                            <div class="img">
-                                <img src="{{asset('site/img/_curso2.png')}}" alt="" />
-                            </div>
-                            <div class="curso_online">
-                                <img src="{{asset('site/img/greenball.svg')}}" alt="" />
-                                <p>Curso online</p>
-                            </div>
-                        </div>
-                        <div class="curso-content">
-                            <div class="row">
-                                <div class="icon-group">
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/calendar.svg')}}" alt="" />
-                                    </div>
-                                    <span>Ás 20hs</span>
-                                </div>
-                                <div class="icon-group">
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/bUser.svg')}}" alt="" />
-                                    </div>
-                                    <span>Presencial</span>
-                                </div>
-                                <div class="icon-group">
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/clock.svg')}}" alt="" />
-                                    </div>
-                                    <span>Ás 20hs</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="text">
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/cup.svg')}}" alt="" />
-                                    </div>
-                                    <span>Curso de formação de Sommelier</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="price">
-                                    10X<span class="lowsized">R$</span>550<span class="lowsized">,00</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <button class="btn-primary">
-                                    Inscreva-se
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/arrowlong.svg')}}" alt="" />
-                                    </div>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="title">
-                    <h2>Junho</h2>
-                </div>
-
-                <div class="curso-group">
-                    <div class="curso-item">
-                        <div class="curso-pic">
-                            <div class="img">
-                                <img src="{{asset('site/img/_curso4.png')}}" alt="" />
-                            </div>
-                            <div class="curso_online">
-                                <img src="{{asset('site/img/greenball.svg')}}" alt="" />
-                                <p>Curso online</p>
-                            </div>
-                        </div>
-                        <div class="curso-content">
-                            <div class="row">
-                                <div class="icon-group">
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/calendar.svg')}}" alt="" />
-                                    </div>
-                                    <span>Ás 20hs</span>
-                                </div>
-                                <div class="icon-group">
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/bUser.svg')}}" alt="" />
-                                    </div>
-                                    <span>Presencial</span>
-                                </div>
-                                <div class="icon-group">
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/clock.svg')}}" alt="" />
-                                    </div>
-                                    <span>Ás 20hs</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="text">
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/cup.svg')}}" alt="" />
-                                    </div>
-                                    <span>Curso de formação de Sommelier</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="price">
-                                    10X<span class="lowsized">R$</span>550<span
-                                        class="lowsized">,00</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <button class="btn-primary">
-                                    Inscreva-se
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/arrowlong.svg')}}" alt="" />
-                                    </div>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="curso-item">
-                        <div class="curso-pic">
-                            <div class="img">
-                                <img src="{{asset('site/img/_curso3.png')}}" alt="" />
-                            </div>
-                            <div class="curso_online">
-                                <img src="{{asset('site/img/greenball.svg')}}" alt="" />
-                                <p>Curso online</p>
-                            </div>
-                        </div>
-                        <div class="curso-content">
-                            <div class="row">
-                                <div class="icon-group">
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/calendar.svg')}}" alt="" />
-                                    </div>
-                                    <span>Ás 20hs</span>
-                                </div>
-                                <div class="icon-group">
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/bUser.svg')}}" alt="" />
-                                    </div>
-                                    <span>Presencial</span>
-                                </div>
-                                <div class="icon-group">
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/clock.svg')}}" alt="" />
-                                    </div>
-                                    <span>Ás 20hs</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="text">
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/cup.svg')}}" alt="" />
-                                    </div>
-                                    <span>Curso de formação de Sommelier</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="price">
-                                    10X<span class="lowsized">R$</span>550<span
-                                        class="lowsized">,00</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <button class="btn-primary">
-                                    Inscreva-se
-                                    <div class="svg">
-                                        <img src="{{asset('site/img/arrowlong.svg')}}" alt="" />
-                                    </div>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="btn-case">
-                    <button class="btn-primary">Ver agenda completa</button>
-                </div>
-
+        <div class="_curso presencial">
+          <div class="_pic">
+            <img src="{{ asset('site/img/curso_Pic (3).jpg') }}" alt="Imagem deste curso" />
+          </div>
+          <div class="_content">
+            <div class="_top">
+              <h4 class="curso_name">Cross Training</h4>
+              <p class="curso_description">Baseado na metodologia do CrossFit</p>
             </div>
-
+            <div class="_bottom">
+              <p class="curso_certificate">Certificado de 10hs</p>
+            </div>
+          </div>
         </div>
-    </section>
+        <div class="_curso presencial">
+          <div class="_pic">
+            <img src="{{ asset('site/img/curso_Pic (2).jpg') }}" alt="Imagem deste curso" />
+          </div>
+          <div class="_content">
+            <div class="_top">
+              <h4 class="curso_name">Treinamento Multifuncional</h4>
+              <p class="curso_description">& Longevidade Saudável Aplicação Prática</p>
+            </div>
+            <div class="_bottom">
+              <p class="curso_certificate">Certificado de 10hs</p>
+            </div>
+          </div>
+        </div>
+        <div class="_curso presencial">
+          <div class="_pic">
+            <img src="{{ asset('site/img/curso_Pic (1).jpg') }}" alt="Imagem deste curso" />
+          </div>
+          <div class="_content">
+            <div class="_top">
+              <h4 class="curso_name">Meeting de musculação</h4>
+              <p class="curso_description">
+                Treinamentos para hipertrofia muscular e suplementação combinada
+              </p>
+            </div>
+            <div class="_bottom">
+              <p class="curso_certificate">Certificado de 10hs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="container-fluid s_quem">
-        <div class="container-fav showin">
-            <div class="title">
-                <h3>Quem somos</h3>
-                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+  <section class="container-fluid s_publi">
+    <div class="container-fav">
+      <a
+        target="_blank"
+        rel="noopener"
+        href="https://www.sistemasca.com/inicio"
+        title="Conheça o Sistema SCA - Gestão de Academias"
+      >
+        <img rel="noopener" src="{{ asset('site/img/banner_publicidade.jpg') }}" alt="Publicidade ~ SISTEMA SCA" />
+      </a>
+    </div>
+  </section>
+
+  <section class="container-fluid s_sobre">
+    <div class="container-fav">
+      <div class="_left">
+        <h4>Sobre o Enaf</h4>
+        <p>
+          O ENAF é o maior evento de Sport & Fitness e Saúde realizado nas Américas e um dos mais
+          importantes do mundo. Tendo como objetivo promover a reciclagem e aprimoramento de
+          técnicas.<br /><br />
+          São dezenas de cursos, palestras e workshops acontecendo simultâneamente, de manhã, à
+          tarde e à noite. Essa intensa troca de informações faz do ENAF um congresso obrigatório
+          para estudantes e profissionais de sport, fitness e saúde.
+        </p>
+        <button>
+          <img src="{{ asset('site/img/arrowright_white.svg') }}" alt="Seta para a direita" />
+        </button>
+      </div>
+      <div class="_right">
+        <div class="_text">
+          <div class="_icon">
+            <img src="{{ asset('site/img/icon_star.svg') }}" alt="Estrela" />
+            <p>
+              Para você qualificar se e distinguir-se no mercado trabalho, venha e atualize-se com
+              quem conhece do assunto.
+            </p>
+          </div>
+        </div>
+
+        <div class="_cases fade">
+          <div class="_case">
+            <div class="_icon">
+              <img src="{{ asset('site/img/icon_form.svg') }}" alt="Papel preenchido" />
+            </div>
+            <span>Técnicas e Conceitos</span>
+          </div>
+          <div class="_case">
+            <div class="_icon">
+              <img src="{{ asset('site/img/icon_screen.svg') }}" alt="Monitor" />
+            </div>
+            <span>Treinamentos e Aulas</span>
+          </div>
+          <div class="_case">
+            <div class="_icon">
+              <img src="{{ asset('site/img/icon_folder.svg') }}" alt="Papel limpo" />
+            </div>
+            <span>Dicas e Estratégias</span>
+          </div>
+        </div>
+
+        <div class="_background">
+          <img src="{{ asset('site/img/banner_sobre.jpg') }}" alt="Pessoa com planilha" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid s_galeria">
+    <div class="container-fav">
+      <div class="_title">
+        <h4>#SINTAANERGIA</h4>
+      </div>
+
+      <div class="_content">
+        <div class="_galeriaList">
+          <div class="_picture">
+            <img src="{{ asset('site/img/galeria_Pic (1).jpg') }}" alt="Foto presente na galeria ENAF" />
+          </div>
+          <div class="_picture">
+            <img src="{{ asset('site/img/galeria_Pic (2).jpg') }}" alt="Foto presente na galeria ENAF" />
+          </div>
+          <div class="_picture">
+            <img src="{{ asset('site/img/galeria_Pic (3).jpg') }}" alt="Foto presente na galeria ENAF" />
+          </div>
+
+          <div class="_picture">
+            <img src="{{ asset('site/img/galeria_Pic (1).jpg') }}" alt="Foto presente na galeria ENAF" />
+          </div>
+          <div class="_picture">
+            <img src="{{ asset('site/img/galeria_Pic (2).jpg') }}" alt="Foto presente na galeria ENAF" />
+          </div>
+          <div class="_picture">
+            <img src="{{ asset('site/img/galeria_Pic (3).jpg') }}" alt="Foto presente na galeria ENAF" />
+          </div>
+
+          <div class="_picture">
+            <img src="{{ asset('site/img/galeria_Pic (1).jpg') }}" alt="Foto presente na galeria ENAF" />
+          </div>
+          <div class="_picture">
+            <img src="{{ asset('site/img/galeria_Pic (2).jpg') }}" alt="Foto presente na galeria ENAF" />
+          </div>
+          <div class="_picture">
+            <img src="{{ asset('site/img/galeria_Pic (3).jpg') }}" alt="Foto presente na galeria ENAF" />
+          </div>
+        </div>
+      </div>
+
+      <div class="_menu">
+        <strong>GALERIA DE FOTOS</strong>
+        <div class="_buttons">
+          <div class="_previous _button">
+            <img src="{{ asset('site/img/halfarrowleft.svg') }}" alt="Seta indicando a esquerda" />
+          </div>
+
+          <div class="_indicator">
+            <img class="active" alt="Indicador da lista" />
+            <img alt="Indicador da lista" />
+            <img alt="Indicador da lista" />
+          </div>
+
+          <div class="_next _button">
+            <img src="{{ asset('site/img/halfarrowright.svg') }}" alt="Seta indicando a direita" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid s_professores">
+    <div class="container-fav">
+      <div class="_left">
+        <h4>Nosso Time de Professores Online</h4>
+        <p>É hora de se capacitar com professores que são referência do mercado</p>
+        <span> Você estuda nos seus horários, de acordo com sua conveniência. </span>
+
+        <button>
+          <img src="{{ asset('site/img/arrowright_white.svg') }}" alt="Seta para direita" />
+        </button>
+      </div>
+
+      <div class="_right">
+        <div class="_content">
+          <div class="_professores">
+            <div class="_professor">
+              <img src="{{ asset('site/img/professores_Pic (1).jpg' )}}" alt="Professor Enaf" />
+            </div>
+            <div class="_professor">
+              <img src="{{ asset('site/img/professores_Pic (2).jpg') }}" alt="Professor Enaf" />
+            </div>
+            <div class="_professor">
+              <img src="{{ asset('site/img/professores_Pic (3).jpg') }}" alt="Professor Enaf" />
+            </div>
+            <div class="_professor">
+              <img src="{{ asset('site/img/professores_Pic (4).jpg') }}" alt="Professor Enaf" />
+            </div>
+            <div class="_professor">
+              <img src="{{ asset('site/img/professores_Pic (1).jpg') }}" alt="Professor Enaf" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid s_depoimentos">
+    <div class="container-fav">
+      <div class="_numeros">
+        <div class="_title">
+          <h6>Alguns números dos 34 anos</h6>
+        </div>
+
+        <div class="_boxes">
+          <div class="_box">
+            <div class="_icon">
+              <img src="{{ asset('site/img/icon_calendar.svg') }}" alt="Ícone de calendário" />
+            </div>
+            <span class="counting">125</span>
+            <p>Eventos</p>
+          </div>
+          <div class="_box">
+            <div class="_icon">
+              <img src="{{ asset('site/img/icon_pin.svg') }}" alt="Ícone de Pin" />
+            </div>
+            <span class="counting">21</span>
+            <p>Cidades</p>
+          </div>
+          <div class="_box">
+            <div class="_icon">
+              <img src="{{ asset('site/img/icon_check@x2') }}.svg" alt="Ícone de check" />
+            </div>
+            <span class="counting">292000</span>
+            <p>Congressistas</p>
+          </div>
+          <div class="_box">
+            <div class="_icon">
+              <img src="{{ asset('site/img/icon_persons.svg') }}" alt="Ícone de Perssoas" />
+            </div>
+            <span class="counting">122</span>
+            <p>Professores</p>
+          </div>
+          <div class="_box">
+            <div class="_icon">
+              <img src="{{ asset('site/img/icon_layers.svg') }}" alt="Ícone de Páginas" />
+            </div>
+            <span class="counting">4000</span>
+            <p>Cursos</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="_depoimentos">
+        <div class="_title">
+          <h6>Reconhecimento de Grandes Referências</h6>
+        </div>
+
+        <div class="_content">
+          <div class="_depoimentosList">
+            <div class="_depoimento">
+              <div class="_pic">
+                <img src="{{ asset('site/img/depoimento_Pic (1).jpg') }}" alt="Foto de Dr. Turíbio" />
+              </div>
+              <div class="_text">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus sed
-                    felis ipsum mattis at. Duis consequat dis dolor pellentesque
-                    tincidunt sit sit diam mattis. Imperdiet tristique felis etiam est.
-                    Cursus sit potenti at ut a maecenas elit.
+                  O ENAF plantou a semente da ciência na Educação Física no Brasil. A árvore
+                  nasceu, cresceu e hoje, 30 anos após, todos nós estamos colhendo seus frutos.
                 </p>
+                <h5>Dr. Turíbio Leite B. Neto</h5>
+              </div>
             </div>
-
-            <div class="_options">
-                <div>
-                    <h4>Nossos Cursos</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus
-                        sed felis ipsum mattis at.
-                    </p>
-                    <button class="btn-alternative">Ver agenda</button>
-                </div>
-
-                <div>
-                    <h4>Nossos Eventos</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus
-                        sed felis ipsum mattis at.
-                    </p>
-                    <button class="btn-alternative">Ver agenda</button>
-                </div>
+            <div class="_depoimento">
+              <div class="_pic">
+                <img src="{{ asset('site/img/depoimento_Pic (2).jpg') }}" alt="Foto de Dr. Turíbio" />
+              </div>
+              <div class="_text">
+                <p>
+                  O ENAF plantou a semente da ciência na Educação Física no Brasil. A árvore
+                  nasceu, cresceu e hoje, 30 anos após, todos nós estamos colhendo seus frutos.
+                </p>
+                <h5>Dr. Turíbio Leite B. Neto</h5>
+              </div>
             </div>
+            <div class="_depoimento">
+              <div class="_pic">
+                <img src="{{ asset('site/img/depoimento_Pic (3).jpg') }}" alt="Foto de Dr. Turíbio" />
+              </div>
+              <div class="_text">
+                <p>
+                  O ENAF plantou a semente da ciência na Educação Física no Brasil. A árvore
+                  nasceu, cresceu e hoje, 30 anos após, todos nós estamos colhendo seus frutos.
+                </p>
+                <h5>Dr. Turíbio Leite B. Neto</h5>
+              </div>
+            </div>
+          </div>
         </div>
 
-        </div>
-    </section>
-
-    {{--  NUMEROS  --}}
-    @include("site.includes.numeros")
-
-    {{--  VANTAGENS  --}}
-    @include("site.includes.vantagens")
-
-    <section class="container-fluid s_blog">
-        <div class="container-fav">
-            <div class="text">
-                <h2>Blog</h2>
-                <button class="btn-primary" onclick="window.location.href = '/blog.html' ">Acessar blog</button>
+        <div class="_menu">
+          <div class="_buttons">
+            <div class="_previous _button">
+              <img src="{{ asset('site/img/halfarrowleft_alternative.svg') }}" alt="Seta indicando a esquerda" />
             </div>
-            <div class="blog-group">
-                <div class="blog-item">
-                    <div class="blog-pic">
-                        <div class="img">
-                            <img src="{{asset('site/img/_noticia1.png')}}" alt="" />
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="row">
-                            <div class="icon-group">
-                                <div class="svg">
-                                    <img src="{{asset('site/img/calendarpointed.svg')}}" alt="" />
-                                </div>
-                                <span>22 junho 2021</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="text">
-                                <span>Simply dummy text of the printing typesetting industry. </span>
-                            </div>
-                            <button class="btn-alternative">
-                                LEIA MAIS
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-item">
-                    <div class="blog-pic">
-                        <div class="img">
-                            <img src="{{asset('site/img/_noticia2.png')}}" alt="" />
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="row">
-                            <div class="icon-group">
-                                <div class="svg">
-                                    <img src="{{asset('site/img/calendarpointed.svg')}}" alt="" />
-                                </div>
-                                <span>22 junho 2021</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="text">
-                                <span>Simply dummy text of the printing typesetting industry. </span>
-                            </div>
-                            <button class="btn-alternative">
-                                LEIA MAIS
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-item">
-                    <div class="blog-pic">
-                        <div class="img">
-                            <img src="{{asset('site/img/_noticia3.png')}}" alt="" />
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="row">
-                            <div class="icon-group">
-                                <div class="svg">
-                                    <img src="{{asset('site/img/calendarpointed.svg')}}" alt="" />
-                                </div>
-                                <span>22 junho 2021</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="text">
-                                <span>Simply dummy text of the printing typesetting industry. </span>
-                            </div>
-                            <button class="btn-alternative" onclick="window.location.href = '/blog-post.html'">
-                                LEIA MAIS
-                            </button>
-                        </div>
-                    </div>
-                </div>
+
+            <div class="_indicator">
+              <img class="active" alt="Indicador da lista" />
+              <img alt="Indicador da lista" />
+              <img alt="Indicador da lista" />
             </div>
+
+            <div class="_next _button">
+              <img src="{{ asset('site/img/halfarrowright_alternative.svg') }}" alt="Seta indicando a direita" />
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    {{--  PARCEIROS  --}}
-    @include("site.includes.parceiros")
+  <section class="container-fluid s_blog">
+    <div class="container-fav">
+      <div class="_title">
+        <div class="_icon">
+          <img src="{{ asset('site/img/icon_check.svg') }}" alt="Ícone de Check" />
+        </div>
+        <h4>Blog</h4>
+      </div>
 
-@include("site.includes.footer")
+      <div class="_content">
+        <div class="_blogList">
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="_menu">
+        <div class="_buttons">
+          <div class="_previous _button">
+            <img src="{{ asset('site/img/halfarrowleft.svg') }}" alt="Seta indicando a esquerda" />
+          </div>
+
+          <div class="_indicator">
+            <img class="active" alt="Indicador da lista" />
+            <img alt="Indicador da lista" />
+            <img alt="Indicador da lista" />
+          </div>
+
+          <div class="_next _button">
+            <img src="{{ asset('site/img/halfarrowright.svg') }}" alt="Seta indicando a direita" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid s_publi">
+    <div class="container-fav">
+      <a
+        target="_blank"
+        rel="noopener"
+        href="https://www.sistemasca.com/inicio"
+        title="Conheça o Sistema SCA - Gestão de Academias"
+      >
+        <img rel="noopener" src="{{ asset('site/img/banner_publicidade.jpg') }}" alt="Publicidade ~ SISTEMA SCA" />
+      </a>
+    </div>
+  </section>
+
+  <section class="container-fluid s_blog">
+    <div class="container-fav">
+      <div class="_title">
+        <div class="_icon">
+          <img src="{{ asset('site/img/icon_check.svg') }}" alt="Ícone de Check" />
+        </div>
+        <h4>Últimos Artigos</h4>
+      </div>
+
+      <div class="_content">
+        <div class="_blogList">
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+          <div class="_blog">
+            <div class="_pic">
+              <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+            </div>
+            <div class="_info">
+              <span class="blogTag">DICAS</span>
+              <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
+              <p class="blogDate">12.09.2020</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="_menu">
+        <div class="_buttons">
+          <div class="_previous _button">
+            <img src="{{ asset('site/img/halfarrowleft.svg') }}" alt="Seta indicando a esquerda" />
+          </div>
+
+          <div class="_indicator">
+            <img class="active" alt="Indicador da lista" />
+            <img alt="Indicador da lista" />
+            <img alt="Indicador da lista" />
+          </div>
+
+          <div class="_next _button">
+            <img src="{{ asset('site/img/halfarrowright.svg') }}" alt="Seta indicando a direita" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid s_parceiros">
+    <div class="container-fav">
+      <div class="_apoio">
+        <span>Apoio</span>
+        <div class="_apoiador">
+          <img
+            src="{{ asset('site/img/apoio_Gefit.svg') }}"
+            alt="Logo Gefit Fitness Intelligence"
+            title="Gefit ~ Gestão de Academias"
+          />
+        </div>
+      </div>
+      <div class="_patrocinadores">
+        <span>Patrocinadores</span>
+        <div class="_patrocinadorList">
+          <div class="_patrocinador">
+            <img
+              src="{{ asset('site/img/patrocinadores_SCA.png') }}"
+              alt="Logo SCA"
+              title="SCA ~ ISTEMA COMPLETO PARA ACADEMIAS, CLUBES E STUDIOS."
+            />
+          </div>
+          <div class="_patrocinador">
+            <img
+              src="{{ asset('site/img/patrocinadores_LION.png') }}"
+              alt="Logo Lion"
+              title="Lion ~ Equipamentos Fitness"
+            />
+          </div>
+          <div class="_patrocinador">
+            <img
+              src="{{ asset('site/img/patrocinadores_GYMPASS.png') }}"
+              alt="Logo Gympass"
+              title="Gympass ~ Academias próximas - Descubra academias perto"
+            />
+          </div>
+          <div class="_patrocinador">
+            <img
+              src="{{ asset('site/img/patrocinadores_REDE.png') }}"
+              alt="Logo Rede"
+              title="Rede ~ Máquina de cartão de crédito e débito sem fio"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+@include("site.includes.footer-expanded")

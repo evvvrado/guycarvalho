@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8" />
-        <title>ENAF - Painel do Aluno</title>
+        <title>ENAF - Painel Administrativo</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta content="Painel de controle ~ ENAF" name="description" />
         <meta content="Luis Gustavo de Souza Carvalho" name="author" />
@@ -250,10 +250,10 @@
                                     <div class="my-auto forgot-password invisible position-absolute">
                                         <div>
                                             <h5 class="text-primary">
-                                                Recuperar senha
+                                                Reset Password
                                             </h5>
                                             <p class="text-muted">
-                                                Será enviado para o seu e-mail
+                                                Re-Password with Skote.
                                             </p>
                                         </div>
                                         <div class="mt-4">
@@ -274,17 +274,19 @@
                                                     "
                                                     role="alert"
                                                 >
-                                                    Insira seu e-mail e enviaremos para você um coiso
+                                                    Enter your Email and
+                                                    instructions will be sent to
+                                                    you!
                                                 </div>
                                                 <div class="mb-3">
                                                     <div class="form-group">
                                                         <label
                                                             for="email"
                                                             class=""
-                                                            >E-mail</label
+                                                            >Email</label
                                                         ><input
                                                             name="email"
-                                                            placeholder="Insira seu e-mail"
+                                                            placeholder="Enter email"
                                                             required=""
                                                             id="email"
                                                             type="email"
@@ -307,17 +309,16 @@
                                                             waves-effect
                                                             waves-light
                                                         "
-                                                        style="background-color: #1ac7d6;color: white;"  
                                                         type="submit"
                                                     >
-                                                        Enviar
+                                                        Reset
                                                     </button>
                                                 </div>
                                             </form>
                                             <div class="mt-5 text-center">
                                                 <p  onclick="$('.login-box').show(); $('.forgot-password').hide()"
                                                 style="cursor: pointer;">
-                                                    Lembrou? Campeão,
+                                                    Lembrou? Campeão
                                                     <a
                                                         class="
                                                             fw-medium

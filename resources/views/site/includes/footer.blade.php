@@ -1,56 +1,80 @@
-<footer class="container-fluid">
+<footer>  
+    <div class="container-fluid footer_base">
     <div class="container-fav">
-        <div class="row">
-            <div class="logos">
-                <img src="{{asset('site/img/_logo91.png')}}" alt="">
-                <img src="{{asset('site/img/_logoASI_91.png')}}" alt="">
-            </div>
-            <button class="btn-primary" onclick="window.location.href = '/conta.html'">Minha conta</button>
+        <div class="_top">
+        <div class="_logo">
+            <img src="{{ asset('/img/_logo45.svg') }}" alt="Logo Enaf" />
         </div>
-        <div class="row">
-            <div class="endereco">
-                Av. Dr. Dante Pazzanese, 500 Vila Mariana, São Paulo SP, 04012-909
+
+        <div class="_whatsapp">Whats: (35) 9.87074902</div>
+
+        <div class="_email">
+            <div class="_icon">
+            <img src="{{ asset('/img/icon_envelop_footer.svg') }}" alt="Ícone de Envelope" />
             </div>
-            <div class="contact">
-                <div class="website">
-                    <div class="svg">
-                        <img src="{{asset('site/img/laptop.svg')}}" alt="">
-                    </div>
-                    <span>www.abspe.com.br</span>
-                </div>
-                <div class="email">
-                    <div class="svg">
-                        <img src="{{asset('site/img/phone.svg')}}" alt="">
-                    </div>
-                    <span>contato@abspe.com.br</span>
-                </div>
-            </div>
-            <div class="novidades">
-                <h4>Receba nossas novidades</h4>
-                <div class="input">
-                    <!-- <input type="email" name="email"
-              placeholder="Digite seu e-mail"> -->
-                    <button><img src="{{asset('site/img/paperplane.svg')}}" alt=""></button>
-                </div>
+            <a href="mailto:faleconosco@enaf.com.br"> faleconosco@enaf.com.br </a>
+        </div>
+
+        <div class="_social">
+            <span>Estamos nas redes sociais:</span>
+            <div class="_media">
+            <ul>
+                <li>
+                <a href="#">
+                    <img src="{{ asset('/img/icon_facebook_footer.svg') }}" alt="Ícone facebook" />
+                </a>
+                </li>
+                <li>
+                <a href="#">
+                    <img src="{{ asset('/img/icon_instagram_footer.svg') }}" alt="Ícone instagram" />
+                </a>
+                </li>
+                <li>
+                <a href="#">
+                    <img src="{{ asset('/img/icon_youtube_footer.svg') }}" alt="Ícone youtube" />
+                </a>
+                </li>
+                <li>
+                <a href="#">
+                    <img src="{{ asset('/img/icon_twitter_footer.svg') }}" alt="Ícone twitter" />
+                </a>
+                </li>
+                <li>
+                <a href="#">
+                    <img src="{{ asset('/img/icon_linkedin_footer.svg') }}" alt="Ícone linkedin" />
+                </a>
+                </li>
+            </ul>
             </div>
         </div>
-        <div class="row">
-            <div>© 2021 Associação Brasileira de Sommeliers – PE</div>
-            <div>
-                <div>Desenvolvido por</div>
-                <div class="logo7seven">
-                    <a href="https://7seventrends.com"><img src="{{asset('site/img/_logo7seven.png')}}" alt=""></a>
-                </div>
-            </div>
         </div>
+        <div class="_end">
+        <nav>
+            <ul>
+            <li><a href="/">EVENTOS</a></li>
+            <li><a href="/nossoscursos.html">CURSOS ONLINE</a></li>
+            <li><a href="/nossasclinicas.html">CLÍNICAS</a></li>
+            <li><a href="/professores.html">PROFESSORES</a></li>
+            <li><a href="/">EMBAIXADORES</a></li>
+            <li><a href="/_feira/feira.html">Feira Online</a></li>
+            <li><a href="/nossoblog-lista.html">BLOG</a></li>
+            <li><a href="/nossoblog.html">ARTIGOS</a></li>
+            <li><a href="/contato.html">IMPRENSA</a></li>
+            <li><a href="/contato.html">CONTATO</a></li>
+            </ul>
+        </nav>
+        </div>
+    </div>
+    </div>
+
 </footer>
-<!-- FOOTER / FIM DO SITE -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
-<script src="{{asset('site/js/jquery.min.js')}}"></script>
-<script src="{{asset('site/js/jquery-ui.js')}}"></script>
 
-<script src="{{asset('site/js/main.js')}}"></script>
+<script src="{{ asset('site/js/jquery.min.js')}}"></script>
+<script src="{{ asset('site/js/jquery-ui.js')}}"></script>
+
+<script src="{{ asset('/site/js/main.js')}}"></script>
+
 </body>
-
 </html>

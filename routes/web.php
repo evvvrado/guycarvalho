@@ -53,7 +53,10 @@ Route::post('/carrinho/finalizar/credito/cielo', [\App\Http\Controllers\CieloCon
 Route::get('/carrinho/finalizar/boleto/gerencianet/{parcelas}', [\App\Http\Controllers\GerencianetController::class, 'boleto'])->name("site.carrinho.finalizar.boleto.gerencianet");
 
 
-Route::get('/minha-conta', [\App\Http\Controllers\SiteController::class, 'minhaConta'])->name("site.minha-conta");
+// ROTA TEMPORARIA
+Route::get('/aluno/login', [\App\Http\Controllers\SiteController::class, 'minhaConta'])->name("site.minha-conta");
+
+
 Route::post('/aluno/cadastrar', [\App\Http\Controllers\AlunosController::class, 'cadastrar'])->name("site.aluno.cadastrar");
 Route::post('/aluno/logar', [\App\Http\Controllers\AlunosController::class, 'logar'])->name("site.aluno.logar");
 
@@ -70,6 +73,8 @@ Route::post('/api/click', [\App\Http\Controllers\AppController::class, 'click'])
 
 Route::get('/sistema/login', [\App\Http\Controllers\PainelController::class, 'login'])->name("painel.login");
 Route::post('/sistema/logar', [\App\Http\Controllers\PainelController::class, 'logar'])->name("painel.logar");
+
+
 
 Route::post('/gerencianet/notificacao', [\App\Http\Controllers\GerencianetController::class, 'notificacao'])->name("gerencianet.notificacao")->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);;
 

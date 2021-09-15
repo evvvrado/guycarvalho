@@ -1,5 +1,3 @@
-var gallerySelectedImage = 2;
-
 $('a[href*="#"]')
     // Remove links that don't actually link to anything
     .not('[href="#"]')
@@ -43,418 +41,300 @@ $('a[href*="#"]')
         }
     });
 
-// ANIMAÇÃO DE FADE-IN
+$(document).ready(() => {
+    $(".fade").first().removeClass("fade");
 
-debounce = function (func, wait, immediate) {
-    var timeout;
-    return function () {
-        var context = this,
-            args = arguments;
-        var later = function () {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-        };
-        var callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
-    };
-};
+    $(".back-drop").animate(
+        {
+            opacity: 0,
+        },
+        2000
+    );
+    var i = 0;
+    $(document).scroll(() => {
+        if ($(document).scrollTop() !== 0) {
+            $("header").addClass("_active");
+        } else {
+            $("header").removeClass("_active");
+        }
 
-(function () {
-    var $target = $(".showin"),
-        animationClass = "anime-start",
-        offset = ($(window).height() * 3) / 4;
-
-    function animeScroll() {
-        var documentTop = $(document).scrollTop();
-
-        $target.each(function () {
-            var itemTop = $(this).offset().top - 250;
-            if (documentTop > itemTop - offset) {
-                $(this).addClass(animationClass);
-            } else {
-                $(this).removeClass(animationClass);
+        $(".fade").each(function () {
+            if (
+                $(document).scrollTop() >=
+                $(this).closest("div.container-fav").offset().top -
+                    ($(window).height() * 3) / 4
+            ) {
+                $(this).removeClass("fade");
             }
         });
-    }
 
-    animeScroll();
-
-    $(document).scroll(
-        debounce(function () {
-            animeScroll();
-        }, 100)
-    );
-})();
-
-// CÓDIGO DE FILTRO EM CURSOS E EVENTOS
-
-$("section.s_cursos .container-fav .title ._filter h2._cursosbutton").click(
-    () => {
-        $("section.s_cursos .container-fav .title ._filter h2").removeClass(
-            "_active"
-        );
-
-        $(
-            "section.s_cursos .container-fav .title ._filter h2._cursosbutton"
-        ).addClass("_active");
-
-        $("body._cursos-e-eventos section.s_cursos ._cursos").css(
-            "display",
-            "block"
-        );
-        $("body._cursos-e-eventos section.s_cursos ._eventos").css(
-            "display",
-            "none"
-        );
-    }
-);
-
-$("section.s_cursos .container-fav .title ._filter h2._eventosbutton").click(
-    () => {
-        $("section.s_cursos .container-fav .title ._filter h2").removeClass(
-            "_active"
-        );
-
-        $(
-            "section.s_cursos .container-fav .title ._filter h2._eventosbutton"
-        ).addClass("_active");
-
-        $("body._cursos-e-eventos section.s_cursos ._eventos").css(
-            "display",
-            "block"
-        );
-        $("body._cursos-e-eventos section.s_cursos ._cursos").css(
-            "display",
-            "none"
-        );
-    }
-);
-
-// IMPRENSA E CONTATO
-
-$("body._imprensa  .container-fav .title ._filter h2._cursosbutton").click(
-    () => {
-        $("body._imprensa  .container-fav .title ._filter h2").removeClass(
-            "_active"
-        );
-
-        $(
-            "body._imprensa  .container-fav .title ._filter h2._cursosbutton"
-        ).addClass("_active");
-
-        $("body._imprensa   .s_acessoria").css("display", "block");
-        $("body._imprensa   .s_acessoria.s_contato").css("display", "none");
-    }
-);
-
-$(" body._imprensa .container-fav .title ._filter h2._eventosbutton").click(
-    () => {
-        $("body._imprensa  .container-fav .title ._filter h2").removeClass(
-            "_active"
-        );
-
-        $(
-            "body._imprensa  .container-fav .title ._filter h2._eventosbutton"
-        ).addClass("_active");
-
-        $("body._imprensa   .s_acessoria.s_contato").css("display", "block");
-        $("body._imprensa   .s_acessoria:not(.s_contato)").css(
-            "display",
-            "none"
-        );
-    }
-);
-
-// SIDE MENU ANIMATION
-
-$("header main button.hamburguer-menu").click(() => {
-    $("div._sidemenu nav").css("height", "100%");
-});
-
-$("div._sidemenu nav .hamburguerClose").click(() => {
-    $("div._sidemenu nav").css("height", "0");
-});
-
-$("form label input,form label textarea").focus(function () {
-    $(this).parent().find("span").addClass("active");
-});
-
-$("form label input,form label textarea").focusout(function () {
-    if ($(this).val() == "") {
-        $(this).parent().find("span").removeClass("active");
-    }
-});
-
-$("._otherhalf ._toregister").click(() => {
-    $("._otherhalf").scrollTop($("._otherhalf").height());
-});
-
-$("._otherhalf ._forgot").click(() => {
-    $("._otherhalf").scrollTop($("._otherhalf").height() * 2);
-});
-$("._otherhalf ._tologin").click(() => {
-    $("._otherhalf").scrollTop(0);
-});
-
-$("header main button.btn-primary").click(() => {
-    window.location.href = "/seja-um-associado-login.html";
-});
-$("footer .novidades button").click(() => {
-    window.location.href = "/newsletter.html";
-});
-
-$("body._galeria section.s_galeria main ._arrow:first-child").click(() => {
-    if (gallerySelectedImage - 1 <= 1) return 0;
-    gallerySelectedImage--;
-    $("body._galeria section.s_galeria main ._mainImage img").attr(
-        "src",
-        `/site/img/_gallery${gallerySelectedImage}.jpg`
-    );
-    $(`body._galeria section.s_galeria ._list ._img`).removeClass("_active");
-    $(
-        `body._galeria section.s_galeria ._list ._img:nth-child(${
-            gallerySelectedImage - 1
-        })`
-    ).addClass("_active");
-});
-$("body._galeria section.s_galeria main ._arrow:last-child").click(() => {
-    if (gallerySelectedImage + 1 >= 9) return 0;
-    gallerySelectedImage++;
-    $("body._galeria section.s_galeria main ._mainImage img").attr(
-        "src",
-        `/site/img/_gallery${gallerySelectedImage}.jpg`
-    );
-    $(`body._galeria section.s_galeria ._list ._img`).removeClass("_active");
-    $(
-        `body._galeria section.s_galeria ._list ._img:nth-child(${
-            gallerySelectedImage - 1
-        })`
-    ).addClass("_active");
-});
-
-$("section.s_produtos .container-fav ._productlist ._product .content").hover(
-    function () {
-        $(this).parent().find("._hover").css("transform", "translateY(0)");
-    }
-);
-
-$(
-    "section.s_descontos .container-fav ._descontoList ._descontoItem button.btn-primary "
-).click(() => {
-    window.location.href = "/experiencias-detalhes.html";
-});
-
-$(
-    "body._experienciaDetalhes section.s_sobreOferta .container-fav ._left ._readMore"
-).click(() => {
-    $(
-        "body._experienciaDetalhes section.s_sobreOferta .container-fav ._editableText"
-    ).animate(
-        {
-            maxHeight: "100%",
-        },
-        1000
-    );
-    $(
-        "body._experienciaDetalhes section.s_sobreOferta .container-fav ._left ._readMore"
-    ).addClass("_disable");
-});
-
-$(
-    "body._curso-detalhes section.s_hero ._curso-card .row button.btn-primary"
-).click(() => {
-    window.location.href = "/carrinho-identificacao.html";
-});
-
-const backdrop = {
-    visivel: true,
-    init: function () {
-        setTimeout(function () {
-            if (backdrop.visivel) {
-                backdrop.esconde();
+        if ($(".s_depoimentos .container-fav ._numeros").length) {
+            if (
+                $(document).scrollTop() >=
+                $(".s_depoimentos .container-fav").offset().top -
+                    $(".s_depoimentos .container-fav ._numeros").height() * 2
+            ) {
+                while (i < $(".s_depoimentos ._boxes ._box").length) {
+                    var max =
+                        document.getElementsByClassName("counting")[i]
+                            .innerHTML;
+                    animateValue(
+                        document.getElementsByClassName("counting")[i],
+                        0,
+                        max,
+                        3000
+                    );
+                    i++;
+                }
             }
-        }, 10 * 1000);
-    },
-    esconde: function () {
-        $("#backdrop").css("background", "");
-        $("#backdrop>div").fadeOut();
-        $("#backdrop").delay(350).fadeOut("slow");
-        $("body").delay(350).css("overflow", "");
-        backdrop.visivel = false;
-    },
-};
-
-backdrop.esconde();
-
-function varialpopshovit(type) {
-    switch (type) {
-        case "done":
-            $("#_info").html(
-                ' <div class="_img"><img src="/site/img/sistema/approved2.svg" alt="Simbolo" class="concluido"></div> Concluído'
-            );
-            $("._box").css(
-                "background-color",
-                "background: rgba(0, 100, 0, 0.7);"
-            );
-            break;
-        case "error":
-            $("#_info").html(
-                ' <div class="_img"><img src="/site/img/sistema/canceled.svg" alt="Simbolo" class="concluido"></div> Erro'
-            );
-            $("._box").css(
-                "background-color",
-                "background: rgba(100, 0, 0, 0.7);"
-            );
-            break;
-
-        default:
-            $("#_info").html(
-                ' <div class="_img"><img src="/site/img/sistema/canceled.svg" alt="Simbolo" class="concluido"></div> Undefined'
-            );
-            break;
-    }
-    $("._infobox").css("transform", "none");
-
-    $("._loadingBox").animate(
-        {
-            width: 0,
-        },
-        5000,
-        () => {
-            $("._infobox").css("transform", "translateY(-80px)");
-            $("._loadingBox").width("100%");
         }
-    );
-}
-$("form button").click(() => {
-    varialpopshovit("done");
-    $("form input").val("");
-    $("form textarea").val("");
-});
+    });
 
-$("body._minha-conta form button").click(() => {
-    varialpopshovit("error");
-    $("form input").val("");
-    $("form textarea").val("");
-});
+    var oldScroll = 0;
+    var circleAnimation = 0;
 
-$("._carButton").click(() => {
-    $("._meuCarrinho").animate(
-        {
-            top: "0",
-        },
-        400
-    );
-});
-$(" section._meuCarrinho ._top ._title ._icon img:last-child").click(() => {
-    $("._meuCarrinho").animate(
-        {
-            top: "-200vh",
-        },
-        400
-    );
-});
+    $("._hamburguer, .close_superMenu").click(() => {
+        $(".d_superMenu").toggleClass("_showed");
+    });
 
-$("._menuMax").click(() => {
-    $("._mobileMenu").css("display", "flex");
-    $("._mobileMenu").animate(
-        {
-            left: "0",
-        },
-        500
-    );
-});
+    $("._carrinho_button, .d_carrinho ._close").click(() => {
+        $(".d_carrinho").toggleClass("active");
+    });
 
-$("section._mobileMenu ._closeButton").click(() => {
-    $("._mobileMenu").animate(
-        {
-            left: "-200vw",
-        },
-        500
-    );
-});
+    $("._filter nav ._filterItem:first-child").click(() => {
+        $("._filter nav ._filterItem:first-child").addClass("active");
+        $("._filter nav ._filterItem:last-child").removeClass("active");
 
-$(document).scroll(() => {
-    if ($(document).width() < 730) return;
-    if ($(document).scrollTop() > 400) {
-        $("._curso-card").css("position", "fixed");
-        $("._curso-card").css("top", "inherit");
-        $("._curso-card").css("right", "1.5rem");
-        $("._curso-card").css("bottom", "1.5rem");
-    } else if ($(document).scrollTop() < 400) {
-        $("._curso-card").css("position", "absolute");
-        $("._curso-card").css("top", "4rem");
-        $("._curso-card").css("right", "0");
-        $("._curso-card").css("bottom", "inherit");
-    }
-});
+        $("._cursosList ._curso.presencial").css("display", "none");
+        $("._cursosList ._curso.online").css("display", "inline-block");
+    });
+    $("._filter nav ._filterItem:last-child").click(() => {
+        $("._filter nav ._filterItem:last-child").addClass("active");
+        $("._filter nav ._filterItem:first-child").removeClass("active");
+        $("._cursosList ._curso.online").css("display", "none");
+        $("._cursosList ._curso.presencial").css("display", "inline-block");
+    });
 
-var images = Array("/site/img/bannerhero.jpg", "/site/img/bannerhero2.jpg");
+    if ($("body#clinica").length) {
+        if (
+            $("#clinica .s_cursos .container-fav ._cursosList ._curso").data(
+                "date"
+            ).length
+        ) {
+            $("._filter nav ._filterItem").click(function () {
+                var filter = $(this).data("date");
 
-// Usage:
+                $("._filter nav ._filterItem").removeClass("active");
 
-var currimg = 0;
-
-$(document).ready(function () {
-    if ($("body._home").length) {
-        function loadimg() {
-            $(".s_hero").animate({ opacity: 1 }, 700, function () {
-                //finished animating, minifade out and fade new back in
-                $(".s_hero").animate({ opacity: 0.7 }, 100, function () {
-                    currimg++;
-
-                    if (currimg > images.length - 1) {
-                        $(".hero_indicator div img").attr(
-                            "src",
-                            "/site/img/heroindicator_B.svg"
-                        );
-                        $(".hero_indicator div:first-child img").attr(
-                            "src",
-                            "/site/img/heroindicator_A.svg"
-                        );
-
-                        currimg = 0;
-                    } else {
-                        $(".hero_indicator div img").attr(
-                            "src",
-                            "/site/img/heroindicator_B.svg"
-                        );
-                        $(".hero_indicator div:nth-child(2) img").attr(
-                            "src",
-                            "/site/img/heroindicator_A.svg"
-                        );
-                    }
-
-                    var newimage = images[currimg];
-
-                    //swap out bg src
-                    $(".s_hero").css(
-                        "background-image",
-                        "url(" + newimage + ")"
-                    ); //animate fully back in
-                    $(".s_hero").animate({ opacity: 1 }, 400, function () {
-                        //set timer for next
-                        setTimeout(loadimg, 5000);
-                    });
-                });
+                $(this).addClass("active");
+                $(
+                    `#clinica .s_cursos._atracoes .container-fav ._cursosList ._curso`
+                ).hide();
+                $(
+                    `#clinica .s_cursos._atracoes .container-fav ._cursosList ._curso[data-date="${filter}"]`
+                ).show();
+                console.log(filter);
             });
         }
-        setTimeout(loadimg, 5000);
     }
-});
 
-$("div._toUp").click(() => {
-    $(document).scrollTop(0);
-});
+    $("._menu ._previous").click(function () {
+        var content = $(this).closest("div.container-fav").find("div._content");
+        content.scrollLeft(content.scrollLeft() - content.width());
 
-// MASCARAS PARA OS FORMULARIOS
-$(document).ready(function () {
-    $('form label input[name = "cpf"]').mask("000.000.000-00", {
-        reverse: true,
+        content.scroll(() => {
+            verifyIndicator(content);
+        });
     });
-    $('form label input[name = "telefone"]').mask("(00) 00000-0000");
-    // $('form label input[name = "expiracao"]').mask("00/0000");
-    // $('form label input[name= "numero"]').mask("0000 000000 00000");
+
+    $("._menu ._next").click(function () {
+        var content = $(this).closest("div.container-fav").find("div._content");
+        content.scrollLeft(content.scrollLeft() + content.width());
+
+        content.scroll(() => {
+            verifyIndicator(content);
+        });
+    });
+
+    $("._checkbox").click(function () {
+        var allSelected = 0;
+
+        $(this).toggleClass("_checked");
+
+        $(`._Professor`).addClass("off");
+
+        $("._checkbox").each(function () {
+            if (!$(this).hasClass("_checked")) {
+                allSelected++;
+                return 0;
+            }
+
+            $("._Professor" + $(this).data("filter")).removeClass("off");
+        });
+
+        if (allSelected == 13) {
+            $(`._Professor`).removeClass("off");
+        }
+    });
+
+    $("form label input,form label textarea").focus(function () {
+        $(this).parent().find("span").addClass("active");
+    });
+
+    $("form label input,form label textarea").focusout(function () {
+        if ($(this).val() == "") {
+            $(this).parent().find("span").removeClass("active");
+        }
+    });
+
+    $(
+        ".s_treinadorVideo img, .s_treinadorVideo .blackout, .s_alternative .c_depoimentos img, .s_eventoVideo ._video"
+    ).click(() => {
+        $(".blackout").toggleClass("showed");
+    });
+
+    $(".s_galeria .container-fav ._content ._galeriaList ._picture img").click(
+        (e) => {
+            if (document.fullscreenElement == null)
+                e.target.requestFullscreen();
+            else document.exitFullscreen();
+        }
+    );
+
+    $(
+        "body#treinador section.s_duvidas .container-fav ._duvidas ._box ._main, section.s_content .container-fav ._modulos ._box ._main"
+    ).click(function () {
+        $(this).closest("div._box").toggleClass("active");
+    });
+
+    // A FEIRA
+
+    $(
+        "body#feira .s_backtoFeira .container-fav, .s_feira ._filter ._close"
+    ).click(() => {
+        $(".s_feira ._filter").toggleClass("active");
+    });
+
+    $("    .b_b, .a_b, .a_b_b").click(() => {
+        $("._blackground, ._form").show();
+    });
+    $("._form ._close").click(() => {
+        $("._blackground, ._form").hide();
+    });
+
+    $(".area_SCA").click(() => {
+        $("._box").addClass("sca");
+        $("._blackground").show();
+    });
+
+    $(".area_REDE").click(() => {
+        $("._box").addClass("rede");
+        $("._blackground").show();
+    });
+
+    $(".area_GYMPASS").click(() => {
+        $("._box").addClass("gympass");
+        $("._blackground").show();
+    });
+
+    $(".area_LION").click(() => {
+        $("._box").addClass("lionfit");
+        $("._blackground").show();
+    });
+
+    $("._box ._close").click(() => {
+        $("._box").attr("class", "_box");
+        $("._blackground").hide();
+    });
+
+    $(".a_d ._t").hover(() => {
+        $(".a_d ._t ._bubble").toggleClass("active");
+    });
+    $(".a_d_b ._t").hover(() => {
+        $(".a_d_b ._t ._bubble").toggleClass("active");
+    });
+    $(".a_c picture").hover(() => {
+        $(".a_c ._bubble").toggleClass("active");
+    });
+    $(".a_c ._bubble").hover(() => {
+        $(".a_c ._bubble").toggleClass("active");
+    });
+    $(".b_c picture").hover(() => {
+        $(".b_c ._bubble").toggleClass("active");
+    });
+    $(".b_c ._bubble").hover(() => {
+        $(".b_c ._bubble").toggleClass("active");
+    });
+    $(".b_a ._bubble").hover(() => {
+        $(".b_a ._bubble").toggleClass("active");
+    });
+    $(".b_v ._bubble").hover(() => {
+        $(".b_v ._bubble").toggleClass("active");
+    });
+
+    $("._l ._c ._bubble").hover(function () {
+        $(this).closest("._c").find("._bubble").toggleClass("active");
+    });
 });
+
+//CONTADOR DE NÚMEROS
+
+function animateValue(obj, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        obj.innerHTML = Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+}
+
+function verifyIndicator(content) {
+    var container = content.closest("div.container-fav");
+    container.addClass("passing");
+    if (content.scrollLeft() <= 1210) {
+        $(".passing ._menu ._indicator img").removeClass("active");
+        $(".passing ._menu ._indicator img:first-child").addClass("active");
+    } else if (content.scrollLeft() >= 1210 && content.scrollLeft() < 2410) {
+        $(".passing ._menu ._indicator img").removeClass("active");
+        $(".passing ._menu ._indicator img:nth-child(2)").addClass("active");
+    } else {
+        $(".passing ._menu ._indicator img").removeClass("active");
+        $(".passing ._menu ._indicator img:last-child").addClass("active");
+    }
+    container.removeClass("passing");
+}
+
+var depoimentoSlideIndicator = 0;
+var depoimentoSliderFrom = true;
+function depoimentoSlide() {
+    if (depoimentoSlideIndicator <= 2 && depoimentoSliderFrom === true) {
+        var content = $(
+            "body#treinador section.s_depoimentos-single .container-fav main ._content "
+        );
+        content.scrollLeft(content.scrollLeft() + content.width());
+
+        depoimentoSlideIndicator++;
+
+        if (depoimentoSlideIndicator === 2)
+            depoimentoSliderFrom = !depoimentoSliderFrom;
+    } else if (
+        depoimentoSlideIndicator >= 0 &&
+        depoimentoSliderFrom === false
+    ) {
+        var content = $(
+            "body#treinador section.s_depoimentos-single .container-fav main ._content "
+        );
+        content.scrollLeft(content.scrollLeft() - content.width());
+
+        depoimentoSlideIndicator--;
+
+        if (depoimentoSlideIndicator === 0)
+            depoimentoSliderFrom = !depoimentoSliderFrom;
+    }
+}
+
+setInterval(depoimentoSlide, 5000);
