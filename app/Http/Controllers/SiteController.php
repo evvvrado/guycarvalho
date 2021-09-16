@@ -78,6 +78,9 @@ class SiteController extends Controller
     public function diretoria(){
         return view("site.diretoria");
     }
+    public function professores(){
+        return view("site.professores");
+    }
 
     public function experiencia(){
         return view("site.experiencia");

@@ -68,15 +68,15 @@
             <nav>
             <ul>
                 <li><a href="/">EVENTOS</a></li>
-                <li><a href="/nossoscursos.html">CURSOS ONLINE</a></li>
+                <li><a href="{{ route('site.cursos') }}">CURSOS ONLINE</a></li>
                 <li><a href="/nossasclinicas.html">CLÍNICAS</a></li>
-                <li><a href="/professores.html">PROFESSORES</a></li>
+                <li><a href="{{ route('site.professores') }}">PROFESSORES</a></li>
                 <li><a href="/">EMBAIXADORES</a></li>
                 <li><a href="/_feira/feira.html">Feira Online</a></li>
                 <li><a href="/nossoblog-lista.html">BLOG</a></li>
                 <li><a href="/nossoblog.html">ARTIGOS</a></li>
                 <li><a href="/contato.html">IMPRENSA</a></li>
-                <li><a href="/contato.html">CONTATO</a></li>
+                <li><a href="{{ route('site.contato') }}">CONTATO</a></li>
             </ul>
             </nav>
         </div>

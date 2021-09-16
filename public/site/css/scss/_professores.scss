@@ -1,0 +1,118 @@
+.s_professores {
+    overflow: hidden;
+    padding-top: 10rem;
+    padding-bottom: 15.3rem;
+    .container-fav {
+        @include flex(row, center, space-between);
+
+        ._left {
+            max-width: 52rem;
+            z-index: 2;
+
+            h4 {
+                margin-bottom: 4.7rem;
+
+                line-height: 5.9rem;
+                letter-spacing: 0.02em;
+
+                color: $color-main;
+            }
+
+            p {
+                line-height: 140%;
+                /* or 25px */
+
+                letter-spacing: 0.02em;
+
+                color: $color-alternative;
+
+                margin-bottom: 2.7rem;
+                max-width: 37rem;
+            }
+
+            span {
+                font-size: 1.6rem;
+                display: block;
+                line-height: 140%;
+                letter-spacing: 0.01em;
+
+                color: $color-alternative;
+                max-width: 32rem;
+            }
+
+            button {
+                margin-top: 3.6rem;
+                @include circle-btn(4.3rem, $color-second);
+            }
+        }
+
+        ._right {
+            position: absolute;
+            overflow: hidden;
+            width: 81.77%;
+            right: 0;
+            z-index: 1;
+            ._content {
+                overflow: hidden;
+                position: relative;
+                left: 500px;
+
+                ._professores {
+                    @include flex(row, center, space-between);
+                    flex-wrap: nowrap;
+                    gap: 3.2rem;
+                    width: max-content;
+                    img {
+                        transition: 0.32s;
+                        filter: saturate(0);
+                        border-radius: 0.8rem;
+
+                        &:hover {
+                            filter: saturate(1);
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                &::after {
+                    content: "";
+                    height: 17.2rem;
+                    width: 100%;
+                    max-width: 80rem;
+                    background-image: url("../img/professores_Effect.svg");
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    opacity: 0.3;
+                }
+            }
+        }
+    }
+
+    @include responsive(900px) {
+        padding-top: 5rem;
+        .container-fav {
+            flex-direction: column;
+            ._left {
+                text-align: center;
+                @include flex(column, center, center);
+            }
+            ._right {
+                position: static;
+                margin-top: 4rem;
+                ._content {
+                    left: 0;
+                    overflow: scroll;
+
+                    ._professores {
+                        ._professor {
+                            img {
+                                height: 42.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

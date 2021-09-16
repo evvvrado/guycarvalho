@@ -1,0 +1,273 @@
+.s_blog-list {
+  padding-top: 10rem;
+  padding-bottom: 5rem;
+
+  .container-fav {
+    ._title {
+      margin-bottom: 38px;
+      display: flex;
+      gap: 25px;
+
+      h4 {
+        color: $color-main;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 38px;
+        letter-spacing: 0.02em;
+      }
+    }
+    main {
+      @include flex(row, flex-start, space-between);
+      ._blogPosts {
+        width: 100%;
+        max-width: 79.8rem;
+        ._blog {
+          @include flex(row, center, space-between);
+          border-radius: 1rem 1rem 1rem 1rem;
+          margin-bottom: 2.6rem;
+
+          ._pic {
+            img {
+              border-radius: 1rem 0 0 1rem;
+            }
+          }
+
+          ._content {
+            margin-right: 9.7rem;
+            max-width: 32.7rem;
+
+            ._postTitle {
+              margin-bottom: 2rem;
+              h6 {
+                font-size: 2.2rem;
+                font-weight: 500; /* or 31px */
+
+                color: $color-main;
+              }
+            }
+
+            ._info {
+              margin-bottom: 2.7rem;
+              @include flex(row, center, space-between);
+              .info_component {
+                @include flex(row, center, center);
+                gap: 0.9rem;
+              }
+            }
+          }
+
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.098);
+            cursor: pointer;
+          }
+        }
+      }
+
+      ._info {
+        width: 100%;
+        max-width: 38rem;
+        label {
+          position: relative;
+          width: 100%;
+          width: 32.9rem;
+          @include flex(row, center, space-between);
+          ._icon {
+            position: absolute;
+          }
+
+          input {
+            font-family: "Gilroy";
+
+            width: 100%;
+            padding: 2.3rem 1.2rem;
+            height: 4.6rem;
+          }
+        }
+
+        ._search {
+          @include flex(row, center, center);
+          margin-bottom: 3.2rem;
+          height: 11.2rem;
+          width: 100%;
+          max-width: 38rem;
+          width: 100%;
+          box-shadow: 0px 40px 70px -20px rgba(52, 52, 52, 0.1);
+
+          label ._icon {
+            right: 2rem;
+            transition: 0.32s;
+
+            &:hover {
+              cursor: pointer;
+              transform: scale(1.1);
+            }
+          }
+        }
+
+        ._newsletter {
+          background-color: $color-second;
+          height: 32.5rem;
+          width: 100%;
+          box-shadow: 0px 16px 60px -40px rgba(52, 52, 52, 0.25);
+
+          @include flex(column, center, center);
+
+          ._top {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 2.4rem;
+            line-height: 140%;
+
+            width: 100%;
+            max-width: 32.8rem;
+
+            margin-bottom: 1.6rem;
+
+            color: $white;
+          }
+
+          form {
+            @include flex(column, center, space-between);
+            gap: 1.2rem;
+
+            label {
+              ._icon {
+                left: 2.2rem;
+              }
+              input {
+                font-style: normal;
+                font-weight: normal;
+                font-size: 1.4rem;
+                /* identical to box height, or 14px */
+
+                color: $color-darkest;
+                padding-left: 5.8rem;
+              }
+            }
+            button {
+              @include alternative-btn(3.8rem, $color-second, $white);
+
+              border-radius: 0.4rem;
+              margin-top: 2.4rem;
+
+              text-transform: uppercase;
+
+              margin-right: auto;
+              border: 1px solid $white;
+            }
+          }
+        }
+        ._posts {
+          margin-top: 2.6rem;
+          ._text {
+            margin-bottom: 2.1rem;
+            font-weight: 500;
+            font-size: 2rem;
+            letter-spacing: 0.02em;
+          }
+
+          ._post {
+            margin-bottom: 1.3rem;
+            @include flex(center, center, space-between);
+            max-width: 100%;
+            border: 0.1343rem solid rgba(91, 100, 123, 0.1);
+            box-shadow: 1.3429rem 2.6857rem 5.3714rem rgba(19, 51, 113, 0.05);
+            border-radius: 1.0743rem;
+
+            ._pic {
+              img {
+                width: 10.1rem;
+                height: 8.9rem;
+
+                border-radius: 1rem 0 0 1rem;
+              }
+            }
+
+            ._content {
+              max-width: 22.8rem;
+              margin-right: 2.8rem;
+
+              .date {
+                font-weight: 400;
+                font-size: 1.2rem;
+
+                margin-bottom: 0.2rem;
+
+                color: $color-darkest;
+              }
+
+              ._postTitle {
+                font-weight: 800;
+                font-size: 1.6rem;
+                line-height: 140%;
+                /* or 22px */
+
+                color: $color-darkest;
+                margin-bottom: 1.2rem;
+                margin-right: 2.2rem;
+              }
+
+              a {
+                @include flex(row, center, flex-end);
+                gap: 2rem;
+
+                font-size: 1.2964rem;
+                line-height: 120%;
+                color: $orange;
+
+                width: 100%;
+              }
+            }
+
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.098);
+              cursor: pointer;
+
+              a {
+                animation: zigzag infinite 0.72s alternate linear;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include responsive(1200px) {
+    .container-fav {
+      main {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  @include responsive(730px) {
+    .container-fav {
+      main {
+        ._blogPosts {
+          max-width: 100%;
+
+          ._blog {
+            position: relative;
+            height: 300px;
+            justify-content: center;
+            align-items: center;
+            ._pic {
+              img {
+                position: absolute;
+                opacity: 0.2;
+                z-index: -1;
+                top: 0;
+                right: 0;
+              }
+            }
+            ._content {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

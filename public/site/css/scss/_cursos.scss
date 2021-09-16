@@ -1,0 +1,249 @@
+.s_cursos {
+    padding-top: 8.95rem;
+    padding-bottom: 6.35rem;
+    .container-fav {
+        .title {
+            margin-bottom: 1.9rem;
+            width: 100%;
+            @include flex(row, center, space-between);
+
+            h4 {
+                color: $color-second;
+                font-weight: 400;
+                font-size: 50px;
+                line-height: 59px;
+                letter-spacing: 0.02em;
+            }
+
+            ._filter {
+                width: 100%;
+                max-width: 32.3rem;
+
+                nav {
+                    width: 100%;
+                    @include flex(row, center, center);
+
+                    ._filterItem {
+                        @include flex(row, center, center);
+
+                        width: 100%;
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+                        padding-bottom: 1rem;
+                        transition: 0.32s;
+
+                        &.active {
+                            border-bottom: 3px $color-second solid;
+                            color: $color-second;
+                        }
+
+                        &:hover {
+                            cursor: pointer;
+                            border-bottom: 3px $color-thirdy solid;
+                            color: $color-thirdy;
+                        }
+                    }
+                }
+            }
+        }
+        ._cursosList {
+            @include flex(row, center, space-between);
+            ._curso {
+                border: 1px solid #ececec;
+                width: 100%;
+                max-width: 28rem;
+                height: 44.8rem;
+                // box-shadow: 10px 20px 40px rgba(19, 51, 113, 0.05);
+
+                transition: 0.32s;
+
+                border-radius: 0.8rem;
+                ._pic {
+                    img {
+                        border-radius: 0.8rem 0.8rem 0 0;
+                    }
+                }
+                ._content {
+                    @include flex(column, center, space-between);
+
+                    ._top {
+                        margin-top: 2.8rem;
+                        position: relative;
+                        max-width: 21.7rem;
+                        margin-bottom: 5.3rem;
+                        height: 12.3rem;
+                        h4 {
+                            font-size: 2.4rem;
+                            font-weight: 500;
+                            margin-bottom: 1.4rem;
+                        }
+                        p {
+                            color: $color-alternative;
+                            font-size: 1.4rem;
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            bottom: -3.2rem;
+                            left: 0;
+                            height: 0.1rem;
+                            width: 100%;
+
+                            background-color: #f2f2f2;
+                        }
+                    }
+
+                    ._bottom {
+                        width: 100%;
+                        max-width: 21.7rem;
+                        span {
+                            font-size: 1.8rem;
+                            font-weight: bold;
+                        }
+                        p {
+                            margin-top: 1.3rem;
+                            font-size: 1.4rem;
+                            color: $color-second;
+                        }
+                    }
+                }
+                &:hover {
+                    cursor: pointer;
+                    transform: scale(1.05);
+                    transform-origin: center;
+                }
+                &.presencial,
+                &[data-date="04Ago"],
+                &[data-date="05Ago"] {
+                    display: none;
+                }
+
+                #nossoscursos &,
+                #treinador &,
+                #clinica & {
+                    height: 51.5rem;
+                    ._top {
+                        margin-bottom: 2.5rem;
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            height: 0.1rem;
+                            width: 100%;
+
+                            background-color: #f2f2f2;
+                            bottom: -1.9rem;
+                        }
+                    }
+                    ._bottom {
+                        p {
+                            font-size: 1.8rem;
+                            font-weight: 600;
+                            margin-bottom: 1.7rem;
+                        }
+
+                        button {
+                            @include alternative-btn(
+                                3.6rem,
+                                $color-thirdy,
+                                $white
+                            );
+                            font-size: 1.6rem;
+                        }
+                    }
+                }
+            }
+            @include fade(translateY(200px), 2s);
+        }
+    }
+    @include responsive(992px) {
+        .container-fav {
+            overflow-x: hidden;
+            ._cursosList {
+                overflow-x: scroll;
+                animation: autoscroll-long infinite 12s linear;
+                display: inline-block;
+                white-space: nowrap;
+                ._curso {
+                    white-space: normal;
+                    margin-left: 1.5rem;
+                    display: inline-block;
+                    &:hover {
+                        transform: none;
+                        box-shadow: none;
+                        border: solid 2px $color-second;
+                    }
+                }
+                &:hover {
+                    animation-play-state: paused;
+                }
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+        }
+
+        #nossoscursos & {
+            ._cursosList {
+                width: 100%;
+                animation: none;
+                @include flex(row, center, space-between);
+                flex-wrap: wrap;
+
+                margin-top: 3rem;
+            }
+        }
+    }
+
+    @include responsive(720px) {
+        padding-top: 1rem;
+        .container-fav {
+            .title {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+
+        #nossoscursos & {
+            ._cursosList {
+                width: 100%;
+                justify-content: center;
+                gap: 3rem;
+            }
+        }
+    }
+
+    #clinica & {
+        padding-top: 9.3rem;
+        padding-bottom: 0;
+        .container-fav {
+            ._title,
+            .title {
+                h4 {
+                    margin-bottom: 4.7rem;
+                    font-size: 3.8rem;
+
+                    color: $color-darkest;
+                }
+            }
+        }
+    }
+    #cursoDetalhes & {
+        .container-fav {
+            .title {
+                h4 {
+                    font-size: 3.2rem;
+                    line-height: 37px;
+
+                    letter-spacing: 0.02em;
+
+                    color: #20356f;
+                }
+            }
+        }
+    }
+}

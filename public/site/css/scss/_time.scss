@@ -1,0 +1,160 @@
+._nossotime {
+    padding-top: 4.8rem;
+
+    .container-fav {
+        ._title {
+            @include flex(row, flex-end, flex-start);
+            h4 {
+                max-width: 45rem;
+                color: $color-main;
+            }
+
+            ._icons {
+                @include flex(row, center, center);
+                gap: 3.2rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        ._pesquisa {
+            @include flex(row, flex-start, space-between);
+            margin-top: 10.1rem;
+
+            ._lista {
+                @include flex(row, center, flex-start);
+                flex-wrap: wrap;
+                gap: 3rem;
+                width: 100%;
+                max-width: 90.3rem;
+
+                ._Professor {
+                    transition: 0.7s;
+                    &.off {
+                        opacity: 0;
+                        transform: scale(0);
+                        position: absolute;
+                        pointer-events: none;
+                    }
+                    img {
+                        height: 37.2rem;
+                        width: 100%;
+                        max-width: 28rem;
+                        filter: grayscale(1);
+                        border-radius: 0.8rem;
+                        transition: 0.32s;
+
+                        &:hover {
+                            cursor: pointer;
+                            filter: none;
+                        }
+                    }
+                }
+            }
+
+            ._filter {
+                padding-left: 1.6rem;
+                padding-top: 1.6rem;
+                width: 27.8rem;
+                height: 59.915rem;
+
+                background: #f2f5f5;
+                border-radius: 0.4rem;
+
+                span:first-child {
+                    font-weight: bold;
+                    line-height: 150%;
+
+                    color: $color-main;
+                }
+
+                ul {
+                    margin-top: 2.2rem;
+                    @include flex(column, flex-start, flex-start);
+                    gap: 2.2rem;
+
+                    li {
+                        @include flex(row, center, flex-start);
+                        gap: 2.3rem;
+                        ._checkbox {
+                            display: inline-block;
+                            border: $color-main solid 1px;
+                            border-radius: 0.4rem;
+                            background-color: transparent;
+                            height: 1.5rem;
+                            width: 1.5rem;
+                            cursor: pointer;
+
+                            &._checked {
+                                position: relative;
+
+                                &:after {
+                                    position: absolute;
+                                    content: "";
+
+                                    width: 65%;
+                                    height: 65%;
+
+                                    top: 0;
+                                    left: 0;
+                                    right: 0;
+                                    bottom: 0;
+
+                                    margin: auto auto;
+                                    background-color: $color-thirdy;
+                                }
+                            }
+                        }
+                        span {
+                            font-weight: 600;
+
+                            color: $color-main;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include responsive(900px) {
+        .container-fav {
+            ._title {
+                @include flex(column, center, center);
+                gap: 3rem;
+            }
+            ._pesquisa {
+                flex-direction: column;
+
+                ._filter {
+                    width: 100%;
+                    height: min-content;
+                    padding: 4rem 5rem;
+                    margin-bottom: 2.5rem;
+                    ul {
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        li {
+                            flex: 33%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include responsive(600px) {
+        .container-fav {
+            ._title {
+                ._icons {
+                    display: none;
+                }
+            }
+
+            ._pesquisa {
+                ._lista {
+                    width: 100%;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

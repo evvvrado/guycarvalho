@@ -1,0 +1,105 @@
+.s_nextEvent {
+  padding-top: 3.65rem;
+  padding-bottom: 8.95rem;
+  .container-fav {
+    @include flex(row, center, center);
+    ._case {
+      position: relative;
+      left: -35.2rem;
+      @include flex(column, center, center);
+
+      &::after {
+        position: relative;
+      }
+      ._img {
+        width: 94.4rem;
+        height: 52.5rem;
+        img {
+          border-radius: 0.8rem;
+        }
+      }
+      ._buttons {
+        @include flex(column, center, center);
+        gap: 1rem;
+        position: absolute;
+        right: -2.55rem;
+
+        div {
+          @include circle-btn(5.1rem, $white);
+          box-shadow: 10px 10px 60px rgba(0, 0, 0, 0.25);
+        }
+      }
+
+      @include fade(translateX(-200px), 2s);
+    }
+    ._content {
+      margin-left: -21.4rem;
+      width: 100%;
+      h6 {
+        font-weight: normal;
+        color: $color-second;
+        margin-bottom: 1.6rem;
+      }
+      h2 {
+        margin-bottom: 5.2rem;
+      }
+      span {
+        font-size: 4rem;
+        line-height: 100%;
+        color: $color-main;
+      }
+      p {
+        margin-top: 2.32rem;
+        font-size: 1.8465rem;
+        line-height: 140%;
+        letter-spacing: 0.02em;
+
+        color: $color-second;
+      }
+
+      button {
+        margin-top: 7.6rem;
+        @include circle-btn(4.3rem, $color-second);
+      }
+    }
+  }
+  @include responsive(992px) {
+    .container-fav {
+      flex-direction: column;
+      ._case {
+        position: static;
+        ._img {
+          width: auto;
+          height: auto;
+        }
+        ._buttons {
+          right: 5rem;
+        }
+      }
+      ._content {
+        align-self: center;
+        justify-content: center;
+        text-align: center;
+        margin-left: 0;
+        button {
+          margin: 0 auto;
+          margin-top: 3rem;
+        }
+      }
+    }
+  }
+  @include responsive(600px) {
+    .container-fav {
+      ._case {
+        flex-direction: column-reverse;
+        height: auto;
+        ._buttons {
+          flex-direction: row;
+          margin-top: 3rem;
+          margin-bottom: 3rem;
+          position: static;
+        }
+      }
+    }
+  }
+}

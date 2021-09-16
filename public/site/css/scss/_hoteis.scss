@@ -1,0 +1,168 @@
+.s_hoteis {
+  padding-top: 8.95rem;
+  padding-bottom: 6.35rem;
+  .container-fav {
+    .title {
+      margin-bottom: 1.9rem;
+      width: 100%;
+      @include flex(row, center, space-between);
+
+      h4 {
+        color: $color-second;
+        font-weight: 60x "" 0;
+        font-size: 50px;
+        line-height: 59px;
+        letter-spacing: 0.02em;
+      }
+    }
+
+    ._hoteisList {
+      @include flex(row, center, space-between);
+      ._hotel {
+        border: 1px solid #ececec;
+        width: 100%;
+        max-width: 28rem;
+        height: 44.8rem;
+        // box-shadow: 10px 20px 40px rgba(19, 51, 113, 0.05);
+
+        transition: 0.32s;
+
+        border-radius: 0.8rem;
+        ._pic {
+          img {
+            border-radius: 0.8rem 0.8rem 0 0;
+          }
+        }
+        ._content {
+          @include flex(column, center, space-between);
+
+          ._top {
+            margin-top: 2.8rem;
+            position: relative;
+            max-width: 21.7rem;
+            margin-bottom: 5.3rem;
+            height: 12.3rem;
+            h4 {
+              font-size: 2.4rem;
+              font-weight: 500;
+              margin-bottom: 1.4rem;
+            }
+            p {
+              color: $color-alternative;
+              font-size: 1.4rem;
+              display: block;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: -3.2rem;
+              left: 0;
+              height: 0.1rem;
+              width: 100%;
+
+              background-color: #f2f2f2;
+            }
+          }
+
+          ._bottom {
+            width: 100%;
+            max-width: 21.7rem;
+            span {
+              font-size: 1.8rem;
+              font-weight: bold;
+            }
+            a {
+              display: block;
+              margin-top: 1.3rem;
+              font-size: 1.4rem;
+              color: $color-second;
+            }
+          }
+        }
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.2);
+          transform-origin: center;
+          box-shadow: 1px 1px 700px 5px $color-second;
+        }
+      }
+      @include fade(translateY(200px), 2s);
+    }
+  }
+  @include responsive(992px) {
+    .container-fav {
+      overflow-x: hidden;
+      ._hoteisList {
+        overflow-x: scroll;
+        scroll-snap-type: inline mandatory;
+        display: inline-block;
+        white-space: nowrap;
+        ._hotel {
+          white-space: normal;
+          scroll-snap-align: start;
+          margin-left: 1.5rem;
+          display: inline-block;
+          &:hover {
+            transform: none;
+            box-shadow: none;
+            border: solid 2px $color-second;
+          }
+        }
+        &:hover {
+          animation-play-state: paused;
+        }
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+
+    #nossoscursos & {
+      ._hoteisList {
+        width: 100%;
+        animation: none;
+        @include flex(row, center, space-between);
+        flex-wrap: wrap;
+
+        margin-top: 3rem;
+      }
+    }
+  }
+
+  @include responsive(720px) {
+    padding-top: 1rem;
+    .container-fav {
+      .title {
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
+
+    #nossoscursos & {
+      ._hoteisList {
+        width: 100%;
+        justify-content: center;
+        gap: 3rem;
+      }
+    }
+  }
+
+  #clinica & {
+    padding-top: 9.3rem;
+    padding-bottom: 0;
+    .container-fav {
+      ._title,
+      .title {
+        h4 {
+          margin-bottom: 4.7rem;
+          font-size: 3.8rem;
+
+          color: $color-darkest;
+        }
+      }
+    }
+  }
+}

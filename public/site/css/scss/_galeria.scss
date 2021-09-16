@@ -1,0 +1,86 @@
+.s_galeria {
+    padding-top: 4.5rem;
+    padding-bottom: 7.5rem;
+
+    .container-fav {
+        ._title {
+            margin-bottom: 3.8rem;
+            h4 {
+                color: $color-main;
+                font-weight: 600;
+                font-size: 3.2rem;
+                line-height: 3.8rem;
+                letter-spacing: 0.02em;
+            }
+        }
+        ._content {
+            white-space: nowrap;
+            max-width: 100%;
+            overflow-x: hidden;
+            overflow-y: visible;
+            scroll-behavior: smooth;
+
+            ._galeriaList {
+                @include flex(row, center, space-between);
+                transition: 0.32s;
+                min-width: max-content;
+                gap: 0.1rem;
+
+                ._picture {
+                    flex-basis: 3000px;
+                    transition: 0.32s;
+                    img {
+                        transition: 0.32s;
+                        border-radius: 0.8rem;
+                        filter: saturate(0);
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        img {
+                            filter: saturate(1);
+                        }
+                    }
+                }
+            }
+        }
+        ._menu {
+            @include flex(row, center, space-between);
+            padding-top: 4.6rem;
+
+            strong {
+                font-size: 2rem;
+                line-height: 2.3rem;
+                letter-spacing: 0.02em;
+
+                color: $color-second;
+            }
+
+            ._buttons {
+                @include flex(row, center, space-between);
+                gap: 3.7rem;
+
+                ._button {
+                    &:hover {
+                        img {
+                            filter: drop-shadow(1px 1px 30px red);
+                        }
+                        cursor: pointer;
+                    }
+                }
+
+                ._indicator {
+                    @include flex(row, center, space-between);
+                    gap: 1.2rem;
+
+                    img {
+                        content: url("../img/galeria_Indicator.svg");
+                        &.active {
+                            content: url("../img/galeria_Indicator-active.svg");
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

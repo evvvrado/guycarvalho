@@ -1,0 +1,53 @@
+section.s_cursoVideo {
+  padding-top: 9.4rem;
+  padding-bottom: 10rem;
+  background: $gray-ligher;
+
+  .container-fav {
+    @include flex(row, center, space-between);
+
+    ._text {
+      max-width: 53rem;
+      h4 {
+        max-width: 38.6rem;
+        margin-bottom: 2.5rem;
+        font-size: 3.8rem;
+        line-height: 160%;
+
+        color: $color-darkest;
+      }
+      p {
+        margin-bottom: 3rem;
+        color: $color-alternative;
+      }
+    }
+
+    ._video {
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    @include responsive(930px) {
+      flex-direction: column;
+    }
+  }
+
+  .blackout {
+    display: none;
+
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: #00000067;
+
+    cursor: none;
+
+    &.showed {
+      display: block;
+    }
+  }
+}

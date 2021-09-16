@@ -1,0 +1,60 @@
+section.s_embaixadores {
+    padding-top: 9.3rem;
+    .container-fav {
+        ._title {
+            h4 {
+                margin-bottom: 2.5rem;
+                font-size: 3.8rem;
+                line-height: 160%;
+
+                color: $color-darkest;
+            }
+        }
+        ._pictures {
+            position: relative;
+            @include flex(row, center, flex-start);
+            flex-wrap: wrap;
+            gap: 2.1rem;
+
+            img {
+                filter: saturate(0);
+
+                transition: 0.32s;
+
+                &:hover {
+                    filter: none;
+                    cursor: pointer;
+                }
+            }
+
+            &::after {
+                content: "";
+                height: 17.2rem;
+                width: 100%;
+                max-width: 80rem;
+                background-image: url("../img/professores_Effect.svg");
+                position: absolute;
+                top: 20rem;
+
+                pointer-events: none;
+                left: 25rem;
+                opacity: 0.3;
+
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    @include responsive(1250px) {
+        .container-fav {
+            ._pictures {
+                align-items: center;
+                justify-content: center;
+
+                &::after {
+                    left: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+.s_destaque {
+    margin-top: 6.35rem;
+    margin-bottom: 5.75rem;
+    background-image: url("../img/banner_destaque.jpg");
+    height: 60.3rem;
+
+    #nossoscursos &,
+    #feira & {
+        margin: 0;
+        height: 55.1rem;
+        padding-top: 15rem;
+    }
+
+    .container-fav {
+        @include flex(column, flex-end, center);
+        height: 100%;
+        ._content {
+            max-width: 62.3rem;
+            ._line {
+                @include flex(row, center, flex-end);
+                margin-bottom: 3rem;
+                button {
+                    @include circle-btn(4.3rem, $color-featured);
+                }
+            }
+            h6 {
+                font-weight: 400;
+                font-size: 3.3rem;
+                color: $color-featured;
+                letter-spacing: 0.1em;
+                height: 4rem;
+                overflow: hidden;
+                word-break: break-all;
+                animation: typing infinite ease-in-out 4s;
+                &::after {
+                    content: "A MAIOR FEIRA FITNESS DO BRASIL";
+                    animation: changetext infinite linear 8s;
+                }
+            }
+            p {
+                color: $white;
+            }
+            @include fade(translateY(300px), 2s);
+        }
+    }
+    @include responsive(500px) {
+        background-position: center;
+        background-size: auto 100%;
+        .container-fav {
+            ._content {
+                ._line {
+                    justify-content: center;
+                }
+                h6 {
+                    height: 2.4rem;
+                    font-size: 2.4rem;
+                }
+            }
+        }
+    }
+}

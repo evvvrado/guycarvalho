@@ -1,0 +1,105 @@
+.s_send {
+  padding-top: 3.3rem;
+
+  .container-fav {
+    @include flex(row, center, center);
+
+    #contato & {
+      margin: 0 !important;
+      padding: 0 !important;
+      main {
+        form {
+          label {
+            width: 100%;
+            input {
+              width: 100%;
+
+              margin-bottom: 2rem;
+            }
+          }
+        }
+        textarea {
+          margin-top: 0;
+        }
+      }
+    }
+
+    main {
+      max-width: 79.6rem;
+      .title {
+        font-size: 1.8rem;
+        line-height: 140%;
+        margin-bottom: 2.4rem;
+
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: $color-main;
+      }
+      form {
+        label {
+          &:first-child {
+            margin-right: 4.2rem;
+          }
+
+          input {
+            font-family: "Gilroy";
+            border: 1px solid #5b647b42;
+            border-radius: 0.4rem;
+
+            font-weight: 500;
+
+            width: 47%;
+            height: 4.2rem;
+            padding-left: 3rem;
+            display: inline-block;
+
+            font-size: 1.4rem;
+
+            letter-spacing: 0.02em;
+            color: $color-main;
+          }
+        }
+
+        textarea {
+          font-family: "Gilroy";
+          margin-top: 2.4rem;
+          resize: none;
+          width: 100%;
+          height: 21.4rem;
+          border: 1px solid #5b647b42;
+          border-radius: 0.4rem;
+          padding-left: 3rem;
+          padding-top: 0.8rem;
+
+          letter-spacing: 0.02em;
+          color: $color-main;
+        }
+
+        button {
+          @include style-btn(4.8rem, $color-second, $white);
+          margin-top: 2.4rem;
+
+          border-radius: 30rem;
+
+          float: right;
+        }
+      }
+    }
+  }
+
+  @include responsive(900px) {
+    .container-fav {
+      main {
+        form {
+          label {
+            margin: 0;
+            input {
+              width: 100%;
+              margin-top: 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

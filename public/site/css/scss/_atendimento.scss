@@ -1,0 +1,98 @@
+.s_atendimento {
+  padding-top: 17.9rem;
+  padding-bottom: 25.4rem;
+
+  .container-fav {
+    @include flex(row, flex-start, space-between);
+
+    ._col {
+      &:first-child {
+        max-width: 48.8rem;
+      }
+
+      h4 {
+        margin-bottom: 2.4rem;
+        font-size: 5rem;
+        line-height: 5.9rem;
+        letter-spacing: 0.02em;
+
+        color: $color-main;
+      }
+
+      p {
+        font-size: 1.6rem;
+        line-height: 140%;
+        /* or 22px */
+
+        letter-spacing: 0.02em;
+
+        color: $color-main;
+      }
+    }
+
+    &:last-child {
+      p {
+        margin-top: 6.7rem;
+
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 160%;
+        letter-spacing: 0.02em;
+
+        color: $color-darkest;
+      }
+
+      h6 {
+        margin-top: 2.6rem;
+        font-size: 2.2rem;
+        margin-bottom: 5.2rem;
+
+        color: $color-darkest;
+      }
+
+      ._buttons {
+        width: 100%;
+        max-width: 31.3rem;
+        display: flex;
+        justify-content: space-between;
+
+        div {
+          height: 6.5rem;
+          width: 100%;
+          max-width: 6.5rem;
+
+          background: $color-darkest;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          border-radius: 0.8rem;
+
+          cursor: pointer;
+
+          transition: 0.32s;
+
+          &:hover {
+            background-color: $color-darker;
+          }
+        }
+      }
+    }
+  }
+
+  @include responsive(1150px) {
+    .container-fav {
+      @include flex(column, center, center);
+      gap: 4rem;
+
+      text-align: center;
+
+      ._col:last-child {
+        ._buttons {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

@@ -112,7 +112,7 @@
                                     </div>
                                     <div class="my-auto login-box">
                                         <div>
-                                            <h5>Bem vindo de volta !</h5>
+                                            <h5>Bem vindo !</h5>
                                             <p>
                                                 Insira seus dados para acessar.
                                             </p>
@@ -150,7 +150,7 @@
                                                         <a
                                                             class="text-muted"
                                                             style="cursor: pointer;"
-                                                            onclick="$('.login-box').hide(); $('.forgot-password').attr('class', 'my-auto forgot-password')"
+                                                            onclick="$('.login-box').hide(); $('.forgot-password').show();"
                                                             >Esqueceu sua senha?</a
                                                         >
                                                     </div>
@@ -247,9 +247,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="my-auto forgot-password invisible position-absolute">
+                                    <div class="my-auto forgot-password">
                                         <div>
-                                            <h5 class="text-primary">
+                                            <h5>
                                                 Recuperar senha
                                             </h5>
                                             <p class="text-muted">
@@ -307,6 +307,7 @@
                                                             waves-effect
                                                             waves-light
                                                         "
+                                                        onclick="$('.forgot-password').hide(); $('.send-email').show();"
                                                         style="background-color: #1ac7d6;color: white;"  
                                                         type="submit"
                                                     >
@@ -326,6 +327,25 @@
                                                         Manda bala ai
                                                     </a>
                                                 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="my-auto send-email">
+                                        
+                                        <div class="text-center">
+
+                                            <div class="avatar-md mx-auto">
+                                                <div class="avatar-title rounded-circle bg-light">
+                                                    <i class="bx bx-mail-send h1 mb-0"></i>
+                                                </div>
+                                            </div>
+                                            <div class="p-2 mt-4">
+                                                <h4>Sucesso !</h4>
+                                                <p class="text-muted">Enviamos uma confirmação para o seu e-mail veve@abc.com, Please check it</p>
+                                                <div class="mt-4">
+                                                    <a href="" class="btn btn-success">Verificar e-mail</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -393,5 +413,10 @@
         <!-- App js -->
         <script src="{{ asset('admin/js/app.js') }}"></script>
         @toastr_js @toastr_render
+
+        <script>
+            $('.forgot-password').hide();
+            $('.send-email').hide();
+        </script>
     </body>
 </html>

@@ -65,8 +65,8 @@
                                 <div class="row">
                                     <div class="col-7">
                                         <div class="text-primary p-4">
-                                            <h5 class="text-primary">Bem vindo de volta!</h5>
-                                            <p>Insira seus dados para acessar.</p>
+                                            <h5  style="color: var(--principal)">Bem vindo de volta!</h5>
+                                            <p style="color: var(--principal)">Insira seus dados para acessar.</p>
                                         </div>
                                     </div>
                                     <div class="col-5 align-self-end">
@@ -87,13 +87,13 @@
                                     <a href="index.html" class="auth-logo-dark">
                                         <div class="avatar-md profile-user-wid mb-4">
                                             <span class="avatar-title rounded-circle bg-light">
-                                                <img src="{{ asset('site/img/_logo47.svg') }}" alt="" class="rounded-circle" height="34">
+                                                <img src="{{ asset('site/img/enafCircle_color.png') }}" alt="" class="rounded-circle" height="34">
                                             </span>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="p-2">
-                                    <form class="form-horizontal" action="https://themesbrand.com/skote/layouts/index.html">
+                                    <form novalidate="" action="#" method="get" class="form-horizontal av-invalid">
         
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Usuário</label>
@@ -143,7 +143,7 @@
                                             </ul>
                                         </div> --}}
 
-                                        <div class="mzt-4 mt-5 text-center">
+                                        <div class="mzt-4 mt-5 text-center cpointer">
                                             <a onclick="$('.forgot-password').show(); $('.login-box').hide();" class="text-muted"><i class="mdi mdi-lock me-1"></i> Esqueceu sua senha ?</a>
                                         </div>
                                     </form>
@@ -151,26 +151,25 @@
             
                             </div>
                         </div>
-
-                    </div>
+                  </div>
                 </div>
             </div>
 
             
             <div class="container forgot-password">
                 <div class="row justify-content-center">
-                    <div class="col-md-8 col-lg-6 col-xl-5">
+                    <div class="send-email col-md-8 col-lg-6 col-xl-5">
                         <div class="card overflow-hidden">
                             <div style="
                             border: solid 1px rgba(0, 0, 0, 0.2);">
                                 <div class="row">
                                     <div class="col-7">
                                         <div class="text-primary p-4">
-                                            <h5 class="text-primary"> Recuperar Senha</h5>
+                                            <h5  style="color: var(--principal)"> Recuperar Senha</h5>
                                         </div>
                                     </div>
                                     <div class="col-5 align-self-end">
-                                        <img src="{{ asset('painel/images/profile-img.png') }}" alt="" class="img-fluid">
+                                        <img alt="" class="img-fluid">
                                     </div>
                                 </div>
                             </div>
@@ -179,7 +178,7 @@
                                     <a href="index.html">
                                         <div class="avatar-md profile-user-wid mb-4">
                                             <span class="avatar-title rounded-circle bg-light">
-                                                <img src=""  alt="" class="rounded-circle" height="15">
+                                                <img src="{{ asset('site/img/enafCircle_color.png') }}"  alt="" class="rounded-circle" height="34">
                                             </span>
                                         </div>
                                     </a>
@@ -189,7 +188,7 @@
                                     <div class="alert alert-success text-center mb-4" role="alert">
                                         Insira seu e-mail e enviaremos para você um coiso
                                     </div>
-                                    <form class="form-horizontal" action="https://themesbrand.com/skote/layouts/index.html">
+                                    <form class="form-horizontal">
             
                                         <div class="mb-3">
                                             <label for="useremail" class="form-label">E-mail</label>
@@ -197,7 +196,7 @@
                                         </div>
                     
                                         <div class="text-end">
-                                            <button class="btn btn-primary w-md waves-effect waves-light" type="submit"
+                                            <button onclick="$('.send-email').hide(); $('.verify-email').show()" class="btn btn-primary w-md waves-effect waves-light" type="submit"
                                              style="background-color: #1ac7d6;color: white;"  >Recuperar</button>
                                         </div>
     
@@ -207,6 +206,38 @@
                             </div>
                         </div>
 
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="verify-email col-md-8 col-lg-6 col-xl-5">
+                            <div class="card">
+                                
+                                <div class="card-body"> 
+                                    
+                                    <div class="p-2">
+                                        <div class="text-center">
+    
+                                            <div class="avatar-md mx-auto">
+                                                <div class="avatar-title rounded-circle bg-light">
+                                                    <i  style="color: var(--principal)" class="bx bxs-envelope h1 mb-0"></i>
+                                                </div>
+                                            </div>
+                                            <div class="p-2 mt-4">
+                                                <h4>Verifique seu e-mail</h4>
+                                                <p>Enviamos uma confirmação para o seu e-mail <span class="font-weight-semibold">veve@abc.com</span>, Please check it</p>
+                                                <div class="mt-4">
+                                                    <a href="" class="btn btn-success w-md">Verificar e-mail</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="mt-5 text-center text-white">
+                                <p>Não recebeu? Clique <a href="#" class="fw-medium text-primary"> aqui </a> para reenviar! </p>
+                            </div>
+    
+                        </div>
                     </div>
                 </div>
             </div>
@@ -243,6 +274,7 @@
 
         <script>
             $('.forgot-password').hide();
+            $('.verify-email').hide();
         </script>
     </body>
 

@@ -1,0 +1,233 @@
+section.s_hero {
+    padding-top: 11.2rem;
+    height: 70rem;
+
+    #home & {
+        background-image: url("../img/header_hero.jpg");
+    }
+    #professores & {
+        height: 26rem;
+        background-image: url("../img/header_professores.jpg");
+
+        ._h1 {
+            margin-top: 4.8rem;
+            color: $white;
+        }
+    }
+    #feiraEmpresas & {
+        height: 26rem;
+        background-image: url("../img/header_professores.jpg");
+
+        ._h1 {
+            margin-top: 2.1rem;
+            color: $white;
+        }
+    }
+    #nossoblog & {
+        height: 44.2rem;
+        margin-top: 11.2rem;
+        background-image: url("../img/header_blog.jpg");
+
+        ._h1 {
+            margin-top: 0;
+            margin-left: 5.6rem;
+            max-width: 54.6rem;
+            p {
+                font-size: 1.2rem;
+                letter-spacing: 1%;
+            }
+            h6 {
+                color: $white;
+                font-weight: 600;
+                line-height: 130%;
+                letter-spacing: -0.01em;
+            }
+        }
+    }
+    #clinica & {
+        background: url("../img/header_clinica.jpg");
+        background-size: auto 100%;
+        background-position: center;
+
+        .container-fav {
+            @include flex(row, flex-end, flex-start);
+            height: 100%;
+        }
+
+        h4 {
+            color: $white;
+            font-size: 6.5rem;
+            font-weight: 700;
+        }
+        h6 {
+            font-size: 2.8rem;
+        }
+        p {
+            font-weight: 400;
+            margin-top: 4rem;
+            max-width: 47.2rem;
+            margin-bottom: 7.8rem;
+            line-height: 140%;
+
+            letter-spacing: 0.02em;
+        }
+    }
+
+    #cursoDetalhes & {
+        background-image: url("../img/banner_curso.jpg");
+
+        ._h1 {
+            margin-top: 16rem;
+
+            h6 {
+                font-size: 2.8rem;
+                line-height: 3.3rem;
+                letter-spacing: 0.09em;
+            }
+
+            h1 {
+                font-size: 6.5rem;
+                line-height: 7.6rem;
+            }
+            p {
+                margin-top: 3rem;
+            }
+
+            ._data {
+                margin-top: 8.3rem;
+                @include flex(row, center, space-between);
+                max-width: 76.5rem;
+
+                span {
+                    @include flex(row, center, flex-start);
+                    gap: 1.4rem;
+                    ._icon {
+                        display: inline-block;
+                    }
+                    p {
+                        font-size: 1.6rem;
+                        letter-spacing: 0.02em;
+                        margin-top: 0;
+                        display: inline;
+                    }
+                }
+
+                h6 {
+                    margin: 0;
+                    font-size: 2.8rem;
+                    line-height: 160%;
+                    /* identical to box height, or 45px */
+
+                    color: #ffffff;
+                }
+
+                ._btn {
+                    @include style-btn(4.8rem, $color-featured, $black);
+                    animation: none;
+                    border-radius: 300px;
+                    font-weight: bold;
+                    font-size: 1.8rem;
+                }
+            }
+        }
+
+        @include responsive(900px) {
+            ._h1 {
+                margin-top: 2rem;
+
+                ._data {
+                    margin-top: 4rem;
+                    flex-direction: column;
+                    gap: 2rem;
+                }
+            }
+        }
+    }
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: $color-second;
+
+    ._h1 {
+        margin-top: 12.5rem;
+
+        h6 {
+            color: $color-featured;
+            font-weight: 400;
+            letter-spacing: 0.09em;
+            margin-bottom: 1.1rem;
+        }
+        h1 {
+            color: $white;
+            margin-bottom: 1.7rem;
+        }
+        p {
+            max-width: 62.3rem;
+            color: $white;
+            font-size: 18px;
+            line-height: 140%;
+        }
+
+        button {
+            margin-top: 3.8rem;
+            @include circle-btn(4.3rem, $color-featured);
+
+            animation: upandown 3s infinite linear;
+        }
+        @include fade(translateY(600px), 2s);
+    }
+
+    @include responsive(900px) {
+        background-size: auto 100%;
+        background-position: left;
+        height: 80rem;
+    }
+}
+
+section.s_backtoFeira {
+    @include flex(row, center, flex-start);
+    background: #f6f6f6;
+    height: 8.4rem;
+
+    .container-fav {
+        @include flex(row, center, flex-start);
+        gap: 1rem;
+
+        a {
+            position: relative;
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 160%;
+            cursor: pointer;
+
+            color: $color-alternative;
+
+            &:after {
+                transition: 0.32s;
+                width: 0;
+                height: 0.2rem;
+
+                content: "";
+                position: absolute;
+                bottom: -0.4rem;
+                left: 0;
+                background: $gradient-sky-2;
+            }
+
+            &:hover {
+                color: $color-thirdy;
+
+                &:after {
+                    width: 100%;
+                }
+            }
+
+            #feira & {
+                font-size: 1.8rem;
+                line-height: 2.1rem;
+                letter-spacing: 0.16em;
+                font-weight: 700;
+            }
+        }
+    }
+}

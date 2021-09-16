@@ -1,0 +1,252 @@
+.s_depoimentos {
+    padding-top: 13.6rem;
+    padding-bottom: 12.6rem;
+
+    background: $gradient-sky;
+
+    .container-fav {
+        h6 {
+            font-weight: 400;
+            color: $white;
+        }
+
+        ._numeros {
+            padding-bottom: 12.1rem;
+
+            h6 {
+                margin-bottom: 3.9rem;
+            }
+
+            ._boxes {
+                @include flex(row, center, space-between);
+                ._box {
+                    height: 24.5rem;
+                    width: 100%;
+                    max-width: 20.9rem;
+
+                    background: $white;
+                    border-radius: 0.8rem;
+                    @include flex(column, center, center);
+
+                    ._icon {
+                        margin-bottom: 3.7rem;
+                    }
+
+                    cursor: default;
+
+                    span {
+                        margin-bottom: 2rem;
+                        color: $color-fourty;
+                        font-size: 2.8rem;
+                        line-height: 120%;
+                        letter-spacing: 0.02em;
+                        color: $color-fourty;
+
+                        font-weight: bold;
+                    }
+
+                    p {
+                        font-size: 1.6rem;
+                        font-weight: 600;
+                        color: $color-darker;
+                    }
+                }
+            }
+
+            @include responsive(900px) {
+                ._boxes {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 2.5rem;
+                }
+            }
+        }
+
+        ._depoimentos {
+            ._content {
+                white-space: nowrap;
+                max-width: 100%;
+                scroll-behavior: smooth;
+
+                @include responsive(800px) {
+                    max-width: auto;
+                }
+
+                ._depoimentosList {
+                    @include flex(row, center, flex-start);
+                    transition: 0.32s;
+                    height: 30rem;
+                    width: max-content;
+                    gap: 3.2rem;
+
+                    @include responsive(800px) {
+                        gap: 1rem;
+                    }
+
+                    ._depoimento {
+                        transition: 0.32s;
+                        @include flex(row, flex-start, center);
+                        padding-top: 5.9rem;
+                        gap: 6rem;
+                        white-space: initial;
+                        height: 24.5rem;
+                        width: 48.7rem;
+
+                        background: #f5f7fb;
+                        box-shadow: 20px 20px 60px rgba(26, 65, 122, 0.2);
+                        border-radius: 8px;
+
+                        @include responsive(1400px) {
+                            box-shadow: 0px 0px 0px transparent;
+                        }
+                        @include responsive(800px) {
+                            width: 82.4vw;
+                        }
+
+                        ._pic {
+                            img {
+                                border-radius: 50%;
+                            }
+                        }
+                        ._text {
+                            max-width: 24.2rem;
+                            position: relative;
+                            &::after {
+                                content: url("../img/icon_aspas.svg");
+                                position: absolute;
+                                top: -3.2rem;
+                                left: -3.5rem;
+                            }
+                            p {
+                                font-size: 1.4rem;
+                                line-height: 140%;
+                                margin-bottom: 2.1rem;
+                                /* or 20px */
+
+                                letter-spacing: 0.01em;
+
+                                /* #5B647B */
+
+                                color: #5b647b;
+                            }
+
+                            h5 {
+                                font-size: 1.8rem;
+                                line-height: 140%;
+                                /* or 25px */
+
+                                letter-spacing: 0.01em;
+
+                                /* preto 1 */
+
+                                color: #20356f;
+                            }
+                        }
+
+                        &:hover {
+                            cursor: default;
+                        }
+                    }
+                }
+            }
+
+            ._menu {
+                @include flex(row, center, flex-start);
+                display: none;
+                padding-top: 46px;
+
+                strong {
+                    font-size: 20px;
+                    line-height: 23px;
+                    letter-spacing: 0.02em;
+
+                    color: $color-second;
+                }
+
+                ._buttons {
+                    @include flex(row, center, space-between);
+                    gap: 37px;
+
+                    ._button {
+                        &:hover {
+                            img {
+                                filter: drop-shadow(1px 1px 30px red);
+                            }
+                            cursor: pointer;
+                        }
+                    }
+
+                    ._indicator {
+                        @include flex(row, center, space-between);
+                        gap: 12px;
+
+                        img {
+                            content: url("../img/galeria_Indicator_alternative.svg");
+                            &.active {
+                                content: url("../img/galeria_Indicator-active_alternative.svg");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &._alternative {
+        background: $white;
+        padding-top: 9rem;
+        padding-bottom: 6rem;
+
+        .container-fav {
+            h6 {
+                font-size: 3.2rem;
+                font-weight: 600;
+                letter-spacing: 0.02em;
+
+                color: $color-darkest;
+            }
+
+            ._depoimentos {
+                ._content {
+                    ._depoimentosList {
+                        ._depoimento {
+                            background: #f5f7fb;
+                            box-shadow: none;
+                        }
+                    }
+                }
+
+                ._menu {
+                    ._indicator {
+                        @include flex(row, center, space-between);
+                        gap: 12px;
+
+                        img {
+                            content: url("../img/galeria_Indicator.svg");
+                            &.active {
+                                content: url("../img/galeria_Indicator-active.svg");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include responsive(1800px) {
+        ._depoimentos {
+            overflow-x: hidden;
+        }
+        ._content {
+            overflow-x: hidden;
+        }
+
+        .container-fav {
+            ._depoimentos {
+                ._menu {
+                    display: flex;
+                }
+            }
+        }
+    }
+}

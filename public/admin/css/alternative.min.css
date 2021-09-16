@@ -26,11 +26,11 @@ form > h4 {
     position: fixed;
     top: 0;
     right: 0;
-    left: 0;
     z-index: 1002;
-    background-color: var(--branco1);
     -webkit-box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
     box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+
+    width: 70%;
 }
 
 .navbar-header {
@@ -48,6 +48,8 @@ form > h4 {
     padding: 0 calc(24px / 2) 0 0;
 
     background: linear-gradient(29.43deg, #1ad7d7 -10.45%, #165fcd 159.12%);
+    ]padding-left: 20px;
+    border-radius: 0 0 0 42px;
 }
 
 .navbar-header .dropdown .show.header-item {
@@ -191,6 +193,11 @@ form > h4 {
     content: "\ea3f";
 }
 
+body {
+    background-color: #ffdee9;
+    background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
+}
+
 body[data-topbar="dark"] #page-topbar {
     background-color: #2a3042;
 }
@@ -305,7 +312,6 @@ body[data-layout="horizontal"] .page-content {
     color: #74788d;
     left: 250px;
     height: 60px;
-    background-color: #f2f2f5;
 }
 
 @media (max-width: 991.98px) {
@@ -427,16 +433,22 @@ body[data-layout="horizontal"] .footer {
     width: 250px;
     z-index: 1001;
     background: var(--branco1);
-    bottom: 0;
+    bottom: 60px;
     margin-top: 0;
     position: fixed;
     top: 70px;
     -webkit-box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
     box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+
+    border-radius: 39px;
+    margin-left: 20px;
+    padding-left: 10px;
+    padding-top: 60px;
 }
 
 .main-content {
-    margin-left: 250px;
+    margin-left: 285px;
+    margin-top: 70px;
     overflow: hidden;
 }
 

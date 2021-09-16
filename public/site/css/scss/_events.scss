@@ -1,0 +1,117 @@
+.s_events {
+    padding-top: 6.95rem;
+    padding-bottom: 6.35rem;
+    .container-fav {
+        ._eventList {
+            @include flex(row, center, space-between);
+            ._event {
+                border: 1px solid #ececec;
+                width: 100%;
+                max-width: 28rem;
+                height: 41.5rem;
+                // box-shadow: 10px 20px 40px rgba(19, 51, 113, 0.05);
+
+                transition: 0.32s;
+
+                border-radius: 0.8rem;
+                ._pic {
+                    img {
+                        border-radius: 0.8rem 0.8rem 0 0;
+                    }
+                }
+                ._content {
+                    padding-top: 2.9rem;
+                    padding-left: 5.1rem;
+
+                    ._top {
+                        position: relative;
+                        margin-bottom: 5.3rem;
+                        h4 {
+                            font-size: 2.4rem;
+                            line-height: 180%;
+                            font-weight: 500;
+                        }
+                        p {
+                            color: $color-second;
+                            font-size: 1.4rem;
+                        }
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            bottom: -3.2rem;
+                            left: 0;
+                            height: 0.1rem;
+                            width: 100%;
+
+                            background-color: #f2f2f2;
+                        }
+                    }
+
+                    ._bottom {
+                        span {
+                            font-size: 1.8rem;
+                            font-weight: bold;
+                        }
+                        p {
+                            margin-top: 1.3rem;
+                            font-size: 1.4rem;
+                            color: $color-alternative;
+                        }
+                    }
+                }
+                &:hover {
+                    cursor: pointer;
+                    transform: scale(1.05);
+                    transform-origin: center;
+                }
+            }
+            @include fade(translateY(200px), 2s);
+        }
+    }
+    @include responsive(992px) {
+        .container-fav {
+            overflow-x: scroll;
+            ._eventList {
+                animation: autoscroll infinite 7s linear;
+                display: inline;
+                white-space: nowrap;
+                ._event {
+                    margin-left: 1.5rem;
+                    display: inline-block;
+                    &:hover {
+                        transform: none;
+                    }
+                }
+                &:hover {
+                    animation-play-state: paused;
+                }
+            }
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        #nossoscursos & {
+            ._eventList {
+                width: 100%;
+                animation: none;
+                @include flex(row, center, space-between);
+                flex-wrap: wrap;
+
+                margin-top: 3rem;
+            }
+        }
+    }
+    @include responsive(720px) {
+        padding-top: 1rem;
+
+        #nossoscursos & {
+            ._eventList {
+                width: 100%;
+                justify-content: center;
+                gap: 3rem;
+            }
+        }
+    }
+}

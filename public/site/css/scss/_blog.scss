@@ -1,0 +1,173 @@
+.s_blog {
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+
+    .container-fav {
+        ._title {
+            margin-bottom: 38px;
+            display: flex;
+            gap: 25px;
+
+            h4 {
+                color: $color-main;
+                font-weight: 600;
+                font-size: 32px;
+                line-height: 38px;
+                letter-spacing: 0.02em;
+            }
+        }
+        ._content {
+            white-space: nowrap;
+            max-width: 100%;
+            overflow-x: hidden;
+            overflow-y: visible;
+            scroll-behavior: smooth;
+
+            @include responsive(730px) {
+                max-width: 100%;
+            }
+
+            ._blogList {
+                @include flex(row, center, space-between);
+                transition: 0.32s;
+                min-width: max-content;
+                gap: 25px;
+
+                white-space: initial;
+                ._blog {
+                    border-radius: 8px 8px 8px 8px;
+                    ._pic {
+                        img {
+                            border-radius: 8px 8px 0 0;
+                        }
+                    }
+
+                    ._info {
+                        padding-left: 4.5rem;
+                        padding-top: 2.7rem;
+                        @include flex(column, flex-start, center);
+
+                        .blogTag {
+                            margin-bottom: 28px;
+                            font-weight: 600;
+                            font-size: 12px;
+                            line-height: 14px;
+
+                            color: $color-thirdy;
+                        }
+                        .blogTitle {
+                            margin-bottom: 22px;
+                            color: $color-darkest;
+                            font-size: 20px;
+                            line-height: 140%;
+                        }
+                        .blogDate {
+                            color: $color-main;
+                            font-size: 14px;
+                        }
+                    }
+
+                    height: 395px;
+                    width: 100%;
+                    max-width: 280px;
+                    transition: 0.32s;
+
+                    border-radius: 0 0 8px 8px;
+                    background: $white;
+                    border: 1px solid rgba(91, 100, 123, 0.1);
+                    box-sizing: border-box;
+                    // box-shadow: 10px 20px 40px rgba(19, 51, 113, 0.05);
+
+                    &:hover {
+                        cursor: pointer;
+                        background: rgba(0, 0, 0, 0.15);
+                        transform-origin: center;
+                        // box-shadow: 1px 1px 700px 5px $color-second;
+                    }
+                }
+
+                #nossoblog & {
+                    margin-top: 3rem;
+                    gap: 4.2rem;
+
+                    ._blog {
+                        white-space: normal;
+                        min-height: 53rem;
+                        max-width: 37.6rem;
+                        border-radius: 8px 8px 8px 8px;
+
+                        ._info {
+                            max-width: 28rem;
+
+                            .blogTag {
+                                margin-bottom: 1.8rem;
+                            }
+
+                            p.blogText {
+                                margin-bottom: 2.8rem;
+                                font-size: 1.4rem;
+                                line-height: 140%;
+                                letter-spacing: 0.04em;
+
+                                color: $color-alternative;
+                            }
+
+                            @include responsive(800px) {
+                                max-width: 90%;
+                            }
+                        }
+                    }
+                }
+
+                @include responsive(730px) {
+                    flex-direction: column;
+                }
+            }
+        }
+        ._menu {
+            @include flex(row, center, flex-end);
+            padding-top: 46px;
+
+            strong {
+                font-size: 20px;
+                line-height: 23px;
+                letter-spacing: 0.02em;
+
+                color: $color-second;
+            }
+
+            ._buttons {
+                @include flex(row, center, space-between);
+                gap: 37px;
+
+                ._button {
+                    &:hover {
+                        img {
+                            filter: drop-shadow(1px 1px 30px red);
+                        }
+                        cursor: pointer;
+                    }
+                }
+
+                ._indicator {
+                    @include flex(row, center, space-between);
+                    gap: 12px;
+
+                    img {
+                        content: url("../img/galeria_Indicator.svg");
+                        &.active {
+                            content: url("../img/galeria_Indicator-active.svg");
+                        }
+                    }
+                }
+            }
+
+            @include responsive(800px) {
+                display: none;
+            }
+        }
+    }
+}
+
+@import "blog-list";
+@import "blog-detalhes";

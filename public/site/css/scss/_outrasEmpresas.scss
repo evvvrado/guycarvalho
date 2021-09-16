@@ -1,0 +1,54 @@
+section.s_outrasEmpresas {
+  padding-top: 11.3rem;
+  .container-fav {
+    ._title {
+      h4 {
+        font-size: 3.8rem;
+        line-height: 160%;
+        color: $color-darkest;
+      }
+    }
+    ul {
+      margin-top: 3.4rem;
+      width: 100%;
+
+      li {
+        a {
+          @include flex(row, center, space-between);
+
+          padding-left: 2.3rem;
+          padding-right: 2.3rem;
+
+          transition: 0.32s;
+
+          height: 6.1rem;
+
+          border-top: 1px solid #5b5b5b11;
+
+          span {
+            font-weight: 500;
+            font-size: 1.8rem;
+            color: $color-darkest;
+          }
+
+          legend {
+            font-size: 1.8rem;
+            line-height: 2.1rem;
+            color: $color-alternative;
+          }
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+        width: 100%;
+
+        &:last-child {
+          a {
+            border-bottom: 1px solid #5b5b5b11;
+          }
+        }
+      }
+    }
+  }
+}

@@ -10,7 +10,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
 <head>
         
         <meta charset="utf-8" />
-        <title>ENAF - Painel Administrativo</title>
+        <title>Painel Administrativo - ENAF</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="_token" content="{{ csrf_token() }}">
 
@@ -22,7 +22,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
         <!-- Icons Css -->
         <link href="{{asset('admin/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
-        <link href="{{asset('admin/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="{{asset('admin/css/alternative.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
         @toastr_css
         @yield("styles")
     </head>
@@ -51,15 +51,15 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
 
                             <a href="{{route('painel.index')}}" class="logo logo-light">
                                  <span class="logo-sm">
-                                    <img src="{{asset('site/img/_logo57.svg')}}" alt="" width="32">
+                                    <img src="{{asset('site/img/enafCircle.svg')}}" alt="" width="22">
                                 </span> 
                                 <span class="logo-lg">
-                                    <img class="" src="{{asset('site/img/_logo57.svg')}}" alt="" width="64">
+                                    <img class="" src="{{asset('site/img/enafCircle.svg')}}" alt="" width="44">
                                 </span>
                             </a>
                         </div>
 
-                        <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+                        <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn" style="color: white;">
                             <i class="fa fa-fw fa-bars"></i>
                         </button>
 
@@ -219,7 +219,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     {{--  @else src="{{asset('admin/images/logos/gefit.png')}}"   --}}
                                     @endif
                                     alt="Header Avatar">
-                                <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{session()->get("usuario")["nome"]}}</span>
+                                <span class="d-none d-xl-inline-block ms-1" style="color: white;" key="t-henry">{{session()->get("usuario")["nome"]}}</span>
                                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
@@ -265,7 +265,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     <span key="t-dashboards">Mapa do Site</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.mapa')}}" key="t-default">Mapa</a></li>
+                                    <li><a href="{{route('painel.mapa')}}" key="t-default">Autentificação</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -312,9 +312,9 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                             {{--  <div class="col-sm-6">
                                 <script>document.write(new Date().getFullYear())</script> © GEFIT | Fitness Intelligence.
                             </div>  --}}
-                            <div class="col-sm-6">
+                            <div class="col-12">
                                 <div class="text-sm-end d-none d-sm-block">
-                                    Desenvolvido por 7 Seven Trends 
+                                    <a href=""><img src="{{ asset('site/img/_logo7seven_black.png') }}" height="20px" alt=""></a>
                                 </div>
                             </div>
                         </div>

@@ -21,7 +21,7 @@
         <h3>Todas Categorias</h3>
         <div class="_lists">
             <ul>
-            <li><a href="/nossoscursos.html">Cursos</a></li>
+            <li><a href="{{route('site.cursos')}}">Cursos</a></li>
             <li><a href="/nossasclinicas.html">Clínicas</a></li>
             <li><a href="/">Eventos</a></li>
             <li><a href="/_feira/feira.html">Feira Online</a></li>
@@ -32,7 +32,7 @@
             <li><a href="/">Embaixadores</a></li>
             <li><a href="/nossoblog.html">Artigos</a></li>
             <li><a href="/contato.html">Imprenssa</a></li>
-            <li><a href="/professores.html">Professores</a></li>
+            <li><a href="{{ route('site.professores') }}">Professores</a></li>
             <li><a href="/">Membros</a></li>
             </ul>
         </div>
@@ -163,8 +163,8 @@
                 <span>MENU</span>
             </div>
             <ul>
-                <li><a href="/contato.html">CONTATO</a></li>
-                <li><img src="{{ asset('site/img/user.svg') }}" alt="Ícone de Usuário" /></li>
+                <li><a href="{{route('site.contato')}}">CONTATO</a></li>
+                <li><a href="{{ route('site.minha-conta')}}"><img src="{{ asset('site/img/user.svg') }}" alt="Ícone de Usuário" /></a></li>
                 <li class="_carrinho_button"><img src="{{ asset('site/img/cart.svg') }}" alt="Ícone de Carrinho" /></li>
             </ul>
         </nav>

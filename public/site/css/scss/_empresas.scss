@@ -1,0 +1,157 @@
+section.s_empresas {
+  padding-top: 2.7rem;
+
+  .container-fav {
+    @include flex(row, center, flex-start);
+
+    flex-wrap: wrap;
+
+    gap: 3.8rem;
+
+    ._box {
+      @include flex(column, center, center);
+      flex: 22%;
+      border: solid 1px #5b647b33;
+      border-radius: 4px;
+
+      div {
+        width: 100%;
+        @include flex(row, center, space-evenly);
+      }
+
+      &:not(.main) {
+        width: 100%;
+        max-width: 38.4rem;
+
+        picture {
+          height: 12.6rem;
+          width: 100%;
+          @include flex(row, center, center);
+
+          border-bottom: solid 1px #5b647b33;
+        }
+
+        div {
+          padding-top: 2.5rem;
+          @include flex(row, flex-start, center);
+
+          span {
+            font-weight: 600;
+            font-size: 1.6rem;
+
+            color: $color-darkest;
+
+            margin-right: 5.7rem;
+          }
+
+          ul {
+            margin-bottom: 2.4rem;
+            li {
+              list-style: none;
+              color: #3c445b;
+
+              margin-bottom: 0.9rem;
+              position: relative;
+
+              &::before {
+                content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+                color: $color-second; /* Change the color */
+                font-weight: bold; /* If you want it to be bold */
+                display: inline-block; /* Needed to add space between the bullet and the text */
+                width: 1em; /* Also needed for space (tweak if needed) */
+                margin-left: -1em; /* Also needed for space (tweak if needed) */
+              }
+
+              &:after {
+                transition: 0.32s;
+                width: 0;
+                height: 0.2rem;
+
+                content: "";
+                position: absolute;
+                bottom: -0.4rem;
+                left: 0;
+                background: $gradient-sky-2;
+              }
+
+              &:hover {
+                color: $color-thirdy;
+
+                &:after {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.main {
+        flex: 100%;
+        padding: 2.4rem 3.5rem 0 2.4rem;
+        div {
+          span {
+            padding-top: 3.5rem;
+            padding-bottom: 2.8rem;
+
+            font-size: 2.2rem;
+            line-height: 2.6rem;
+
+            color: $color-alternative;
+
+            @include flex(row, center, center);
+            gap: 1.2rem;
+
+            a {
+              white-space: nowrap;
+              font-size: 1.8rem;
+              line-height: 2.1rem;
+
+              color: $color-alternative;
+              position: relative;
+              &:after {
+                transition: 0.32s;
+                width: 0;
+                height: 0.2rem;
+
+                content: "";
+                position: absolute;
+                bottom: -0.4rem;
+                left: 0;
+                background: $gradient-sky-2;
+              }
+
+              &:hover {
+                color: $color-thirdy;
+
+                &:after {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include responsive(800px) {
+    .container-fav {
+      ._box {
+        div {
+          @include flex(column, center, center);
+        }
+      }
+    }
+  }
+
+  @include responsive(600px) {
+    .container-fav {
+      justify-content: center;
+
+      ._box:not(.main) {
+        max-width: 100%;
+      }
+    }
+  }
+}
