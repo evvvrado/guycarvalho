@@ -94,6 +94,10 @@ class SiteController extends Controller
         return view("site.imprensa");
     }
 
+    public function clinicas(){
+        return view("site.clinicas");
+    }
+
     public function minhaArea(){
         return view("site.minha-area");
     }

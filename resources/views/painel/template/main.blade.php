@@ -114,10 +114,10 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                         </div>  --}}
 
                         <div class="dropdown d-none d-lg-inline-block ms-1">
-                            <button type="button" class="btn header-item noti-icon waves-effect"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{-- <button type="button" class="btn header-item noti-icon waves-effect"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="bx bx-customize"></i>
-                            </button>
+                            </button> --}}
                             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                                 <div class="px-lg-2">
                                     <div class="row g-0">
@@ -175,7 +175,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                             <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="bx bx-bell bx-tada"></i>
-                                <span class="badge bg-danger rounded-pill">0</span>
+                                {{-- <span class="badge bg-danger rounded-pill">0</span> --}}
                             </button>
                             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
                                 aria-labelledby="page-header-notifications-dropdown">
@@ -265,7 +265,10 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     <span key="t-dashboards">Mapa do Site</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{route('painel.mapa')}}" key="t-default">Autentificação</a></li>
+                                    <li><a href="{{ route('painel.mapa') }}" key="t-default">Autentificação</a></li>
+                                </ul>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{ route('painel.mapa-site')  }}" key="t-default">Páginas do Site</a></li>
                                 </ul>
                             </li>
                         </ul>

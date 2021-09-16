@@ -24,6 +24,7 @@ class PainelController extends Controller
     }
 
 
+
     public function logar(Request $request){
         $usuario = Usuario::where("usuario", $request->usuario)->first();
         if($usuario){

@@ -54,7 +54,7 @@
             <ul>
                 <li><a href="/">EVENTOS</a></li>
                 <li><a href="{{ route('site.cursos') }}">CURSOS ONLINE</a></li>
-                <li><a href="/nossasclinicas.html">CLÍNICAS</a></li>
+                <li><a href="{{ route('site.clinicas') }}">CLÍNICAS</a></li>
                 <li><a href="{{ route('site.professores') }}">PROFESSORES</a></li>
                 <li><a href="/">EMBAIXADORES</a></li>
                 <li><a href="/_feira/feira.html">Feira Online</a></li>

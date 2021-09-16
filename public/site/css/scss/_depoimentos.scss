@@ -96,7 +96,7 @@
                         box-shadow: 20px 20px 60px rgba(26, 65, 122, 0.2);
                         border-radius: 8px;
 
-                        @include responsive(1400px) {
+                        @include responsive(1910px) {
                             box-shadow: 0px 0px 0px transparent;
                         }
                         @include responsive(800px) {

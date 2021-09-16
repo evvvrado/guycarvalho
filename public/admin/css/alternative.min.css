@@ -31,6 +31,8 @@ form > h4 {
     box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
 
     width: 70%;
+
+    border-radius: 120px;
 }
 
 .navbar-header {
@@ -48,7 +50,7 @@ form > h4 {
     padding: 0 calc(24px / 2) 0 0;
 
     background: linear-gradient(29.43deg, #1ad7d7 -10.45%, #165fcd 159.12%);
-    ]padding-left: 20px;
+    padding-left: 20px;
     border-radius: 0 0 0 42px;
 }
 
@@ -391,6 +393,9 @@ body[data-layout="horizontal"] .footer {
     .right-bar {
         overflow: auto;
     }
+    .right-bar-enabled .right-bar {
+        width: 100%;
+    }
     .right-bar .slimscroll-menu {
         height: auto !important;
     }
@@ -602,6 +607,8 @@ body[data-layout="horizontal"] .footer {
     position: absolute;
     width: 70px !important;
     z-index: 5;
+
+    padding-left: 0;
 }
 
 .vertical-collpsed .vertical-menu .simplebar-content-wrapper,
@@ -762,7 +769,7 @@ body[data-sidebar="dark"] #sidebar-menu ul li ul.sub-menu li a:hover {
 }
 
 body[data-sidebar="dark"].vertical-collpsed {
-    min-height: 1760px;
+    /* min-height: 1760px; */
 }
 
 body[data-sidebar="dark"].vertical-collpsed
@@ -4351,6 +4358,12 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before {
     }
     .email-rightbar {
         margin: 0;
+    }
+
+    body.sidebar-enable .vertical-menu {
+        margin-left: 2px;
+        bottom: 10px;
+        top: 100px;
     }
 }
 
