@@ -51,11 +51,11 @@ form > h4 {
 
     background: linear-gradient(29.43deg, #1ad7d7 -10.45%, #165fcd 159.12%);
     padding-left: 20px;
-    border-radius: 0 0 0 42px;
+    border-radius: 0 0 0 12px;
 }
 
 .navbar-header .dropdown .show.header-item {
-    background-color: #f8f9fa;
+    background-color: rgba(0, 0, 0, 0.02);
 }
 
 .navbar-brand-box {
@@ -445,7 +445,7 @@ body[data-layout="horizontal"] .footer {
     -webkit-box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
     box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
 
-    border-radius: 39px;
+    border-radius: 12px;
     margin-left: 20px;
     padding-left: 10px;
     padding-top: 60px;

@@ -20,13 +20,18 @@ Route::get('/curso/{slug}', [\App\Http\Controllers\SiteController::class, 'curso
 Route::get('/curso/{slug}/instrutores', [\App\Http\Controllers\SiteController::class, 'instrutores'])->name("site.curso.instrutores");
 Route::get('/curso/{slug}/local', [\App\Http\Controllers\SiteController::class, 'local'])->name("site.curso.local");
 Route::get('/curso/{slug}/programacao', [\App\Http\Controllers\SiteController::class, 'programacao'])->name("site.curso.programacao");
-Route::get('/contato', [\App\Http\Controllers\SiteController::class, 'contato'])->name("site.contato");
 Route::post('/contato/salvar', [\App\Http\Controllers\MensagemController::class, 'salvar'])->name("site.contato.salvar");
+
+
+
 // ENAF ~
+
+Route::get('/feira', [\App\Http\Controllers\SiteController::class, 'feira'])->name("site.feira");
 
 Route::get('/professores', [\App\Http\Controllers\SiteController::class, 'professores'])->name("site.professores");
 Route::get('/clinicas', [\App\Http\Controllers\SiteController::class, 'clinicas'])->name("site.clinicas");
 Route::get('/cursos', [\App\Http\Controllers\SiteController::class, 'cursos'])->name("site.cursos");
+Route::get('/contato', [\App\Http\Controllers\SiteController::class, 'contato'])->name("site.contato");
 
 
 

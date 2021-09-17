@@ -568,6 +568,14 @@ section.s_feira {
             }
         }
     }
+
+    @include responsive(1220px) {
+        .container-fav {
+            ._bubble.active {
+                display: none;
+            }
+        }
+    }
 }
 
 div._aFeira {
@@ -1154,7 +1162,56 @@ div._aFeira {
         }
     }
 
+    @include responsive(1720px) {
+        background-image: none;
+
+        ._a {
+            ._c2 {
+                align-items: center;
+                justify-content: center;
+                ._r {
+                    display: none;
+                }
+                ._l {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    @include responsive(1420px) {
+        ._l {
+            display: none;
+        }
+    }
     @include responsive(1441px) {
         background-image: none;
+    }
+    @include responsive(1360px) {
+        height: auto;
+
+        ._a {
+            position: relative;
+
+            ._c2 {
+                display: none;
+            }
+
+            &::after {
+                content: "NÃO COMPATIVEL COM RESOLUÇÕES DESKTOP MENORES QUE 1440px";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+
+                height: 90px;
+                width: max-content;
+
+                margin: auto auto;
+
+                display: block;
+            }
+        }
     }
 }

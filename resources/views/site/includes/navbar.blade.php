@@ -24,7 +24,7 @@
             <li><a href="{{ route('site.cursos') }}">Cursos</a></li>
             <li><a href="{{ route('site.clinicas') }}">Clínicas</a></li>
             <li><a href="/">Eventos</a></li>
-            <li><a href="/_feira/feira.html">Feira Online</a></li>
+            <li><a href="{{ route('site.feira') }}">Feira Online</a></li>
             <li><a href="/nossoblog-lista.html">Blog</a></li>
             <li><a href="{{ route('site.quem_somos') }}">Sobre</a></li>
             </ul>

@@ -192,4 +192,12 @@ class SiteController extends Controller
         return view("site.recuperar_senha");
     }
 
+    public function feira(){
+        return view("site.feira");
+    }
+
+
+
+    // FEIRA
+
 }

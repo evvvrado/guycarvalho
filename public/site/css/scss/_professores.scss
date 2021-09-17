@@ -103,9 +103,11 @@
                 ._content {
                     left: 0;
                     overflow: scroll;
+                    scroll-snap-type: x mandatory;
 
                     ._professores {
                         ._professor {
+                            scroll-snap-align: center;
                             img {
                                 height: 42.5rem;
                             }

@@ -22,7 +22,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
         <!-- Icons Css -->
         <link href="{{asset('admin/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
-        <link href="{{asset('admin/css/alternative.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="{{asset('admin/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
         @toastr_css
         @yield("styles")
     </head>
@@ -216,7 +216,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="rounded-circle header-profile-user" 
                                     @if($usuario->foto) src="{{asset($usuario->foto)}}" 
-                                    {{--  @else src="{{asset('admin/images/logos/gefit.png')}}"   --}}
+                                    @else src="{{asset('site/img/enafCircle.svg')}}" 
                                     @endif
                                     alt="Header Avatar">
                                 <span class="d-none d-xl-inline-block ms-1" style="color: white;" key="t-henry">{{session()->get("usuario")["nome"]}}</span>
