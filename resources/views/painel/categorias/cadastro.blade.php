@@ -52,7 +52,7 @@
 
 
                       <div class="mb-3 ">
-                         <label for="productdesc">Ativo / Desativo</label>
+                         <label for="productdesc">Ativo / Inativo</label>
                          <div class="form-check form-switch form-switch-lg pt-3 ">
                              <input class="form-check-input form-control" type="checkbox" id="SwitchCheckSizelg" checked="">       
                              </div>                 

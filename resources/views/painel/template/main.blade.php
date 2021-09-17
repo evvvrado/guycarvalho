@@ -266,7 +266,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     <span key="t-dashboards">Catálogo</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ route('painel.catalogo.cadastro') }}" key="t-default">Cadastrar</a></li>
+                                    <li><a href="{{ route('painel.categorias') }}" key="t-default">Categorias</a></li>
                                 </ul>
                             </li>
 
@@ -274,14 +274,6 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                 <a href="{{ route('painel.mapa') }}"" class="waves-effect">
                                     <i class="bx bx-map-alt" aria-hidden="true"></i>
                                     <span key="t-dashboards">Mapa do Site</span>
-                                </a>
-                            </li>
-
-                            
-                            <li>
-                                <a href="{{route('painel.categorias')}}" class="waves-effect">
-                                    <i class="bx bxs-dashboard" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Categorias</span>
                                 </a>
                             </li>
 

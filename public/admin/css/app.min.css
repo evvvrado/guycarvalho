@@ -5327,6 +5327,9 @@ div.dataTables_wrapper div.dataTables_filter i:hover {
 .form-select {
     height: 53px;
 }
+div.dataTables_wrapper div.dataTables_length select {
+    height: inherit;
+}
 
 .btn-primary {
     background-color: var(--principal);
@@ -5352,4 +5355,20 @@ div.dataTables_wrapper div.dataTables_filter i:hover {
 .dropzone .dz-message {
     text-align: center;
     margin: 2em 0;
+}
+
+#button-add {
+    color: white;
+}
+#button-add:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.filter-body .card-body {
+    padding-top: 10px;
+    position: relative;
+}
+
+.filter-body .card-body .title {
+    margin-bottom: 41px;
 }

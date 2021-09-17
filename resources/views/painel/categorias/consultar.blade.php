@@ -134,15 +134,18 @@
 
     <div class="row">
         <div class="col-9">
-            <div class="card py-2">
-                <div class="card-body">
-                    <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <div class="row">
+            
+            <div class="row"">
 
                            
-                           <div class="col-sm-12 col-md-6 mb-4">
-                            <a name="" id="" class="btn btn-success" href="{{route('painel.categorias.cadastro')}}">Nova Categoria</a>
-                        </div>
+                <div class="col-sm-12 col-md-6 mb-3"  style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
+                    
+                 <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;" style="padding-left: 0;" href="{{route('painel.categorias.cadastro')}}">
+                    <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
+             </div>
+            <div class="card">
+                <div class="card-body">
+                    <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
 
                            
                            <i id="search-icon" class="bx bx-search" aria-hidden="true"></i>
@@ -217,7 +220,7 @@
             </div>
         </div> <!-- end col -->
         <div class="col-3">
-            <div class="card py-2">
+            <div class="card filter-body">
                 <div class="card-body">
                   <div class="title"> Filtros</div>
 
@@ -227,7 +230,7 @@
 
 
 
-                   <div class="row">
+                   <div class="row buttons-row">
                        <div class="col-4">
                         <button type="button" class="btn btn-success waves-effect waves-light">
                             <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar

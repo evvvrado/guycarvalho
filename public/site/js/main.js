@@ -48,7 +48,7 @@ $(document).ready(() => {
         {
             opacity: 0,
         },
-        2000
+        3000
     );
     var i = 0;
     $(document).scroll(() => {

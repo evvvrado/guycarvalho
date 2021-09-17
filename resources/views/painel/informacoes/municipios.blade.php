@@ -10,24 +10,25 @@
     Informações / Municípios
 @endsection
 
-@section('botoes')
-    <a name="" id="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalNovaCategoria" role="button">Nova Categoria</a>
-@endsection
+
 
 
 @section('conteudo')
 
     <div class="row">
         <div class="col-9">
-            <div class="card py-2">
+            
+            <div class="row"">
+
+                           
+                <div class="col-sm-12 col-md-6 mb-3"  style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
+                    
+                 <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;" style="padding-left: 0;" href="{{route('painel.categorias.cadastro')}}">
+                    <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
+             </div>
+            <div class="card">
                 <div class="card-body">
                     <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <div class="row">
-                           <div class="col-sm-12 col-md-6 mb-3">
-                              <div class="dataTables_length" id="datatable_length">
-                                  Categorias
-                              </div>
-                           </div>
 
                            
                            <i id="search-icon" class="bx bx-search" aria-hidden="true"></i>
@@ -36,6 +37,9 @@
                         <div class="row">
                         <div class="col-sm-12">
                         <table id="datatable" class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable_info" style="width: 1185px;">
+                  
+                            
+                            
                             <thead>
                                 <tr role="row">
                                 <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Codigo</th>
@@ -87,6 +91,7 @@
                                     <td>343</td>
                                 </tr>
                             </tbody>
+
                     </table>
                 </div></div>
 
@@ -98,7 +103,7 @@
             </div>
         </div> <!-- end col -->
         <div class="col-3">
-            <div class="card py-2">
+            <div class="card filter-body">
                 <div class="card-body">
                   <div class="title"> Filtros</div>
 
@@ -108,7 +113,7 @@
 
 
 
-                   <div class="row">
+                   <div class="row buttons-row">
                        <div class="col-4">
                         <button type="button" class="btn btn-success waves-effect waves-light">
                             <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
