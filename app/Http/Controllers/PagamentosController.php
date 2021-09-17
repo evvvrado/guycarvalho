@@ -18,8 +18,4 @@ class PagamentosController extends Controller
         return view("painel.mapa.mapa");
     }
 
-    public function mapaSite(){
-        return view("painel.mapa.mapa-site");
-    }
-
 }

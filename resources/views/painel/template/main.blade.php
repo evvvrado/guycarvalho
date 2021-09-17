@@ -54,7 +54,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     <img src="{{asset('site/img/enafCircle.svg')}}" alt="" width="22">
                                 </span> 
                                 <span class="logo-lg">
-                                    <img class="" src="{{asset('site/img/enafCircle.svg')}}" alt="" width="44">
+                                    <img class="" src="{{asset('site/img/_logo57.svg')}}" alt="" height="44">
                                 </span>
                             </a>
                         </div>
@@ -259,17 +259,22 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     <span key="t-dashboards">Dashboard</span>
                                 </a>
                             </li>
+                            
                             <li>
                                 <a href="javascript: void(0);" class="waves-effect">
+                                    <i class="bx bx-list-ul" aria-hidden="true"></i>
+                                    <span key="t-dashboards">Catálogo</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{ route('painel.catalogo.cadastro') }}" key="t-default">Cadastrar</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('painel.mapa') }}"" class="waves-effect">
                                     <i class="bx bx-map-alt" aria-hidden="true"></i>
                                     <span key="t-dashboards">Mapa do Site</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ route('painel.mapa') }}" key="t-default">Autentificação</a></li>
-                                </ul>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ route('painel.mapa-site')  }}" key="t-default">Páginas do Site</a></li>
-                                </ul>
                             </li>
                         </ul>
                     </div>

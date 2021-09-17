@@ -51,7 +51,7 @@ form > h4 {
 }
 
 .navbar-header .dropdown .show.header-item {
-    background-color: #f8f9fa;
+    background-color: rgba(0, 0, 0, 0.02);
 }
 
 .navbar-brand-box {
@@ -5275,4 +5275,18 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before {
 
 .text-primary {
     color: var(--secundaria) !important;
+}
+
+._mapa a {
+    display: block;
+    width: max-content;
+
+    color: #6e727a;
+
+    transition: 0.32s;
+}
+
+._mapa a:hover {
+    transform: scale(1.02);
+    text-decoration: underline !important;
 }

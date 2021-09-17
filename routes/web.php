@@ -173,6 +173,9 @@ Route::middleware(['admin'])->group(function () {
         return view("painel.cursos.formulario");
     });
 
+    // ROTAS DE CATALOGO  
+    Route::get('/sistema/catalogo/cadastrar', [\App\Http\Controllers\CatalogoController::class, 'cadastrar'])->name("painel.catalogo.cadastro");
+
     // ROTAS DE TURMAS
     Route::get('/sistema/curso/{curso}/turmas', [\App\Http\Controllers\TurmasController::class, 'consultar'])->name("painel.turmas");
     Route::post('/sistema/turmas/cadastrar', [\App\Http\Controllers\TurmasController::class, 'cadastrar'])->name("painel.turma.cadastrar");
@@ -188,8 +191,7 @@ Route::middleware(['admin'])->group(function () {
 
 
     //ROTAS DE MAPA
-    Route::get('/sistema/mapa/autentificacao', [\App\Http\Controllers\PagamentosController::class, 'mapa'])->name("painel.mapa");
-    Route::get('/sistema/mapa/site', [\App\Http\Controllers\PagamentosController::class, 'mapaSite'])->name("painel.mapa-site");
+    Route::get('/sistema/mapa', [\App\Http\Controllers\PagamentosController::class, 'mapa'])->name("painel.mapa");
     
     //ROTAS DE ALUNOS
     Route::get('/sistema/alunos', [\App\Http\Controllers\AlunosController::class, 'consultar'])->name("painel.alunos");

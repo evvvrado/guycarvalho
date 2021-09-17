@@ -17,7 +17,7 @@
       property="og:description"
       content="Congresso e Feira Fitness. Cursos, Palestras e Workshops de atualização profissional"
     />
-    <meta property="og:image" content="{{ asset('site/img/_og140.jpg')}} " />
+    <meta property="og:image" content="{{ asset('site/img/_og140.png') }} " />
 
     <link
       rel="stylesheet"
@@ -32,9 +32,9 @@
     <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" />
 
     <link rel="preload" href="{{ asset('site/css/style.css') }}" as="style" />
-    <link rel="preload" href="{{ asset('site/js/jquery.min.js')}}" as="script" />
-    <link rel="preload" href="{{ asset('site/js/jquery-ui.js')}}" as="script" />
-    <link rel="preload" href="{{ asset('site/js/main.js')}}" as="script" />
+    <link rel="preload" href="{{ asset('site/js/jquery.min.js') }}" as="script" />
+    <link rel="preload" href="{{ asset('site/js/jquery-ui.js') }}" as="script" />
+    <link rel="preload" href="{{ asset('site/js/main.js') }}" as="script" />
     <link rel="stylesheet" href="{{ asset('site/css/style.css') }}" />
 
     <title>ENAF - Esporte, Fitness e Saúde</title>

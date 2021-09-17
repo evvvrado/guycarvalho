@@ -6,55 +6,51 @@
     <link href="{{asset('admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
-@section('titulo')
+{{-- @section('titulo')
     Mapa do sistema
-@endsection
+@endsection --}}
 
 @section('conteudo')
 <div class="row">
-    <div class="col-lg-4"  style="max-width: 300px">
-        <div class="card mini-stats-wid">
-            <div class="card-body">
+        
+    <div class="_mapa card">
+        <div class="card-body row pb-5">
                 
-                <div class="d-flex flex-wrap">
-                    <div class="me-3">
-                        <p class="text-muted mb-2">Aluno • Login</p>
-                        <h5 class="mb-0"><a href="/aluno/login">Abrir Página</a></h5>
-                    </div>
-
-                    <div class="avatar-sm ms-auto">
-                        <div class="avatar-title bg-light rounded-circle text-primary font-size-20">
-                            <i style="color: #19a5d3" class="bx bx-user"></i>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="col-2">
+                <h4 class="my-3">Sistema</h4>
+            
+                <a href="{{ route('site.minha-conta') }}">Aluno • Login</a>
+                <a href="{{ route('painel.login') }}">Sistema • Login</a>
+                <a href="">Página</a>
+                <a href="">Página</a>
+                <a href="">Página</a>
+                <a href="">Página</a>
+                <a href="">Página</a>
+                <a href="">Página</a>
+                <a href="">Página</a>
+            </div>
+            <div class="col-2">
+                
+                
+                <h4 class="my-3">Páginas</h4>
+            
+                <a href="">Página</a>
+                <a href="">Página</a>
+                <a href="">Página</a>
+                <a href="">Página</a>
+                <a href="">Página</a>
+                <a href="">Página</a>
+                <a href="">Página</a>
+                <a href="">Página</a>
+                <a href="">Página</a>
             </div>
         </div>
+
+
     </div>
-</div>
 
-<div class="row">
-    <div class="col-lg-4"  style="max-width: 300px">
-        <div class="card mini-stats-wid">
-            <div class="card-body">
-                
-                <div class="d-flex flex-wrap">
-                    <div class="me-3">
-                        <p class="text-muted mb-2">Sistema • Login</p>
-                        <h5 class="mb-0"><a href="/sistema/login">Abrir Página</a></h5>
-                    </div>
 
-                    <div class="avatar-sm ms-auto">
-                        <div class="avatar-title bg-light rounded-circle text-primary font-size-20">
-                            <i style="color: #19a5d3" class="bx bx-book-open"></i>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
+    
 </div>
 @endsection
 
