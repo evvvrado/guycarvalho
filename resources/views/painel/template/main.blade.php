@@ -278,6 +278,16 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                             </li>
 
                             
+                            <li>
+                                <a href="{{route('painel.categorias')}}" class="waves-effect">
+                                    <i class="bx bxs-dashboard" aria-hidden="true"></i>
+                                    <span key="t-dashboards">Categorias</span>
+                                </a>
+                            </li>
+
+                            
+
+                            
                             <li class="menu-title" key="t-menu">Configurações</li>
 
                             <li>

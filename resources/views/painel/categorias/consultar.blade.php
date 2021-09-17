@@ -7,89 +7,61 @@
 @endsection
 
 @section('titulo')
-    Listagem de Categorias
+    Categorias / Listagem
 @endsection
 
 @section('botoes')
-    <a name="" id="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalNovaCategoria" role="button">Nova Categoria</a>
 @endsection
 
+
+{{-- 
 @section('conteudo')
-@include('painel.includes.errors')
-<div class="row mt-3">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body" style="overflow-x: scroll;">
-                <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-
-
-                    <tbody>
-
-                        @foreach($categorias as $categoria)
+    @include('painel.includes.errors')
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body" style="overflow-x: scroll;">
+                    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                        <thead>
                             <tr>
-                                <td>{{$categoria->nome}}</td>
-                                <td>
-                                    <a href="" id="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditaCategoria{{$categoria->id}}" role="button">Editar</a>
-                                    <a name="" id="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalExcluiCategoria{{$categoria->id}}" role="button">Excluir</a>
-                                </td>
+                                <th>Nome</th>
+                                <th></th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+
+
+                        <tbody>
+
+                            @foreach($categorias as $categoria)
+                                <tr>
+                                    <td>{{$categoria->nome}}</td>
+                                    <td>
+                                        <a href="" id="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditaCategoria{{$categoria->id}}" role="button">Editar</a>
+                                        <a name="" id="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalExcluiCategoria{{$categoria->id}}" role="button">Excluir</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-    </div> <!-- end col -->
-</div> <!-- end row -->
+        </div> <!-- end col -->
+    </div> <!-- end row -->
 
 
-<div class="modal fade" id="modalNovaCategoria" tabindex="-1" role="dialog" aria-labelledby="modalNovaCategoriaLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <form action="{{route('painel.categoria.cadastrar')}}" method="post">
-                    @csrf
-                    <div class="row">
-                        <div class="form-group col-12">
-                            <label for="nome">Nome</label>
-                            <input type="text" class="form-control" name="nome"
-                                id="nome" aria-describedby="helpId" 
-                            >
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-12 text-end">
-                            <button type="submit"
-                                class="btn btn-primary">Salvar</button>
-                        </div>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-@foreach($categorias as $categoria)
-    <div class="modal fade" id="modalEditaCategoria{{$categoria->id}}" tabindex="-1" role="dialog" aria-labelledby="modalEditaCategoria{{$categoria->id}}Label"
+    <div class="modal fade" id="modalNovaCategoria" tabindex="-1" role="dialog" aria-labelledby="modalNovaCategoriaLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <form action="{{route('painel.categoria.salvar', ['categoria' => $categoria])}}" method="post">
+                    <form action="{{route('painel.categoria.cadastrar')}}" method="post">
                         @csrf
                         <div class="row">
                             <div class="form-group col-12">
                                 <label for="nome">Nome</label>
                                 <input type="text" class="form-control" name="nome"
                                     id="nome" aria-describedby="helpId" 
-                                    value="{{$categoria->nome}}">
+                                >
                             </div>
                         </div>
                         <div class="row mt-3">
@@ -104,28 +76,176 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="modalExcluiCategoria{{$categoria->id}}" tabindex="-1" role="dialog" aria-labelledby="modalExcluiCategoria{{$categoria->id}}Label"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <h5>Ao excluir a categoria "{{$categoria->nome}}" todas as notícias relacionadas a ela também serão excluídas. Deseja continuar ?</h5>
-                        </div>
+
+    @foreach($categorias as $categoria)
+        <div class="modal fade" id="modalEditaCategoria{{$categoria->id}}" tabindex="-1" role="dialog" aria-labelledby="modalEditaCategoria{{$categoria->id}}Label"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form action="{{route('painel.categoria.salvar', ['categoria' => $categoria])}}" method="post">
+                            @csrf
+                            <div class="row">
+                                <div class="form-group col-12">
+                                    <label for="nome">Nome</label>
+                                    <input type="text" class="form-control" name="nome"
+                                        id="nome" aria-describedby="helpId" 
+                                        value="{{$categoria->nome}}">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12 text-end">
+                                    <button type="submit"
+                                        class="btn btn-primary">Salvar</button>
+                                </div>
+                            </div>
+
+                        </form>
                     </div>
-                    <div class="row mt-3">
-                        <div class="col-12 text-center">
-                            <a name="" id="" class="btn btn-danger" href="{{route('painel.categoria.deletar', ['categoria' => $categoria])}}" role="button">Excluir</a>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modalExcluiCategoria{{$categoria->id}}" tabindex="-1" role="dialog" aria-labelledby="modalExcluiCategoria{{$categoria->id}}Label"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <h5>Ao excluir a categoria "{{$categoria->nome}}" todas as notícias relacionadas a ela também serão excluídas. Deseja continuar ?</h5>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <a name="" id="" class="btn btn-danger" href="{{route('painel.categoria.deletar', ['categoria' => $categoria])}}" role="button">Excluir</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    @endforeach
+
+@endsection --}}
+
+
+
+@section('conteudo')
+
+    <div class="row">
+        <div class="col-9">
+            <div class="card py-2">
+                <div class="card-body">
+                    <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        <div class="row">
+
+                           
+                           <div class="col-sm-12 col-md-6 mb-4">
+                            <a name="" id="" class="btn btn-success" href="{{route('painel.categorias.cadastro')}}">Nova Categoria</a>
+                        </div>
+
+                           
+                           <i id="search-icon" class="bx bx-search" aria-hidden="true"></i>
+                           
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12">
+                        <table id="datatable" class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable_info" style="width: 1185px;">
+                        <thead>
+                           <tr role="row">
+                              <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Nome</th>
+                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;" aria-label="Position: activate to sort column ascending">Anunciante</th>
+                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 20px;" aria-label="Office: activate to sort column ascending">Inicio de Contrato</th>    
+                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-label="Age: activate to sort column ascending">Fim de Contrato</th>
+                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 131px;" aria-label="Start date: activate to sort column ascending">Valor de Contrato</th>
+                           </tr>
+                        </thead>
+
+
+                        <tbody>    
+                            <tr class="odd">
+                                <td class="sorting_1 dtr-control">Brinquedoteca</td>
+                                <td>Rihappy</td>
+                                <td>12/06/2003</td>
+                                <td>12/06/2003</td>
+                                <td>R$ 1.993,00</td>
+                            </tr> 
+                            <tr class="odd">
+                                <td class="sorting_1 dtr-control">Brinquedoteca</td>
+                                <td>Rihappy</td>
+                                <td>12/06/2003</td>
+                                <td>12/06/2003</td>
+                                <td>R$ 1.993,00</td>
+                            </tr> 
+                            <tr class="odd">
+                                <td class="sorting_1 dtr-control">Brinquedoteca</td>
+                                <td>Rihappy</td>
+                                <td>12/06/2003</td>
+                                <td>12/06/2003</td>
+                                <td>R$ 1.993,00</td>
+                            </tr> 
+                            <tr class="odd">
+                                <td class="sorting_1 dtr-control">Brinquedoteca</td>
+                                <td>Rihappy</td>
+                                <td>12/06/2003</td>
+                                <td>12/06/2003</td>
+                                <td>R$ 1.993,00</td>
+                            </tr> 
+                            <tr class="odd">
+                                <td class="sorting_1 dtr-control">Brinquedoteca</td>
+                                <td>Rihappy</td>
+                                <td>12/06/2003</td>
+                                <td>12/06/2003</td>
+                                <td>R$ 1.993,00</td>
+                            </tr> 
+                            <tr class="odd">
+                                <td class="sorting_1 dtr-control">Brinquedoteca</td>
+                                <td>Rihappy</td>
+                                <td>12/06/2003</td>
+                                <td>12/06/2003</td>
+                                <td>R$ 1.993,00</td>
+                            </tr> 
+                        </tbody>
+                    </table>
+                </div></div>
+
+
+          
+                </div>
+
+                </div>
+            </div>
+        </div> <!-- end col -->
+        <div class="col-3">
+            <div class="card py-2">
+                <div class="card-body">
+                  <div class="title"> Filtros</div>
+
+                  <form action="javascript: void(0);">
+                      
+                  </form>
+
+
+
+                   <div class="row">
+                       <div class="col-4">
+                        <button type="button" class="btn btn-success waves-effect waves-light">
+                            <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
+                        </button>
+                       </div>
+                       <div class="col-4">
+                        <button type="button" class="btn btn-danger waves-effect waves-light">
+                            <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
+                        </button>
+                       </div>
+                   </div>
+                </div>
+            </div>
+        </div>
     </div>
-@endforeach
 
 @endsection
+
 
 @section('scripts')
     <!-- Required datatable js -->
@@ -143,7 +263,7 @@
                     "loadingRecords": "Carregando...",
                     "processing": "Processando...",
                     "zeroRecords": "Nenhum registro encontrado",
-                    "search": "Pesquisar",
+                    "search": "",
                     "paginate": {
                         "next": "Próximo",
                         "previous": "Anterior",
@@ -262,10 +382,15 @@
                         "loadMessage": "Carregando Painéis de Pesquisa...",
                         "title": "Filtros Ativos"
                     },
-                    "searchPlaceholder": "Digite um termo para pesquisar",
+                    "searchPlaceholder": "Filtrar",
                     "thousands": "."
                 } 
             } );
         } );    
+
+        $(document).ready(() => {
+            
+        $('div.dataTables_wrapper div.dataTables_filter label').prepend($('#search-icon'));
+        })
     </script> 
 @endsection

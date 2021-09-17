@@ -15,21 +15,27 @@ class CategoriasController extends Controller
         return view("painel.categorias.consultar", ["categorias" => $categorias]);
     }
 
-    public function cadastrar(Request $request){
-        $request->validate([
-            'nome' => 'unique:categorias,nome',
-        ]);
+    // public function cadastrar(Request $request){
+    //     $request->validate([
+    //         'nome' => 'unique:categorias,nome',
+    //     ]);
 
-        $categoria = new Categoria;
-        $categoria->nome = $request->nome;
-        $categoria->slug = Str::slug($request->nome);
-        $categoria->save();
+    //     $categoria = new Categoria;
+    //     $categoria->nome = $request->nome;
+    //     $categoria->slug = Str::slug($request->nome);
+    //     $categoria->save();
 
-        Log::channel('categorias')->info('<b>CADASTRANDO CATEGORIA</b>: O usuario <b>' . session()->get("usuario")["usuario"] . '</b> cadastrou a categoria <b>' . $categoria->nome . '</b>');
+    //     Log::channel('categorias')->info('<b>CADASTRANDO CATEGORIA</b>: O usuario <b>' . session()->get("usuario")["usuario"] . '</b> cadastrou a categoria <b>' . $categoria->nome . '</b>');
 
-        toastr()->success("Categoria salva com sucesso!");
-        return redirect()->back();
+    //     toastr()->success("Categoria salva com sucesso!");
+    //     return redirect()->back();
+    // }
+
+    
+    public function cadastrar(){
+        return view("painel.categorias.cadastro");
     }
+
 
     public function salvar(Request $request, Categoria $categoria){
         $request->validate([

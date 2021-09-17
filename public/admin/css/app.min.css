@@ -5290,3 +5290,66 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before {
     transform: scale(1.02);
     text-decoration: underline !important;
 }
+
+div.dataTables_wrapper div.dataTables_filter label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+    border-radius: 0 15px 15px 0;
+    height: 30px;
+}
+div.dataTables_wrapper div.dataTables_filter i {
+    border: 1px solid #ced4da;
+    padding: 8px;
+    padding-left: 12px;
+    height: 30px;
+    border-radius: 15px 0 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--principal);
+}
+
+div.dataTables_wrapper div.dataTables_filter i:hover {
+    cursor: pointer;
+}
+
+.page-item.active .page-link {
+    background-color: var(--principal);
+    border-color: var(--principal);
+}
+
+.form-control,
+.form-select {
+    height: 53px;
+}
+
+.btn-primary {
+    background-color: var(--principal);
+    border-color: var(--principal);
+}
+.dropzone.dz-clickable {
+    cursor: pointer;
+}
+.dropzone {
+    min-height: 230px;
+    border: 2px dashed #ced4da;
+    background: #fff;
+    border-radius: 6px;
+}
+.dropzone.dz-clickable .dz-message,
+.dropzone.dz-clickable .dz-message * {
+    cursor: pointer;
+}
+.dropzone .dz-message {
+    font-size: 24px;
+    width: 100%;
+}
+.dropzone .dz-message {
+    text-align: center;
+    margin: 2em 0;
+}

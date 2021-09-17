@@ -7,7 +7,7 @@
 @endsection
 
 @section('titulo')
-    Cadastro de Catálogo
+    Catálogo / Cadastrar
 @endsection
 
 @section('conteudo')
