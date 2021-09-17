@@ -36,28 +36,28 @@
             <div class="_media">
                 <ul>
                 <li>
-                    <a href="#">
-                    <img src="{{ asset('/site/img/icon_facebook_footer.svg') }}" alt="Ícone facebook" />
+                    <a target="_blank" href="#">
+                        <img src="{{ asset('/site/img/icon_facebook_footer.svg') }}" alt="Ícone facebook" />
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                    <img src="{{ asset('/site/img/icon_instagram_footer.svg') }}" alt="Ícone instagram" />
+                    <a target="_blank" href="#">
+                        <img src="{{ asset('/site/img/icon_instagram_footer.svg') }}" alt="Ícone instagram" />
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                    <img src="{{ asset('/site/img/icon_youtube_footer.svg') }}" alt="Ícone youtube" />
+                    <a target="_blank" href="#">
+                        <img src="{{ asset('/site/img/icon_youtube_footer.svg') }}" alt="Ícone youtube" />
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                    <img src="{{ asset('/site/img/icon_twitter_footer.svg') }}" alt="Ícone twitter" />
+                    <a target="_blank" href="#">
+                        <img src="{{ asset('/site/img/icon_twitter_footer.svg') }}" alt="Ícone twitter" />
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                    <img src="{{ asset('/site/img/icon_linkedin_footer.svg') }}" alt="Ícone linkedin" />
+                    <a target="_blank" href="#">
+                        <img src="{{ asset('/site/img/icon_linkedin_footer.svg') }}" alt="Ícone linkedin" />
                     </a>
                 </li>
                 </ul>

@@ -7,7 +7,7 @@
 @endsection
 
 @section('titulo')
-    Listagem de Destaques
+    Listagem de Cursos
 @endsection
 
 @section('botoes')

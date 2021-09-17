@@ -19,30 +19,30 @@
             <div class="col-2">
                 <h4 class="my-3">Sistema</h4>
             
-                <a href="{{ route('site.minha-conta') }}">Aluno • Login</a>
-                <a href="{{ route('painel.login') }}">Sistema • Login</a>
-                <a href="">Página</a>
-                <a href="">Página</a>
-                <a href="">Página</a>
-                <a href="">Página</a>
-                <a href="">Página</a>
-                <a href="">Página</a>
-                <a href="">Página</a>
+                <a target="_blank" href="{{ route('site.minha-conta') }}">Aluno • Login</a>
+                <a target="_blank" href="{{ route('painel.login') }}">Sistema • Login</a>
+                <a target="_blank" href="">Página</a>
+                <a target="_blank" href="">Página</a>
+                <a target="_blank" href="">Página</a>
+                <a target="_blank" href="">Página</a>
+                <a target="_blank" href="">Página</a>
+                <a target="_blank" href="">Página</a>
+                <a target="_blank" href="">Página</a>
             </div>
             <div class="col-2">
                 
                 
                 <h4 class="my-3">Páginas</h4>
             
-                <a href="">Página</a>
-                <a href="">Página</a>
-                <a href="">Página</a>
-                <a href="">Página</a>
-                <a href="">Página</a>
-                <a href="">Página</a>
-                <a href="">Página</a>
-                <a href="">Página</a>
-                <a href="">Página</a>
+                <a target="_blank" href="{{ route('site.index') }}">Início ~ Home</a>
+                <a target="_blank" href="">Página</a>
+                <a target="_blank" href="">Página</a>
+                <a target="_blank" href="">Página</a>
+                <a target="_blank" href="">Página</a>
+                <a target="_blank" href="">Página</a>
+                <a target="_blank" href="">Página</a>
+                <a target="_blank" href="">Página</a>
+                <a target="_blank" href="">Página</a>
             </div>
         </div>
 

@@ -188,6 +188,9 @@ Route::middleware(['admin'])->group(function () {
 
     //ROTAS DE VENDAS
     Route::get('/sistema/vendas', [\App\Http\Controllers\PagamentosController::class, 'vendas'])->name("painel.vendas");
+    
+    //ROTAS DE CONFIGURAÇÕES
+    Route::get('/sistema/informacoes/municipios', [\App\Http\Controllers\InformacoesController::class, 'municipios'])->name("painel.informacoes.municipios");
 
 
     //ROTAS DE MAPA
