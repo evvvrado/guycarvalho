@@ -58,16 +58,34 @@
                 <img src="{{asset('site/img/loginuser.svg')}}" alt="" />
               </div>
             </div>
-            <form action="">
+            <form
+            action="{{route('painel.logar')}}"
+            method="post"
+            >
+            @csrf
               <label>
                 <span>Meu e-mail</span>
-                <input type="email" />
+                <input 
+                type="text"
+                class="form-control"
+                name="usuario"
+                id="usuario"
+                placeholder="Informe o usuário"
+                required />
               </label>
               <label>
                 <span>Digite sua senha</span>
-                <input type="password" />
+                <input  type="password"
+                class="form-control"
+                name="senha"
+                placeholder="Informa a senha"
+                aria-label="Password"
+                aria-describedby="password-addon"
+                required type="password" />
               </label>
-              <button>Acessar <img src="{{asset('site/img/arrowlong.svg')}}" alt="" /></button>
+              <button type="button"
+              id="password-addon"
+              >>Acessar <img src="{{asset('site/img/arrowlong.svg')}}" alt="" /></button>
             </form>
           </div>
         </div>

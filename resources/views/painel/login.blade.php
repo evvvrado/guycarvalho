@@ -93,17 +93,33 @@
                                     </a>
                                 </div>
                                 <div class="p-2">
-                                    <form novalidate="" action="#" method="get" class="form-horizontal av-invalid">
+                                    <form
+                                    action="{{route('painel.logar')}}"
+                                    method="post"
+                                    >
+                                    @csrf
         
                                         <div class="mb-3">
-                                            <label for="username" class="form-label">Usuário</label>
-                                            <input type="text" class="form-control" id="username" placeholder="Insira seu usuário">
+                                            <label for="usuario" class="form-label">Usuário</label>
+                                            <input 
+                                            type="text"
+                                            class="form-control"
+                                            name="usuario"
+                                            id="usuario"
+                                            placeholder="Informe o usuário"
+                                            required ">
                                         </div>
                 
                                         <div class="mb-3">
                                             <label class="form-label">Senha</label>
                                             <div class="input-group auth-pass-inputgroup">
-                                                <input type="password" class="form-control" placeholder="Insira sua senha" aria-label="Password" aria-describedby="password-addon">
+                                                <input type="password"
+                                                class="form-control"
+                                                name="senha"
+                                                placeholder="Informa a senha"
+                                                aria-label="Password"
+                                                aria-describedby="password-addon"
+                                                required type="password" >
                                                 <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
                                             </div>
                                         </div>
