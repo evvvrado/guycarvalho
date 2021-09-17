@@ -161,6 +161,7 @@
                               <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 20px;" aria-label="Office: activate to sort column ascending">Inicio de Contrato</th>    
                               <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-label="Age: activate to sort column ascending">Fim de Contrato</th>
                               <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 131px;" aria-label="Start date: activate to sort column ascending">Valor de Contrato</th>
+                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;" aria-label="Start date: activate to sort column ascending"></th>
                            </tr>
                         </thead>
 
@@ -172,6 +173,7 @@
                                 <td>12/06/2003</td>
                                 <td>12/06/2003</td>
                                 <td>R$ 1.993,00</td>
+                                <td><i class="edit-table-button bx bx-edit"></i></td>
                             </tr> 
                             <tr class="odd">
                                 <td class="sorting_1 dtr-control">Brinquedoteca</td>
@@ -179,6 +181,7 @@
                                 <td>12/06/2003</td>
                                 <td>12/06/2003</td>
                                 <td>R$ 1.993,00</td>
+                                <td><i class="edit-table-button bx bx-edit"></i></td>
                             </tr> 
                             <tr class="odd">
                                 <td class="sorting_1 dtr-control">Brinquedoteca</td>
@@ -186,6 +189,7 @@
                                 <td>12/06/2003</td>
                                 <td>12/06/2003</td>
                                 <td>R$ 1.993,00</td>
+                                <td><i class="edit-table-button bx bx-edit"></i></td>
                             </tr> 
                             <tr class="odd">
                                 <td class="sorting_1 dtr-control">Brinquedoteca</td>
@@ -193,6 +197,7 @@
                                 <td>12/06/2003</td>
                                 <td>12/06/2003</td>
                                 <td>R$ 1.993,00</td>
+                                <td><i class="edit-table-button bx bx-edit"></i></td>
                             </tr> 
                             <tr class="odd">
                                 <td class="sorting_1 dtr-control">Brinquedoteca</td>
@@ -200,6 +205,7 @@
                                 <td>12/06/2003</td>
                                 <td>12/06/2003</td>
                                 <td>R$ 1.993,00</td>
+                                <td><i class="edit-table-button bx bx-edit"></i></td>
                             </tr> 
                             <tr class="odd">
                                 <td class="sorting_1 dtr-control">Brinquedoteca</td>
@@ -207,6 +213,7 @@
                                 <td>12/06/2003</td>
                                 <td>12/06/2003</td>
                                 <td>R$ 1.993,00</td>
+                                <td><i class="edit-table-button bx bx-edit"></i></td>
                             </tr> 
                         </tbody>
                     </table>
