@@ -324,7 +324,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     </a>
                                     <ul class="sub-menu" aria-expanded="false">
                                         <li><a href="{{ route('painel.galeria')}}" key="t-default">Galeria</a></li>
-                                        <li><a href="javascript: void(0)" key="t-default">Depoimentos</a></li>
+                                        <li><a href="{{ route('painel.depoimento')}}" key="t-default">Depoimentos</a></li>
                                     </ul>
                                 
                                 </li>

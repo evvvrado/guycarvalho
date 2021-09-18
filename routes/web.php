@@ -155,8 +155,13 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/anuncios/cadastro', [\App\Http\Controllers\PublicidadeController::class, 'cadastrar'])->name("painel.anuncios.cadastro");
     Route::get('/sistema/anuncios/editar', [\App\Http\Controllers\PublicidadeController::class, 'editar'])->name("painel.anuncios.editar");
 
-    // ROTA DE GALERIA
+    // ROTA DE INSTITUCIONAL
     Route::get('/sistema/galeria', [\App\Http\Controllers\GaleriaController::class, 'consultar'])->name("painel.galeria");
+    
+    
+    Route::get('/sistema/depoimento', [\App\Http\Controllers\DepoimentoController::class, 'consultar'])->name("painel.depoimento");
+    Route::get('/sistema/depoimento/cadastro', [\App\Http\Controllers\DepoimentoController::class, 'cadastrar'])->name("painel.depoimento.cadastro");
+    Route::get('/sistema/depoimento/editar', [\App\Http\Controllers\DepoimentoController::class, 'editar'])->name("painel.depoimento.editar");
     
 
     // ROTAS DE NOTÍCIAS

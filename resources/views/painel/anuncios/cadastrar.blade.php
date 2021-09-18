@@ -50,7 +50,7 @@
                   <div class="mb-3">
                      <i class="display-4 text-muted bx bxs-cloud-upload"></i>
                   </div>
-                  <h4>Arraste uma Imagem</h4>
+                  <h4>Inserir imagem</h4>
                </div>
             </form>
          </div>
@@ -62,7 +62,7 @@
                    <div class="mb-3">
                       <i class="display-4 text-muted bx bxs-cloud-upload"></i>
                    </div>
-                   <h4>Arraste uma Imagem</h4>
+                   <h4>Inserir imagem</h4>
                 </div>
              </form>
           </div>
