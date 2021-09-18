@@ -7,13 +7,8 @@
 @endsection
 
 @section('titulo')
-    Publicidade / Anúncios
+    Institucional / Galeria
 @endsection
-
-@section('botoes')
-@endsection
-
-
 
 
 @section('conteudo')
@@ -26,8 +21,8 @@
                            
                 <div class="col-sm-12 col-md-6 mb-3"  style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
                     
-                 <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;" style="padding-left: 0;" href="{{route('painel.anuncios.cadastro')}}">
-                    <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
+                 <a name="" data-bs-toggle="modal" data-bs-target="#myModal"  id="button-add" class="btn" style="height: 100%; padding-left: 0;" style="padding-left: 0;">
+                    <i class="bx bx-plus" aria-hidden="true" ></i> Adicionar</a>
              </div>
             <div class="card">
                 <div class="card-body">
@@ -43,23 +38,19 @@
                         <thead>
                            <tr role="row">
                               <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Nome</th>
-                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;" aria-label="Position: activate to sort column ascending">URL</th>
-                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 20px;" aria-label="Office: activate to sort column ascending">Quantidade de Views</th>    
-                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;" aria-label="Start date: activate to sort column ascending"></th>
+                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="max-width: 10px; width: 10px;" aria-label="Start date: activate to sort column ascending"></th>
                            </tr>
                         </thead>
 
 
                         <tbody>    
                             <tr class="odd">
-                                <td class="sorting_1 dtr-control">hyp8</td>
-                                <td>hyp8.com.br</td>
-                                <td>8809035</td>
+                                <td class="sorting_1 dtr-control">Foto (1)</td>
                                 <td>
                                      <div class="btn-group edit-table-button ">
                                         <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
                                         <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" href="{{ route('painel.anuncios.editar') }}">Editar</a>
+                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#myModal">Editar</a>
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" style="color: red" href="#">Excluir</a>
                                         </div>
@@ -106,6 +97,36 @@
         </div>
     </div>
 
+
+    <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title mt-0" id="myModalLabel">Insira uma imagem</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4 class="card-title mb-3">Envie uma Imagem</h4>
+                    <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable">
+                    <div class="dz-message needsclick">
+                        <div class="mb-3">
+                            <i class="display-4 text-muted bx bxs-cloud-upload"></i>
+                        </div>
+                        <h4>Arraste uma Imagem</h4>
+                    </div>
+                    </form>
+                </div>
+
+
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary waves-effect waves-light">Salvar Alterações</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
 @endsection
 
 
@@ -113,6 +134,7 @@
     <!-- Required datatable js -->
     <script src="{{asset('admin/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('admin/libs/dropzone/min/dropzone.min.js')}}"></script>
     <script>
         $(document).ready(function() {
             $('#datatable').DataTable( {

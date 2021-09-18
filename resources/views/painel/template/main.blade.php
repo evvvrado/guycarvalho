@@ -258,20 +258,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     <i class="bx bxs-dashboard" aria-hidden="true"></i>
                                     <span key="t-dashboards">Dashboard</span>
                                 </a>
-                            </li>
-                            
-                            <li>
-                                <a href="javascript: void(0);" class="waves-effect">
-                                    <i class="bx bx-list-ul" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Catálogo</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ route('painel.categorias') }}" key="t-default">Categorias</a></li>
-                                    <li><a href="{{ route('painel.expositores') }}" key="t-default">Expositores</a></li>
-                                </ul>
-                            </li>
-
-                            
+                            </li>                            
                             
                             <li>
                                 <a href="javascript: void(0);" class="waves-effect">
@@ -305,11 +292,27 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                             
                             <li>
                                 <a href="javascript: void(0);" class="waves-effect">
+                                    <i class="bx bx-list-ul" aria-hidden="true"></i>
+                                    <span key="t-dashboards">Catálogo</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{ route('painel.categorias') }}" key="t-default">Categorias</a></li>
+                                    <li><a href="{{ route('painel.expositores') }}" key="t-default">Expositores</a></li>
+                                </ul>
+                            </li>
+
+
+                            
+                            
+                            <li>
+                                <a href="javascript: void(0);" class="waves-effect">
                                     <i class="bx bx-tv" aria-hidden="true"></i>
                                     <span key="t-dashboards">Publicidade</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ route('painel.anuncios') }}" key="t-default">Anúncios</a></li>
+                                    <li><a href="javascript: void(0);" key="t-default">Patrocinadores</a></li>
+                                    <li><a href="javascript: void(0);" key="t-default">Apoio</a></li>
                                 </ul>
                             </li> 
 
@@ -320,7 +323,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                         <span key="t-dashboards">Institucional</span>
                                     </a>
                                     <ul class="sub-menu" aria-expanded="false">
-                                        <li><a href="javascript: void(0)" key="t-default">Galeria</a></li>
+                                        <li><a href="{{ route('painel.galeria')}}" key="t-default">Galeria</a></li>
                                         <li><a href="javascript: void(0)" key="t-default">Depoimentos</a></li>
                                     </ul>
                                 
