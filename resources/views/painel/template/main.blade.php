@@ -295,6 +295,10 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     <i class="bx bx-news" aria-hidden="true"></i>
                                     <span key="t-dashboards">Blog</span>
                                 </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="javascript: void(0)" key="t-default">Artigos</a></li>
+                                    <li><a href="javascript: void(0)" key="t-default">Notícias</a></li>
+                                </ul>
                             </li>
 
                             
@@ -305,7 +309,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     <span key="t-dashboards">Publicidade</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="javascript: void(0)" key="t-default">Anúncios</a></li>
+                                    <li><a href="{{ route('painel.anuncios') }}" key="t-default">Anúncios</a></li>
                                 </ul>
                             </li> 
 
@@ -313,7 +317,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                 <li>
                                     <a href="javascript: void(0);" class="waves-effect">
                                         <i class="bx bx-compass" aria-hidden="true"></i>
-                                        <span key="t-dashboards">Miscelânea</span>
+                                        <span key="t-dashboards">Institucional</span>
                                     </a>
                                     <ul class="sub-menu" aria-expanded="false">
                                         <li><a href="javascript: void(0)" key="t-default">Galeria</a></li>
@@ -321,15 +325,6 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     </ul>
                                 
                                 </li>
-
-                            
-
-                            <li>
-                                <a href="{{ route('painel.mapa') }}"" class="waves-effect">
-                                    <i class="bx bx-map-alt" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Mapa do Site</span>
-                                </a>
-                            </li>
                             
 
                             
@@ -345,6 +340,17 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ route('painel.informacoes.municipios') }}" key="t-default">Municípios</a></li>
                                 </ul>
+                            </li>
+
+                            
+
+                            
+
+                            <li>
+                                <a href="{{ route('painel.mapa') }}"" class="waves-effect">
+                                    <i class="bx bx-map-alt" aria-hidden="true"></i>
+                                    <span key="t-dashboards">Mapa do Site</span>
+                                </a>
                             </li>
                             
                         </ul>

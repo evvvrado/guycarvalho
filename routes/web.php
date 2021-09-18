@@ -149,6 +149,11 @@ Route::middleware(['admin'])->group(function () {
     
     Route::get('/sistema/expositores/editar', [\App\Http\Controllers\ExpositoresController::class, 'editar'])->name("painel.expositores.editar");
     
+
+    // ROTA DE PUBLICIDADE
+    Route::get('/sistema/anuncios', [\App\Http\Controllers\PublicidadeController::class, 'consultar'])->name("painel.anuncios");
+    Route::get('/sistema/anuncios/cadastro', [\App\Http\Controllers\PublicidadeController::class, 'cadastrar'])->name("painel.anuncios.cadastro");
+    Route::get('/sistema/anuncios/editar', [\App\Http\Controllers\PublicidadeController::class, 'editar'])->name("painel.anuncios.editar");
     
 
     // ROTAS DE NOTÍCIAS
