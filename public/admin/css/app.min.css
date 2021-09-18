@@ -5374,12 +5374,22 @@ div.dataTables_wrapper div.dataTables_length select {
 }
 
 .edit-table-button {
-    cursor: pointer;
-    width: 100%;
+    width: min-content;
+    height: min-content;
+    width: 100% !important;
+}
+.edit-table-button .btn {
+    background-color: transparent !important;
+    border: none !important;
+    width: 100% !important;
+    height: min-content !important;
+    padding: 0 !important;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--principal);
-
+}
+.edit-table-button i {
     font-size: 20px;
+    color: var(--principal);
 }

@@ -7,7 +7,7 @@
 @endsection
 
 @section('titulo')
-    Catalogo / <a style="color: unset" href="{{route('painel.categorias')}}">Categoria</a>
+    Catalogo / Expositores
 @endsection
 
 @section('botoes')
@@ -140,7 +140,7 @@
                            
                 <div class="col-sm-12 col-md-6 mb-3"  style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
                     
-                 <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;" style="padding-left: 0;" href="{{route('painel.categorias.cadastro')}}">
+                 <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;" style="padding-left: 0;" href="{{route('painel.expositores.cadastro')}}">
                     <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
              </div>
             <div class="card">
@@ -157,10 +157,9 @@
                         <thead>
                            <tr role="row">
                               <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Nome</th>
-                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;" aria-label="Position: activate to sort column ascending">Anunciante</th>
-                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 20px;" aria-label="Office: activate to sort column ascending">Inicio de Contrato</th>    
-                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-label="Age: activate to sort column ascending">Fim de Contrato</th>
-                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 131px;" aria-label="Start date: activate to sort column ascending">Valor de Contrato</th>
+                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;" aria-label="Position: activate to sort column ascending">Site</th>
+                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 20px;" aria-label="Office: activate to sort column ascending">Telefone</th>    
+                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-label="Age: activate to sort column ascending">E-mail</th>
                               <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;" aria-label="Start date: activate to sort column ascending"></th>
                            </tr>
                         </thead>
@@ -168,103 +167,90 @@
 
                         <tbody>    
                             <tr class="odd">
-                                <td class="sorting_1 dtr-control">Brinquedoteca</td>
-                                <td>Rihappy</td>
-                                <td>12/06/2003</td>
-                                <td>12/06/2003</td>
-                                <td>R$ 1.993,00</td>
+                                <td class="sorting_1 dtr-control">Nike</td>
+                                <td>nike.com.br</td>
+                                <td>(35) 9 8809035</td>
+                                <td>nike@contato.com.br</td>
                                 <td>
                                      <div class="btn-group edit-table-button ">
                                         <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
                                         <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" href="{{ route('painel.categorias.editar') }}">Editar</a>
+                                            <a class="dropdown-item" href="{{ route('painel.expositores.editar') }}">Editar</a>
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" style="color: red" href="#">Excluir</a>
                                         </div>
                                     </div>
                                     
                                 </td>
-                            </tr> 
+                            </tr>     
                             <tr class="odd">
-                                <td class="sorting_1 dtr-control">Brinquedoteca</td>
-                                <td>Rihappy</td>
-                                <td>12/06/2003</td>
-                                <td>12/06/2003</td>
-                                <td>R$ 1.993,00</td>
+                                <td class="sorting_1 dtr-control">Nike</td>
+                                <td>nike.com.br</td>
+                                <td>(35) 9 8809035</td>
+                                <td>nike@contato.com.br</td>
                                 <td>
                                      <div class="btn-group edit-table-button ">
                                         <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
                                         <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" href="{{ route('painel.categorias.editar') }}">Editar</a>
+                                            <a class="dropdown-item" href="{{ route('painel.expositores.editar') }}">Editar</a>
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" style="color: red" href="#">Excluir</a>
                                         </div>
-                                    </div></td>
-                            </tr> 
+                                    </div>
+                                    
+                                </td>
+                            </tr>     
                             <tr class="odd">
-                                <td class="sorting_1 dtr-control">Brinquedoteca</td>
-                                <td>Rihappy</td>
-                                <td>12/06/2003</td>
-                                <td>12/06/2003</td>
-                                <td>R$ 1.993,00</td>
+                                <td class="sorting_1 dtr-control">Nike</td>
+                                <td>nike.com.br</td>
+                                <td>(35) 9 8809035</td>
+                                <td>nike@contato.com.br</td>
                                 <td>
                                      <div class="btn-group edit-table-button ">
                                         <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
                                         <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" href="{{ route('painel.categorias.editar') }}">Editar</a>
+                                            <a class="dropdown-item" href="{{ route('painel.expositores.editar') }}">Editar</a>
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" style="color: red" href="#">Excluir</a>
                                         </div>
-                                    </div></td>
-                            </tr> 
+                                    </div>
+                                    
+                                </td>
+                            </tr>     
                             <tr class="odd">
-                                <td class="sorting_1 dtr-control">Brinquedoteca</td>
-                                <td>Rihappy</td>
-                                <td>12/06/2003</td>
-                                <td>12/06/2003</td>
-                                <td>R$ 1.993,00</td>
+                                <td class="sorting_1 dtr-control">Nike</td>
+                                <td>nike.com.br</td>
+                                <td>(35) 9 8809035</td>
+                                <td>nike@contato.com.br</td>
                                 <td>
                                      <div class="btn-group edit-table-button ">
                                         <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
                                         <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" href="{{ route('painel.categorias.editar') }}">Editar</a>
+                                            <a class="dropdown-item" href="{{ route('painel.expositores.editar') }}">Editar</a>
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" style="color: red" href="#">Excluir</a>
                                         </div>
-                                    </div></td>
-                            </tr> 
+                                    </div>
+                                    
+                                </td>
+                            </tr>     
                             <tr class="odd">
-                                <td class="sorting_1 dtr-control">Brinquedoteca</td>
-                                <td>Rihappy</td>
-                                <td>12/06/2003</td>
-                                <td>12/06/2003</td>
-                                <td>R$ 1.993,00</td>
+                                <td class="sorting_1 dtr-control">Nike</td>
+                                <td>nike.com.br</td>
+                                <td>(35) 9 8809035</td>
+                                <td>nike@contato.com.br</td>
                                 <td>
                                      <div class="btn-group edit-table-button ">
                                         <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
                                         <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" href="{{ route('painel.categorias.editar') }}">Editar</a>
+                                            <a class="dropdown-item" href="{{ route('painel.expositores.editar') }}">Editar</a>
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" style="color: red" href="#">Excluir</a>
                                         </div>
-                                    </div></td>
-                            </tr> 
-                            <tr class="odd">
-                                <td class="sorting_1 dtr-control">Brinquedoteca</td>
-                                <td>Rihappy</td>
-                                <td>12/06/2003</td>
-                                <td>12/06/2003</td>
-                                <td>R$ 1.993,00</td>
-                                <td>
-                                     <div class="btn-group edit-table-button ">
-                                        <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
-                                        <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" href="{{ route('painel.categorias.editar') }}">Editar</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" style="color: red" href="#">Excluir</a>
-                                        </div>
-                                    </div></td>
-                            </tr> 
+                                    </div>
+                                    
+                                </td>
+                            </tr>   
                         </tbody>
                     </table>
                 </div></div>

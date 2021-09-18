@@ -16,7 +16,7 @@
 @section('conteudo')
 
     <div class="row">
-        <div class="col-9">
+        <div class="col">
             
             <div class="row"">
 
@@ -102,7 +102,7 @@
                 </div>
             </div>
         </div> <!-- end col -->
-        <div class="col-3">
+        <div class="col">
             <div class="card filter-body">
                 <div class="card-body">
                   <div class="title"> Filtros</div>

@@ -7,7 +7,7 @@
 @endsection
 
 @section('titulo')
-    Catálogo / <a style="color: unset" href="{{route('painel.categorias')}}">Categoria</a> / Cadastrar
+    Catálogo / <a style="color: unset" href="{{route('painel.categorias')}}">Categoria</a> / Editar
 @endsection
 
 @section('conteudo')
@@ -23,22 +23,22 @@
                    <div class="col-sm-6">
                       <div class="mb-3">
                          <label for="productname">Nome</label>
-                         <input id="productname" name="productname" type="text" class="form-control" placeholder="Insira o nome">
+                         <input id="productname" name="productname" value="hyp8 tec." type="text" class="form-control">
                       </div>
                       <div class="mb-3">
                          <label for="manufacturername">Início de Contrato</label>
-                         <input class="form-control" type="date" id="example-date-input">
+                         <input class="form-control" type="date" value="2021-06-12" id="example-date-input">
                       </div>
                       <div class="mb-3">
                          <label for="price">Valor de Contrato</label>
-                         <input id="price" name="price" type="tel" class="form-control" placeholder="Insira o valor">
+                         <input id="price" name="price" value="R$ 5.800,00" type="text" class="form-control">
                       </div>
                    </div>
                    <div class="col-sm-6">
                       <div class="mb-3">
-                         <label class="control-label">Expositor</label>
+                         <label class="control-label">Anunciante</label>
                          <select class="form-control">
-                            <option data-select2-id="3">Selecione o expositor</option>
+                            <option data-select2-id="3">hyp8</option>
                             <option value="FA">Empresa 1</option>
                             <option value="EL">Empresa 2</option>
                          </select>
@@ -47,7 +47,7 @@
                       
                       <div class="mb-3">
                         <label for="manufacturerbrand">Fim de Contrato</label>
-                        <input class="form-control" type="date" id="example-date-input">
+                        <input class="form-control" type="date" value="2019-08-19" id="example-date-input">
                      </div>
 
 

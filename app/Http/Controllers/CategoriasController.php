@@ -35,6 +35,10 @@ class CategoriasController extends Controller
     public function cadastrar(){
         return view("painel.categorias.cadastro");
     }
+    
+    public function editar(){
+        return view("painel.categorias.editar");
+    }
 
 
     public function salvar(Request $request, Categoria $categoria){

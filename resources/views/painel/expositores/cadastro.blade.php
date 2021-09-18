@@ -7,7 +7,7 @@
 @endsection
 
 @section('titulo')
-    Catálogo / <a style="color: unset" href="{{route('painel.categorias')}}">Categoria</a> / Cadastrar
+    Catálogo / <a style="color: unset" href="{{route('painel.expositores')}}">Expositores</a> / Cadastrar
 @endsection
 
 @section('conteudo')
@@ -17,46 +17,28 @@
     <div class="col-12">
        <div class="card">
           <div class="card-body">
-             <h4 class="card-title">Cadastro de Categoria</h4>
+             <h4 class="card-title">Cadastro de Expositor</h4>
              <form>
                 <div class="row">
                    <div class="col-sm-6">
                       <div class="mb-3">
                          <label for="productname">Nome</label>
-                         <input id="productname" name="productname" type="text" class="form-control" placeholder="Insira o nome">
+                         <input id="productname" name="productname" type="text" placeholder="Insira o Nome" class="form-control">
                       </div>
                       <div class="mb-3">
-                         <label for="manufacturername">Início de Contrato</label>
-                         <input class="form-control" type="date" id="example-date-input">
-                      </div>
-                      <div class="mb-3">
-                         <label for="price">Valor de Contrato</label>
-                         <input id="price" name="price" type="tel" class="form-control" placeholder="Insira o valor">
+                         <label for="price">Telefone</label>
+                         <input class="form-control" type="tel" placeholder="Insira o telefone" id="example-tel-input">
                       </div>
                    </div>
                    <div class="col-sm-6">
-                      <div class="mb-3">
-                         <label class="control-label">Expositor</label>
-                         <select class="form-control">
-                            <option data-select2-id="3">Selecione o expositor</option>
-                            <option value="FA">Empresa 1</option>
-                            <option value="EL">Empresa 2</option>
-                         </select>
-                      </div>
-
-                      
-                      <div class="mb-3">
-                        <label for="manufacturerbrand">Fim de Contrato</label>
-                        <input class="form-control" type="date" id="example-date-input">
+                     <div class="mb-3">
+                        <label for="manufacturername">Site</label>
+                        <input class="form-control" type="url" placeholder="Insira a URL" id="example-url-input">
                      </div>
-
-
-                      <div class="mb-3 ">
-                         <label for="productdesc">Ativo / Inativo</label>
-                         <div class="form-check form-switch form-switch-lg pt-3 ">
-                             <input class="form-check-input form-control" type="checkbox" id="SwitchCheckSizelg" checked="">       
-                             </div>                 
-                      </div>
+                     <div class="mb-3">
+                        <label for="manufacturername">E-mail</label>
+                        <input class="form-control" type="email"placeholder="Insira o e-mail" id="example-email-input">
+                     </div>
                    </div>
                 </div>
                 <div class="d-flex flex-wrap gap-2">
@@ -66,22 +48,10 @@
              </form>
           </div>
        </div>
-       <div class="card row flex-row">
-        <div class="card-body col-2">
-            <h4 class="card-title mb-3">Imagem Mobile</h4>
-            <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable" style="max-width: 335px; height:
-            204px;">
-               <div class="dz-message needsclick">
-                  <div class="mb-3">
-                     <i class="display-4 text-muted bx bxs-cloud-upload"></i>
-                  </div>
-                  <h4>Arraste uma Imagem</h4>
-               </div>
-            </form>
-         </div>
+       <div class="card">
          
-          <div class="card-body col-8">
-             <h4 class="card-title mb-3">Imagem Desktop</h4>
+          <div class="card-body">
+             <h4 class="card-title mb-3">Logo do Expositor</h4>
              <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable">
                 <div class="dz-message needsclick">
                    <div class="mb-3">
@@ -90,7 +60,6 @@
                    <h4>Arraste uma Imagem</h4>
                 </div>
              </form>
-          </div>
        </div>
        
 

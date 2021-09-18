@@ -141,6 +141,15 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/categorias/deletar/{categoria}', [\App\Http\Controllers\CategoriasController::class, 'deletar'])->name("painel.categoria.deletar");
 
     Route::get('/sistema/categorias/cadastrar', [\App\Http\Controllers\CategoriasController::class, 'cadastrar'])->name("painel.categorias.cadastro");
+    Route::get('/sistema/categorias/editar', [\App\Http\Controllers\CategoriasController::class, 'editar'])->name("painel.categorias.editar");
+
+    // ROTAS DE EXPOSITORES
+    Route::get('/sistema/expositores', [\App\Http\Controllers\ExpositoresController::class, 'consultar'])->name("painel.expositores");
+    Route::get('/sistema/expositores/cadastro', [\App\Http\Controllers\ExpositoresController::class, 'cadastrar'])->name("painel.expositores.cadastro");
+    
+    Route::get('/sistema/expositores/editar', [\App\Http\Controllers\ExpositoresController::class, 'editar'])->name("painel.expositores.editar");
+    
+    
 
     // ROTAS DE NOTÍCIAS
     Route::get('/sistema/noticias', [\App\Http\Controllers\NoticiasController::class, 'consultar'])->name("painel.noticias");
