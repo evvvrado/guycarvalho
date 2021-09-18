@@ -273,13 +273,13 @@
 
 
 
-                   <div class="row buttons-row">
-                       <div class="col-4">
+                   <div class="buttons-row">
+                       <div>
                         <button type="button" class="btn btn-success waves-effect waves-light">
                             <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
                         </button>
                        </div>
-                       <div class="col-4">
+                       <div>
                         <button type="button" class="btn btn-danger waves-effect waves-light">
                             <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
                         </button>

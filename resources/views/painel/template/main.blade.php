@@ -267,11 +267,62 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ route('painel.categorias') }}" key="t-default">Categorias</a></li>
-                                </ul>
-                                <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ route('painel.expositores') }}" key="t-default">Expositores</a></li>
                                 </ul>
                             </li>
+
+                            
+                            
+                            <li>
+                                <a href="javascript: void(0);" class="waves-effect">
+                                    <i class="bx bx-briefcase-alt-2" aria-hidden="true"></i>
+                                    <span key="t-dashboards">Projeto</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="javascript: void(0)" key="t-default">Eventos</a></li>
+                                    <li><a href="javascript: void(0)" key="t-default">Clínicas</a></li>
+                                    <li><a href="javascript: void(0)" key="t-default">Cursos</a></li>
+                                    <li><a href="javascript: void(0)" key="t-default">Professores</a></li>
+                                </ul>
+                            
+                            </li>
+                            
+
+                            
+                            
+                            <li>
+                                <a href="javascript: void(0);" class="waves-effect">
+                                    <i class="bx bx-news" aria-hidden="true"></i>
+                                    <span key="t-dashboards">Blog</span>
+                                </a>
+                            </li>
+
+                            
+                            
+                            <li>
+                                <a href="javascript: void(0);" class="waves-effect">
+                                    <i class="bx bx-tv" aria-hidden="true"></i>
+                                    <span key="t-dashboards">Publicidade</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="javascript: void(0)" key="t-default">Anúncios</a></li>
+                                </ul>
+                            </li> 
+
+                            
+                                <li>
+                                    <a href="javascript: void(0);" class="waves-effect">
+                                        <i class="bx bx-compass" aria-hidden="true"></i>
+                                        <span key="t-dashboards">Miscelânea</span>
+                                    </a>
+                                    <ul class="sub-menu" aria-expanded="false">
+                                        <li><a href="javascript: void(0)" key="t-default">Galeria</a></li>
+                                        <li><a href="javascript: void(0)" key="t-default">Depoimentos</a></li>
+                                    </ul>
+                                
+                                </li>
+
+                            
 
                             <li>
                                 <a href="{{ route('painel.mapa') }}"" class="waves-effect">
@@ -279,6 +330,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     <span key="t-dashboards">Mapa do Site</span>
                                 </a>
                             </li>
+                            
 
                             
 
@@ -367,7 +419,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
 
                 <!-- Settings -->
                 <hr class="mt-0" />           
-                <div class="p-4 lista-atualizacoes">
+                {{-- <div class="p-4 lista-atualizacoes">
                     <h6 class="text-left mb-3 mt-4">16/06/2021 - V 0.7</h6>
                     <ul class="">
                         <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Sistema de cadastro e gerenciamento de destaque suspenso ao acessar o site.</span></li>
@@ -387,9 +439,9 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                         <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de cadastro e controle de estaduais e suas diretorias.</span></li>
                         <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de registro, consulta e exportação de mensagens de contato.</span></li>
                     </ul>
-                </div>
+                </div> --}}
 
-                <div class="rightbar-title d-flex align-items-center px-3 py-4">
+                {{-- <div class="rightbar-title d-flex align-items-center px-3 py-4">
             
                     <h5 class="m-0 me-2">Roadmap</h5>
 
@@ -410,7 +462,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                         <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de configuração de parâmetros de gateway de pagamento</span></li>
                         <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de alunos, professores e diretores.</span></li>
                     </ul>
-                </div>
+                </div> --}}
             </div> <!-- end slimscroll-menu-->
         </div>
         <!-- /Right-bar -->
