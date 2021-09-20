@@ -103,9 +103,12 @@
             </div>
         </div> <!-- end col -->
         <div class="col">
-            <div class="card filter-body">
+
+                           
+            <div class="col-sm-12 col-md-6 mb-3"  style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
+                <a class="btn" style="padding-left: 21px; color: white; height: 100%; cursor: default;"  href="">Filtros</a>
+            </div> <div class="card filter-body">
                 <div class="card-body">
-                  <div class="title"> Filtros</div>
 
                   <form action="javascript: void(0);">
                       

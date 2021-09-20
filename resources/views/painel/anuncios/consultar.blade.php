@@ -4,6 +4,7 @@
     <!-- DataTables -->
     <link href="{{asset('admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{asset('admin/libs/@chenfengyuan/datepicker/datepicker.min.css')}}" />
 @endsection
 
 @section('titulo')
@@ -79,28 +80,35 @@
             </div>
         </div> <!-- end col -->
         <div class="col-3">
-            <div class="card filter-body">
+
+                           
+            <div class="col-sm-12 col-md-6 mb-3"  style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
+                <a class="btn" style="padding-left: 21px; color: white; height: 100%; cursor: default;"  href="">Filtros</a>
+            </div> <div class="card filter-body">
                 <div class="card-body">
-                  <div class="title"> Filtros</div>
 
                   <form action="javascript: void(0);">
+                    <div class="input-daterange input-group" id="datepicker" data-date-format="dd M, yyyy" data-date-autoclose="true" data-provide="datepicker" data-date-container="#datepicker">
+                        <input type="text" class="form-control" name="start" placeholder="Data de Início">
+                        <input type="text" class="form-control" name="end" placeholder="Data Final">
+                    </div>
+
+
+                    <div class="buttons-row my-3">
+                        <div>
+                         <button type="button" class="btn btn-success waves-effect waves-light">
+                             <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
+                         </button>
+                        </div>
+                        <div>
+                         <button type="button" class="btn btn-danger waves-effect waves-light">
+                             <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
+                         </button>
+                        </div>
+                    </div>
                       
                   </form>
 
-
-
-                   <div class="buttons-row">
-                       <div>
-                        <button type="button" class="btn btn-success waves-effect waves-light">
-                            <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
-                        </button>
-                       </div>
-                       <div>
-                        <button type="button" class="btn btn-danger waves-effect waves-light">
-                            <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
-                        </button>
-                       </div>
-                   </div>
                 </div>
             </div>
         </div>
@@ -113,7 +121,14 @@
     <!-- Required datatable js -->
     <script src="{{asset('admin/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('admin/libs/@chenfengyuan/datepicker/datepicker.min.js')}}"></script>
+
+    
+    
     <script>
+
+        $('#datepicker').datepicker()
+        
         $(document).ready(function() {
             $('#datatable').DataTable( {
                 language:{
