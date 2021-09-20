@@ -77,4 +77,5 @@
 
 
 
+@include("site.includes.parceiros")
 @include("site.includes.footer")

@@ -115,18 +115,30 @@
     @include responsive(600px) {
         .container-fav {
             ._right {
+                ._text {
+                    margin-left: 10.2rem;
+                }
                 ._background {
-                    left: auto;
-                    bottom: 9%;
+                    left: 0;
+                    bottom: 5%;
+                    max-width: 100%;
                 }
                 ._cases {
                     left: 0;
+                    top: -5.4rem;
                     justify-content: center;
                     gap: 1rem;
+                    transform: scale(0.8);
                     ._case {
                         background-image: $gradient-sky;
                         color: $white;
                     }
+                }
+            }
+
+            ._left {
+                p {
+                    font-size: 1.9rem;
                 }
             }
         }

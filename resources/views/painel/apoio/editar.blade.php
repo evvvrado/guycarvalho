@@ -7,7 +7,7 @@
 @endsection
 
 @section('titulo')
-    Institucional / <a style="color: unset" href="{{route('painel.depoimento')}}">Depoimento</a> / Cadastrar
+    Publicidade / <a style="color: unset" href="{{route('painel.apoio')}}">Apoio</a> / Editar
 @endsection
 
 
@@ -18,7 +18,7 @@
     <div class="col-12">
        <div class="card">
           <div class="card-body">
-             <h4 class="card-title">Cadastro de Depoimento</h4>
+             <h4 class="card-title">Editar Apoiador</h4>
              <form>
                 <div class="row">
                    <div class="col-sm-6">
@@ -29,8 +29,8 @@
                    </div>
                    <div class="col-sm-6">
                       <div class="mb-3">
-                        <label for="manufacturerbrand">Depoimento</label>
-                        <textarea id="textarea" class="form-control" maxlength="107" rows="3" placeholder="Limite de 107 Caracteres"></textarea>
+                        <label for="manufacturerbrand">URL para redirecionar</label>
+                        <input class="form-control" type="url" placeholder="Insira a URL" id="example-url-input">
                      </div>
                    </div>
                 </div>
@@ -41,20 +41,19 @@
              </form>
           </div>
        </div>
-          <div class="card">
-            <div class="card-body col-8">
-               <h4 class="card-title mb-3">Foto do Depoimento</h4>
-               <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable">
-                  <div class="dz-message needsclick">
-                     <div class="mb-3">
-                        <i class="display-4 text-muted bx bxs-cloud-upload"></i>
-                     </div>
-                     <h4>Inserir imagem</h4>
+       <div class="card row flex-row">
+        <div class="card-body col-2">
+            <h4 class="card-title mb-3">Logo do Patrocinador</h4>
+            <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable" style="max-width: 335px; height:
+            204px;">
+               <div class="dz-message needsclick">
+                  <div class="mb-3">
+                     <i class="display-4 text-muted bx bxs-cloud-upload"></i>
                   </div>
-               </form>
-            </div>
-          </div>
-       </div>
+                  <h4>Inserir imagem de 200px 40px</h4>
+               </div>
+            </form>
+         </div>
        
 @endsection
 

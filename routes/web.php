@@ -30,6 +30,7 @@ Route::get('/feira', [\App\Http\Controllers\SiteController::class, 'feira'])->na
 
 Route::get('/professores', [\App\Http\Controllers\SiteController::class, 'professores'])->name("site.professores");
 Route::get('/clinicas', [\App\Http\Controllers\SiteController::class, 'clinicas'])->name("site.clinicas");
+Route::get('/clinicas/clinica', [\App\Http\Controllers\SiteController::class, 'clinica'])->name("site.clinica");
 Route::get('/cursos', [\App\Http\Controllers\SiteController::class, 'cursos'])->name("site.cursos");
 Route::get('/contato', [\App\Http\Controllers\SiteController::class, 'contato'])->name("site.contato");
 
@@ -151,9 +152,19 @@ Route::middleware(['admin'])->group(function () {
     
 
     // ROTA DE PUBLICIDADE
-    Route::get('/sistema/anuncios', [\App\Http\Controllers\PublicidadeController::class, 'consultar'])->name("painel.anuncios");
-    Route::get('/sistema/anuncios/cadastro', [\App\Http\Controllers\PublicidadeController::class, 'cadastrar'])->name("painel.anuncios.cadastro");
-    Route::get('/sistema/anuncios/editar', [\App\Http\Controllers\PublicidadeController::class, 'editar'])->name("painel.anuncios.editar");
+    Route::get('/sistema/anuncios', [\App\Http\Controllers\PublicidadeController::class, 'consultarAnuncios'])->name("painel.anuncios");
+    Route::get('/sistema/anuncios/cadastro', [\App\Http\Controllers\PublicidadeController::class, 'cadastrarAnuncios'])->name("painel.anuncios.cadastro");
+    Route::get('/sistema/anuncios/editar', [\App\Http\Controllers\PublicidadeController::class, 'editarAnuncios'])->name("painel.anuncios.editar");
+
+    
+    Route::get('/sistema/patrocinadores', [\App\Http\Controllers\PublicidadeController::class, 'consultarPatrocinadores'])->name("painel.patrocinadores");
+    Route::get('/sistema/patrocinadores/cadastro', [\App\Http\Controllers\PublicidadeController::class, 'cadastrarPatrocinadores'])->name("painel.patrocinadores.cadastro");
+    Route::get('/sistema/patrocinadores/editar', [\App\Http\Controllers\PublicidadeController::class, 'editarPatrocinadores'])->name("painel.patrocinadores.editar");
+
+    
+    Route::get('/sistema/apoio', [\App\Http\Controllers\PublicidadeController::class, 'consultarApoio'])->name("painel.apoio");
+    Route::get('/sistema/apoio/cadastro', [\App\Http\Controllers\PublicidadeController::class, 'cadastrarApoio'])->name("painel.apoio.cadastro");
+    Route::get('/sistema/apoio/editar', [\App\Http\Controllers\PublicidadeController::class, 'editarApoio'])->name("painel.apoio.editar");
 
     // ROTA DE INSTITUCIONAL
     Route::get('/sistema/galeria', [\App\Http\Controllers\GaleriaController::class, 'consultar'])->name("painel.galeria");

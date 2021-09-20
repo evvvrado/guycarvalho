@@ -102,6 +102,9 @@
                         @include responsive(800px) {
                             width: 82.4vw;
                         }
+                        @include responsive(600px) {
+                            gap: 2rem;
+                        }
 
                         ._pic {
                             img {

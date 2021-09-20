@@ -7,7 +7,7 @@
 @endsection
 
 @section('titulo')
-    Institucional / Depoimento
+    Publicidade / Patrocinadores
 @endsection
 
 @section('botoes')
@@ -26,7 +26,7 @@
                            
                 <div class="col-sm-12 col-md-6 mb-3"  style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
                     
-                 <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;" style="padding-left: 0;" href="{{route('painel.depoimento.cadastro')}}">
+                 <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;" style="padding-left: 0;" href="{{route('painel.patrocinadores.cadastro')}}">
                     <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
              </div>
             <div class="card">
@@ -43,7 +43,8 @@
                         <thead>
                            <tr role="row">
                               <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Nome</th>
-                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;" aria-label="Position: activate to sort column ascending">Depoimento</th>   
+                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;" aria-label="Position: activate to sort column ascending">URL</th>
+                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 20px;" aria-label="Office: activate to sort column ascending">Quantidade de Views</th>    
                               <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;" aria-label="Start date: activate to sort column ascending"></th>
                            </tr>
                         </thead>
@@ -51,13 +52,14 @@
 
                         <tbody>    
                             <tr class="odd">
-                                <td class="sorting_1 dtr-control">Everaldo</td>
-                                <td class="depoimento-row">Meu nome é Everaldo e eu moro em alfenas mas queria estar morando em alfenas onde posso comprar todos os alfenas de toda alfenas</td>
+                                <td class="sorting_1 dtr-control">hyp8</td>
+                                <td>hyp8.com.br</td>
+                                <td>8809035</td>
                                 <td>
                                      <div class="btn-group edit-table-button ">
                                         <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
                                         <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" href="{{ route('painel.depoimento.editar') }}">Editar</a>
+                                            <a class="dropdown-item" href="{{ route('painel.patrocinadores.editar') }}">Editar</a>
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" style="color: red" href="#">Excluir</a>
                                         </div>

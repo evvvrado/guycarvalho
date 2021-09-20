@@ -54,12 +54,19 @@ footer:not(body#system footer) {
             }
 
             @include responsive(600px) {
-                padding-bottom: 3rem;
+                padding: 3rem 0 3rem 0;
                 text-align: center;
+                height: auto;
                 .container-fav {
                     flex-direction: column;
                     align-items: center;
                     gap: 3.4rem;
+
+                    ._text {
+                        p {
+                            font-size: 1.9rem;
+                        }
+                    }
                 }
             }
         }
@@ -141,6 +148,24 @@ footer:not(body#system footer) {
                 ul {
                     flex-direction: column;
                     gap: 2.5rem;
+                }
+            }
+        }
+        @include responsive(600px) {
+            ._top {
+                ._whatsapp {
+                    font-size: 1.9rem;
+                }
+                ._social {
+                    flex-direction: column;
+                    span {
+                        font-size: 1.8rem;
+                    }
+                }
+                ._email {
+                    a {
+                        font-size: 1.9rem;
+                    }
                 }
             }
         }

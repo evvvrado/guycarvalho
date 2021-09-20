@@ -311,8 +311,8 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ route('painel.anuncios') }}" key="t-default">Anúncios</a></li>
-                                    <li><a href="javascript: void(0);" key="t-default">Patrocinadores</a></li>
-                                    <li><a href="javascript: void(0);" key="t-default">Apoio</a></li>
+                                    <li><a href="{{ route('painel.patrocinadores') }}" key="t-default">Patrocinadores</a></li>
+                                    <li><a href="{{ route('painel.apoio') }}" key="t-default">Apoio</a></li>
                                 </ul>
                             </li> 
 

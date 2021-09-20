@@ -1,6 +1,11 @@
 .s_cursos {
     padding-top: 8.95rem;
     padding-bottom: 6.35rem;
+
+    #nossoscursos & {
+        padding-top: 0;
+    }
+
     .container-fav {
         .title {
             margin-bottom: 1.9rem;
@@ -123,7 +128,15 @@
 
                 #nossoscursos &,
                 #treinador &,
-                #clinica & {
+                #clinica
+                    &:not(.s_cursos._atracoes
+                        .container-fav
+                        ._cursosList
+                        ._curso, #treinador
+                        .s_cursos
+                        .container-fav
+                        ._cursosList
+                        ._curso) {
                     height: 51.5rem;
                     ._top {
                         margin-bottom: 2.5rem;

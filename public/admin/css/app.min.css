@@ -5394,7 +5394,12 @@ div.dataTables_wrapper div.dataTables_length select {
     color: var(--principal);
 }
 
-.buttons-row{
+.buttons-row {
     display: flex;
     gap: 10px;
+}
+
+.depoimento-row {
+    overflow: hidden;
+    max-width: 400px;
 }

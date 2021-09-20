@@ -4,6 +4,17 @@ section.s_hero {
 
     #home & {
         background-image: url("../img/header_hero.jpg");
+
+        @include responsive(600px) {
+            height: auto;
+            padding-bottom: 2rem;
+
+            .container-fav {
+                ._h1 {
+                    margin-top: 5rem;
+                }
+            }
+        }
     }
     #professores & {
         height: 26rem;

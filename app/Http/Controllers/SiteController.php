@@ -197,6 +197,10 @@ class SiteController extends Controller
     }
 
 
+    public function clinica(){
+        return view("site.clinica");
+
+    }
 
     // FEIRA
 
