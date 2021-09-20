@@ -190,7 +190,7 @@ section.s_hero {
 
     @include responsive(900px) {
         background-size: auto 100%;
-        background-position: left;
+        background-position: -90rem;
         height: 80rem;
     }
 }

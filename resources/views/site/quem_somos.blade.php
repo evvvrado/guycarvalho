@@ -403,18 +403,7 @@
     </div>
   </section>
 
-  <section class="container-fluid s_publi">
-    <div class="container-fav">
-      <a
-        target="_blank"
-        rel="noopener"
-        href="https://www.sistemasca.com/inicio"
-        title="Conheça o Sistema SCA - Gestão de Academias"
-      >
-        <img rel="noopener" src="{{ asset('site/img/banner_publicidade.jpg') }}" alt="Publicidade ~ SISTEMA SCA" />
-      </a>
-    </div>
-  </section>
+  @include('site.includes.publicidade')
 
   
   

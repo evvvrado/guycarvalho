@@ -28,22 +28,11 @@
         </label>
       </div>
     </div>
-  </section>
+</section>
 
-  <section class="container-fluid s_publi">
-    <div class="container-fav">
-      <a
-        target="_blank"
-        rel="noopener"
-        href="https://www.sistemasca.com/inicio"
-        title="Conheça o Sistema SCA - Gestão de Academias"
-      >
-        <img src="{{ asset('site/img/banner_publicidade.jpg') }}" rel="noopener" alt="Publicidade ~ SISTEMA SCA" />
-      </a>
-    </div>
-  </section>
+@include('site.includes.publicidade')
 
-  <section class="container-fluid s_events">
+<section class="container-fluid s_events">
     <div class="container-fav">
       <div class="_eventList">
         <div class="_event">
