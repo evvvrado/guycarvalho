@@ -462,9 +462,8 @@ div._form button:hover {
 
 @media (max-width: 1600px) {
     ._form.show{
-        top: 0;
         height: 100%;
-        bottom: unset;
+        bottom: 0;
     }
 
     ._form p{
