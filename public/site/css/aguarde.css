@@ -132,7 +132,7 @@ body {
     height: 100vh;
     width: 100vw;
 
-    background-size: auto 100%;
+    background-size: 100% auto;
 
     overflow: hidden;
     gap: 3rem;
@@ -283,10 +283,9 @@ div._form p {
     border-bottom: 0.1rem solid #bdbdbd;
 }
 div._form form {
-    padding-top: 3.6rem;
     width: 100%;
 
-    max-height: 11rem;
+    max-height: 11.5rem;
     overflow: hidden;
 
     transition: 0.32s;
@@ -314,6 +313,12 @@ div._form form label select {
     padding-left: 4.5rem;
     height: 4.8rem;
 }
+
+div._form form label input.error,
+div._form form label select.error{
+    border: solid 1px red;
+}
+
 div._form form label input {
     padding: 1.6rem;
     padding-left: 4.5rem;
@@ -384,4 +389,69 @@ div._form button:hover {
 
         right: unset;
     }
+}
+
+._infobox{
+    position: absolute;
+    pointer-events:none;
+}
+
+._box {
+    position: fixed;
+    z-index: 666;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    padding-right: 5rem;
+
+    transition: 0.32s;
+}
+._box span {
+    color: white;
+    font-family: "Poppins";
+    font-size: 1.4rem;
+    float: right;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+._box span ._img {
+    width: 20px;
+}
+._loadingBox {
+    width: 100%;
+    position: fixed;
+    background: rgb(208, 255, 0);
+    z-index: 666;
+    bottom: 0;
+    left: 0;
+    height: 0.3rem;
+}
+
+.modal-precadastro-text > h1{
+    font-size: 30px;
+    font-weight: bold;
+    color: #58D35F;
+}
+
+.modal-precadastro-text > h2{
+    font-size: 20px;
+    font-weight: 600;
+    color: #6A6C79;
+}
+
+.modal-precadastro-text > h3{
+    font-size: 15px;
+    font-weight: medium;
+    color: #6A6C79;
+    opacity: 0.65;
+}
+
+.modal-precadastro-text > h4{
+    font-size: 15px;
+    font-weight: 600;
+    color: #6A6C79;
+    opacity: 0.85;
 }

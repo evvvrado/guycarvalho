@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/testes', [\App\Http\Controllers\CieloController::class, 'capturar']);
 
 Route::get('/', [\App\Http\Controllers\SiteController::class, 'aguarde'])->name("site.index");
+Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController::class, 'salvar'])->name("site.precadastro.salvar");
 
 Route::middleware(['redirecionainicio'])->group(function () {
     Route::get('/quem-somos', [\App\Http\Controllers\SiteController::class, 'quem_somos'])->name("site.quem_somos");
