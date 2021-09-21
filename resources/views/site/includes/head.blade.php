@@ -37,5 +37,16 @@
     <link rel="preload" href="{{ asset('site/js/main.js') }}" as="script" />
     <link rel="stylesheet" href="{{ asset('site/css/style.css') }}" />
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5W4HSERN8S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-5W4HSERN8S');
+    </script>
+
     <title>ENAF - Esporte, Fitness e Saúde</title>
+    
   </head>
