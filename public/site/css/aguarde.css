@@ -455,3 +455,16 @@ div._form button:hover {
     color: #6A6C79;
     opacity: 0.85;
 }
+
+
+@media (max-width: 1600px) {
+    ._form.show{
+        top: 0;
+        height: 100%;
+        bottom: unset;
+    }
+
+    ._form p{
+        display: none;
+    }
+}
