@@ -20,6 +20,10 @@ class SiteController extends Controller
         View::share('configuracoes', \App\Models\Configuracao::first());
     }
 
+    public function aguarde(){
+        return view("site.aguarde");
+    }
+
     public function index(){
         
         $pagina = Pagina::where("nome", "Home")->first();

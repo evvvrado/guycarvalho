@@ -1,0 +1,387 @@
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        scroll-behavior: smooth;
+    }
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    list-style: none;
+    outline: none;
+    text-decoration: none;
+
+    font-size: 1.8rem;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+ul,
+ol {
+    margin: 0;
+}
+
+/* GRID */
+.container-fluid {
+    width: 100%;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    margin-right: auto;
+    margin-left: auto;
+
+    height: 100vh;
+}
+.container-fav {
+    width: 100%;
+    max-width: calc(120rem + 3rem);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+
+    height: 100%;
+}
+
+._box {
+    position: fixed;
+    z-index: 666;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    padding-right: 5rem;
+
+    transition: 0.32s;
+}
+._box span {
+    color: white;
+    font-family: "Poppins";
+    font-size: 1.4rem;
+    float: right;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+._box span ._img {
+    width: 2rem;
+}
+._loadingBox {
+    width: 100%;
+    position: fixed;
+    background: rgb(208, 255, 0);
+    z-index: 666;
+    bottom: 0;
+    left: 0;
+    height: 0.3rem;
+}
+#backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: white;
+    z-index: 666;
+}
+#backdrop div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+@media (max-width: 99.2rem) {
+}
+
+@media only screen and (max-width: 60rem) {
+    html {
+        /* font-size: 40%; */
+    }
+
+    /* .row{
+    margin: 0!important;
+  } */
+}
+
+body {
+    background-image: url("../img/aguarde/background.png");
+    height: 100vh;
+    width: 100vw;
+
+    background-size: auto 100%;
+
+    overflow: hidden;
+    gap: 3rem;
+}
+
+h1.show {
+    opacity: 1;
+    transform: none;
+}
+
+h1 {
+    font-family: "Montserrat";
+    color: white;
+    font-weight: 700;
+    font-size: 8.3rem;
+    line-height: 96%;
+    margin: 0;
+
+    max-width: 57.9rem;
+
+    opacity: 0;
+    transition: 1s;
+    transform: translateY(-2rem);
+}
+
+p {
+    font-family: "Montserrat";
+    color: white;
+    font-size: 1.8rem;
+}
+
+button {
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 3.3713rem;
+    line-height: 80%;
+    /* identical to box height, or 2.7rem */
+
+    text-transform: uppercase;
+
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+
+    position: relative;
+
+    animation: upanddown 2s infinite linear;
+}
+
+button u {
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 3.3713rem;
+    line-height: 80%;
+    /* identical to box height, or 2.7rem */
+
+    text-transform: uppercase;
+    /* text-decoration-line: underline; */
+
+    color: #ffffff;
+}
+
+img {
+    display: inline;
+}
+
+button:hover {
+    transition: 0.32s;
+    transform: scale(1.05);
+    color: #dec300;
+}
+button::after {
+    position: absolute;
+    content: "";
+
+    width: 0;
+    height: 0.4rem;
+
+    transition: 0.32s;
+    bottom: -0.5rem;
+    left: 0;
+
+    background: #dec300;
+}
+
+button:hover::after {
+    width: 0100%;
+}
+
+button:hover u {
+    transition: 0.32s;
+}
+
+@keyframes upanddown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(0.5rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+div._form {
+    padding: 4.5rem;
+    box-shadow: 0.5rem 0.9rem 2.4rem rgba(0, 0, 0, 0.1);
+    background-color: white;
+    width: 100%;
+    max-width: 38.5rem;
+    bottom: -100vh;
+    right: 0;
+    position: absolute;
+    z-index: 5;
+
+    height: 85vh;
+    font-family: "Gilroy";
+
+    transition: 0.32s;
+}
+
+div._form.show {
+    bottom: 0;
+}
+
+div._form ._close {
+    right: 4.2rem;
+    top: 5rem;
+    cursor: pointer;
+    position: absolute;
+}
+div._form h4 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 2.2rem;
+}
+div._form p {
+    font-weight: 300;
+    font-size: 1.8rem;
+    color: #647093;
+    padding-bottom: 3.7rem;
+    border-bottom: 0.1rem solid #bdbdbd;
+}
+div._form form {
+    padding-top: 3.6rem;
+    width: 100%;
+
+    max-height: 11rem;
+    overflow: hidden;
+
+    transition: 0.32s;
+}
+div._form form label {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+div._form form label:not(:first-child) {
+    margin-top: 2.9rem;
+}
+div._form form label span {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.01em;
+    color: #647093;
+}
+div._form form label input,
+div._form form label select {
+    width: 100%;
+    border: 0.1rem solid #d9d9d9;
+    border-radius: 0.4rem;
+    padding-left: 4.5rem;
+    height: 4.8rem;
+}
+div._form form label input {
+    padding: 1.6rem;
+    padding-left: 4.5rem;
+}
+div._form form label ._icon {
+    position: absolute;
+    bottom: 1.1rem;
+    left: 1.6rem;
+}
+div._form button {
+    display: inline-block;
+    height: 4.8rem;
+    background-color: #19a5d3;
+    border-radius: 30rem;
+    padding: 0 3.7rem;
+    font-weight: bold;
+    font-size: 1.6rem;
+    font-family: Gilroy;
+    line-height: 4.8rem;
+    color: white;
+    transition: 0.32s;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 3.7rem;
+}
+div._form button:hover {
+    background-color: white;
+    color: #19a5d3;
+}
+
+@media (max-width: 970px) {
+    .container-fluid {
+        align-items: center;
+        justify-content: center;
+    }
+    .container-fav {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: static;
+    }
+
+    h1 {
+        font-size: 4.2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    button,
+    button u {
+        font-size: 1.5rem;
+    }
+
+    div._form {
+        width: 100vw;
+        height: 100vh;
+
+        max-width: 100%;
+
+        padding: 4.5rem;
+        padding-top: 4rem;
+
+        left: 0;
+
+        right: unset;
+    }
+}
