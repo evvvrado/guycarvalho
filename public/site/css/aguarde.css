@@ -143,6 +143,7 @@ body {
 h1.show {
     opacity: 1;
     transform: none;
+    margin-bottom: 3rem;
 }
 
 h1 {
