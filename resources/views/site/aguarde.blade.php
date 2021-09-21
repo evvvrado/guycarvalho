@@ -49,7 +49,7 @@
         <div class="container-fav">
             <h1>
                 ESTÁ CURIOSO<br />
-                NO O QUE ESTÁ POR VIR? 🤔
+                NO QUE ESTÁ POR VIR? 🤔
             </h1>
 
             <button class="discover">
