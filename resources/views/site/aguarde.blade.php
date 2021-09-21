@@ -49,11 +49,11 @@
         <div class="container-fav">
             <h1>
                 ESTÁ CURIOSO<br />
-                DO QUE ESTÁ POR VIR? 🤔
+                COM O QUE ESTÁ POR VIR? 🤔
             </h1>
 
             <button class="discover">
-                VENHA <u>DESCOBRIR</u> <img src="{{ asset('site/img/aguarde/setapracima.svg') }}"
+                VEM <u>DESCOBRIR</u> <img src="{{ asset('site/img/aguarde/setapracima.svg') }}"
                     alt="Seta para cima" />
             </button>
 
@@ -62,7 +62,7 @@
 
             <div class="_form">
                 <h4>Vem descobrir!</h4>
-                <p>Deixe seus dados para deixamos você informado das novidades</p>
+                <p>Coloque seus dados para deixarmos você informado das novidades</p>
                 <div class="_close"><img src="{{ asset('site/img/feira/icon_close.svg') }}" alt="Fechar" />
                 </div>
 
@@ -197,8 +197,11 @@
         } else if ($('select').val() == -1) {
             $('select').addClass('error')
             $('form').css('max-height', `11.5rem`)
+            $('form').css('overflow', `hidden`)
+            $('#expand').show()
 
         } else {
+            $('select').removeClass('error')
             $('#empresaLabel').show()
         }
 

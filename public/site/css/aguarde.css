@@ -133,9 +133,11 @@ body {
     width: 100vw;
 
     background-size: auto auto;
+    background-position: right;
 
     overflow: hidden;
     gap: 3rem;
+
 }
 
 h1.show {
@@ -224,7 +226,7 @@ button::after {
 }
 
 button:hover::after {
-    width: 0100%;
+    width: 100%;
 }
 
 button:hover u {
