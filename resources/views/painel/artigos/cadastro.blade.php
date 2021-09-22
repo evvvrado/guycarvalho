@@ -54,6 +54,15 @@
                         <input id="resumo" name="resumo" type="text" placeholder="Resumo do Artigo" class="form-control">
                      </div>
                 </div>
+
+                <div class="row">
+                   
+                  <div class="mb-3">
+                     <label for="resumo">Conteúdo</label>
+                     <textarea class="form-control" name="conteudo" id="summernote" rows="10"></textarea>
+                  </div>
+                  
+                </div>
                 <div class="d-flex flex-wrap gap-2">
                    <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
                    <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
@@ -112,33 +121,15 @@
 @endsection
 
 @section('scripts')
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 <script src="{{asset('admin/libs/select2/js/select2.min.js')}}"></script>
 <script src="{{asset('admin/libs/dropzone/min/dropzone.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+
 <script>
-    var inp = document.getElementById('logo-upload');
-    inp.addEventListener('change', function(e){
-        var file = this.files[0];
-        var reader = new FileReader();
-        reader.onload = function(){
-            document.getElementById('logo-preview').src = this.result;
-            };
-        reader.readAsDataURL(file);
-    },false);
-
-    var inp = document.getElementById('banner-upload');
-    inp.addEventListener('change', function(e){
-        var file = this.files[0];
-        var reader = new FileReader();
-        reader.onload = function(){
-            document.getElementById('banner-preview').src = this.result;
-            };
-        reader.readAsDataURL(file);
-    },false);
-
     $(document).ready(function() {
         $('#summernote').summernote({
-            height: 600,
+            height: 500,
         });
 
         $('#select_tag').select2({

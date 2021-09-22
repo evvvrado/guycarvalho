@@ -54,6 +54,14 @@
                         <input id="resumo" name="resumo" type="text" value="Resumo da Notícia" class="form-control">
                      </div>
                 </div>
+                <div class="row">
+                   
+                  <div class="mb-3">
+                     <label for="resumo">Conteúdo</label>
+                     <textarea class="form-control" name="conteudo" id="summernote" rows="10"></textarea>
+                  </div>
+                  
+                </div>
                 <div class="d-flex flex-wrap gap-2">
                    <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
                    <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
