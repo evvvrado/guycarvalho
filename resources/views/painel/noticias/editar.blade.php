@@ -7,178 +7,114 @@
 @endsection
 
 @section('titulo')
-    Editando Notícia
+    Blog / <a style="color: unset" href="{{route('painel.noticias')}}">Noticias</a> / Editar  
 @endsection
 
 @section('conteudo')
-
 @include('painel.includes.errors')
 <div class="row">
     <div class="col-12">
-        <div class="card">
-            <div class="card-body">
+       <div class="card">
+          <div class="card-body">
+             <h4 class="card-title">Editar de Notícia</h4>
+             <form>
                 <div class="row">
-                    <div class="col-12 text-left my-3" style="color:red;">
-                        * Campos obrigatórios
-                    </div>
+                   <div class="col-sm-6">
+                      <div class="mb-3">
+                         <label for="titulo">Título</label>
+                         <input id="titulo" name="titulo" type="text" value="Insira o título da notícia" class="form-control">
+                      </div>
+                      <div class="mb-3">
+                         <label for="categoria">Categoria</label>
+                         <input id="categoria" name="categoria" type="text" value="Categoria da Notícia" class="form-control">
+                      </div>
+                      <div class="mb-3">
+                         <label for="fonte">Fonte</label>
+                         <input id="fonte" name="fonte" type="text" value="Fonte da Notícia" class="form-control">
+                      </div>
+                   </div>
+                   <div class="col-sm-6">
+                     <div class="mb-3">
+                        <label for="autor">Autor</label>
+                        <input id="autor" name="autor" type="text" value="Insira o nome do autor" class="form-control">
+                     </div>
+                     <div class="mb-3">
+                        <label for="publicacaodata">Data de Publicação</label>
+                        <input class="form-control" type="date" id="publicacaodata">
+                     </div>
+                     <div class="mb-3">
+                        <label for="tags">Tags</label>
+                        <input id="tags" name="tags" type="text" value="Tags da Notícia" class="form-control">
+                     </div>
+                   </div>
                 </div>
-                {{--  <h4 class="card-title mb-4">Informações Básicas</h4>  --}}
+                <div class="row">
+                    <div class="mb-3">
+                        <label for="resumo">Resumo</label>
+                        <input id="resumo" name="resumo" type="text" value="Resumo da Notícia" class="form-control">
+                     </div>
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                   <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
+                   <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
+                </div>
+             </form>
+          </div>
+       </div>
+       <div class="card">
+         
+          <div class="card-body">
+             <h4 class="card-title mb-3">Banner da notícia</h4>
+             <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable">
+                <div class="dz-message needsclick">
+                   <div class="mb-3">
+                      <i class="display-4 text-muted bx bxs-cloud-upload"></i>
+                   </div>
+                   <h4>Inserir imagem</h4>
+                </div>
+             </form>
+       </div>
+       
 
-                <form action="{{route('painel.noticia.salvar', ['noticia' => $noticia])}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h4 class="card-title mb-4 mt-4">Banner</h4>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    @if($noticia->banner)
-                                        <img id="banner-preview" src="{{asset($noticia->banner)}}" style="max-height: 400px;" alt="">
-                                    @else
-                                        <img id="banner-preview" src="{{asset('admin/images/thumb-padrao.png')}}" style="max-height: 400px;" alt="">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-12 text-center">
-                                    <label class="btn btn-primary" for="banner-upload">Escolher</label>
-                                    <input name="banner" id="banner-upload" style="display: none;" type="file">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 text-center">
-                                    {{--  <small style="color: red;">* Importante: Utilize imagens quadradas para garantir uma melhor visualização no site.</small>  --}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-12 col-lg-6">
-                            <label for="titulo">Título *</label>
-                            <input type="text" class="form-control" name="titulo"
-                                id="titulo" maxlenght="100" value="{{$noticia->titulo}}" required>
-                        </div>
-                        <div class="form-group col-12 col-lg-6">
-                            <label for="subtitulo">Subtitulo *</label>
-                            <input type="text" class="form-control" name="subtitulo"
-                                id="subtitulo" maxlenght="255" value="{{$noticia->subtitulo}}">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-12 col-lg-4 mt-3">
-                            <label for="">Categoria</label>
-                            <select class="form-control" name="categoria_id">
-                                @foreach(\App\Models\Categoria::all() as $categoria)
-                                    <option value="{{$categoria->id}}" @if($categoria->id == $noticia->categoria_id) selected @endif>{{$categoria->nome}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group col-12 col-lg-4 mt-3">
-                            <label for="autor">Autor</label>
-                            <input type="text" class="form-control" name="autor"
-                                id="autor" value="{{$noticia->autor}}" maxlenght="255">
-                        </div>
-                        <div class="form-group col-12 col-lg-4 mt-3">
-                            <label for="publicacao">Data de Publicação</label>
-                            <input type="date" class="form-control" name="publicacao"
-                                id="publicacao" value="{{$noticia->publicacao}}">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-12 mt-3">
-                            <label for="fonte">Fonte</label>
-                            <input type="text" class="form-control" name="fonte"
-                                id="fonte" value="{{$noticia->fonte}}" maxlenght="255">
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="form-group col-12">
-                            <label for="tags">Tags</label>
-                            <select class="js-example-basic-multiple js-states form-control" multiple="multiple" name="tags[]" id="select_tag" multiple required>
-                                <option value="" label="default"></option>
-                                @foreach (App\Models\Tag::all() as $tag)
-                                    <option value="{{$tag->id}}" @if($noticia->tags->contains($tag->id)) selected @endif>{{$tag->nome}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="form-group col-12">
-                            <label for="hashtags">Hashtags</label>
-                            <select class="js-example-basic-multiple js-states form-control" multiple="multiple" name="hashtags[]" id="select_hashtag" multiple>
-                                <option value="" label="default"></option>
-                                @foreach (App\Models\Hashtag::all() as $hashtag)
-                                    <option value="{{$hashtag->id}}" @if($noticia->hashtags->contains($hashtag->id)) selected @endif>{{$hashtag->nome}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-12">
-                            <label for="">Resumo</label>
-                            <textarea class="form-control" name="resumo" rows="3">{!!$noticia->resumo!!}</textarea>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="form-group col-12">
-                            <label for="">Conteúdo</label>
-                            <textarea class="form-control" name="conteudo" id="summernote" rows="10">{!! $noticia->conteudo !!}</textarea>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h4 class="card-title mb-4 mt-4">Thumbnail</h4>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    @if($noticia->preview)
-                                        <img id="logo-preview" src="{{asset($noticia->preview)}}" style="width: 100%; max-width:200px;" alt="">
-                                    @else
-                                        <img id="logo-preview" src="{{asset('admin/images/thumb-padrao.png')}}" style="width: 100%; max-width:200px;" alt="">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-12 text-center">
-                                    <label class="btn btn-primary" for="logo-upload">Escolher</label>
-                                    <input name="preview" id="logo-upload" style="display: none;" type="file">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 text-center">
-                                    <small style="color: red;">* Importante: Utilize imagens quadradas para garantir uma melhor visualização no site.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr>
-                    <div class="row">
-                        <div class="col-12" style="text-align: right;">
-                            <button type="submit" class="btn btn-primary px-5">Salvar</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!-- end card body -->
-        </div>
-        <!-- end card -->
+       <!-- end card-->
+       {{-- <div class="card">
+          <div class="card-body">
+             <h4 class="card-title">Meta Data</h4>
+             <p class="card-title-desc">Fill all information below</p>
+             <form>
+                <div class="row">
+                   <div class="col-sm-6">
+                      <div class="mb-3">
+                         <label for="metatitle">Meta title</label>
+                         <input id="metatitle" name="productname" type="text" class="form-control">
+                      </div>
+                      <div class="mb-3">
+                         <label for="metakeywords">Meta Keywords</label>
+                         <input id="metakeywords" name="manufacturername" type="text" class="form-control">
+                      </div>
+                   </div>
+                   <div class="col-sm-6">
+                      <div class="mb-3">
+                         <label for="metadescription">Meta Description</label>
+                         <textarea class="form-control" id="metadescription" rows="5"></textarea>
+                      </div>
+                   </div>
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                   <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
+                   <button type="submit" class="btn btn-secondary waves-effect waves-light">Cencelar</button>
+                </div>
+             </form>
+          </div>
+       </div> --}}
     </div>
-    <!-- end col -->
-</div>
-<!-- end row -->
+ </div>
 @endsection
 
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 <script src="{{asset('admin/libs/select2/js/select2.min.js')}}"></script>
+<script src="{{asset('admin/libs/dropzone/min/dropzone.min.js')}}"></script>
 <script>
     var inp = document.getElementById('logo-upload');
     inp.addEventListener('change', function(e){

@@ -283,8 +283,8 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     <span key="t-dashboards">Blog</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="javascript: void(0)" key="t-default">Artigos</a></li>
-                                    <li><a href="javascript: void(0)" key="t-default">Notícias</a></li>
+                                    <li><a href="{{ route('painel.artigos') }}" key="t-default">Artigos</a></li>
+                                    <li><a href="{{ route('painel.noticias') }}" key="t-default">Notícias</a></li>
                                 </ul>
                             </li>
 

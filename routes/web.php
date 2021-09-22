@@ -179,6 +179,19 @@ Route::middleware(['redirecionainicio'])->group(function () {
         
 
         // ROTAS DE NOTÍCIAS
+        Route::get('/sistema/artigos', [\App\Http\Controllers\ArtigosController::class, 'consultar'])->name("painel.artigos");
+        Route::get('/sistema/artigos/cadastro', [\App\Http\Controllers\ArtigosController::class, 'cadastro'])->name("painel.artigo.cadastro");
+        Route::get('/sistema/artigos/leads/{artigo}', [\App\Http\Controllers\ArtigosController::class, 'visitas'])->name("painel.artigo.visitas");
+        Route::post('/sistema/artigos/cadastrar', [\App\Http\Controllers\ArtigosController::class, 'cadastrar'])->name("painel.artigo.cadastrar");
+        Route::get('/sistema/artigos/editar/{artigo}', [\App\Http\Controllers\ArtigosController::class, 'editar'])->name("painel.artigo.editar");
+        Route::post('/sistema/artigos/salvar/{artigo}', [\App\Http\Controllers\ArtigosController::class, 'salvar'])->name("painel.artigo.salvar");
+        Route::get('/sistema/artigos/deletar/{artigo}', [\App\Http\Controllers\ArtigosController::class, 'deletar'])->name("painel.artigo.deletar");
+        Route::get('/sistema/artigos/publicar/{artigo}', [\App\Http\Controllers\ArtigosController::class, 'publicar'])->name("painel.artigo.publicar");
+        Route::get('/sistema/artigos/preview/{artigo}', [\App\Http\Controllers\ArtigosController::class, 'preview'])->name("painel.artigo.preview");
+
+        // ROTAS DE ARTIGOS
+
+        
         Route::get('/sistema/noticias', [\App\Http\Controllers\NoticiasController::class, 'consultar'])->name("painel.noticias");
         Route::get('/sistema/noticias/cadastro', [\App\Http\Controllers\NoticiasController::class, 'cadastro'])->name("painel.noticia.cadastro");
         Route::get('/sistema/noticias/leads/{noticia}', [\App\Http\Controllers\NoticiasController::class, 'visitas'])->name("painel.noticia.visitas");

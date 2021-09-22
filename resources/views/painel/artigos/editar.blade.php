@@ -7,7 +7,7 @@
 @endsection
 
 @section('titulo')
-    Blog / <a style="color: unset" href="{{route('painel.noticias')}}">Noticias</a> / Cadastro  
+    Blog / <a style="color: unset" href="{{route('painel.artigos')}}">Artigos</a> / Editar  
 @endsection
 
 @section('conteudo')
@@ -16,27 +16,27 @@
     <div class="col-12">
        <div class="card">
           <div class="card-body">
-             <h4 class="card-title">Cadastro de Notícia</h4>
+             <h4 class="card-title">Editar do Artigo</h4>
              <form>
                 <div class="row">
                    <div class="col-sm-6">
                       <div class="mb-3">
                          <label for="titulo">Título</label>
-                         <input id="titulo" name="titulo" type="text" placeholder="Insira o título da notícia" class="form-control">
+                         <input id="titulo" name="titulo" type="text" value="Insira o título do Artigo" class="form-control">
                       </div>
                       <div class="mb-3">
                          <label for="categoria">Categoria</label>
-                         <input id="categoria" name="categoria" type="text" placeholder="Categoria da Notícia" class="form-control">
+                         <input id="categoria" name="categoria" type="text" value="Categoria do Artigo" class="form-control">
                       </div>
                       <div class="mb-3">
                          <label for="fonte">Fonte</label>
-                         <input id="fonte" name="fonte" type="text" placeholder="Fonte da Notícia" class="form-control">
+                         <input id="fonte" name="fonte" type="text" value="Fonte do Artigo" class="form-control">
                       </div>
                    </div>
                    <div class="col-sm-6">
                      <div class="mb-3">
                         <label for="autor">Autor</label>
-                        <input id="autor" name="autor" type="text" placeholder="Insira o nome do autor" class="form-control">
+                        <input id="autor" name="autor" type="text" value="Insira o nome do autor" class="form-control">
                      </div>
                      <div class="mb-3">
                         <label for="publicacaodata">Data de Publicação</label>
@@ -44,14 +44,14 @@
                      </div>
                      <div class="mb-3">
                         <label for="tags">Tags</label>
-                        <input id="tags" name="tags" type="text" placeholder="Tags da Notícia" class="form-control">
+                        <input id="tags" name="tags" type="text" value="Tags do Artigo" class="form-control">
                      </div>
                    </div>
                 </div>
                 <div class="row">
                     <div class="mb-3">
                         <label for="resumo">Resumo</label>
-                        <input id="resumo" name="resumo" type="text" placeholder="Resumo da Notícia" class="form-control">
+                        <input id="resumo" name="resumo" type="text" value="Resumo do Artigo" class="form-control">
                      </div>
                 </div>
                 <div class="d-flex flex-wrap gap-2">
@@ -64,7 +64,7 @@
        <div class="card">
          
           <div class="card-body">
-             <h4 class="card-title mb-3">Banner da notícia</h4>
+             <h4 class="card-title mb-3">Banner do Artigo</h4>
              <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable">
                 <div class="dz-message needsclick">
                    <div class="mb-3">
