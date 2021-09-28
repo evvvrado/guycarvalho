@@ -338,3 +338,13 @@ function depoimentoSlide() {
 }
 
 setInterval(depoimentoSlide, 5000);
+
+console.log(
+    "%cSe perdeu? Está tudo bem!",
+    "color: #FF3434; font-family:monospace; font-size: 35px"
+);
+console.log(
+    "%c                             Desenvolvido por: %c@hyp8tec",
+    "color:#5cedd7; font-family:monospace; font-size: 15px",
+    "color: #0379E8; font-family:monospace; font-size: 15px"
+);
