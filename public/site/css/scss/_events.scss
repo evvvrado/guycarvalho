@@ -4,6 +4,8 @@
     .container-fav {
         ._eventList {
             @include flex(row, center, space-between);
+            flex-wrap: wrap;
+            gap: 2rem;
             ._event {
                 border: 1px solid #ececec;
                 width: 100%;

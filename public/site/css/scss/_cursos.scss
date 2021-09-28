@@ -51,7 +51,9 @@
             }
         }
         ._cursosList {
-            @include flex(row, center, space-between);
+            @include flex(row, center, flex-start);
+            gap: 3rem;
+            flex-wrap: wrap;
             ._curso {
                 border: 1px solid #ececec;
                 width: 100%;

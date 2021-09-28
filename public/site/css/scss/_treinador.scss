@@ -205,6 +205,11 @@ body#treinador {
                 overflow-y: visible;
                 transform-origin: center center;
                 scroll-behavior: smooth;
+
+                @include responsive(730px) {
+                    overflow-x: scroll;
+                    scroll-snap-type: x mandatory;
+                }
             }
 
             ._cursoList {
@@ -222,6 +227,7 @@ body#treinador {
 
                     text-align: center;
 
+                    scroll-snap-align: center;
                     height: 44.6rem;
                     width: 100%;
                     max-width: 37.3rem;
@@ -285,17 +291,6 @@ body#treinador {
                 }
             }
             @include fade(scale(0), 2s);
-
-            @include responsive(730px) {
-                max-width: 300px;
-                overflow-x: scroll;
-
-                ._cursoList {
-                    ._curso {
-                        height: 57.6rem;
-                    }
-                }
-            }
         }
 
         .c_depoimentos {
@@ -307,6 +302,7 @@ body#treinador {
                 position: relative;
 
                 h6 {
+                    position: relative;
                     @include draw_one(64.4rem, 14rem, -2rem, 2rem);
                     span {
                         color: $white;
@@ -338,14 +334,20 @@ body#treinador {
 
         @include responsive(830px) {
             .c_depoimentos {
-                ._title {
-                    h6 {
-                        @include draw_one(64.4rem, 14rem, -2rem, -4rem);
-                    }
-                }
                 ._videos {
                     align-items: center;
                     justify-content: center;
+                }
+            }
+        }
+        @include responsive(600px) {
+            .c_depoimentos {
+                ._title {
+                    h6 {
+                        &::after {
+                            width: 50.4rem;
+                        }
+                    }
                 }
             }
         }
@@ -526,6 +528,29 @@ body#treinador {
                 main {
                     &::after {
                         left: 0;
+
+                        @include responsive(700px) {
+                            left: 46px;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include responsive(600px) {
+            .container-fav {
+                main {
+                    ._content {
+                        scroll-snap-type: x mandatory;
+                        max-width: 100vw;
+                        ._depoimentoList {
+                            ._depoimento {
+                                max-width: 42rem;
+                                scroll-snap-align: center;
+                                margin-left: 10rem;
+                                margin-right: 10rem;
+                            }
+                        }
                     }
                 }
             }
@@ -584,6 +609,7 @@ body#treinador {
         .container-fav {
             ._content {
                 height: 45rem;
+                scroll-snap-type: x mandatory;
                 ._blogList {
                     @include flex(row, center, space-between);
                     gap: 3.2rem;
@@ -595,6 +621,7 @@ body#treinador {
                         background-color: $white;
                         padding-bottom: 3.4rem;
 
+                        scroll-snap-align: center;
                         transition: 0.32s;
                         cursor: pointer;
 
@@ -680,6 +707,7 @@ body#treinador {
 
         .container-fav {
             ._top {
+                max-width: 41.5rem;
                 h4 {
                     color: $color-darkest;
                     position: relative;
@@ -691,6 +719,14 @@ body#treinador {
                     &::after {
                         bottom: -1rem;
                         right: -10.6rem;
+
+                        @include responsive(600px) {
+                            right: -1.6rem;
+                        }
+                    }
+
+                    @include responsive(600px) {
+                        width: max-content;
                     }
                 }
             }

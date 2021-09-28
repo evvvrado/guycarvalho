@@ -21,12 +21,12 @@
             <div class="_media">
                 <ul>
                 <li>
-                    <a href="#">
+                    <a href="https://www.facebook.com/enaf.oficial/">
                     <img src="{{ asset('/site/img/icon_facebook_footer.svg') }}" alt="Ícone facebook" />
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="https://www.instagram.com/enaf.oficial/">
                     <img src="{{ asset('/site/img/icon_instagram_footer.svg') }}" alt="Ícone instagram" />
                     </a>
                 </li>
@@ -41,7 +41,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" >
                     <img src="{{ asset('/site/img/icon_linkedin_footer.svg') }}" alt="Ícone linkedin" />
                     </a>
                 </li>

@@ -46,10 +46,14 @@ class SiteController extends Controller
         return view("site.cursos", ["cursos" => $cursos]);
     }
 
-    public function curso($slug){
-        $curso = Curso::where("slug", $slug)->first();
-        $turma = $curso->turmas->where("ativo", true)->sortBy("data")->first();
-        return view("site.curso", ["curso" => $curso, "turma" => $turma, "aba" => "detalhes"]);
+    // public function curso($slug){
+    //     $curso = Curso::where("slug", $slug)->first();
+    //     $turma = $curso->turmas->where("ativo", true)->sortBy("data")->first();
+    //     return view("site.curso", ["curso" => $curso, "turma" => $turma, "aba" => "detalhes"]);
+    // }
+
+    public function curso(){
+        return view("site.curso");
     }
     public function instrutores($slug){
         $curso = Curso::where("slug", $slug)->first();
@@ -199,6 +203,9 @@ class SiteController extends Controller
     public function feira(){
         return view("site.feira");
     }
+    public function feiraEmpresas(){
+        return view("site.feira-empresas");
+    }
 
 
     public function clinica(){
@@ -206,6 +213,19 @@ class SiteController extends Controller
 
     }
 
+
+    //BLOG
+
+    public function blogGrid(){
+        return view("site.blog-grid");
+    }
+    public function blogLista(){
+        return view("site.blog-lista");
+    }
+    public function blogPost(){
+        return view("site.blog");
+    }
+    
     // FEIRA
 
 }

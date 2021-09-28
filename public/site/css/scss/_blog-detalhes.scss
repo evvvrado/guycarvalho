@@ -1,143 +1,143 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
 .s_cover {
-  padding-top: 17.3rem;
+    padding-top: 17.3rem;
 
-  .container-fav {
-    ._menu {
-      margin-top: 4rem;
-      margin-bottom: 8rem;
+    .container-fav {
+        ._menu {
+            margin-top: 4rem;
+            margin-bottom: 8rem;
 
-      @include flex(row, center, space-between);
+            @include flex(row, center, space-between);
 
-      max-width: 241px;
+            max-width: 241px;
 
-      ._comp {
-        @include flex(row, center, center);
-        gap: 1rem;
+            ._comp {
+                @include flex(row, center, center);
+                gap: 1rem;
 
-        span {
-          font-size: 1.4rem;
-          letter-spacing: 0.04em;
+                span {
+                    font-size: 1.4rem;
+                    letter-spacing: 0.04em;
 
-          color: $color-alternative;
+                    color: $color-alternative;
+                }
+            }
         }
-      }
     }
-  }
 }
 
-.s_content {
-  .container-fav {
-    @include flex(row, flex-start, space-between);
-    margin-top: 2.6rem;
-
-    main {
-      max-width: 696px;
-
-      h6 {
-        max-width: 42rem;
-        font-size: 3rem;
-        line-height: 140%;
-        font-weight: 500;
-
-        margin-bottom: 2.8rem;
-
-        color: $color-main;
-      }
-
-      p {
-        font-family: "Inter";
-        font-style: normal;
-        font-weight: normal;
-        font-size: 1.8rem;
-        line-height: 150%;
-
-        text-align: justify;
-
-        margin-bottom: 2rem;
-
-        color: #828282;
-      }
-    }
-
-    ._text {
-      margin-bottom: 2.1rem;
-      font-weight: 500;
-      font-size: 2rem;
-      letter-spacing: 0.02em;
-      color: $color-second;
-    }
-
-    ._post {
-      margin-bottom: 1.3rem;
-      @include flex(center, center, space-between);
-      width: 38rem;
-      border: 0.1343rem solid rgba(91, 100, 123, 0.1);
-      box-shadow: 1.3429rem 2.6857rem 5.3714rem rgba(19, 51, 113, 0.05);
-      border-radius: 1.0743rem;
-
-      ._pic {
-        img {
-          width: 10.1rem;
-          height: 8.9rem;
-
-          border-radius: 1rem 0 0 1rem;
-        }
-      }
-
-      ._content {
-        max-width: 22.8rem;
-        margin-right: 2.8rem;
-
-        .date {
-          font-weight: 400;
-          font-size: 1.2rem;
-
-          margin-bottom: 0.2rem;
-
-          color: $color-darkest;
-        }
-
-        ._postTitle {
-          font-weight: 800;
-          font-size: 1.6rem;
-          line-height: 140%;
-          /* or 22px */
-
-          color: $color-darkest;
-          margin-bottom: 1.2rem;
-          margin-right: 2.2rem;
-        }
-
-        a {
-          @include flex(row, center, flex-end);
-          gap: 2rem;
-
-          font-size: 1.2964rem;
-          line-height: 120%;
-          color: $orange;
-
-          width: 100%;
-        }
-      }
-
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.098);
-        cursor: pointer;
-
-        a {
-          animation: zigzag infinite 0.72s alternate linear;
-        }
-      }
-    }
-  }
-
-  @include responsive(1200px) {
+.b_content {
     .container-fav {
-      ._posts {
-        display: none;
-      }
+        @include flex(row, flex-start, space-between);
+        margin-top: 2.6rem;
+
+        main {
+            max-width: 696px;
+
+            h6 {
+                max-width: 42rem;
+                font-size: 3rem;
+                line-height: 140%;
+                font-weight: 500;
+
+                margin-bottom: 2.8rem;
+
+                color: $color-main;
+            }
+
+            p {
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: normal;
+                font-size: 1.8rem;
+                line-height: 150%;
+
+                text-align: justify;
+
+                margin-bottom: 2rem;
+
+                color: #828282;
+            }
+        }
+
+        ._text {
+            margin-bottom: 2.1rem;
+            font-weight: 500;
+            font-size: 2rem;
+            letter-spacing: 0.02em;
+            color: $color-second;
+        }
+
+        ._post {
+            margin-bottom: 1.3rem;
+            @include flex(center, center, space-between);
+            width: 38rem;
+            border: 0.1343rem solid rgba(91, 100, 123, 0.1);
+            box-shadow: 1.3429rem 2.6857rem 5.3714rem rgba(19, 51, 113, 0.05);
+            border-radius: 1.0743rem;
+
+            ._pic {
+                img {
+                    width: 10.1rem;
+                    height: 8.9rem;
+
+                    border-radius: 1rem 0 0 1rem;
+                }
+            }
+
+            ._content {
+                max-width: 22.8rem;
+                margin-right: 2.8rem;
+
+                .date {
+                    font-weight: 400;
+                    font-size: 1.2rem;
+
+                    margin-bottom: 0.2rem;
+
+                    color: $color-darkest;
+                }
+
+                ._postTitle {
+                    font-weight: 800;
+                    font-size: 1.6rem;
+                    line-height: 140%;
+                    /* or 22px */
+
+                    color: $color-darkest;
+                    margin-bottom: 1.2rem;
+                    margin-right: 2.2rem;
+                }
+
+                a {
+                    @include flex(row, center, flex-end);
+                    gap: 2rem;
+
+                    font-size: 1.2964rem;
+                    line-height: 120%;
+                    color: $orange;
+
+                    width: 100%;
+                }
+            }
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.098);
+                cursor: pointer;
+
+                a {
+                    animation: zigzag infinite 0.72s alternate linear;
+                }
+            }
+        }
     }
-  }
+
+    @include responsive(1200px) {
+        .container-fav {
+            ._posts {
+                display: none;
+            }
+        }
+    }
 }

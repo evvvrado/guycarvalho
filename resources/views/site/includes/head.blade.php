@@ -31,11 +31,11 @@
 
     <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" />
 
-    <link rel="preload" href="{{ asset('site/css/style.css') }}" as="style" />
-    <link rel="preload" href="{{ asset('site/js/jquery.min.js') }}" as="script" />
-    <link rel="preload" href="{{ asset('site/js/jquery-ui.js') }}" as="script" />
-    <link rel="preload" href="{{ asset('site/js/main.js') }}" as="script" />
-    <link rel="stylesheet" href="{{ asset('site/css/style.css') }}" />
+    <link rel="preload" href="{{ asset('/site/css/style.css') }}" as="style" />
+    <link rel="preload" href="{{ asset('/site/js/jquery.min.js') }}" as="script" />
+    <link rel="preload" href="{{ asset('/site/js/jquery-ui.js') }}" as="script" />
+    <link rel="preload" href="{{ asset('/site/js/main.js') }}" as="script" />
+    <link rel="stylesheet" href="{{ asset('/site/css/style.css') }}" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5W4HSERN8S"></script>

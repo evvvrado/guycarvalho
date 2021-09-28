@@ -30,12 +30,20 @@ Route::middleware(['redirecionainicio'])->group(function () {
     // ENAF ~
 
     Route::get('/feira', [\App\Http\Controllers\SiteController::class, 'feira'])->name("site.feira");
+    Route::get('/feira/empresas', [\App\Http\Controllers\SiteController::class, 'feiraEmpresas'])->name("site.feiraEmpresas");
 
     Route::get('/professores', [\App\Http\Controllers\SiteController::class, 'professores'])->name("site.professores");
     Route::get('/clinicas', [\App\Http\Controllers\SiteController::class, 'clinicas'])->name("site.clinicas");
     Route::get('/clinicas/clinica', [\App\Http\Controllers\SiteController::class, 'clinica'])->name("site.clinica");
     Route::get('/cursos', [\App\Http\Controllers\SiteController::class, 'cursos'])->name("site.cursos");
+    Route::get('/cursos/curso', [\App\Http\Controllers\SiteController::class, 'curso'])->name("site.cursos");
     Route::get('/contato', [\App\Http\Controllers\SiteController::class, 'contato'])->name("site.contato");
+
+    Route::get('/blog/lista', [\App\Http\Controllers\SiteController::class, 'blogLista'])->name("site.blog-lista");
+    Route::get('/blog/', [\App\Http\Controllers\SiteController::class, 'blogGrid'])->name("site.blog-grid");
+    Route::get('/blog/blog', [\App\Http\Controllers\SiteController::class, 'blogPost'])->name("site.blog");
+    
+    Route::get('/treinador', [\App\Http\Controllers\TreinadorController::class, 'treinador'])->name("site.treinador");
 
 
 
