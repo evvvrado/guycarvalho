@@ -44,6 +44,7 @@ Route::middleware(['redirecionainicio'])->group(function () {
     Route::get('/blog/blog', [\App\Http\Controllers\SiteController::class, 'blogPost'])->name("site.blog");
     
     Route::get('/treinador', [\App\Http\Controllers\TreinadorController::class, 'treinador'])->name("site.treinador");
+    Route::get('/hotsite', [\App\Http\Controllers\SiteController::class, 'hotsite'])->name("site.hotsite");
 
 
 

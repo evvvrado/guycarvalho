@@ -213,6 +213,11 @@ class SiteController extends Controller
 
     }
 
+    public function hotsite(){
+        return view("site.hotsite");
+
+    }
+
 
     //BLOG
 

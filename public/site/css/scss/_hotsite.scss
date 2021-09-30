@@ -1,0 +1,598 @@
+body#hotsite {
+    .d_superMenu {
+        top: 12rem;
+    }
+
+    header {
+        height: 8.5rem;
+        margin-top: 3.7rem;
+        .container-fav {
+            transition: 0.32s;
+            background: white;
+            padding: 0 4.5rem !important;
+            span,
+            a {
+                color: #1b3b90;
+            }
+        }
+
+        &._active {
+            background-image: none;
+            height: 8.5rem;
+        }
+    }
+
+    section.h_hero {
+        width: 100%;
+
+        margin-top: 25rem;
+        margin-bottom: 4.2rem;
+        @include flex(row, flex-start, flex-end);
+
+        .container-fav {
+            ._image {
+                @include flex(row, flex-start, space-between);
+                min-height: 59.1rem;
+
+                ._col {
+                    max-width: 40rem;
+
+                    &:first-child {
+                        max-width: 25.2rem;
+                    }
+                    h1 {
+                        font-style: normal;
+                        font-weight: 800;
+                        font-size: 6.5123rem;
+                        color: $white;
+                        text-align: right;
+                        position: relative;
+                        @include draw_two(21.2rem, 1.6rem, 20.5rem, 0);
+                    }
+                    h2 {
+                        font-style: normal;
+                        font-weight: 800;
+                        font-size: 3rem;
+                        text-align: center;
+                        vertical-align: center;
+                        color: #01bab5;
+
+                        max-width: 29.4rem;
+
+                        margin-top: 7rem;
+                    }
+
+                    div {
+                        background-image: url("/img/hotsite/browser-box.png");
+                        background-size: 100% 100%;
+
+                        height: 23.8rem;
+                        width: 100%;
+                        max-width: 40.4rem;
+
+                        @include flex(row, center, center);
+                    }
+
+                    p {
+                        font-weight: 400;
+                        font-size: 1.4rem;
+                        line-height: 140%;
+                        text-align: center;
+                        color: #ffffff;
+
+                        margin-top: 1.6rem;
+                    }
+                }
+
+                ._banner {
+                    position: relative;
+                    top: -5rem;
+                    width: 61.3rem;
+                    img[alt="Imagem Personalizada"] {
+                        position: absolute;
+                        max-width: unset;
+                        height: 69.1rem;
+                    }
+                    img[alt="Chatbox"] {
+                        position: absolute;
+                        right: -5.6rem;
+                        bottom: -50rem;
+                        animation: upandown infinite 8s 2s;
+                    }
+                }
+            }
+            ._content {
+                @include flex(row, center, space-between);
+                margin-top: -22rem;
+
+                .logo {
+                    width: 300px;
+                    height: 300px;
+
+                    background: #ffffff;
+                    box-shadow: 10px 15px 22px rgba(0, 0, 0, 0.1);
+
+                    border-radius: 50%;
+
+                    @include flex(row, center, center);
+
+                    animation: upandown infinite 8s;
+                }
+                .contat {
+                    width: 100%;
+                    max-width: 38.5rem;
+                    a {
+                        @include flex(row, center, flex-start);
+                        gap: 1.6rem;
+                        margin-top: 2rem;
+                        transition: 0.32s;
+
+                        span {
+                            color: white;
+                        }
+
+                        &:hover {
+                            filter: drop-shadow(4px 0 4px white);
+                        }
+                    }
+                }
+
+                @include fade(scale(0), 4s);
+            }
+            .hero_endtext {
+                text-align: center;
+
+                @include flex(row, center, center);
+
+                p {
+                    margin-top: 2.2rem;
+
+                    font-weight: 500;
+                    font-size: 3rem;
+                    line-height: 3.5rem;
+                    letter-spacing: 0.02em;
+                    color: #fff000;
+                    max-width: 50.2rem;
+                }
+            }
+        }
+    }
+
+    section.h_form {
+        .container-fav {
+            form {
+                background: $white;
+                padding: 6.2rem 12rem;
+                @include flex(row, center, flex-start);
+                gap: 3.6rem;
+                box-shadow: 5px 7px 21px rgba(0, 0, 0, 0.1);
+
+                label {
+                    @include flex(column, flex-start, flex-start);
+                    gap: 0.7rem;
+                    width: 100%;
+                    max-width: 28rem;
+                    span {
+                        font-family: Gilroy;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 14px;
+                        line-height: 160%;
+                        /* or 22px */
+
+                        letter-spacing: 0.02em;
+
+                        color: #5b647b;
+                    }
+                    input {
+                        background: #ffffff;
+                        opacity: 0.3;
+                        width: 100%;
+                        border: 0.1rem solid #5b647b;
+                        border-radius: 0.4rem;
+                        height: 5.2rem;
+
+                        padding-left: 1.2rem;
+                    }
+                }
+
+                button {
+                    @include alternative-btn(3.2rem, $color-thirdy, $white);
+
+                    margin-top: 3.5rem;
+                }
+            }
+        }
+    }
+
+    section.h_sobre {
+        padding-top: 12.5rem;
+
+        .container-fav {
+            @include flex(row, center, space-around);
+
+            h3 {
+                font-weight: bold;
+                font-size: 2.8rem;
+                line-height: 130%;
+                color: $white;
+            }
+
+            h6 {
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: 300;
+                font-size: 1.8rem;
+                letter-spacing: 0.02em;
+
+                color: #f2e116;
+            }
+
+            p {
+                font-weight: 400;
+                font-size: 1.6rem;
+                line-height: 150%;
+                letter-spacing: 0.02em;
+
+                color: $white;
+
+                margin-top: 2.5rem;
+            }
+
+            ._left {
+                max-width: 53.4rem;
+
+                picture {
+                    display: block;
+                    margin-top: 4.4rem;
+
+                    max-height: 30.5rem;
+                    max-width: 45.6rem;
+                }
+            }
+            ._right {
+                h3 {
+                    font-size: 3.8rem;
+                }
+
+                max-width: 47.7rem;
+            }
+        }
+    }
+
+    section.h_empresas {
+        padding-top: 7.4rem;
+        .container-fav {
+            background: $white;
+
+            border-bottom: 1px solid #cacaca;
+
+            @include flex(column, center, flex-start);
+            h2 {
+                font-style: normal;
+                font-weight: bold;
+                font-size: 2.8rem;
+                line-height: 130%;
+                color: #3c445b;
+                width: 100%;
+                text-align: center;
+
+                padding-top: 12.9rem;
+                padding-bottom: 6.1rem;
+            }
+
+            ._list {
+                @include flex(row, center, space-between);
+                width: 100%;
+                padding: 0 14.9rem;
+
+                padding-bottom: 10.7rem;
+
+                gap: 4.5rem;
+
+                .listItem {
+                    max-height: 6.1rem;
+
+                    scroll-behavior: smooth;
+
+                    overflow: hidden;
+                    scroll-snap-type: y mandatory;
+
+                    picture {
+                        scroll-snap-align: start;
+
+                        width: 13.5rem;
+                        height: 6.1rem;
+
+                        @include flex(column, center, center);
+                    }
+                }
+            }
+        }
+    }
+
+    section.h_galeria {
+        .container-fav {
+            background-color: white;
+            border-bottom: 1px solid #cacaca;
+
+            padding: 8.7rem 18.2rem 14.1rem 18.2rem !important;
+
+            ._title {
+                h3 {
+                    font-weight: bold;
+                    font-size: 2.8rem;
+
+                    max-width: 40rem;
+                    line-height: 130%;
+
+                    color: #3c445b;
+                }
+
+                h6 {
+                    font-family: Roboto;
+                    font-style: normal;
+                    font-weight: 300;
+                    font-size: 1.8rem;
+                    letter-spacing: 0.02em;
+
+                    color: #f2e116;
+                }
+
+                margin-bottom: 1.6rem;
+            }
+
+            ._images {
+                @include flex(row, flex-start, space-between);
+                @include fade(translateY(200px), 2s);
+                gap: 1.6rem;
+
+                picture {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    section.h_duvidas {
+        .container-fav {
+            padding: 21.6rem 6rem 11.5rem !important;
+            background-color: white;
+            ._top {
+                h4 {
+                    color: $color-darkest;
+                    position: relative;
+                    width: max-content;
+                    @include draw_two(21.2rem, 1.6rem, unset, unset);
+
+                    margin-bottom: 4.3rem;
+
+                    &::after {
+                        bottom: -1rem;
+                        right: -10.6rem;
+                    }
+                }
+            }
+
+            ._duvidas {
+                @include flex(Column, center, center);
+                gap: 2.1rem;
+
+                ._box {
+                    transform: 0.32s;
+                    max-height: 7.2rem;
+                    overflow-y: hidden;
+                    border-radius: 0.8rem;
+                    width: 100%;
+
+                    padding: 0 3.9rem;
+                    padding-bottom: 2.1rem;
+
+                    border: solid 1px rgba(0, 0, 0, 0.1);
+                    cursor: pointer;
+
+                    ._main {
+                        height: 7.2rem;
+                        @include flex(row, center, space-between);
+
+                        span {
+                            font-weight: 500;
+                            font-size: 1.6rem;
+
+                            max-width: 65%;
+
+                            color: $color-main;
+                        }
+                    }
+                    p {
+                        margin-top: 2.2rem;
+                        max-width: 65%;
+                        font-weight: 500;
+                        font-size: 1.6rem;
+                        line-height: 125%;
+                        /* or 20px */
+
+                        color: $color-alternative;
+                    }
+
+                    &.active {
+                        max-height: unset;
+
+                        ._main {
+                            span {
+                                font-weight: bold;
+                                font-size: 2.4rem;
+                                /* identical to box height, or 30px */
+
+                                color: $color-second;
+                            }
+
+                            ._icon {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    section.h_contato {
+        .container-fav {
+            background: $white;
+            padding: 8.7rem 8.8rem 14.1rem 8.8rem !important;
+
+            @include flex(row, flex-start, space-around);
+
+            ._form {
+                max-width: 37.2rem;
+
+                p {
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 20px;
+                    line-height: 24px;
+                    letter-spacing: 0.02em;
+                }
+
+                form {
+                    margin-top: 2.9rem;
+                    @include flex(column, flex-start, flex-start);
+                    gap: 2rem;
+
+                    label {
+                        @include flex(column, flex-start, flex-start);
+                        gap: 0.7rem;
+                        width: 100%;
+                        span {
+                            font-family: Gilroy;
+                            font-style: normal;
+                            font-weight: 500;
+                            font-size: 14px;
+                            line-height: 160%;
+                            /* or 22px */
+
+                            letter-spacing: 0.02em;
+
+                            color: #5b647b;
+                        }
+                        input {
+                            background: #ffffff;
+                            opacity: 0.3;
+                            width: 100%;
+                            border: 0.1rem solid #5b647b;
+                            border-radius: 0.4rem;
+                            height: 5.2rem;
+
+                            padding-left: 1.2rem;
+                        }
+                    }
+
+                    button {
+                        @include alternative-btn(3.6rem, $color-thirdy, $white);
+
+                        margin-top: 3.5rem;
+                    }
+                }
+            }
+
+            ._info {
+                h4 {
+                    font-weight: 600;
+                    font-size: 3.2rem;
+                    line-height: 120%;
+                    color: #323b4b;
+                    margin-top: 5.3rem;
+                }
+                p {
+                    font-family: Roboto;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 18px;
+                    max-width: 49.2rem;
+                    color: #5b647b;
+
+                    margin-top: 1.4rem;
+                }
+
+                .informacoes {
+                    max-width: 49rem;
+                    @include flex(row, flex-end, space-between);
+
+                    ._col {
+                        @include flex(column, flex-start, space-between);
+
+                        a {
+                            @include flex(row, center, flex-start);
+                            gap: 1.6rem;
+                            margin-top: 2rem;
+                            transition: 0.32s;
+                            font-size: 15px;
+
+                            height: 3.8rem;
+
+                            span {
+                                color: #5b647b;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include responsive(1200px) {
+        section.h_hero {
+            .container-fav {
+                ._content {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+            }
+        }
+
+        section.h_contato {
+            .container-fav {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 6rem;
+            }
+        }
+    }
+
+    @include responsive(992px) {
+        section.h_hero {
+            .container-fav {
+                ._image {
+                    ._col:last-child {
+                        display: none;
+                    }
+                }
+
+                ._content {
+                    display: none;
+                }
+
+                .hero_endtext {
+                    margin-top: 3rem;
+                }
+            }
+        }
+
+        section.h_form {
+            .container-fav {
+                form {
+                    flex-direction: column;
+                }
+            }
+        }
+
+        section.h_sobre {
+            .container-fav {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+    }
+}
