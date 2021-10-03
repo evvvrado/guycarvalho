@@ -255,6 +255,7 @@
           <div class="_filter">
             <nav>
               <div class="_filterItem active">Online</div>
+<div class="_filterItem ">EAD</div>
               <div class="_filterItem">Presenciais</div>
             </nav>
           </div>
