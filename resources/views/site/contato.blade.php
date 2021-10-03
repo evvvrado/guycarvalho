@@ -7,7 +7,17 @@
 
 
 <section class="container-fluid s_atendimento">
+  <div class="container-fav">
+  
+    <div class="_filter">
+      <nav>
+        <div class="_filterItem active">Contato</div>
+        <div class="_filterItem ">Imprensa</div>
+      </nav>
+    </div>
 
+    </div>
+    
     <div class="container-fav">
       <div class="_col">
         <h4>Atendimento</h4>

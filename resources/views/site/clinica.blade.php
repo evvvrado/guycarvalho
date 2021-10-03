@@ -5,7 +5,7 @@
 
 @include("site.includes.navbar")
 
-    <section class="container-fluid s_hero">
+    <section class="container-fluid s_hwero">
       <div class="container-fav">
         <div class="_h1 fade">
           <h6>03 Á 05 DE AGOSTO</h6>

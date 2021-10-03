@@ -2,6 +2,48 @@
   padding-top: 17.9rem;
   padding-bottom: 25.4rem;
 
+  ._filter {
+    width: 100%;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+    max-width: 32.3rem;
+
+    nav {
+        width: 100%;
+        @include flex(row, center, center);
+
+        ._filterItem {
+            @include flex(row, center, center);
+
+            width: 100%;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+            padding-bottom: 1rem;
+            transition: 0.32s;
+
+            &.active {
+                border-bottom: 3px $color-second solid;
+                color: $color-second;
+            }
+
+            &:hover {
+                cursor: pointer;
+                border-bottom: 3px $color-thirdy solid;
+                color: $color-thirdy;
+            }
+        }
+    }
+  }
+
+  
+  .container-fav:first-child {
+    align-items: center;
+    padding-bottom: 3rem!important;
+    justify-content: center
+  }
   .container-fav {
     @include flex(row, flex-start, space-between);
 
