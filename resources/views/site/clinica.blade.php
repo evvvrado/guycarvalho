@@ -162,7 +162,7 @@
     <section class="container-fluid s_cursos _atracoes">
       <div class="container-fav">
         <div class="title">
-          <h4>Atrações</h4>
+          <h4>Cursos</h4>
           <div class="_filter">
             <nav>
               <div class="_filterItem active" data-date="03Ago">03 Ago.</div>
@@ -172,6 +172,7 @@
           </div>
         </div>
         <div class="_cursosList">
+        
           <div class="_curso" data-date="03Ago">
             <div class="_pic">
               <img src="{{asset('site/img/curso_Pic (1).jpg')}}" alt="Imagem deste curso" />
@@ -184,7 +185,8 @@
                 </p>
               </div>
               <div class="_bottom">
-                <p class="curso_certificate">8:00 - 9:30</p>
+                <p class="curso_price">R$ 38,00</p>
+                <button>Comprar</button>
               </div>
             </div>
           </div>
@@ -198,7 +200,8 @@
                 <p class="curso_description">& Longevidade Saudável Aplicação Prática</p>
               </div>
               <div class="_bottom">
-                <p class="curso_certificate">9:30 - 10:00</p>
+                <p class="curso_price">R$ 38,00</p>
+                <button>Comprar</button>
               </div>
             </div>
           </div>
@@ -212,7 +215,8 @@
                 <p class="curso_description">Baseado na metodologia do CrossFit</p>
               </div>
               <div class="_bottom">
-                <p class="curso_certificate">10:00 - 11:30</p>
+                <p class="curso_price">R$ 38,00</p>
+                <button>Comprar</button>
               </div>
             </div>
           </div>
@@ -226,25 +230,13 @@
                 <p class="curso_description">Programa para maximizar os resultados</p>
               </div>
               <div class="_bottom">
-                <p class="curso_certificate">12:00 - 12:30</p>
+                <p class="curso_price">R$ 38,00</p>
+                <button>Comprar</button>
               </div>
             </div>
           </div>
-
-          <div class="_curso" data-date="04Ago">
-            <div class="_pic">
-              <img src="{{asset('site/img/curso_Pic (2).jpg')}}" alt="Imagem deste curso" />
-            </div>
-            <div class="_content">
-              <div class="_top">
-                <h4 class="curso_name">Treinamento Multifuncional</h4>
-                <p class="curso_description">& Longevidade Saudável Aplicação Prática</p>
-              </div>
-              <div class="_bottom">
-                <p class="curso_certificate">9:30 - 10:00</p>
-              </div>
-            </div>
-          </div>
+        
+        
           <div class="_curso" data-date="04Ago">
             <div class="_pic">
               <img src="{{asset('site/img/curso_Pic (1).jpg')}}" alt="Imagem deste curso" />
@@ -257,7 +249,23 @@
                 </p>
               </div>
               <div class="_bottom">
-                <p class="curso_certificate">8:00 - 9:30</p>
+                <p class="curso_price">R$ 38,00</p>
+                <button>Comprar</button>
+              </div>
+            </div>
+          </div>
+          <div class="_curso" data-date="04Ago">
+            <div class="_pic">
+              <img src="{{asset('site/img/curso_Pic (2).jpg')}}" alt="Imagem deste curso" />
+            </div>
+            <div class="_content">
+              <div class="_top">
+                <h4 class="curso_name">Treinamento Multifuncional</h4>
+                <p class="curso_description">& Longevidade Saudável Aplicação Prática</p>
+              </div>
+              <div class="_bottom">
+                <p class="curso_price">R$ 38,00</p>
+                <button>Comprar</button>
               </div>
             </div>
           </div>
@@ -271,7 +279,8 @@
                 <p class="curso_description">Baseado na metodologia do CrossFit</p>
               </div>
               <div class="_bottom">
-                <p class="curso_certificate">10:00 - 11:30</p>
+                <p class="curso_price">R$ 38,00</p>
+                <button>Comprar</button>
               </div>
             </div>
           </div>
@@ -285,25 +294,13 @@
                 <p class="curso_description">Programa para maximizar os resultados</p>
               </div>
               <div class="_bottom">
-                <p class="curso_certificate">12:00 - 12:30</p>
+                <p class="curso_price">R$ 38,00</p>
+                <button>Comprar</button>
               </div>
             </div>
           </div>
-
-          <div class="_curso" data-date="05Ago">
-            <div class="_pic">
-              <img src="{{asset('site/img/curso_Pic (3).jpg')}}" alt="Imagem deste curso" />
-            </div>
-            <div class="_content">
-              <div class="_top">
-                <h4 class="curso_name">Cross Training</h4>
-                <p class="curso_description">Baseado na metodologia do CrossFit</p>
-              </div>
-              <div class="_bottom">
-                <p class="curso_certificate">10:00 - 11:30</p>
-              </div>
-            </div>
-          </div>
+        
+        
           <div class="_curso" data-date="05Ago">
             <div class="_pic">
               <img src="{{asset('site/img/curso_Pic (1).jpg')}}" alt="Imagem deste curso" />
@@ -316,7 +313,8 @@
                 </p>
               </div>
               <div class="_bottom">
-                <p class="curso_certificate">8:00 - 9:30</p>
+                <p class="curso_price">R$ 38,00</p>
+                <button>Comprar</button>
               </div>
             </div>
           </div>
@@ -330,7 +328,23 @@
                 <p class="curso_description">& Longevidade Saudável Aplicação Prática</p>
               </div>
               <div class="_bottom">
-                <p class="curso_certificate">9:30 - 10:00</p>
+                <p class="curso_price">R$ 38,00</p>
+                <button>Comprar</button>
+              </div>
+            </div>
+          </div>
+          <div class="_curso" data-date="05Ago">
+            <div class="_pic">
+              <img src="{{asset('site/img/curso_Pic (3).jpg')}}" alt="Imagem deste curso" />
+            </div>
+            <div class="_content">
+              <div class="_top">
+                <h4 class="curso_name">Cross Training</h4>
+                <p class="curso_description">Baseado na metodologia do CrossFit</p>
+              </div>
+              <div class="_bottom">
+                <p class="curso_price">R$ 38,00</p>
+                <button>Comprar</button>
               </div>
             </div>
           </div>
@@ -344,7 +358,8 @@
                 <p class="curso_description">Programa para maximizar os resultados</p>
               </div>
               <div class="_bottom">
-                <p class="curso_certificate">12:00 - 12:30</p>
+                <p class="curso_price">R$ 38,00</p>
+                <button>Comprar</button>
               </div>
             </div>
           </div>
@@ -352,7 +367,7 @@
       </div>
     </section>
 
-    <section class="container-fluid s_cursos">
+    {{-- <section class="container-fluid s_cursos">
       <div class="container-fav">
         <div class="_title"><h4>Cursos</h4></div>
         <div class="_cursosList">
@@ -420,7 +435,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
 
     <section class="container-fluid s_embaixadores">
       <div class="container-fav">

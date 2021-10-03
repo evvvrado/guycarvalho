@@ -22,6 +22,12 @@
 
             ._filter {
                 width: 100%;
+                -webkit-touch-callout: none; /* iOS Safari */
+                -webkit-user-select: none; /* Safari */
+                -khtml-user-select: none; /* Konqueror HTML */
+                -moz-user-select: none; /* Old versions of Firefox */
+                    -ms-user-select: none; /* Internet Explorer/Edge */
+                        user-select: none;
                 max-width: 32.3rem;
 
                 nav {
@@ -130,15 +136,15 @@
 
                 #nossoscursos &,
                 #treinador &,
-                #clinica
-                    &:not(.s_cursos._atracoes
-                        .container-fav
-                        ._cursosList
-                        ._curso, #treinador
-                        .s_cursos
-                        .container-fav
-                        ._cursosList
-                        ._curso) {
+                #clinica &{
+                    // &:not(.s_cursos._atracoes
+                    //     .container-fav
+                    //     ._cursosList
+                    //     ._curso, #treinador
+                    //     .s_cursos
+                    //     .container-fav
+                    //     ._cursosList
+                    //     ._curso) {
                     height: 51.5rem;
                     ._top {
                         margin-bottom: 2.5rem;
