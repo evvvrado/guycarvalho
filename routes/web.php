@@ -30,6 +30,10 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
 
 
 
+    Route::get('/duvidas', [\App\Http\Controllers\SiteController::class, 'duvidas'])->name("site.duvidas");
+
+
+
     // ENAF ~
 
     Route::get('/feira', [\App\Http\Controllers\SiteController::class, 'feira'])->name("site.feira");

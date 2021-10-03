@@ -33,7 +33,7 @@
             <li><a href="/nossoblog.html">Artigos</a></li>
             <li><a href="/contato.html">Imprenssa</a></li>
             <li><a href="{{ route('site.professores') }}">Professores</a></li>
-            <li><a href="/">Membros</a></li>
+            <li><a href="{{route('site.duvidas')}}">Duvidas Frequentes</a></li>
             </ul>
         </div>
         </div>

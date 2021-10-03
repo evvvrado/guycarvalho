@@ -41,6 +41,10 @@ class SiteController extends Controller
         return view("site.quem_somos");
     }
 
+    public function duvidas(){
+        return view("site.duvidas");
+    }
+
     public function cursos(){
         $cursos = Curso::where("ativo", true)->get();
         return view("site.cursos", ["cursos" => $cursos]);
