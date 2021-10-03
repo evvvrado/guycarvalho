@@ -57,7 +57,7 @@
             }
         }
         ._cursosList {
-            @include flex(row, center, flex-start);
+            @include flex(row, center, center);
             gap: 3rem;
             flex-wrap: wrap;
             ._curso {

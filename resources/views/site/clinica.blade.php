@@ -220,21 +220,6 @@
               </div>
             </div>
           </div>
-          <div class="_curso" data-date="03Ago">
-            <div class="_pic">
-              <img src="{{asset('site/img/curso_Pic (4).jpg')}}" alt="Imagem deste curso" />
-            </div>
-            <div class="_content">
-              <div class="_top">
-                <h4 class="curso_name">Musculação Feminina</h4>
-                <p class="curso_description">Programa para maximizar os resultados</p>
-              </div>
-              <div class="_bottom">
-                <p class="curso_price">R$ 38,00</p>
-                <button>Comprar</button>
-              </div>
-            </div>
-          </div>
         
         
           <div class="_curso" data-date="04Ago">
@@ -284,21 +269,6 @@
               </div>
             </div>
           </div>
-          <div class="_curso" data-date="04Ago">
-            <div class="_pic">
-              <img src="{{asset('site/img/curso_Pic (4).jpg')}}" alt="Imagem deste curso" />
-            </div>
-            <div class="_content">
-              <div class="_top">
-                <h4 class="curso_name">Musculação Feminina</h4>
-                <p class="curso_description">Programa para maximizar os resultados</p>
-              </div>
-              <div class="_bottom">
-                <p class="curso_price">R$ 38,00</p>
-                <button>Comprar</button>
-              </div>
-            </div>
-          </div>
         
         
           <div class="_curso" data-date="05Ago">
@@ -341,21 +311,6 @@
               <div class="_top">
                 <h4 class="curso_name">Cross Training</h4>
                 <p class="curso_description">Baseado na metodologia do CrossFit</p>
-              </div>
-              <div class="_bottom">
-                <p class="curso_price">R$ 38,00</p>
-                <button>Comprar</button>
-              </div>
-            </div>
-          </div>
-          <div class="_curso" data-date="05Ago">
-            <div class="_pic">
-              <img src="{{asset('site/img/curso_Pic (4).jpg')}}" alt="Imagem deste curso" />
-            </div>
-            <div class="_content">
-              <div class="_top">
-                <h4 class="curso_name">Musculação Feminina</h4>
-                <p class="curso_description">Programa para maximizar os resultados</p>
               </div>
               <div class="_bottom">
                 <p class="curso_price">R$ 38,00</p>
