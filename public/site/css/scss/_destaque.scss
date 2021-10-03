@@ -5,10 +5,21 @@
     height: 60.3rem;
 
     #nossoscursos &,
-    #feira & {
+    #feira &,{
         margin: 0;
         height: 55.1rem;
         padding-top: 15rem;
+    }
+    
+    #clinica &{
+        margin-top: 0;
+        margin-bottom: 0;
+
+
+        &.reduzido{
+            height: 40.15rem;
+            background-image: url("../img/bannerFeiraClinica.png")
+        }
     }
 
     .container-fav {

@@ -154,7 +154,7 @@
     </section>
 
         
-    <section class="container-fluid s_destaque">
+    <section class="container-fluid s_destaque reduzido">
       <div class="container-fav">
         <div class="_content fade">
           <div class="_line">
