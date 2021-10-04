@@ -268,8 +268,8 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="javascript: void(0)" key="t-default">Eventos</a></li>
                                     <li><a href="javascript: void(0)" key="t-default">Clínicas</a></li>
-                                    <li><a href="javascript: void(0)" key="t-default">Cursos</a></li>
-                                    <li><a href="javascript: void(0)" key="t-default">Professores</a></li>
+                                    <li><a href="{{ route('painel.cursos')}}" key="t-default">Cursos</a></li>
+                                    <li><a href="{{ route('painel.professores')}}" key="t-default">Professores</a></li>
                                 </ul>
                             
                             </li>
@@ -307,7 +307,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                             <li>
                                 <a href="javascript: void(0);" class="waves-effect">
                                     <i class="bx bx-tv" aria-hidden="true"></i>
-                                    <span key="t-dashboards">Publicidade</span>
+                                <span key="t-dashboards">Publicidade</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ route('painel.anuncios') }}" key="t-default">Anúncios</a></li>
@@ -325,6 +325,7 @@ $usuario = \App\Models\Usuario::find(session()->get("usuario")["id"]);
                                     <ul class="sub-menu" aria-expanded="false">
                                         <li><a href="{{ route('painel.galeria')}}" key="t-default">Galeria</a></li>
                                         <li><a href="{{ route('painel.depoimento')}}" key="t-default">Depoimentos</a></li>
+                                        <li><a href="{{ route('painel.duvidas')}}" key="t-default">Duvidas</a></li>
                                     </ul>
                                 
                                 </li>

@@ -42,6 +42,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
     Route::get('/professores', [\App\Http\Controllers\SiteController::class, 'professores'])->name("site.professores");
     Route::get('/clinicas', [\App\Http\Controllers\SiteController::class, 'clinicas'])->name("site.clinicas");
     Route::get('/clinicas/clinica', [\App\Http\Controllers\SiteController::class, 'clinica'])->name("site.clinica");
+    Route::get('/eventos/evento', [\App\Http\Controllers\SiteController::class, 'evento'])->name("site.evento");
     Route::get('/cursos', [\App\Http\Controllers\SiteController::class, 'cursos'])->name("site.cursos");
     Route::get('/cursos/curso', [\App\Http\Controllers\SiteController::class, 'curso'])->name("site.cursos");
     Route::get('/contato', [\App\Http\Controllers\SiteController::class, 'contato'])->name("site.contato");
@@ -192,6 +193,12 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::get('/sistema/depoimento', [\App\Http\Controllers\DepoimentoController::class, 'consultar'])->name("painel.depoimento");
         Route::get('/sistema/depoimento/cadastro', [\App\Http\Controllers\DepoimentoController::class, 'cadastrar'])->name("painel.depoimento.cadastro");
         Route::get('/sistema/depoimento/editar', [\App\Http\Controllers\DepoimentoController::class, 'editar'])->name("painel.depoimento.editar");
+
+        
+        
+        Route::get('/sistema/duvidas', [\App\Http\Controllers\DuvidasController::class, 'consultar'])->name("painel.duvidas");
+        Route::get('/sistema/duvidas/cadastro', [\App\Http\Controllers\DuvidasController::class, 'cadastrar'])->name("painel.duvidas.cadastro");
+        Route::get('/sistema/duvidas/editar', [\App\Http\Controllers\DuvidasController::class, 'editar'])->name("painel.duvidas.editar");
         
 
         // ROTAS DE NOTÍCIAS
@@ -218,6 +225,11 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::get('/sistema/noticias/publicar/{noticia}', [\App\Http\Controllers\NoticiasController::class, 'publicar'])->name("painel.noticia.publicar");
         Route::get('/sistema/noticias/preview/{noticia}', [\App\Http\Controllers\NoticiasController::class, 'preview'])->name("painel.noticia.preview");
 
+        // ROTAS DE PROFESSORES
+        Route::get('/sistema/professores', [\App\Http\Controllers\ProfessoresController::class, 'consultar'])->name("painel.professores");
+        Route::get('/sistema/professores/cadastrar', [\App\Http\Controllers\ProfessoresController::class, 'cadastrar'])->name("painel.professores.cadastrar");
+        Route::get('/sistema/professores/hotsite', [\App\Http\Controllers\ProfessoresController::class, 'hotsite'])->name("painel.professores.hotsite");
+        
         // ROTAS DE MENSAGENS
         Route::get('/sistema/mensagens', [\App\Http\Controllers\MensagemController::class, 'consultar'])->name("painel.mensagens");
         Route::get('/sistema/mensagens/exportar', [\App\Http\Controllers\MensagemController::class, 'exportar'])->name("painel.mensagens.exportar");
@@ -234,7 +246,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::get('/sistema/cursos/api/getCurso/{curso}', [\App\Http\Controllers\CursosController::class, 'getCurso']);
         Route::get('/sistema/cursos', [\App\Http\Controllers\CursosController::class, 'consultar'])->name("painel.cursos");
         Route::get('/sistema/curso/ativo/{curso}', [\App\Http\Controllers\CursosController::class, 'ativo'])->name("painel.curso.ativo");
-        Route::post('/sistema/cursos/cadastrar', [\App\Http\Controllers\CursosController::class, 'cadastrar'])->name("painel.curso.cadastrar");
+        Route::get('/sistema/cursos/cadastrar', [\App\Http\Controllers\CursosController::class, 'cadastrar'])->name("painel.cursos.cadastrar");
         Route::get('/includes/curso/formulario', function(){
             return view("painel.cursos.formulario");
         });

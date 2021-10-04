@@ -177,6 +177,27 @@
       </div>
     </section>
     
+    
+
+    <section class="container-fluid s_embaixadores">
+      <div class="container-fav">
+        <div class="_title"><h4>Professores</h4></div>
+
+        <div class="_pictures">
+          <img src="{{asset('site/img/pic_embaixador01.png')}}" onclick="" alt="Embaixador ENAF" />
+          <img src="{{asset('site/img/pic_embaixador02.png')}}" onclick="" alt="Embaixador ENAF" />
+          <img src="{{asset('site/img/pic_embaixador03.png')}}" onclick="" alt="Embaixador ENAF" />
+          <img src="{{asset('site/img/pic_embaixador04.png')}}" onclick="" alt="Embaixador ENAF" />
+          <img src="{{asset('site/img/pic_embaixador05.png')}}" onclick="" alt="Embaixador ENAF" />
+          <img src="{{asset('site/img/pic_embaixador06.png')}}" onclick="" alt="Embaixador ENAF" />
+          <img src="{{asset('site/img/pic_embaixador07.png')}}" onclick="" alt="Embaixador ENAF" />
+          <img src="{{asset('site/img/pic_embaixador08.png')}}" onclick="" alt="Embaixador ENAF" />
+          <img src="{{asset('site/img/pic_embaixador09.png')}}" onclick="" alt="Embaixador ENAF" />
+        </div>
+      </div>
+    </section>
+
+
     <section class="container-fluid s_depoimentos _alternative">
       <div class="container-fav">
         <div class="_depoimentos">
@@ -190,7 +211,7 @@
             <div class="_depoimentosList">
               <div class="_depoimento">
                 <div class="_pic">
-                  <img src="{{ asset('site/img/depoimento_Pic (1)') }}" alt="Foto de Dr. Turíbio" />
+                  <img src="{{ asset('site/img/depoimento_Pic (1).jpg') }}" alt="Foto de Dr. Turíbio" />
                 </div>
                 <div class="_text">
                   <p>
@@ -202,7 +223,7 @@
               </div>
               <div class="_depoimento">
                 <div class="_pic">
-                  <img src="{{ asset('site/img/depoimento_Pic (2)') }}" alt="Foto de Dr. Turíbio" />
+                  <img src="{{ asset('site/img/depoimento_Pic (2).jpg') }}" alt="Foto de Dr. Turíbio" />
                 </div>
                 <div class="_text">
                   <p>
@@ -214,7 +235,7 @@
               </div>
               <div class="_depoimento">
                 <div class="_pic">
-                  <img src="{{ asset('site/img/depoimento_Pic (3)') }}" alt="Foto de Dr. Turíbio" />
+                  <img src="{{ asset('site/img/depoimento_Pic (3).jpg') }}" alt="Foto de Dr. Turíbio" />
                 </div>
                 <div class="_text">
                   <p>
@@ -263,7 +284,7 @@
         <div class="_cursosList">
           <div class="_curso online">
             <div class="_pic">
-              <img src="{{ asset('site/img/curso_Pic (1)') }}" alt="Imagem deste curso" />
+              <img src="{{ asset('site/img/curso_Pic (1).jpg') }}" alt="Imagem deste curso" />
             </div>
             <div class="_content">
               <div class="_top">
@@ -279,7 +300,7 @@
           </div>
           <div class="_curso online">
             <div class="_pic">
-              <img src="{{ asset('site/img/curso_Pic (2)') }}" alt="Imagem deste curso" />
+              <img src="{{ asset('site/img/curso_Pic (2).jpg') }}" alt="Imagem deste curso" />
             </div>
             <div class="_content">
               <div class="_top">
@@ -293,7 +314,7 @@
           </div>
           <div class="_curso online">
             <div class="_pic">
-              <img src="{{ asset('site/img/curso_Pic (3)') }}" alt="Imagem deste curso" />
+              <img src="{{ asset('site/img/curso_Pic (3).jpg') }}" alt="Imagem deste curso" />
             </div>
             <div class="_content">
               <div class="_top">
@@ -307,7 +328,7 @@
           </div>
           <div class="_curso online">
             <div class="_pic">
-              <img src="{{ asset('site/img/curso_Pic (4)') }}" alt="Imagem deste curso" />
+              <img src="{{ asset('site/img/curso_Pic (4).jpg') }}" alt="Imagem deste curso" />
             </div>
             <div class="_content">
               <div class="_top">
@@ -322,7 +343,7 @@
 
           <div class="_curso presencial">
             <div class="_pic">
-              <img src="{{ asset('site/img/curso_Pic (4)') }}" alt="Imagem deste curso" />
+              <img src="{{ asset('site/img/curso_Pic (4).jpg') }}" alt="Imagem deste curso" />
             </div>
             <div class="_content">
               <div class="_top">
@@ -336,7 +357,7 @@
           </div>
           <div class="_curso presencial">
             <div class="_pic">
-              <img src="{{ asset('site/img/curso_Pic (3)') }}" alt="Imagem deste curso" />
+              <img src="{{ asset('site/img/curso_Pic (3).jpg') }}" alt="Imagem deste curso" />
             </div>
             <div class="_content">
               <div class="_top">
@@ -350,7 +371,7 @@
           </div>
           <div class="_curso presencial">
             <div class="_pic">
-              <img src="{{ asset('site/img/curso_Pic (2)') }}" alt="Imagem deste curso" />
+              <img src="{{ asset('site/img/curso_Pic (2).jpg') }}" alt="Imagem deste curso" />
             </div>
             <div class="_content">
               <div class="_top">
@@ -364,7 +385,7 @@
           </div>
           <div class="_curso presencial">
             <div class="_pic">
-              <img src="{{ asset('site/img/curso_Pic (1)') }}" alt="Imagem deste curso" />
+              <img src="{{ asset('site/img/curso_Pic (1).jpg') }}" alt="Imagem deste curso" />
             </div>
             <div class="_content">
               <div class="_top">

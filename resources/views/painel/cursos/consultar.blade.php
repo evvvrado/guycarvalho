@@ -4,311 +4,232 @@
     <!-- DataTables -->
     <link href="{{asset('admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <link href="{{asset('admin/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('titulo')
-    Listagem de Cursos
+    Projeto / <a style="color: unset" href="{{route('painel.cursos')}}">Cursos</a>
 @endsection
 
-@section('botoes')
-    <a name="" id="" class="btn btn-success" onclick="novoCurso()" role="button">Novo Curso</a>
-@endsection
+{{-- 
+@section('conteudo')
+    @include('painel.includes.errors')
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body" style="overflow-x: scroll;">
+                    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+
+                            @foreach($categorias as $categoria)
+                                <tr>
+                                    <td>{{$categoria->nome}}</td>
+                                    <td>
+                                        <a href="" id="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditaCategoria{{$categoria->id}}" role="button">Editar</a>
+                                        <a name="" id="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalExcluiCategoria{{$categoria->id}}" role="button">Excluir</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+
+
+    <div class="modal fade" id="modalNovaCategoria" tabindex="-1" role="dialog" aria-labelledby="modalNovaCategoriaLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form action="{{route('painel.categoria.cadastrar')}}" method="post">
+                        @csrf
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label for="nome">Nome</label>
+                                <input type="text" class="form-control" name="nome"
+                                    id="nome" aria-describedby="helpId" 
+                                >
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 text-end">
+                                <button type="submit"
+                                    class="btn btn-primary">Salvar</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @foreach($categorias as $categoria)
+        <div class="modal fade" id="modalEditaCategoria{{$categoria->id}}" tabindex="-1" role="dialog" aria-labelledby="modalEditaCategoria{{$categoria->id}}Label"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form action="{{route('painel.categoria.salvar', ['categoria' => $categoria])}}" method="post">
+                            @csrf
+                            <div class="row">
+                                <div class="form-group col-12">
+                                    <label for="nome">Nome</label>
+                                    <input type="text" class="form-control" name="nome"
+                                        id="nome" aria-describedby="helpId" 
+                                        value="{{$categoria->nome}}">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12 text-end">
+                                    <button type="submit"
+                                        class="btn btn-primary">Salvar</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modalExcluiCategoria{{$categoria->id}}" tabindex="-1" role="dialog" aria-labelledby="modalExcluiCategoria{{$categoria->id}}Label"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <h5>Ao excluir a categoria "{{$categoria->nome}}" todas as notícias relacionadas a ela também serão excluídas. Deseja continuar ?</h5>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <a name="" id="" class="btn btn-danger" href="{{route('painel.categoria.deletar', ['categoria' => $categoria])}}" role="button">Excluir</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
+@endsection --}}
+
+
 
 @section('conteudo')
-{{--  <div class="row">
-    <div class="form-group col-12">
-        <form action="#" class="dropzone">
-            <div class="fallback">
-                <input name="file" type="file" multiple="multiple">
-            </div>
-            <div class="dz-message needsclick">
-                <div class="mb-3">
-                    <i class="display-4 text-muted bx bxs-cloud-upload"></i>
-                </div>
-                
-                <h4>Drop files here or click to upload.</h4>
-            </div>
-        </form>
-        
-    </div>
-</div>  --}}
-<div class="row mt-3">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body" style="overflow-x: scroll; min-height: 80vh;">
-                <table id="datatable" class="table table-bordered dt-responsive text-left nowrap w-100">
-                    <thead>
-                        <tr>
-                            <th style="width: 30px;"></th>
-                            <th>Título, Turmas</th>
-                            <th style="width: 30px;">Ativo</th>
-                        </tr>
-                    </thead>
+
+    <div class="row">
+        <div class="col-9">
+            
+            <div class="row"">
+
+                           
+                <div class="col-sm-12 col-md-6 mb-3"  style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
+                    
+                 <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;" style="padding-left: 0;" href="{{route('painel.cursos.cadastrar')}}">
+                    <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
+             </div>
+            <div class="card">
+                <div class="card-body">
+                    <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+
+                           
+                           <i id="search-icon" class="bx bx-search" aria-hidden="true"></i>
+                           
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-12">
+                        <table id="datatable" class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable_info" style="width: 1185px;">
+                        <thead>
+                           <tr role="row">
+                              <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Título</th>
+                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;" aria-label="Position: activate to sort column ascending">Turmas</th>
+                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 131px;" aria-label="Start date: activate to sort column ascending">Valor do Curso</th>
+                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;" aria-label="Start date: activate to sort column ascending"></th>
+                           </tr>
+                        </thead>
 
 
-                    <tbody>
-
-                        @foreach($cursos as $curso)
-                            <tr>
-                                <td class="text-center">
-                                    <div class="dropdown mt-4 mt-sm-0">
-                                        <a href="#" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fas fa-bars" aria-hidden="true"></i>
-                                        </a>
+                        <tbody>    
+                            <tr class="odd">
+                                <td class="sorting_1 dtr-control">Brinquedoteca</td>
+                                <td>Rihappy</td>
+                                <td>4 Turmas</td>
+                                <td>
+                                     <div class="btn-group edit-table-button ">
+                                        <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
                                         <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" onclick="carregaCurso({{$curso->id}})" role="button"><i class="bx bx-edit-alt"></i> Editar</a>
-                                            @if($curso->ativo)
-                                                <a href="{{route('painel.curso.ativo', ['curso' => $curso])}}" class="dropdown-item" role="button"><i class="fas fa-eye-slash"></i> Desativar</a>
-                                            @else
-                                                <a href="{{route('painel.curso.ativo', ['curso' => $curso])}}" class="dropdown-item" role="button"><i class="fas fa-eye"></i> Ativar</a>
-                                            @endif
-                                            {{--  <a href="{{route('painel.curso.deletar', ['curso' => $curso])}}" id="" class="dropdown-item" role="button"><i class="fas fa-trash-alt pr-3"></i> Excluir</a>  --}}
-                                            <a href="{{route('painel.turmas', ['curso' => $curso])}}" id="" class="dropdown-item" role="button"><i class="fas fa-user pr-3"></i> Turmas</a>
+                                            <a class="dropdown-item" href="{{ route('painel.categorias.editar') }}">Consultar</a>
+                                            <a class="dropdown-item" href="{{ route('painel.categorias.editar') }}">Editar</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" style="color: red" href="#">Excluir</a>
                                         </div>
                                     </div>
+                                    
                                 </td>
-                                <td>
-                                    <span>{{$curso->titulo}}</span>
-                                    <br>
-                                    <small>{{$curso->turmas->count()}} turmas</small>
-                                </td>
-                                <td class="text-center" style="vertical-align: middle;">
-                                    <i class="fa fa-check" @if($curso->ativo) style="color: green;" @endif aria-hidden="true"></i>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                            </tr> 
+                        </tbody>
+                    </table>
+                </div></div>
+
+
+          
+                </div>
+
+                </div>
             </div>
-        </div>
-    </div> <!-- end col -->
-</div> <!-- end row -->
+        </div> <!-- end col -->
+        <div class="col-3">
 
-{{--  <div class="modal fade" id="modalNovoCurso" tabindex="-1" role="dialog" aria-labelledby="modalNovoCursoLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <form action="{{route('painel.curso.cadastrar')}}" method="post" enctype="multipart/form-data">
-                    @csrf
-                    <div class="row">
-                        <div class="form-group col-12">
-                            <label for="titulo">Título</label>
-                            <input type="text" class="form-control" name="titulo"
-                                id="titulo" aria-describedby="helpId" maxlength="255" required 
-                            >
-                        </div>
-                    </div>
-                    <hr>
-                    <h4>Detalhes</h4>
-                    <div class="row mt-3">
-                        <div class="form-group col-12">
-                            <label for="">Resumo</label>
-                            <textarea class="form-control" name="detalhes_resumo" id="detalhes_resumo" rows="3"></textarea>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="form-group col-12">
-                            <label for="">Conteúdo</label>
-                            <textarea class="form-control" name="detalhes_conteudo" id="detalhes_conteudo" rows="10"></textarea>
-                        </div>
-                    </div>
+                           
+            <div class="col-sm-12 col-md-6 mb-3"  style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
+                <a class="btn" style="padding-left: 21px; color: white; height: 100%; cursor: default;"  href="">Filtros</a>
+            </div> <div class="card filter-body">
+                <div class="card-body">
 
-                    <hr>
-                    <h4>Programação</h4>
-                    <div class="row mt-3">
-                        <div class="form-group col-12">
-                            <label for="">Resumo</label>
-                            <textarea class="form-control" name="programacao_resumo" id="programacao_resumo" rows="3"></textarea>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="form-group col-12">
-                            <label for="">Conteúdo</label>
-                            <textarea class="form-control" name="programacao_conteudo" id="programacao_conteudo" rows="10"></textarea>
-                        </div>
-                    </div>
+                  <form action="javascript: void(0);">
+                      
+                  </form>
 
-                    <hr>
-                    <h4>Instrutores</h4>
-                    <div class="row mt-3">
-                        <div class="form-group col-12">
-                            <label for="">Resumo</label>
-                            <textarea class="form-control" name="instrutores_resumo" id="instrutores_resumo" rows="3"></textarea>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="form-group col-12">
-                            <label for="">Conteúdo</label>
-                            <textarea class="form-control" name="instrutores_conteudo" id="instrutores_conteudo" rows="10"></textarea>
-                        </div>
-                    </div>
 
-                    <hr>
-                    <h4>Local</h4>
-                    <div class="row mt-3">
-                        <div class="form-group col-12">
-                            <label for="">Resumo</label>
-                            <textarea class="form-control" name="local_resumo" id="local_resumo" rows="3"></textarea>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="form-group col-12">
-                            <label for="">Conteúdo</label>
-                            <textarea class="form-control" name="local_conteudo" id="local_conteudo" rows="10"></textarea>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-12 text-end">
-                            <button type="submit"
-                                class="btn btn-primary">Salvar</button>
-                        </div>
-                    </div>
 
-                </form>
+                   <div class="buttons-row">
+                       <div>
+                        <button type="button" class="btn btn-success waves-effect waves-light">
+                            <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
+                        </button>
+                       </div>
+                       <div>
+                        <button type="button" class="btn btn-danger waves-effect waves-light">
+                            <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
+                        </button>
+                       </div>
+                   </div>
+                </div>
             </div>
         </div>
     </div>
-</div>  --}}
-
-<div class="modal fade" id="modalCurso" tabindex="-1" role="dialog" aria-labelledby="modalCursoLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body" id="modalCursoBody">
-                
-            </div>
-        </div>
-    </div>
-</div>
 
 @endsection
+
 
 @section('scripts')
     <!-- Required datatable js -->
     <script src="{{asset('admin/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-    <script src="{{asset('admin/libs/dropzone/min/dropzone.min.js')}}"></script>
     <script>
-
-        function loadSummernote(){
-            $('#detalhes_resumo').summernote({
-                height: 100,
-            });
-
-            $('#detalhes_conteudo').summernote({
-                height: 300,
-            });
-
-            $('#programacao_resumo').summernote({
-                height: 100,
-            });
-
-            $('#programacao_conteudo').summernote({
-                height: 300,
-            });
-
-            $('#instrutores_resumo').summernote({
-                height: 100,
-            });
-
-            $('#instrutores_conteudo').summernote({
-                height: 300,
-            });
-
-            $('#local_resumo').summernote({
-                height: 100,
-            });
-
-            $('#local_conteudo').summernote({
-                height: 300,
-            });
-
-        }
-
-        function novoCurso(){
-            //$("#modalCursoBody").html("");
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', '/includes/loading');
-            xhr.onreadystatechange = function() {
-                if (this.readyState!==4) return;
-                if (this.status!==200) return; // or whatever error handling you want
-                $("#modalCursoBody").html(this.responseText);
-                $("#modalCurso").modal("show");
-                xhr.open('GET', '/includes/curso/formulario');
-                xhr.onreadystatechange = function() {
-                    if (this.readyState!==4) return;
-                    if (this.status!==200) return; // or whatever error handling you want
-                    $("#modalCursoBody").html(this.responseText);
-                    return loadSummernote();
-                }
-                xhr.send();
-            }
-            xhr.send();
-        }
-
-        function carregaCurso(id){
-            var nome = $("input[name='nome']").val();
-            var _token = $('meta[name="_token"]').attr('content');
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': _token
-                }
-            });  
-
-            $.ajax({
-                url: '/sistema/cursos/api/getCurso/' + id,
-                type: 'GET',
-                dataType: 'JSON',
-                beforeSend: function(){
-                    //$("#modalCursoBody").html("");
-                    var xhr = new XMLHttpRequest();
-                    xhr.open('GET', '/includes/loading');
-                    xhr.onreadystatechange = function() {
-                        if (this.readyState!==4) return;
-                        if (this.status!==200) return; // or whatever error handling you want
-                        $("#modalCursoBody").html(this.responseText);
-                        $("#modalCurso").modal("show");
-                    }
-                    xhr.send();
-                   
-                },
-                success: function(data) {
-                    data = JSON.parse(data);
-                    var xhr = new XMLHttpRequest();
-                    xhr.open('GET', '/includes/curso/formulario');
-                    xhr.onreadystatechange = function() {
-                        if (this.readyState!==4) return;
-                        if (this.status!==200) return; // or whatever error handling you want
-                        $("#modalCursoBody").html(this.responseText);
-                        $("#form-edicao input[id='titulo']").val(data.titulo);
-                        $("#form-edicao input[id='curso_id']").val(data.id);
-                        $("#form-edicao img[id='miniatura-preview']").attr("src", "/" + data.miniatura);
-                        $("#form-edicao img[id='banner-preview']").attr("src", "/" + data.banner);
-                        $("#form-edicao textarea[id='detalhes_resumo']").html(data.detalhes_resumo);
-                        $("#form-edicao textarea[id='detalhes_conteudo']").html(data.detalhes_conteudo);
-                        $("#form-edicao textarea[id='programacao_resumo']").html(data.programacao_resumo);
-                        $("#form-edicao textarea[id='programacao_conteudo']").html(data.programacao_conteudo);
-                        $("#form-edicao textarea[id='instrutores_resumo']").html(data.instrutores_resumo);
-                        $("#form-edicao textarea[id='instrutores_conteudo']").html(data.instrutores_conteudo);
-                        $("#form-edicao textarea[id='local_resumo']").html(data.local_resumo);
-                        $("#form-edicao textarea[id='local_conteudo']").html(data.local_conteudo);
-                        return loadSummernote();
-                    }
-                    xhr.send();
-                },
-                error: function(err){
-                    console.log(err);
-                }
-            });
-        }
-
         $(document).ready(function() {
-            var tabela = $('#datatable').DataTable( {
+            $('#datatable').DataTable( {
                 language:{
                     "emptyTable": "Nenhum registro encontrado",
                     "info": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -318,7 +239,7 @@
                     "loadingRecords": "Carregando...",
                     "processing": "Processando...",
                     "zeroRecords": "Nenhum registro encontrado",
-                    "search": "Pesquisar",
+                    "search": "",
                     "paginate": {
                         "next": "Próximo",
                         "previous": "Anterior",
@@ -437,11 +358,15 @@
                         "loadMessage": "Carregando Painéis de Pesquisa...",
                         "title": "Filtros Ativos"
                     },
-                    "searchPlaceholder": "Digite um termo para pesquisar",
+                    "searchPlaceholder": "Filtrar",
                     "thousands": "."
                 } 
             } );
-            tabela.columns.adjust().draw();
         } );    
+
+        $(document).ready(() => {
+            
+        $('div.dataTables_wrapper div.dataTables_filter label').prepend($('#search-icon'));
+        })
     </script> 
 @endsection

@@ -217,6 +217,13 @@ class SiteController extends Controller
 
     }
 
+
+    public function evento(){
+        return view("site.evento");
+
+    }
+
+
     public function hotsite(){
         return view("site.hotsite");
 

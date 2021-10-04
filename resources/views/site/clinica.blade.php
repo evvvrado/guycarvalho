@@ -5,7 +5,7 @@
 
 @include("site.includes.navbar")
 
-    <section class="container-fluid s_hwero">
+    <section class="container-fluid s_hero">
       <div class="container-fav">
         <div class="_h1 fade">
           <h6>03 Á 05 DE AGOSTO</h6>
@@ -631,15 +631,15 @@
         <div class="_title"><h4>Embaixadores e Convidados</h4></div>
 
         <div class="_pictures">
-          <img src="{{asset('site/img/pic_embaixador01.png')}}" alt="Embaixador ENAF" />
-          <img src="{{asset('site/img/pic_embaixador02.png')}}" alt="Embaixador ENAF" />
-          <img src="{{asset('site/img/pic_embaixador03.png')}}" alt="Embaixador ENAF" />
-          <img src="{{asset('site/img/pic_embaixador04.png')}}" alt="Embaixador ENAF" />
-          <img src="{{asset('site/img/pic_embaixador05.png')}}" alt="Embaixador ENAF" />
-          <img src="{{asset('site/img/pic_embaixador06.png')}}" alt="Embaixador ENAF" />
-          <img src="{{asset('site/img/pic_embaixador07.png')}}" alt="Embaixador ENAF" />
-          <img src="{{asset('site/img/pic_embaixador08.png')}}" alt="Embaixador ENAF" />
-          <img src="{{asset('site/img/pic_embaixador09.png')}}" alt="Embaixador ENAF" />
+          <img src="{{asset('site/img/pic_embaixador01.png')}}" onclick="" alt="Embaixador ENAF" />
+          <img src="{{asset('site/img/pic_embaixador02.png')}}" onclick="" alt="Embaixador ENAF" />
+          <img src="{{asset('site/img/pic_embaixador03.png')}}" onclick="" alt="Embaixador ENAF" />
+          <img src="{{asset('site/img/pic_embaixador04.png')}}" onclick="" alt="Embaixador ENAF" />
+          <img src="{{asset('site/img/pic_embaixador05.png')}}" onclick="" alt="Embaixador ENAF" />
+          <img src="{{asset('site/img/pic_embaixador06.png')}}" onclick="" alt="Embaixador ENAF" />
+          <img src="{{asset('site/img/pic_embaixador07.png')}}" onclick="" alt="Embaixador ENAF" />
+          <img src="{{asset('site/img/pic_embaixador08.png')}}" onclick="" alt="Embaixador ENAF" />
+          <img src="{{asset('site/img/pic_embaixador09.png')}}" onclick="" alt="Embaixador ENAF" />
         </div>
       </div>
     </section>

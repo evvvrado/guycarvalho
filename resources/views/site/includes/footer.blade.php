@@ -64,6 +64,12 @@
                 <li><a href="{{ route('site.contato') }}">CONTATO</a></li>
             </ul>
             </nav>
+
+            
+
+                <a href="https://7seventrends.com.br" style="width: 100%; display: flex; align-items: flex-end; justify-content: center;">
+                    <img src="{{ asset('/site/img/_logo7seven.png') }}" alt="Ícone 7Seven"  style="margin-top: 50px;" />
+                </a>
         </div>
         </div>
     </div>

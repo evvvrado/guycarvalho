@@ -64,22 +64,26 @@
             </div>
             </div>
         </div>
-        <div class="_end">
-            <nav>
-            <ul>
-                <li><a href="/">EVENTOS</a></li>
-                <li><a href="{{ route('site.cursos') }}">CURSOS ONLINE</a></li>
-                <li><a href="{{ route('site.clinicas') }}">CLÍNICAS</a></li>
-                <li><a href="{{ route('site.professores') }}">PROFESSORES</a></li>
-                <li><a href="/">EMBAIXADORES</a></li>
-                <li><a href="{{ route('site.feira') }}">Feira Online</a></li>
-                <li><a href="/nossoblog-lista.html">BLOG</a></li>
-                <li><a href="/nossoblog.html">ARTIGOS</a></li>
-                <li><a href="/contato.html">IMPRENSA</a></li>
-                <li><a href="{{ route('site.contato') }}">CONTATO</a></li>
-            </ul>
-            </nav>
-        </div>
+            <div class="_end">
+                <nav>
+                    <ul>
+                        <li><a href="/">EVENTOS</a></li>
+                        <li><a href="{{ route('site.cursos') }}">CURSOS ONLINE</a></li>
+                        <li><a href="{{ route('site.clinicas') }}">CLÍNICAS</a></li>
+                        <li><a href="{{ route('site.professores') }}">PROFESSORES</a></li>
+                        <li><a href="/">EMBAIXADORES</a></li>
+                        <li><a href="{{ route('site.feira') }}">Feira Online</a></li>
+                        <li><a href="/nossoblog-lista.html">BLOG</a></li>
+                        <li><a href="/nossoblog.html">ARTIGOS</a></li>
+                        <li><a href="/contato.html">IMPRENSA</a></li>
+                        <li><a href="{{ route('site.contato') }}">CONTATO</a></li>
+                    </ul>   
+                </nav>
+
+                <a href="https://7seventrends.com.br" style="width: 100%; display: flex; align-items: flex-end; justify-content: center;">
+                    <img src="{{ asset('/site/img/_logo7seven.png') }}" alt="Ícone 7Seven"  style="margin-top: 50px;" />
+                </a>
+            </div>
         </div>
     </div>
     </footer>
