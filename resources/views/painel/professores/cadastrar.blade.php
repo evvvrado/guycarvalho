@@ -7,7 +7,7 @@
 @endsection
 
 @section('titulo')
-    Publicidade / <a style="color: unset" href="{{route('painel.professores')}}">Professores</a> / Cadastrar
+    Projeto / <a style="color: unset" href="{{route('painel.professores')}}">Professores</a> / Cadastrar
 @endsection
 
 

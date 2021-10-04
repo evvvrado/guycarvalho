@@ -13,6 +13,9 @@ class ProfessoresController extends Controller
     public function cadastrar(){
         return view("painel.professores.cadastrar");
     }
+    public function editar(){
+        return view("painel.professores.editar");
+    }
     public function hotsite(){
         return view("painel.professores.hotsite");
     }

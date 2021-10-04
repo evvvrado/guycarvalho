@@ -11,8 +11,8 @@
                         <h1>A Rede confia no ENAF</h1>
                     </div>
                     <div class="_banner">
-                        <img src="{{ asset('site/img/hotsite/rede/rede-hero') }}.png" alt="Imagem Personalizada" />
-                        <img src="{{ asset('site/img/hotsite/chatbox.png"') }} alt="Chatbox" />
+                        <img src="{{ asset('site/img/hotsite/rede/rede-hero.png') }}" alt="Imagem Personalizada" />
+                        <img src="{{ asset('site/img/hotsite/chatbox.png') }}" alt="Chatbox" />
                     </div>
                     <div class="_col">
                         <div>
@@ -486,7 +486,8 @@
                 <div class="_info">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3598.571404380498!2d-49.39969148498271!3d-25.585922283716762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dd0248cf13406b%3A0x71837f54ec5781e4!2sR.%20S%C3%A3o%20Vicente%20de%20Paulo%2C%20481%20-%20Centro%2C%20Arauc%C3%A1ria%20-%20PR%2C%2083702-050!5e0!3m2!1spt-BR!2sbr!4v1632962168512!5m2!1spt-BR!2sbr"
-                        width="600"
+                        width="100%"
+                        style="max-width: 600px"
                         height="389"
                         style="border: 0"
                         allowfullscreen=""

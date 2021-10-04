@@ -228,6 +228,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         // ROTAS DE PROFESSORES
         Route::get('/sistema/professores', [\App\Http\Controllers\ProfessoresController::class, 'consultar'])->name("painel.professores");
         Route::get('/sistema/professores/cadastrar', [\App\Http\Controllers\ProfessoresController::class, 'cadastrar'])->name("painel.professores.cadastrar");
+        Route::get('/sistema/professores/editar', [\App\Http\Controllers\ProfessoresController::class, 'editar'])->name("painel.professores.editar");
         Route::get('/sistema/professores/hotsite', [\App\Http\Controllers\ProfessoresController::class, 'hotsite'])->name("painel.professores.hotsite");
         
         // ROTAS DE MENSAGENS

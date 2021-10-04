@@ -63,7 +63,7 @@ body#hotsite {
                     }
 
                     div {
-                        background-image: url("/img/hotsite/browser-box.png");
+                        background-image: url("/site/img/hotsite/browser-box.png");
                         background-size: 100% 100%;
 
                         height: 23.8rem;
@@ -592,6 +592,128 @@ body#hotsite {
             .container-fav {
                 flex-direction: column;
                 gap: 2rem;
+            }
+        }
+    }
+    
+    @include responsive(992px) {
+        section.h_hero{
+            .container-fav{
+                position: relative;
+                ._image{
+                    ._col{
+                        position: relative;
+                        z-index: 2;
+                        top: 12rem;
+                    }
+                    ._banner{
+                        position: absolute;
+                        z-index: 1;
+                        top: -6rem;
+                        left: 0;
+
+                        width: 100%;
+                        max-width: 61.3rem;
+
+                        img[alt="Imagem Personalizada"]{
+                            max-width: 100%;
+                            height: auto;
+                        }
+                        img[alt="Chatbox"]{
+                            right: 0;
+                        }   
+                    }
+                }
+            }
+        }
+
+        section.h_form{
+            .container-fav{
+                form{
+                    label{
+                        max-width: 100%;
+                    }
+
+                    button{
+                        padding: 2rem 6.7rem;
+                        line-height: 0;
+                    }
+                }
+            }
+        }
+
+        section.h_sobre{
+            .container-fav{
+                ._right{
+                    max-width: 53.4rem;
+                }
+            }
+        }
+
+        section.h_galeria{
+            .container-fav{
+                padding: 8.7rem 4rem!important;
+            }
+        }
+
+        section.h_empresas{
+            .container-fav{
+                ._list{
+                    flex-direction: column;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+
+
+    @include responsive(600px){
+        section.h_hero{
+            .container-fav{
+                ._image{
+                    min-height: 40rem;
+                }
+            }
+        }
+        section.h_duvidas{
+            .container-fav{
+                ._top{
+                    h4::after{
+                        right: 0;
+                    }
+                }
+            }
+        }
+
+        section.h_form{
+            .container-fav{
+                form{
+                    padding: 6.2rem 3rem;
+                }
+            }
+        }
+
+        section.h_duvidas{
+            .container-fav{
+                ._top{
+                    h4{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        section.h_contato{
+            .container-fav{
+                ._info{
+                    .informacoes{
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    ._col{
+                        width: 100%;
+                    }
+                }
             }
         }
     }
