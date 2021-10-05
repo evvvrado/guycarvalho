@@ -2,16 +2,17 @@
 
 @section('styles')
     <!-- DataTables -->
-    <link href="{{asset('admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ asset('admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}" rel="stylesheet"
+        type="text/css" />
 @endsection
 
 @section('titulo')
-    Projeto / <a style="color: unset" href="{{route('painel.cursos')}}">Cursos</a>
+    Projeto / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a>
 @endsection
 
-{{-- 
-@section('conteudo')
+{{-- @section('conteudo')
     @include('painel.includes.errors')
     <div class="row mt-3">
         <div class="col-12">
@@ -28,7 +29,7 @@
 
                         <tbody>
 
-                            @foreach($categorias as $categoria)
+                            @foreach ($categorias as $categoria)
                                 <tr>
                                     <td>{{$categoria->nome}}</td>
                                     <td>
@@ -73,7 +74,7 @@
         </div>
     </div>
 
-    @foreach($categorias as $categoria)
+    @foreach ($categorias as $categoria)
         <div class="modal fade" id="modalEditaCategoria{{$categoria->id}}" tabindex="-1" role="dialog" aria-labelledby="modalEditaCategoria{{$categoria->id}}Label"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -130,94 +131,109 @@
 
     <div class="row">
         <div class="col-9">
-            
+
             <div class="row"">
 
-                           
-                <div class="col-sm-12 col-md-6 mb-3"  style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
-                    
-                 <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;" style="padding-left: 0;" href="{{route('painel.cursos.cadastrar')}}">
+                                       
+                            <div class="   col-sm-12 col-md-6 mb-3"
+                style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
+
+                <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;"
+                    style="padding-left: 0;" href="{{ route('painel.cursos.cadastrar') }}">
                     <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
-             </div>
+            </div>
             <div class="card">
                 <div class="card-body">
                     <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
 
-                           
-                           <i id="search-icon" class="bx bx-search" aria-hidden="true"></i>
-                           
-                        </div>
-                        <div class="row">
+
+                        <i id="search-icon" class="bx bx-search" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="row">
                         <div class="col-sm-12">
-                        <table id="datatable" class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable_info" style="width: 1185px;">
-                        <thead>
-                           <tr role="row">
-                              <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Título</th>
-                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;" aria-label="Position: activate to sort column ascending">Turmas</th>
-                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 131px;" aria-label="Start date: activate to sort column ascending">Valor do Curso</th>
-                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;" aria-label="Start date: activate to sort column ascending"></th>
-                           </tr>
-                        </thead>
+                            <table id="datatable"
+                                class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
+                                role="grid" aria-describedby="datatable_info" style="width: 1185px;">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 68px;" aria-sort="ascending"
+                                            aria-label="Name: activate to sort column descending">Título</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 70px;"
+                                            aria-label="Position: activate to sort column ascending">Valor do Curso</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 10px;"
+                                            aria-label="Start date: activate to sort column ascending"></th>
+                                    </tr>
+                                </thead>
 
 
-                        <tbody>    
-                            <tr class="odd">
-                                <td class="sorting_1 dtr-control">Brinquedoteca</td>
-                                <td>Rihappy</td>
-                                <td>4 Turmas</td>
-                                <td>
-                                     <div class="btn-group edit-table-button ">
-                                        <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
-                                        <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" href="{{ route('painel.categorias.editar') }}">Consultar</a>
-                                            <a class="dropdown-item" href="{{ route('painel.categorias.editar') }}">Editar</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" style="color: red" href="#">Excluir</a>
-                                        </div>
-                                    </div>
-                                    
-                                </td>
-                            </tr> 
-                        </tbody>
-                    </table>
-                </div></div>
+                                <tbody>
+                                    <tr class="odd">
+                                        <td class="sorting_1 dtr-control">Brinquedoteca</td>
+                                        <td>R$ 450,00</td>
+                                        <td>
+                                            <div class="btn-group edit-table-button ">
+                                                <button type="button" class="btn btn-info dropdown-toggle"
+                                                    data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                        class="bx bx-edit"></i></button>
+                                                <div class="dropdown-menu" style="margin: 0px;">
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('painel.categorias.editar') }}">Consultar</a>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('painel.cursos.editar') }}">Editar</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
 
-          
+
                 </div>
 
-                </div>
             </div>
-        </div> <!-- end col -->
-        <div class="col-3">
-
-                           
-            <div class="col-sm-12 col-md-6 mb-3"  style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
-                <a class="btn" style="padding-left: 21px; color: white; height: 100%; cursor: default;"  href="">Filtros</a>
-            </div> <div class="card filter-body">
-                <div class="card-body">
-
-                  <form action="javascript: void(0);">
-                      
-                  </form>
+        </div>
+    </div> <!-- end col -->
+    <div class="col-3">
 
 
+        <div class="col-sm-12 col-md-6 mb-3" style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
+            <a class="btn" style="padding-left: 21px; color: white; height: 100%; cursor: default;"
+                href="">Filtros</a>
+        </div>
+        <div class="card filter-body">
+            <div class="card-body">
 
-                   <div class="buttons-row">
-                       <div>
+                <form action="javascript: void(0);">
+
+                </form>
+
+
+
+                <div class="buttons-row">
+                    <div>
                         <button type="button" class="btn btn-success waves-effect waves-light">
                             <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
                         </button>
-                       </div>
-                       <div>
+                    </div>
+                    <div>
                         <button type="button" class="btn btn-danger waves-effect waves-light">
                             <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
                         </button>
-                       </div>
-                   </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 @endsection
@@ -225,12 +241,12 @@
 
 @section('scripts')
     <!-- Required datatable js -->
-    <script src="{{asset('admin/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{ asset('admin/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script>
         $(document).ready(function() {
-            $('#datatable').DataTable( {
-                language:{
+            $('#datatable').DataTable({
+                language: {
                     "emptyTable": "Nenhum registro encontrado",
                     "info": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
                     "infoEmpty": "Mostrando 0 até 0 de 0 registros",
@@ -360,13 +376,13 @@
                     },
                     "searchPlaceholder": "Filtrar",
                     "thousands": "."
-                } 
-            } );
-        } );    
+                }
+            });
+        });
 
         $(document).ready(() => {
-            
-        $('div.dataTables_wrapper div.dataTables_filter label').prepend($('#search-icon'));
+
+            $('div.dataTables_wrapper div.dataTables_filter label').prepend($('#search-icon'));
         })
-    </script> 
+    </script>
 @endsection

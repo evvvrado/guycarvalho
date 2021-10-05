@@ -211,6 +211,9 @@ class SiteController extends Controller
         return view("site.feira-empresas");
     }
 
+    public function feiraCatalogo(){
+        return view("site.catalogo");
+    }
 
     public function clinica(){
         return view("site.clinica");

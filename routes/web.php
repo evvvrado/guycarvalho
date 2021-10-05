@@ -38,6 +38,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
 
     Route::get('/feira', [\App\Http\Controllers\SiteController::class, 'feira'])->name("site.feira");
     Route::get('/feira/empresas', [\App\Http\Controllers\SiteController::class, 'feiraEmpresas'])->name("site.feiraEmpresas");
+    Route::get('/feira/catalogo', [\App\Http\Controllers\SiteController::class, 'feiraCatalogo'])->name("site.catalogo  ");
 
     Route::get('/professores', [\App\Http\Controllers\SiteController::class, 'professores'])->name("site.professores");
     Route::get('/clinicas', [\App\Http\Controllers\SiteController::class, 'clinicas'])->name("site.clinicas");
@@ -248,6 +249,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::get('/sistema/cursos', [\App\Http\Controllers\CursosController::class, 'consultar'])->name("painel.cursos");
         Route::get('/sistema/curso/ativo/{curso}', [\App\Http\Controllers\CursosController::class, 'ativo'])->name("painel.curso.ativo");
         Route::get('/sistema/cursos/cadastrar', [\App\Http\Controllers\CursosController::class, 'cadastrar'])->name("painel.cursos.cadastrar");
+        Route::get('/sistema/cursos/editar', [\App\Http\Controllers\CursosController::class, 'editar'])->name("painel.cursos.editar");
         Route::get('/includes/curso/formulario', function(){
             return view("painel.cursos.formulario");
         });

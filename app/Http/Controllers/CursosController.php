@@ -24,6 +24,10 @@ class CursosController extends Controller
     public function cadastrar(){
         return view("painel.cursos.cadastrar");
     }
+    
+    public function editar(){
+        return view("painel.cursos.editar");
+    }
 
     // public function cadastrar(Request $request){
     //     if($request->curso_id){
