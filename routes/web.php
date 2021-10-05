@@ -254,6 +254,20 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
             return view("painel.cursos.formulario");
         });
 
+
+        
+        // ROTAS DE CLINICAS
+        Route::get('/sistema/clinicas', [\App\Http\Controllers\ClinicaController::class, 'consultar'])->name("painel.clinicas");
+        Route::get('/sistema/clinicas/cadastrar', [\App\Http\Controllers\ClinicaController::class, 'cadastrar'])->name("painel.clinicas.cadastrar");
+        Route::get('/sistema/clinicas/editar', [\App\Http\Controllers\ClinicaController::class, 'editar'])->name("painel.clinicas.editar");
+                
+        // ROTAS DE EVENTOS
+        Route::get('/sistema/eventos', [\App\Http\Controllers\EventoController::class, 'consultar'])->name("painel.eventos");
+        Route::get('/sistema/eventos/cadastrar', [\App\Http\Controllers\EventoController::class, 'cadastrar'])->name("painel.eventos.cadastrar");
+        Route::get('/sistema/eventos/editar', [\App\Http\Controllers\EventoController::class, 'editar'])->name("painel.eventos.editar");
+        
+
+
         // ROTAS DE CATALOGO  
         Route::get('/sistema/catalogo/cadastrar', [\App\Http\Controllers\CatalogoController::class, 'cadastrar'])->name("painel.catalogo.cadastro");
 

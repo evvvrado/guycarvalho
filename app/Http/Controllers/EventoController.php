@@ -9,19 +9,19 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 use App\Models\Configuracao;
 
-class ClinicaController extends Controller
+class EventoController extends Controller
 {
     //
 
     public function consultar(){
-        return view("painel.clinicas.consultar");
+        return view("painel.eventos.consultar");
     }
     
     public function cadastrar(){
-        return view("painel.clinicas.cadastrar");
+        return view("painel.eventos.cadastrar");
     }
 
     public function editar(){
-        return view("painel.clinicas.editar");
+        return view("painel.eventos.editar");
     }
 }

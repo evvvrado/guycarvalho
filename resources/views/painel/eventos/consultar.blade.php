@@ -9,7 +9,7 @@
 @endsection
 
 @section('titulo')
-    Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a>
+    Projetos / <a style="color: unset" href="{{ route('painel.eventos') }}">Eventos</a>
 @endsection
 
 {{-- @section('conteudo')
@@ -132,104 +132,114 @@
     <div class="row">
         <div class="col-9">
 
-            <div class="row"">
-                                   <div class="     col-sm-12 col-md-6 mb-3"
-                style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 mb-3"
+                    style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
 
-                <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;"
-                    style="padding-left: 0;" href="{{ route('painel.cursos.cadastrar') }}">
-                    <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <i id="search-icon" class="bx bx-search" aria-hidden="true"></i>
+                    <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;"
+                        style="padding-left: 0;" href="{{ route('painel.eventos.cadastrar') }}">
+                        <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+
+
+                            <i id="search-icon" class="bx bx-search" aria-hidden="true"></i>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table id="datatable"
+                                    class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
+                                    role="grid" aria-describedby="datatable_info" style="width: 1185px;">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 68px;" aria-sort="ascending"
+                                                aria-label="Name: activate to sort column descending">Nome da Clínica</th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 70px;"
+                                                aria-label="Position: activate to sort column ascending">Local da Clínica
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 70px;"
+                                                aria-label="Position: activate to sort column ascending">Data de Início</th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 70px;"
+                                                aria-label="Position: activate to sort column ascending">Data de Fim</th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 10px;"
+                                                aria-label="Start date: activate to sort column ascending"></th>
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                        <tr class="odd">
+                                            <td class="sorting_1 dtr-control">Day Strong</td>
+                                            <td>Avenida das Nações Unidas, 17955 - Vila Almeida - São Paulo - SP</td>
+                                            <td>03/08/2022</td>
+                                            <td>05/08/2022</td>
+                                            <td>
+                                                <div class="btn-group edit-table-button ">
+                                                    <button type="button" class="btn btn-info dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                            class="bx bx-edit"></i></button>
+                                                    <div class="dropdown-menu" style="margin: 0px;">
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('painel.eventos.editar') }}">Editar</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                                    </div>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
 
                     </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <table id="datatable"
-                                class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
-                                role="grid" aria-describedby="datatable_info" style="width: 1185px;">
-                                <thead>
-                                    <tr role="row">
-                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
-                                            colspan="1" style="width: 68px;" aria-sort="ascending"
-                                            aria-label="Name: activate to sort column descending">Título</th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                            colspan="1" style="width: 70px;"
-                                            aria-label="Position: activate to sort column ascending">Valor do Curso</th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                            colspan="1" style="width: 10px;"
-                                            aria-label="Start date: activate to sort column ascending"></th>
-                                    </tr>
-                                </thead>
+
+                </div>
+            </div>
+        </div> <!-- end col -->
+        <div class="col-3">
 
 
-                                <tbody>
-                                    <tr class="odd">
-                                        <td class="sorting_1 dtr-control">Brinquedoteca</td>
-                                        <td>R$ 450,00</td>
-                                        <td>
-                                            <div class="btn-group edit-table-button ">
-                                                <button type="button" class="btn btn-info dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"><i
-                                                        class="bx bx-edit"></i></button>
-                                                <div class="dropdown-menu" style="margin: 0px;">
-                                                    <a class="dropdown-item"
-                                                        href="{{ route('painel.categorias.editar') }}">Consultar</a>
-                                                    <a class="dropdown-item"
-                                                        href="{{ route('painel.cursos.editar') }}">Editar</a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" style="color: red" href="#">Excluir</a>
-                                                </div>
-                                            </div>
+            <div class="col-sm-12 col-md-6 mb-3"
+                style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
+                <a class="btn" style="padding-left: 21px; color: white; height: 100%; cursor: default;"
+                    href="">Filtros</a>
+            </div>
+            <div class="card filter-body">
+                <div class="card-body">
 
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <form action="javascript: void(0);">
+
+                    </form>
+
+
+
+                    <div class="buttons-row">
+                        <div>
+                            <button type="button" class="btn btn-success waves-effect waves-light">
+                                <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
+                            </button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-danger waves-effect waves-light">
+                                <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
+                            </button>
                         </div>
                     </div>
-
-
-
-                </div>
-
-            </div>
-        </div>
-    </div> <!-- end col -->
-    <div class="col-3">
-
-
-        <div class="col-sm-12 col-md-6 mb-3" style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
-            <a class="btn" style="padding-left: 21px; color: white; height: 100%; cursor: default;"
-                href="">Filtros</a>
-        </div>
-        <div class="card filter-body">
-            <div class="card-body">
-
-                <form action="javascript: void(0);">
-
-                </form>
-
-
-
-                <div class="buttons-row">
-                    <div>
-                        <button type="button" class="btn btn-success waves-effect waves-light">
-                            <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
-                        </button>
-                    </div>
-                    <div>
-                        <button type="button" class="btn btn-danger waves-effect waves-light">
-                            <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
 @endsection

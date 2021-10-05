@@ -7,7 +7,7 @@
 @endsection
 
 @section('titulo')
-    Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Clinicas</a> / Cadastrar
+    Projetos / <a style="color: unset" href="{{ route('painel.eventos') }}">Eventos</a> / Cadastrar
 @endsection
 
 @section('conteudo')
@@ -17,7 +17,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Cadastro de Clinica</h4>
+                    <h4 class="card-title">Cadastro de Evento</h4>
                     <form>
                         <div class="row">
                             <div class="col-sm-6">
