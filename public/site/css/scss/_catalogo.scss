@@ -1,0 +1,209 @@
+body#catalogo{
+    background: #3C445B;
+
+    h2{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2.6rem;
+        color: #E5E5E5;
+
+        margin-bottom: 1.4rem;
+
+    }
+
+
+    section.s_hero{
+        background-image: url("../img/feira/catalogo/banner_hero.jpg");
+        background-size: 100% 100%;
+
+        @include responsive(600px) {
+            height: auto;
+            padding-bottom: 2rem;
+        }
+
+ 
+        .container-fav{
+            .buttonline{
+                @include flex(row, center, space-between);
+                gap: 1.3rem;
+
+                max-width: 51.2rem;
+
+                margin-top: 3rem;
+    
+                a{
+                    height: 6.2rem;
+                    padding: 1.5rem 3.8rem;
+                    @include flex(row, center, space-between);
+                    background: $white;
+                    border-radius: 4px;
+
+                    gap: 2rem;
+
+                    transition: 0.32s;
+    
+                    span{
+                        font-family: 'Inter';
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 2.2rem;
+                        color: #141414;
+                    }
+
+                    &:last-child{
+
+                        background: rgba($color: white, $alpha: .5);
+                    }
+
+
+                    &:hover{
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+
+            
+    }
+
+    .container-fluid:not(section.s_hero.container-fluid, footer .container-fluid){
+        padding: 0 9rem;
+    }
+
+
+    .s_catalogoList{
+        position: relative;
+        margin-bottom: 4rem;
+        
+        &:hover{
+            h2::after{
+                content: ">";
+                position: absolute;
+                color: #e5e5e53a;
+            }
+        }
+
+
+        h2{
+            position: sticky;
+            top: 0;
+            left: 0;
+
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .--mask{
+            position: relative;
+            width: 100%;
+
+            &:hover{
+                .--buttons{
+                    opacity: 1;
+                }
+            }
+
+            .--buttons{
+                position: absolute;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                left: 0;
+
+                pointer-events: none;
+
+                z-index: 2;
+
+                @include flex(row, center, space-between);
+
+                opacity: 0;
+                transition: 0.32s;
+
+                div{
+                    background: rgba(0, 0, 0, 0.274);
+
+                    height: 100%;
+
+                    @include flex(row, center, center);
+
+                    padding-left: 4rem;
+                    padding-right: 4rem;
+
+                    pointer-events: all;
+                    cursor: pointer;
+
+                    img{
+                        transition: 0.32s;
+                    }
+
+                    &.--before{
+                        transform: rotate(180deg);
+                    }
+
+                    &:hover{
+                        img{
+                            transform: scale(1.05);
+                        }
+                    }
+                }
+            }
+            
+            .content{
+                overflow-x: hidden;
+
+                &::-webkit-scrollbar{
+                    display: none;
+                }
+
+                scroll-behavior: smooth;
+
+
+                .--list{
+                    @include flex(row, flex-start, flex-start);
+                    width: max-content;
+                    position: relative;
+                    gap: .5rem;
+
+
+                    .--item{
+                        width: 13.666666vw;
+                        height: auto;
+
+                        position: relative;
+
+                        transition: 0.32s;
+                        cursor: pointer;
+
+                        &:hover{
+                            opacity: 0.5;
+                        }
+
+                        
+
+                        div.--info{
+                            width: 100%;
+                            position: absolute;
+                            z-index: 0;
+
+                            left: 0;
+                            top: 0;
+
+
+
+                            @include flex(row, center, space-around);
+                            span{
+                                color: White;
+                                font-weight: bold;
+                            }
+
+                            i{
+                                color: $color-featured;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

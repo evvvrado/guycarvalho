@@ -4,18 +4,53 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <link href="{{ asset('admin/libs/select2/css/select2.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
     {{-- <link href="{{asset('admin/libs/select2/css/select2-bootstrap4.css')}}" id="app-style" rel="stylesheet" type="text/css" /> --}}
+
+
+    <style>
+        .filters {
+            margin-bottom: 22px;
+            font-size: 22px;
+            cursor: default;
+        }
+
+        .filters span {
+            cursor: pointer;
+            transition: 0.32s;
+        }
+
+        .filters span:hover {
+            opacity: 0.7;
+        }
+
+        .filters span.active {
+            color: #19a5d3;
+        }
+
+        .card {
+            display: none;
+        }
+
+    </style>
 @endsection
 
 @section('titulo')
     Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Clinicas</a> / Cadastrar
 @endsection
-
 @section('conteudo')
+
+
+    <div class="filters">
+        <span data-filter="clinica" class="active">Clinica ></span>
+        <span data-filter="local">Local ></span>
+        <span data-filter="cursos">Cursos ></span>
+        <span data-filter="hoteis">Hoteis</span>
+    </div>
+
 
     @include('painel.includes.errors')
     <div class="row">
         <div class="col-12">
-            <div class="card">
+            <div class="card clinica">
                 <div class="card-body">
                     <h4 class="card-title">Cadastro de Clinica</h4>
                     <form>
@@ -112,7 +147,7 @@
             </div>
 
 
-            <div class="card">
+            <div class="card local">
                 <div class="card-body">
                     <h4 class="card-title">Local da Clínica</h4>
                     <form>
@@ -156,7 +191,7 @@
             </div>
 
 
-            <div class="card">
+            <div class="card cursos">
                 <div class="card-body">
                     <h4 class="card-title">Cursos Vinculados</h4>
 
@@ -235,7 +270,7 @@
             </div>
 
 
-            <div class="card">
+            <div class="card hoteis">
                 <div class="card-body">
                     <h4 class="card-title">Hoteis Conveniados</h4>
 
@@ -374,25 +409,12 @@
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
         <script src="{{ asset('admin/libs/select2/js/select2.min.js') }}"></script>
         <script>
-            var inp = document.getElementById('logo-upload');
-            inp.addEventListener('change', function(e) {
-                var file = this.files[0];
-                var reader = new FileReader();
-                reader.onload = function() {
-                    document.getElementById('logo-preview').src = this.result;
-                };
-                reader.readAsDataURL(file);
-            }, false);
-
-            var inp = document.getElementById('banner-upload');
-            inp.addEventListener('change', function(e) {
-                var file = this.files[0];
-                var reader = new FileReader();
-                reader.onload = function() {
-                    document.getElementById('banner-preview').src = this.result;
-                };
-                reader.readAsDataURL(file);
-            }, false);
+            $('.filters span').click(function() {
+                $('.card').hide();
+                $(`.${$(this).data('filter')}`).show();
+                $('.filters span').removeClass('active');
+                $(this).addClass('active');
+            })
 
             $(document).ready(function() {
                 $('#summernote').summernote({
