@@ -26,7 +26,7 @@
             color: #19a5d3;
         }
 
-        .card {
+        .card:not(.clinica) {
             display: none;
         }
 
