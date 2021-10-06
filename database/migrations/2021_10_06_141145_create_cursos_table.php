@@ -16,6 +16,7 @@ class CreateCursosTable extends Migration
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
             $table->string("nome")->nullable();
+            $table->string("slug")->nullable();
             $table->string("video")->nullable();
             $table->tinyInteger("tipo")->default(0);
             $table->tinyInteger("total_horas")->default(0);
@@ -23,7 +24,7 @@ class CreateCursosTable extends Migration
             $table->double("valor", 8, 2)->default(0);
             $table->string("thumbnail", 255)->nullable();
             $table->string("banner", 255)->nullable();
-            
+            $table->boolean("ativo")->default(false);
             $table->timestamps();
         });
     }

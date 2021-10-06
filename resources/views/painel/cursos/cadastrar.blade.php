@@ -67,7 +67,8 @@
             <div class="card curso">
                 <div class="card-body">
                     <h4 class="card-title">Cadastro de Cursos</h4>
-                    <form>
+                    <form action="{{route('painel.cursos.salvar')}}" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
@@ -81,8 +82,8 @@
                                         step="0.01">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="price">Total de Horas</label>
-                                    <input id="price" name="price" type="number" class="form-control" step="1" min="0"
+                                    <label for="total_horas">Total de Horas</label>
+                                    <input id="total_horas" name="total_horas" type="number" class="form-control" step="1" min="0"
                                         value="0">
                                 </div>
                                 <div class="mb-3">
@@ -104,9 +105,9 @@
                                     <label class="control-label">Professores</label>
                                     <select class="js-example-basic-multiple js-states form-control" multiple="multiple"
                                         name="professores[]" id="select_professores" multiple required>
-                                        <option value="" label="default"></option>
-                                        <option value="FA">Empresa 1</option>
-                                        <option value="EL">Empresa 2</option>
+                                        @foreach(App\Models\Professor::all() as $professor)
+                                            <option value="{{$professor->id}}">{{$professor->nome}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
@@ -114,11 +115,10 @@
 
                                 <div class="mb-3">
                                     <label class="control-label">Tipo de Curso</label>
-                                    <select class="form-control">
-                                        <option data-select2-id="3">Selecione o tipo</option>
-                                        <option value="FA">EAD</option>
-                                        <option value="EL">ONLINE</option>
-                                        <option value="EL">PRESENCIAL</option>
+                                    <select class="form-control" name="tipo">
+                                        @foreach(config("cursos.tipo_nome") as $codigo => $tipo)
+                                            <option value="{{$codigo}}">{{$tipo}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
@@ -127,7 +127,7 @@
                                 <div class="mb-3 ">
                                     <label for="productdesc">Certificado</label>
                                     <div class="form-check form-switch form-switch-lg pt-3 ">
-                                        <input class="form-check-input form-control" type="checkbox" id="SwitchCheckSizelg"
+                                        <input class="form-check-input form-control" name="certificacao" type="checkbox" id="SwitchCheckSizelg"
                                             checked="">
                                     </div>
                                 </div>
@@ -188,7 +188,7 @@
                 </div>
 
 
-                <div class="card modulos">
+                {{-- <div class="card modulos">
                     <div class="card-body">
                         <h4 class="card-title">Cadastro de Módulo</h4>
 
@@ -265,7 +265,7 @@
 
 
 
-                </div>
+                </div> --}}
 
             </div>
 

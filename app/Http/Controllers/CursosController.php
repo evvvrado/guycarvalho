@@ -30,35 +30,33 @@ class CursosController extends Controller
     }
 
     public function salvar(Request $request){
-        dd($request->file("thumbnail"));
         if($request->curso_id){
             $curso = Curso::find($request->curso_id);
-            $curso->titulo = $request->titulo;
-            $curso->slug = Str::slug($request->titulo);
-            toastr()->success("Curso salvo com sucesso");
+            $curso->nome = $request->nome;
+            $curso->slug = Str::slug($request->nome);
+            $curso->save();
         }else{
             $curso = new Curso;
-            $curso->titulo = $request->titulo;
-            $curso->slug = Str::slug($request->titulo);
-            $curso->preco = 0;
-            $curso->tipo = 0;
-            $curso->save();
-            toastr()->success("Curso criado com sucesso!");
+            $curso->nome = $request->nome;
+            $curso->slug = Str::slug($request->nome);
         }
 
-        $curso->detalhes_resumo = $this->processa_editor($curso->id, $request->detalhes_resumo);
-        $curso->detalhes_conteudo = $this->processa_editor($curso->id, $request->detalhes_conteudo);
-        $curso->programacao_resumo = $this->processa_editor($curso->id, $request->programacao_resumo);
-        $curso->programacao_conteudo = $this->processa_editor($curso->id, $request->programacao_conteudo);
-        $curso->instrutores_resumo = $this->processa_editor($curso->id, $request->instrutores_resumo);
-        $curso->instrutores_conteudo = $this->processa_editor($curso->id, $request->instrutores_conteudo);
-        $curso->local_resumo = $this->processa_editor($curso->id, $request->local_resumo);
-        $curso->local_conteudo = $this->processa_editor($curso->id, $request->local_conteudo);
+        $curso->tipo = $request->tipo;
+        $curso->total_horas = $request->total_horas;
+        
+        if($request->certificacao){
+            $curso->certificacao = true;
+        }else{
+            $curso->certificacao = false;
+        }
+        
+        $curso->video = $request->video;
+        $curso->valor = $request->valor;
 
-        // MINIATURA
-        if($request->file("miniatura")){
-            Storage::delete($curso->miniatura);
-            $image = $request->file('miniatura');
+        // THUMBNAIL
+        if($request->file("thumbnail")){
+            Storage::delete($curso->thumbnail);
+            $image = $request->file('thumbnail');
             $input['imagename'] = time().'.'.$image->extension();
             $destinationPath = public_path('site/imagens/cursos/' . $curso->id);
             if(!is_dir($destinationPath)){
@@ -66,7 +64,7 @@ class CursosController extends Controller
             }
             $img = Image::make($image->path());
             $img->resize(360, 200)->save($destinationPath.'/'.$input['imagename']);
-            $curso->miniatura = 'site/imagens/cursos/' . $curso->id . "/" . $input['imagename'];
+            $curso->thumbnail = 'site/imagens/cursos/' . $curso->id . "/" . $input['imagename'];
         }
         
         // BANNER
@@ -82,10 +80,10 @@ class CursosController extends Controller
             $img->resize(1200, 546)->save($destinationPath.'/'.$input['imagename']);
             $curso->banner = 'site/imagens/cursos/' . $curso->id . "/" . $input['imagename'];
         }
-        $curso->preco = 0;
-        $curso->tipo = 0;
+
         $curso->save();
-        return redirect()->back();
+        toastr()->success("Curso salvo com sucesso!");
+        return redirect()->route("painel.cursos");
     }
 
     public function ativo(Curso $curso){

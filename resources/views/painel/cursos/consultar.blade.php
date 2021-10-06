@@ -12,121 +12,6 @@
     Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a>
 @endsection
 
-{{-- @section('conteudo')
-    @include('painel.includes.errors')
-    <div class="row mt-3">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body" style="overflow-x: scroll;">
-                    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-
-
-                        <tbody>
-
-                            @foreach ($categorias as $categoria)
-                                <tr>
-                                    <td>{{$categoria->nome}}</td>
-                                    <td>
-                                        <a href="" id="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditaCategoria{{$categoria->id}}" role="button">Editar</a>
-                                        <a name="" id="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalExcluiCategoria{{$categoria->id}}" role="button">Excluir</a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div> <!-- end col -->
-    </div> <!-- end row -->
-
-
-    <div class="modal fade" id="modalNovaCategoria" tabindex="-1" role="dialog" aria-labelledby="modalNovaCategoriaLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <form action="{{route('painel.categoria.cadastrar')}}" method="post">
-                        @csrf
-                        <div class="row">
-                            <div class="form-group col-12">
-                                <label for="nome">Nome</label>
-                                <input type="text" class="form-control" name="nome"
-                                    id="nome" aria-describedby="helpId" 
-                                >
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12 text-end">
-                                <button type="submit"
-                                    class="btn btn-primary">Salvar</button>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    @foreach ($categorias as $categoria)
-        <div class="modal fade" id="modalEditaCategoria{{$categoria->id}}" tabindex="-1" role="dialog" aria-labelledby="modalEditaCategoria{{$categoria->id}}Label"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <form action="{{route('painel.categoria.salvar', ['categoria' => $categoria])}}" method="post">
-                            @csrf
-                            <div class="row">
-                                <div class="form-group col-12">
-                                    <label for="nome">Nome</label>
-                                    <input type="text" class="form-control" name="nome"
-                                        id="nome" aria-describedby="helpId" 
-                                        value="{{$categoria->nome}}">
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-12 text-end">
-                                    <button type="submit"
-                                        class="btn btn-primary">Salvar</button>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="modalExcluiCategoria{{$categoria->id}}" tabindex="-1" role="dialog" aria-labelledby="modalExcluiCategoria{{$categoria->id}}Label"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-12 text-center">
-                                <h5>Ao excluir a categoria "{{$categoria->nome}}" todas as notícias relacionadas a ela também serão excluídas. Deseja continuar ?</h5>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12 text-center">
-                                <a name="" id="" class="btn btn-danger" href="{{route('painel.categoria.deletar', ['categoria' => $categoria])}}" role="button">Excluir</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endforeach
-
-@endsection --}}
-
-
-
 @section('conteudo')
 
     <div class="row">
@@ -160,6 +45,9 @@
                                             colspan="1" style="width: 70px;"
                                             aria-label="Position: activate to sort column ascending">Valor do Curso</th>
                                         <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 70px;"
+                                            aria-label="Position: activate to sort column ascending">Tipo</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
                                             colspan="1" style="width: 10px;"
                                             aria-label="Start date: activate to sort column ascending"></th>
                                     </tr>
@@ -167,9 +55,11 @@
 
 
                                 <tbody>
+                                    @foreach($cursos as $curso)
                                     <tr class="odd">
-                                        <td class="sorting_1 dtr-control">Brinquedoteca</td>
-                                        <td>R$ 450,00</td>
+                                        <td class="sorting_1 dtr-control">{{$curso->nome}}</td>
+                                        <td>R$ {{number_format($curso->valor, 2 , ",", ".")}}</td>
+                                        <td>{{config('cursos.tipo_nome')[$curso->tipo]}}</td>
                                         <td>
                                             <div class="btn-group edit-table-button ">
                                                 <button type="button" class="btn btn-info dropdown-toggle"
@@ -187,6 +77,7 @@
 
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
