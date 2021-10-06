@@ -4,20 +4,73 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <link href="{{ asset('admin/libs/select2/css/select2.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
     {{-- <link href="{{asset('admin/libs/select2/css/select2-bootstrap4.css')}}" id="app-style" rel="stylesheet" type="text/css" /> --}}
+
+
+
+
+    <style>
+        .filters {
+            cursor: default;
+            border-radius: 5px 5px 0 0;
+            width: 100%;
+            color: white;
+            font-size: .8125rem;
+            display: flex;
+            max-width: max-content;
+            /* border: solid white 1px; */
+        }
+
+        .filters span {
+            cursor: pointer;
+            transition: 0.32s;
+            padding: .84rem 1rem;
+
+            /* border: solid white 1px; */
+            border-radius: 5px 5px 0 0;
+
+            color: #495057;
+
+            font-weight: 600;
+        }
+
+        .filters span:hover {
+            opacity: 0.7;
+        }
+
+        .filters span.active {
+            color: var(--principal);
+            background: white;
+        }
+
+        .card:not(.evento) {
+            display: none;
+        }
+
+    </style>
+
 @endsection
 
 @section('titulo')
-    Projetos / <a style="color: unset" href="{{ route('painel.eventos') }}">Eventos</a> / Cadastrar
+    Projetos / <a style="color: unset" href="{{ route('painel.eventos') }}">Eventos</a> / Editar
 @endsection
 
 @section('conteudo')
 
+
+
+    <div class="filters">
+        <span data-filter="evento" class="active">Evento</span>
+        <span data-filter="local">Local</span>
+        <span data-filter="cursos">Cursos</span>
+        <span data-filter="hoteis">Hoteis</span>
+    </div>
+
     @include('painel.includes.errors')
     <div class="row">
         <div class="col-12">
-            <div class="card">
+            <div class="card evento">
                 <div class="card-body">
-                    <h4 class="card-title">Cadastro de Evento</h4>
+                    <h4 class="card-title">Editar Evento</h4>
                     <form>
                         <div class="row">
                             <div class="col-sm-6">
@@ -112,7 +165,7 @@
             </div>
 
 
-            <div class="card">
+            <div class="card local">
                 <div class="card-body">
                     <h4 class="card-title">Local da Clínica</h4>
                     <form>
@@ -156,7 +209,7 @@
             </div>
 
 
-            <div class="card">
+            <div class="card cursos">
                 <div class="card-body">
                     <h4 class="card-title">Cursos Vinculados</h4>
 
@@ -235,7 +288,7 @@
             </div>
 
 
-            <div class="card">
+            <div class="card hoteis">
                 <div class="card-body">
                     <h4 class="card-title">Hoteis Conveniados</h4>
 
@@ -374,25 +427,12 @@
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
         <script src="{{ asset('admin/libs/select2/js/select2.min.js') }}"></script>
         <script>
-            var inp = document.getElementById('logo-upload');
-            inp.addEventListener('change', function(e) {
-                var file = this.files[0];
-                var reader = new FileReader();
-                reader.onload = function() {
-                    document.getElementById('logo-preview').src = this.result;
-                };
-                reader.readAsDataURL(file);
-            }, false);
-
-            var inp = document.getElementById('banner-upload');
-            inp.addEventListener('change', function(e) {
-                var file = this.files[0];
-                var reader = new FileReader();
-                reader.onload = function() {
-                    document.getElementById('banner-preview').src = this.result;
-                };
-                reader.readAsDataURL(file);
-            }, false);
+            $('.filters span').click(function() {
+                $('.card').hide();
+                $(`.${$(this).data('filter')}`).show();
+                $('.filters span').removeClass('active');
+                $(this).addClass('active');
+            })
 
             $(document).ready(function() {
                 $('#summernote').summernote({
