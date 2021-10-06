@@ -13,123 +13,6 @@
 @section('botoes')
 @endsection
 
-
-{{-- 
-@section('conteudo')
-    @include('painel.includes.errors')
-    <div class="row mt-3">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body" style="overflow-x: scroll;">
-                    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-
-
-                        <tbody>
-
-                            @foreach($categorias as $categoria)
-                                <tr>
-                                    <td>{{$categoria->nome}}</td>
-                                    <td>
-                                        <a href="" id="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditaCategoria{{$categoria->id}}" role="button">Editar</a>
-                                        <a name="" id="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalExcluiCategoria{{$categoria->id}}" role="button">Excluir</a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div> <!-- end col -->
-    </div> <!-- end row -->
-
-
-    <div class="modal fade" id="modalNovaCategoria" tabindex="-1" role="dialog" aria-labelledby="modalNovaCategoriaLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <form action="{{route('painel.categoria.cadastrar')}}" method="post">
-                        @csrf
-                        <div class="row">
-                            <div class="form-group col-12">
-                                <label for="nome">Nome</label>
-                                <input type="text" class="form-control" name="nome"
-                                    id="nome" aria-describedby="helpId" 
-                                >
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12 text-end">
-                                <button type="submit"
-                                    class="btn btn-primary">Salvar</button>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    @foreach($categorias as $categoria)
-        <div class="modal fade" id="modalEditaCategoria{{$categoria->id}}" tabindex="-1" role="dialog" aria-labelledby="modalEditaCategoria{{$categoria->id}}Label"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <form action="{{route('painel.categoria.salvar', ['categoria' => $categoria])}}" method="post">
-                            @csrf
-                            <div class="row">
-                                <div class="form-group col-12">
-                                    <label for="nome">Nome</label>
-                                    <input type="text" class="form-control" name="nome"
-                                        id="nome" aria-describedby="helpId" 
-                                        value="{{$categoria->nome}}">
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-12 text-end">
-                                    <button type="submit"
-                                        class="btn btn-primary">Salvar</button>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="modalExcluiCategoria{{$categoria->id}}" tabindex="-1" role="dialog" aria-labelledby="modalExcluiCategoria{{$categoria->id}}Label"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-12 text-center">
-                                <h5>Ao excluir a categoria "{{$categoria->nome}}" todas as notícias relacionadas a ela também serão excluídas. Deseja continuar ?</h5>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12 text-center">
-                                <a name="" id="" class="btn btn-danger" href="{{route('painel.categoria.deletar', ['categoria' => $categoria])}}" role="button">Excluir</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endforeach
-
-@endsection --}}
-
-
-
 @section('conteudo')
 
     <div class="row">
@@ -164,24 +47,26 @@
                         </thead>
 
 
-                        <tbody>    
-                            <tr class="odd">
-                                <td class="sorting_1 dtr-control">Paulo Guerra</td>
-                                <td>Rihappy</td>
-                                <td>Crosstraining</td>
-                                <td>
-                                     <div class="btn-group edit-table-button ">
-                                        <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
-                                        <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" href="{{ route('painel.professores.editar') }}">Editar</a>
-                                            <a class="dropdown-item" href="{{ route('painel.professores.hotsite') }}">Hotsite</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                        <tbody>  
+                            @foreach($professores as $professor)  
+                                <tr class="odd">
+                                    <td class="sorting_1 dtr-control">{{$professor->nome}}</td>
+                                    <td>{{$professor->empresa}}</td>
+                                    <td>{{config("professores.atuacao_nome")[$professor->atuacao]}}</td>
+                                    <td>
+                                        <div class="btn-group edit-table-button ">
+                                            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
+                                            <div class="dropdown-menu" style="margin: 0px;">
+                                                <a class="dropdown-item" href="{{ route('painel.professores.editar', ['professor' => $professor]) }}">Editar</a>
+                                                <a class="dropdown-item" href="{{ route('painel.professores.hotsite') }}">Hotsite</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="{{ route('painel.professores.deletar', ['professor' => $professor]) }}" style="color: red" href="#">Excluir</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                    
-                                </td>
-                            </tr> 
+                                        
+                                    </td>
+                                </tr> 
+                            @endforeach
                         </tbody>
                     </table>
                 </div></div>
@@ -198,26 +83,54 @@
                            
             <div class="col-sm-12 col-md-6 mb-3"  style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
                 <a class="btn" style="padding-left: 21px; color: white; height: 100%; cursor: default;"  href="">Filtros</a>
-            </div> <div class="card filter-body">
+            </div> 
+            <div class="card filter-body">
                 <div class="card-body">
 
-                  <form action="javascript: void(0);">
-                      
-                  </form>
+                    <form id="form-filtro" action="{{route('painel.professores')}}" method="POST">
+                        @csrf
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="nome">Nome</label>
+                                    <input id="nome" name="nome" type="text" class="form-control"
+                                        placeholder="Insira o nome" @if(isset($filtros) && isset($filtros["nome"])) value="{{$filtros["nome"]}}" @endif maxlength="100">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="atuacao">Atuação</label>
+                                    <select id="atuacao" name="atuacao" class="form-control">
+                                        <option value="-1">Todas</option>
+                                        @foreach(config("professores.atuacao_nome") as $codigo => $nome)
+                                            <option value="{{$codigo}}" @if(isset($filtros) && isset($filtros["atuacao"]) && $filtros["atuacao"] == $codigo) selected @endif>{{$nome}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="empresa">Empresa</label>
+                                    <input id="empresa" name="empresa" type="text" class="form-control"
+                                        placeholder="Insira o nome" maxlength="100" @if(isset($filtros) && isset($filtros["empresa"])) value="{{$filtros["empresa"]}}" @endif>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
 
 
 
                    <div class="buttons-row">
-                       <div>
-                        <button type="button" class="btn btn-success waves-effect waves-light">
-                            <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
-                        </button>
-                       </div>
-                       <div>
-                        <button type="button" class="btn btn-danger waves-effect waves-light">
-                            <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
-                        </button>
-                       </div>
+                        <div>
+                            <button id="btn-filtrar" type="button" class="btn btn-success waves-effect waves-light">
+                                <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
+                            </button>
+                        </div>
+                        <div>
+                            <button id="btn-limpar" type="button" class="btn btn-danger waves-effect waves-light">
+                                <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
+                            </button>
+                        </div>
                    </div>
                 </div>
             </div>
@@ -366,6 +279,15 @@
                     "thousands": "."
                 } 
             } );
+
+            $("#btn-filtrar").click(function(){
+                $("#form-filtro").submit();
+            });
+
+            $("#btn-limpar").click(function(){
+                $("input").val("");
+                $("select").val("-1");
+            });
         } );    
 
         $(document).ready(() => {

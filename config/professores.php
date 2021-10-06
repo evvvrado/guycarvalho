@@ -6,15 +6,14 @@
             1 => "Avaliação Física",
             2 => "Dança de Salão",
             3 => "Ginástica",
-            4 => "Cross Training",
-            5 => "Cross Training",
-            6 => "Cross Training",
-            7 => "Cross Training",
-            8 => "Cross Training",
-            9 => "Cross Training",
-            10 => "Cross Training",
-            11 => "Cross Training",
-            12 => "Cross Training",
+            4 => "Hidro",
+            5 => "Musculação",
+            6 => "Nutrição",
+            7 => "Personal Trainer",
+            8 => "Pilates",
+            9 => "Recreação",
+            10 => "Ritmos e Funcional",
+            11 => "Musculação Feminina",
         ]
     ];
 

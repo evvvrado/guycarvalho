@@ -227,9 +227,11 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::get('/sistema/noticias/preview/{noticia}', [\App\Http\Controllers\NoticiasController::class, 'preview'])->name("painel.noticia.preview");
 
         // ROTAS DE PROFESSORES
-        Route::get('/sistema/professores', [\App\Http\Controllers\ProfessoresController::class, 'consultar'])->name("painel.professores");
+        Route::match(['get', 'post'], '/sistema/professores', [\App\Http\Controllers\ProfessoresController::class, 'consultar'])->name("painel.professores");
         Route::get('/sistema/professores/cadastrar', [\App\Http\Controllers\ProfessoresController::class, 'cadastrar'])->name("painel.professores.cadastrar");
-        Route::get('/sistema/professores/editar', [\App\Http\Controllers\ProfessoresController::class, 'editar'])->name("painel.professores.editar");
+        Route::get('/sistema/professores/editar/{professor}', [\App\Http\Controllers\ProfessoresController::class, 'editar'])->name("painel.professores.editar");
+        Route::get('/sistema/professores/deletar/{professor}', [\App\Http\Controllers\ProfessoresController::class, 'deletar'])->name("painel.professores.deletar");
+        Route::post('/sistema/professores/salvar', [\App\Http\Controllers\ProfessoresController::class, 'salvar'])->name("painel.professores.salvar");
         Route::get('/sistema/professores/hotsite', [\App\Http\Controllers\ProfessoresController::class, 'hotsite'])->name("painel.professores.hotsite");
         
         // ROTAS DE MENSAGENS
