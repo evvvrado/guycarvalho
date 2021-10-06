@@ -95,13 +95,19 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
 
     Route::post('/aluno/cadastrar', [\App\Http\Controllers\AlunosController::class, 'cadastrar'])->name("site.aluno.cadastrar");
     Route::post('/aluno/logar', [\App\Http\Controllers\AlunosController::class, 'logar'])->name("site.aluno.logar");
-
+    Route::get('/aluno/deslogar', [\App\Http\Controllers\AlunosController::class, 'deslogar'])->name("site.aluno.deslogar");
+    
     Route::middleware(['aluno'])->group(function () {
         //ROTAS DE MINHA ÁREA
         Route::get('/minha-area', [\App\Http\Controllers\SiteController::class, 'minhaArea'])->name("site.minha-area");
         Route::get('/minha-area/compras', [\App\Http\Controllers\SiteController::class, 'minhaAreaCompras'])->name("site.minha-area-compras");
+        Route::get('/minha-area/compras/detalhes', [\App\Http\Controllers\SiteController::class, 'minhaAreaComprasDetalhes'])->name("site.compras-detalhes");
         Route::get('/minha-area/dados', [\App\Http\Controllers\SiteController::class, 'minhaAreaDados'])->name("site.minha-area-dados");
+        Route::post('/minha-area/dados/salvar', [\App\Http\Controllers\SiteController::class, 'minhaAreaDadosSalvar'])->name("site.minha-area-dados.salvar");
+        Route::post('/minha-area/dados/avatar/alterar', [\App\Http\Controllers\SiteController::class, 'minhaAreaDadosAvatarAlterar'])->name("site.minha-area-dados.avatar.alterar");
+        Route::post('/minha-area/dados/senha/alterar', [\App\Http\Controllers\SiteController::class, 'minhaAreaDadosSenhaAlterar'])->name("site.minha-area-dados.senha.alterar");
         Route::get('/minha-area/matriculas', [\App\Http\Controllers\SiteController::class, 'minhaAreaMatricula'])->name("site.minha-area-matricula");
+        Route::get('/minha-area/matricula/{matricula}/conteudo', [\App\Http\Controllers\SiteController::class, 'minhaAreaMatriculaConteudo'])->name("site.minha-area-matricula.conteudo");
     });
 
     Route::get('/links/{slug}', [\App\Http\Controllers\AppController::class, 'index'])->name("site.app");

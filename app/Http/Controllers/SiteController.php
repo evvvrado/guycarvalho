@@ -111,18 +111,70 @@ class SiteController extends Controller
     }
 
     public function minhaArea(){
-        return view("site.minha-area");
+        $aluno = Aluno::find(session()->get("aluno")["id"]);
+        return view("site.minha-area", ["aluno" => $aluno]);
+    }
+
+    public function minhaAreaComprasDetalhes(){
+        $aluno = Aluno::find(session()->get("aluno")["id"]);
+        return view("site.compras-detalhes", ["aluno" => $aluno]);
     }
 
     public function minhaAreaCompras(){
         $aluno = Aluno::find(session()->get("aluno")["id"]);
         return view("site.minha-area-compras", ["aluno" => $aluno]);
     }
+    
     public function minhaAreaDados(){
-        return view("site.minha-area-dados");
+        $aluno = Aluno::find(session()->get("aluno")["id"]);
+        return view("site.minha-area-dados", ["aluno" => $aluno]);
     }
+
+    public function minhaAreaDadosSalvar(Request $request){
+        $aluno = Aluno::find(session()->get("aluno")["id"]);
+        $aluno->nome = $request->nome;
+        $aluno->email = $request->email;
+        $aluno->cpf = $request->cpf;
+        $aluno->telefone = $request->telefone;
+        $aluno->rua = $request->rua;
+        $aluno->cidade = $request->cidade;
+        $aluno->estado = $request->estado;
+        $aluno->save();
+        return redirect()->back();
+    }
+
+    public function minhaAreaDadosSenhaAlterar(Request $request){
+        $aluno = Aluno::find(session()->get("aluno")["id"]);
+        if(Hash::check($request->senha_antiga, $aluno->senha)){
+            $aluno->senha = Hash::make($request->senha_nova);
+            $aluno->save();
+        }else{
+            session()->flash("erro", "A senha antiga informada está incorreta");
+        }
+        return redirect()->back();
+    }
+
+    public function minhaAreaDadosAvatarAlterar(Request $request){
+        if($request->file("avatar")){
+            $aluno = Aluno::find(session()->get("aluno")["id"]);
+            Storage::delete($aluno->avatar);
+            $aluno->avatar = $request->file('avatar')->store(
+                'site/imagens/avatares/' . $aluno->id , 'local'
+            );
+            $aluno->save();
+        }
+
+        return redirect()->back();
+    }
+
     public function minhaAreaMatricula(){
-        return view("site.minha-area-matricula");
+        $aluno = Aluno::find(session()->get("aluno")["id"]);
+        return view("site.minha-area-matricula", ["aluno" => $aluno]);
+    }
+
+    public function minhaAreaMatriculaConteudo(Matricula $matricula){
+        $aluno = Aluno::find(session()->get("aluno")["id"]);
+        return view("site.matricula-conteudo", ["matricula" => $matricula, "aluno" => $aluno]);
     }
     
     public function estaduais(){

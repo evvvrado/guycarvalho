@@ -67,12 +67,12 @@
                                         </p>
                                     </div>
                                     <div class="mt-4">
-                                        <form action="{{ route('painel.logar') }}" method="post">
+                                        <form action="{{ route('site.aluno.logar') }}" method="post">
                                             @csrf
                                             <div class="mb-3">
-                                                <label for="usuario" class="form-label">Usuário</label>
-                                                <input type="text" class="form-control" name="usuario" id="usuario"
-                                                    placeholder="Informe o usuário" required />
+                                                <label for="email" class="form-label">Email</label>
+                                                <input type="email" class="form-control" name="email" id="email"
+                                                    placeholder="Informe o email" required />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Senha</label>
@@ -168,19 +168,19 @@
                                         <h5>Registrar conta</h5>
                                     </div>
                                     <div class="mt-4">
-                                        <form novalidate="" action="#" method="get" class="form-horizontal av-invalid">
+                                        <form novalidate="" action="{{route('site.aluno.cadastrar')}}" method="post" class="form-horizontal av-invalid">
+                                            @csrf
                                             <div class="mb-3">
                                                 <div class="form-group"><label for="nome"
                                                         class="">Nome</label>
-                                                        <input name="
-                                                        nome" placeholder="Digide seu nome" required="" id="nome"
+                                                        <input name="nome" placeholder="Digide seu nome" required="" id="nome"
                                                         type="text"
                                                         class="form-control is-untouched is-pristine av-invalid form-control"
                                                         value=""></div>
                                             </div>
                                             <div class="mb-3">
                                                 <div class="form-group"><label for="email"
-                                                        class="">E-mail</label><input name=" email"
+                                                        class="">E-mail</label><input name="email"
                                                         placeholder="Digite seu email" required="" id="emailregister"
                                                         type="email"
                                                         class="form-control is-untouched is-pristine av-invalid form-control"
@@ -192,8 +192,7 @@
                                                         class="">
                                                         Telefone
                                                         </label>
-                                                        <input name="
-                                                        telefone" placeholder="Digite seu telefone" required=""
+                                                        <input name="telefone" placeholder="Digite seu telefone" required=""
                                                         id="telefone" type="tel"
                                                         class="form-control is-untouched is-pristine av-invalid form-control"
                                                         value="">
@@ -201,14 +200,14 @@
                                             </div>
                                             <div class="mb-3">
                                                 <div class="form-group"><label for="email"
-                                                        class="">CPF</label><input name=" cpf"
+                                                        class="">CPF</label><input name="cpf"
                                                         placeholder="Digite seu cpf" required="" id="cpf" type="cpf"
                                                         class="form-control is-untouched is-pristine av-invalid form-control"
                                                         value=""></div>
                                             </div>
                                             <div class="mb-3">
                                                 <div class="form-group"><label for="password"
-                                                        class="">Senha</label><input name=" senha"
+                                                        class="">Senha</label><input name="senha"
                                                         placeholder="Digite sua senha" required="" id="senha"
                                                         type="password"
                                                         class="form-control is-untouched is-pristine av-invalid form-control"

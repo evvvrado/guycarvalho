@@ -28,16 +28,10 @@
     <link rel='stylesheet'
         href='https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Poppins&family=Lato&family=Roboto:wght@500&family=Spartan:wght@400;700&display=swap'
         crossorigin='anonymous'>
-
-    
-
     <link rel='stylesheet' href='{{ asset('site/css/reset.css') }}'>
     <link rel='stylesheet' href='{{ asset('site/css/sistema.css') }}'>
     <script src='https://code.jquery.com/jquery-3.5.1.min.js'
         integrity='sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=' crossorigin='anonymous'></script>
-
-
-
 </head>
 
 
@@ -54,7 +48,7 @@
             <div class="container-fav">
                 <nav>
                     <ul>
-                        <li class="_active">
+                        <li>
                             <a href="/minha-area">
                                 <div class="svg">
                                     <img src="{{ asset('site/img/sistema/user.svg') }}" alt="">
@@ -62,7 +56,7 @@
                                 Minha Área
                             </a>
                         </li>
-                        <li>
+                        <li class="_active">
                             <a href="/minha-area/compras">
                                 <div class="svg">
                                     <img src="{{ asset('site/img/sistema/bag.svg') }}" alt="">
@@ -119,7 +113,7 @@
             <div class="container-fav">
                 <nav>
                     <ul>
-                        <li class="_active">
+                        <li>
                             <a href="/minha-area/">
                                 <div class="svg">
                                     <img src="{{ asset('site/img/sistema/user.svg') }}" alt="">
@@ -127,7 +121,7 @@
                                 Minha Área
                             </a>
                         </li>
-                        <li>
+                        <li class="_active">
                             <a href="/minha-area/compras">
                                 <div class="svg">
                                     <img src="{{ asset('site/img/sistema/bag.svg') }}" alt="">
@@ -176,70 +170,30 @@
         </section>
     </div>
 
-
-
-    <section class="container-fluid _minhasMatriculas">
+    <div class="detalhesdeCurso container-fluid">
         <div class="container-fav">
-            <div class="_top">
-                <h2>Minha Área</h2>
-            </div>
-            <div class="_scrollMatriculas">
+            <h1>{{ $matricula->turma->curso->titulo }}</h1>
 
-                <div class="_matriculasList">
-                    <div class="_matricula">
-                        <div class="_image">
-                            <img src="{{ asset('site/img/sistema/Icone (2).png') }}" alt="">
-                        </div>
-                        <div class="_content">
-                            <h3>Cursos</h3>
-                            <p>Nenhuma Matrícula</p>
-                            <button class="btn-primary" onclick="window.location.href = '/minha-area/matriculas'">
-                                + VER CURSOS
-                                <div class="_svg">
-                                    <img src="{{ asset('site/img/sistema/buttonArrowRight.svg') }}" alt="">
-                                </div>
-                            </button>
-                        </div>
-
-                    </div>
-                    <div class="_matricula">
-                        <div class="_image">
-                            <img src="{{ asset('site/img/sistema/Icone (3).png') }}" alt="">
-                        </div>
-                        <div class="_content">
-                            <h3>Eventos</h3>
-                            <p>Nenhuma Inscrição</p>
-                            <button class="btn-primary" style="background-color: orange;"
-                                onclick="window.location.href = '/minha-area/compras'">
-                                + VER EVENTOS
-                                <div class="_svg">
-                                    <img src="{{ asset('site/img/sistema/buttonArrowRight.svg') }}" alt="">
-                                </div>
-                            </button>
-                        </div>
-
-                    </div>
-                    <div class="_matricula">
-                        <div class="_image">
-                            <img src="{{ asset('site/img/sistema/Icone (1).png') }}" alt="">
-                        </div>
-                        <div class="_content">
-                            <h3>Contribuições</h3>
-                            <p>Não Associado</p>
-                            <button class="btn-primary" style="background-color: green;"
-                                onclick="window.location.href = '/minha-area/compras'">
-                                QUERO ME ASSOCIAR
-                                <div class="_svg">
-                                    <img src="{{ asset('site/img/sistema/buttonArrowRight.svg') }}" alt="">
-                                </div>
-                            </button>
-                        </div>
-
-                    </div>
+            <main>
+                <div class="list">
+                    @foreach ($matricula->turma->conteudos->where('publicacao', '<=', date('Y-m-d H:i:s')) as $conteudo)
+                        <article>
+                            <div class="date">
+                                {{ date('d/m/Y', strtotime($conteudo->publicacao)) }}<br>
+                                {{-- 20:00 --}}
+                            </div>
+                            <picture><img src="{{ asset('site/img/sistema/approved.svg') }}" alt="Aprovado">
+                            </picture>
+                            <div class="content">
+                                <span>{{ $conteudo->descricao }}</span>
+                                <a href="{{ asset($conteudo->arquivo) }}" download>Baixar</a>
+                            </div>
+                        </article>
+                    @endforeach
                 </div>
-            </div>
+            </main>
         </div>
-    </section>
+    </div>
 
 
 
@@ -314,7 +268,7 @@
             <p>
                 <strong>
                     Desenvolvido por
-                    <a href="https://7seventrends.com"" class=" _img">
+                    <a href="https://7seventrends.com"" class="               _img">
                         <img src="{{ asset('site/img/_logo7seven.png') }}" style="filter: brightness(0);""  alt="">
               </a> </div></p> 
               </strong>
@@ -323,57 +277,56 @@
       </section>
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
+    <script>
+        $("._menuMax").click(() => {
+            $("._mobileMenu").css("display", "flex");
+            $("._mobileMenu").animate({
+                    left: "0",
+                    top: "0",
+                },
+                500
+            );
+        });
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
-      <script>
-          $("._menuMax").click(() => {
-              $("._mobileMenu").css("display", "flex");
-              $("._mobileMenu").animate({
-                      left: "0",
-                      top: "0",
-                  },
-                  500
-              );
-          });
-
-          $("section._mobileMenu ._closeButton").click(() => {
-              $("._mobileMenu").animate({
-                      left: "-200vw",
-                      top: "0",
-                  },
-                  500
-              );
-          });
-
-
-          $("header main button.hamburguer-menu").click(() => {
-              $("div._sidemenu nav").css("height", "497px");
-          });
-
-          $("div._sidemenu nav .hamburguerClose").click(() => {
-              $("div._sidemenu nav").css("height", "0");
-          });
+        $("section._mobileMenu ._closeButton").click(() => {
+            $("._mobileMenu").animate({
+                    left: "-200vw",
+                    top: "0",
+                },
+                500
+            );
+        });
 
 
-          const backdrop = {
-              visivel: true,
-              init: function() {
-                  setTimeout(function() {
-                      if (backdrop.visivel) {
-                          backdrop.esconde();
-                      }
-                  }, 10 * 1000);
-              },
-              esconde: function() {
-                  $("#backdrop").css("background", "");
-                  $("#backdrop>div").fadeOut();
-                  $("#backdrop").delay(350).fadeOut("slow");
-                  $("body").delay(350).css("overflow", "");
-                  backdrop.visivel = false;
-              },
-          };
+        $("header main button.hamburguer-menu").click(() => {
+            $("div._sidemenu nav").css("height", "497px");
+        });
 
-          backdrop.esconde();
-      </script>
-    </body>
-  </html>
+        $("div._sidemenu nav .hamburguerClose").click(() => {
+            $("div._sidemenu nav").css("height", "0");
+        });
+
+
+        const backdrop = {
+            visivel: true,
+            init: function() {
+                setTimeout(function() {
+                    if (backdrop.visivel) {
+                        backdrop.esconde();
+                    }
+                }, 10 * 1000);
+            },
+            esconde: function() {
+                $("#backdrop").css("background", "");
+                $("#backdrop>div").fadeOut();
+                $("#backdrop").delay(350).fadeOut("slow");
+                $("body").delay(350).css("overflow", "");
+                backdrop.visivel = false;
+            },
+        };
+
+        backdrop.esconde();
+    </script>
+  </body>
+</html>
