@@ -285,7 +285,7 @@
             });
 
             $("#btn-limpar").click(function(){
-                $("input").val("");
+                $("input[type!='hidden']").val("");
                 $("select").val("-1");
             });
         } );    
