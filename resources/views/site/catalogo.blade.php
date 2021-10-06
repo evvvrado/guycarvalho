@@ -145,7 +145,42 @@
                 <div class="--list">
                     <div class="--item">
                         <picture>
-                            <img src="{{ asset('/site/img/feira/catalago/1_vector.svg') }}">
+                            <img src="{{ asset('/site/img/feira/catalogo/1_vector.svg') }}">
+                        </picture>
+                        <picture>
+                            <img src="{{ asset('/site/img/feira/catalogo/verticalExample.jpg') }}">
+                        </picture>
+                    </div>
+                    <div class="--item">
+                        <picture>
+                            <img src="{{ asset('/site/img/feira/catalogo/2_vector.svg') }}">
+                        </picture>
+                        <picture>
+                            <img src="{{ asset('/site/img/feira/catalogo/verticalExample.jpg') }}">
+                        </picture>
+                    </div>
+                    <div class="--item">
+                        <picture>
+                            <img src="{{ asset('/site/img/feira/catalogo/3_vector.svg') }}">
+                        </picture>
+                        <picture>
+                            <img src="{{ asset('/site/img/feira/catalogo/verticalExample.jpg') }}">
+                        </picture>
+                    </div>
+                    <div class="--item">
+                        <picture>
+                            <img src="{{ asset('/site/img/feira/catalogo/4_vector.svg') }}">
+                        </picture>
+                        <picture>
+                            <img src="{{ asset('/site/img/feira/catalogo/verticalExample.jpg') }}">
+                        </picture>
+                    </div>
+                    <div class="--item">
+                        <picture>
+                            <img src="{{ asset('/site/img/feira/catalogo/5_vector.svg') }}">
+                        </picture>
+                        <picture>
+                            <img src="{{ asset('/site/img/feira/catalogo/verticalExample.jpg') }}">
                         </picture>
                     </div>
                 </div>
@@ -207,6 +242,9 @@
     </section>
 
 
+    @include('site.includes.publicidade')
+
+
 
     @include("site.includes.footer")
 
@@ -219,4 +257,6 @@
             $(this).closest('div.--mask').find('div.content').scrollLeft($(this).closest('div.--mask').find(
                 'div.content').scrollLeft() - $('.--item').width() * 6)
         })
+
+        $('.--mask .content').scrollLeft($('.--mask .content').width() / 3)
     </script>

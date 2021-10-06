@@ -15,7 +15,7 @@ body#catalogo{
 
     section.s_hero{
         background-image: url("../img/feira/catalogo/banner_hero.jpg");
-        background-size: 100% 100%;
+        background-size: cover;
 
         @include responsive(600px) {
             height: auto;
@@ -74,13 +74,15 @@ body#catalogo{
 
     .s_catalogoList{
         position: relative;
-        margin-bottom: 4rem;
+        margin-top: 4.4rem;
+        margin-bottom: 4.4rem;
         
         &:hover{
             h2::after{
                 content: ">";
                 position: absolute;
                 color: #e5e5e53a;
+                padding-left: 2rem;
             }
         }
 
@@ -97,6 +99,20 @@ body#catalogo{
         .--mask{
             position: relative;
             width: 100%;
+
+            &:before{
+                content: "";
+                width: 100%;
+                height: 100%;
+
+                position: absolute;
+                top: 0;
+                background: radial-gradient(circle, rgba(60,68,91,0) 67%, rgba(60,68,91,1) 100%);
+                z-index: 2;
+
+                pointer-events: none;
+            }
+
 
             &:hover{
                 .--buttons{
@@ -203,6 +219,99 @@ body#catalogo{
                         }
                     }
                 }
+            }
+        }
+    }
+
+    .s_top5{
+        margin-top: 6.4rem;
+        margin-bottom: 6.4rem;
+        .--mask{
+            .content{
+                .--list{
+                    @include flex(row, center, center);
+                    gap: 1rem;
+
+                    .--item{
+                        @include flex(row, flex-start, flex-start);
+
+                        transition: 0.32s;
+                        cursor: pointer;
+
+                        &:hover{
+                            opacity: 0.5;
+                        }
+
+
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    .s_publi{
+        margin-bottom: 4rem;
+    }
+
+
+    @include responsive(1280px){
+        .container-fluid:not(section.s_hero.container-fluid, footer .container-fluid){
+            padding: 0 4rem;
+        }
+        .s_catalogoList {
+            .--mask{
+                .--buttons{
+                    opacity: 1;
+                }
+                .content{
+                    .--list{
+        
+                        .--item{
+                            width: 19vw;
+                        }
+                    }
+                    }
+        
+
+            }
+        }
+
+    }
+    
+    @include responsive(900px){
+        .container-fluid:not(section.s_hero.container-fluid, footer .container-fluid){
+            padding: 0 4rem;
+        }
+        .s_catalogoList {
+            .--mask{    
+                .content{
+                    .--list{
+        
+                        .--item{
+                            width: 26vw;
+                        }
+                    }
+                }
+        
+
+            }
+        }
+
+        .s_top5{ 
+            .--mask {
+                .content {
+                    overflow: scroll;
+                    scroll-snap-type: x mandatory;
+                    .--list{
+                        width: max-content;
+
+                        .--item{
+                            scroll-snap-align: left;
+                        }
+                    }
+                } 
             }
         }
     }

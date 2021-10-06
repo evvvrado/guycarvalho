@@ -9,8 +9,13 @@
     <style>
         .filters {
             margin-bottom: 22px;
-            font-size: 22px;
             cursor: default;
+            border-radius: 5px;
+            background-color: var(--principal);
+            width: 100%;
+            color: white;
+            font-size: .8125rem;
+            padding: .47rem .75rem;
         }
 
         .filters span {
@@ -23,7 +28,7 @@
         }
 
         .filters span.active {
-            color: #19a5d3;
+            color: #e5e5e5;
         }
 
         .card:not(.clinica) {
