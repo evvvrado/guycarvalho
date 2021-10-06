@@ -40,22 +40,31 @@
                             <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
                             <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
                         </div>
-                    </form>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body col-8">
-                    <h4 class="card-title mb-3">Foto do Depoimento</h4>
-                    <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable">
-                        <div class="dz-message needsclick">
-                            <div class="mb-3">
-                                <i class="display-4 text-muted bx bxs-cloud-upload"></i>
+
+
+
+                        <div class="col-12 mt-3">
+                            <div class="row">
+                                <div class="col-12 text-center d-flex align-items-center justify-content-center">
+                                    <picture
+                                        style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                        <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                            style="height: 100%;" alt="">
+                                    </picture>
+                                </div>
                             </div>
-                            <h4>Inserir imagem</h4>
+                            <div class="row mt-3">
+                                <div class="col-12 text-center">
+                                    <label class="btn btn-primary" for="banner-upload">Escolher</label>
+                                    <input name="banner" id="banner-upload" style="display: none;" type="file">
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
+
+
         </div>
 
     @endsection
@@ -68,16 +77,6 @@
         <script src="{{ asset('admin/libs/select2/js/select2.min.js') }}"></script>
         <script src="{{ asset('admin/libs/dropzone/min/dropzone.min.js') }}"></script>
         <script>
-            var inp = document.getElementById('logo-upload');
-            inp.addEventListener('change', function(e) {
-                var file = this.files[0];
-                var reader = new FileReader();
-                reader.onload = function() {
-                    document.getElementById('logo-preview').src = this.result;
-                };
-                reader.readAsDataURL(file);
-            }, false);
-
             var inp = document.getElementById('banner-upload');
             inp.addEventListener('change', function(e) {
                 var file = this.files[0];
@@ -87,6 +86,7 @@
                 };
                 reader.readAsDataURL(file);
             }, false);
+
 
             $(document).ready(function() {
                 $('#summernote').summernote({

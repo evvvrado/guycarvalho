@@ -277,17 +277,26 @@
                             <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
                         </div>
                     </form>
-                </div>
-                <div class="card-body col-12">
-                    <h4 class="card-title mb-3">Foto do Depoimento</h4>
-                    <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable">
-                        <div class="dz-message needsclick">
-                            <div class="mb-3">
-                                <i class="display-4 text-muted bx bxs-cloud-upload"></i>
+
+
+                    <h4 class="card-title my-3">Foto do depoimento</h4>
+                    <div class="col-12 mt-3">
+                        <div class="row">
+                            <div class="col-12 text-center d-flex align-items-center justify-content-center">
+                                <picture
+                                    style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                    <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                        style="height: 100%;" alt="">
+                                </picture>
                             </div>
-                            <h4>Inserir imagem</h4>
                         </div>
-                    </form>
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <label class="btn btn-primary" for="banner-upload">Escolher</label>
+                                <input name="banner" id="banner-upload" style="display: none;" type="file">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
@@ -421,24 +430,28 @@
             <div class="card imagens">
 
                 <div class="card-body row">
-                    <div class="col-3">
-                        <h4 class="card-title mb-3">Foto Principal *SEM FUNDO</h4>
-                        <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable"
-                            style="height: 600px !important; display: flex; align-items: center; justify-content: center;">
-                            <div class="dz-message needsclick">
-                                <div class="mb-3">
-                                    <i class="display-4 text-muted bx bxs-cloud-upload"></i>
-                                </div>
-                                <h4>Inserir imagem</h4>
+                    <h4 class="card-title">Foto Principal</h4>
+
+
+
+                    <div class="col-12 mt-3">
+                        <div class="row">
+
+                            <div class="col-12 text-center d-flex align-items-center justify-content-center">
+                                <picture
+                                    style="height: 464px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                    <img id="principal-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                        style="height: 100%;" alt="">
+                                </picture>
                             </div>
-
-
-                        </form>
-                        <div class="d-flex flex-wrap gap-2 mt-3">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <label class="btn btn-primary" for="principal-upload">Escolher</label>
+                                <input name="principal" id="principal-upload" style="display: none;" type="file">
+                            </div>
                         </div>
                     </div>
-
 
                     {{-- <div class="col-3">
                     <h4 class="card-title mb-3">Foto Principal *SEM FUNDO</h4>
@@ -599,6 +612,15 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="{{ asset('admin/libs/select2/js/select2.min.js') }}"></script>
     <script>
+        var inp = document.getElementById('principal-upload');
+        inp.addEventListener('change', function(e) {
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function() {
+                document.getElementById('principal-preview').src = this.result;
+            };
+            reader.readAsDataURL(file);
+        }, false);
         $('.filters span').click(function() {
             $('.card').hide();
             $(`.${$(this).data('filter')}`).show();

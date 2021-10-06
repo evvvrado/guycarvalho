@@ -124,49 +124,67 @@
                         </div>
                     </form>
                 </div>
-
-                <div class="card-body row" id="logo-upload">
+                <div class="row flex-row">
                     <div class="card-body col-2">
-                        <h4 class="card-title mb-3">Thumbnail</h4>
-                        <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable"
-                            style="max-width: 335px; height:
-                                                                                                                                                                                                                                                                                                                                                        204px;">
-                            <div class="dz-message needsclick">
-                                <div class="mb-3">
-                                    <i class="display-4 text-muted bx bxs-cloud-upload"></i>
+                        <div class="col-12 mt-3">
+                            <div class="row">
+                                <div
+                                    class="col-12 text-center d-flex align-items-center justify-content-center flex-column">
+                                    Thumbnail
+
+                                    <picture
+                                        style="height: 350px; max-width: 350px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                        <img id="thumbnail-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                            style="height: 100%;" alt="">
+                                    </picture>
                                 </div>
-                                <h4>Inserir imagem</h4>
                             </div>
+                            <div class="row mt-3">
+                                <div class="col-12 text-center">
+                                    <label class="btn btn-primary" for="thumbnail-upload">Escolher</label>
+                                    <input name="thumbnail" id="thumbnail-upload" style="display: none;" type="file">
+                                </div>
+                            </div>
+                        </div>
                         </form>
                     </div>
 
                     <div class="card-body col-8">
-                        <h4 class="card-title mb-3">Banner</h4>
-                        <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable">
-                            <div class="dz-message needsclick">
-                                <div class="mb-3">
-                                    <i class="display-4 text-muted bx bxs-cloud-upload"></i>
+                        <div class="col-12 mt-3">
+                            <div class="row">
+                                <div
+                                    class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
+                                    Banner
+                                    <picture
+                                        style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                        <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                            style="height: 100%;" alt="">
+                                    </picture>
                                 </div>
-                                <h4>Inserir imagem</h4>
                             </div>
-                        </form>
+                            <div class="row mt-3">
+                                <div class="col-12 text-center">
+                                    <label class="btn btn-primary" for="banner-upload">Escolher</label>
+                                    <input name="banner" id="banner-upload" style="display: none;" type="file">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
+
+
+            </div>
 
 
         </div>
 
 
-    </div>
 
 
 
-
-
-    <!-- end card-->
-    {{-- <div class="card">
+        <!-- end card-->
+        {{-- <div class="card">
           <div class="card-body">
              <h4 class="card-title">Meta Data</h4>
              <p class="card-title-desc">Fill all information below</p>
@@ -206,6 +224,26 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="{{ asset('admin/libs/select2/js/select2.min.js') }}"></script>
     <script>
+        var inp = document.getElementById('thumbnail-upload');
+        inp.addEventListener('change', function(e) {
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function() {
+                document.getElementById('thumbnail-preview').src = this.result;
+            };
+            reader.readAsDataURL(file);
+        }, false);
+
+        var inp = document.getElementById('banner-upload');
+        inp.addEventListener('change', function(e) {
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function() {
+                document.getElementById('banner-preview').src = this.result;
+            };
+            reader.readAsDataURL(file);
+        }, false);
+
         $(document).ready(function() {
             $('#summernote').summernote({
                 height: 600,
