@@ -242,6 +242,110 @@
     </section>
 
 
+    <section class="container-fluid s_catalogoList --livro">
+        <h2>Livros</h2>
+
+        <div class="--mask">
+
+            <div class="--buttons">
+                <div class="--before">
+                    <img src="{{ asset('/site/img/feira/catalogo/next_arrow.svg') }}" />
+                </div>
+                <div class="--next">
+                    <img src="{{ asset('/site/img/feira/catalogo/next_arrow.svg') }}" />
+                </div>
+            </div>
+
+
+            <div class="content">
+
+                <div class="--list">
+                    <div class="--item">
+                        <img src="{{ asset('/site/img/feira/catalogo/bookExample.jpg') }}" />
+                    </div>
+                    <div class="--item">
+                        <img src="{{ asset('/site/img/feira/catalogo/bookExample.jpg') }}" />
+                    </div>
+                    <div class="--item">
+                        <img src="{{ asset('/site/img/feira/catalogo/bookExample.jpg') }}" />
+                    </div>
+                    <div class="--item">
+                        <img src="{{ asset('/site/img/feira/catalogo/bookExample.jpg') }}" />
+                    </div>
+                    <div class="--item">
+                        <img src="{{ asset('/site/img/feira/catalogo/bookExample.jpg') }}" />
+                    </div>
+                    <div class="--item">
+                        <img src="{{ asset('/site/img/feira/catalogo/bookExample.jpg') }}" />
+                    </div>
+                    <div class="--item">
+                        <img src="{{ asset('/site/img/feira/catalogo/bookExample.jpg') }}" />
+                    </div>
+                    <div class="--item">
+                        <img src="{{ asset('/site/img/feira/catalogo/bookExample.jpg') }}" />
+                    </div>
+                    <div class="--item">
+                        <img src="{{ asset('/site/img/feira/catalogo/bookExample.jpg') }}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="container-fluid s_catalogoList">
+        <h2>Convênio</h2>
+
+        <div class="--mask">
+
+            <div class="--buttons">
+                <div class="--before">
+                    <img src="{{ asset('/site/img/feira/catalogo/next_arrow.svg') }}" />
+                </div>
+                <div class="--next">
+                    <img src="{{ asset('/site/img/feira/catalogo/next_arrow.svg') }}" />
+                </div>
+            </div>
+
+
+            <div class="content">
+
+                <div class="--list">
+                    <div class="--item">
+                        <img src="{{ asset('/site/img/feira/catalogo/itemExample.jpg') }}" />
+                    </div>
+                    <div class="--item">
+                        <img src="{{ asset('/site/img/feira/catalogo/itemExample.jpg') }}" />
+                    </div>
+                    <div class="--item">
+                        <img src="{{ asset('/site/img/feira/catalogo/itemExample.jpg') }}" />
+                    </div>
+                    <div class="--item">
+                        <img src="{{ asset('/site/img/feira/catalogo/itemExample.jpg') }}" />
+                    </div>
+                    <div class="--item">
+                        <img src="{{ asset('/site/img/feira/catalogo/itemExample.jpg') }}" />
+                    </div>
+                    <div class="--item">
+                        <img src="{{ asset('/site/img/feira/catalogo/itemExample.jpg') }}" />
+                    </div>
+                    <div class="--item">
+                        <img src="{{ asset('/site/img/feira/catalogo/itemExample.jpg') }}" />
+                    </div>
+                    <div class="--item">
+                        <img src="{{ asset('/site/img/feira/catalogo/itemExample.jpg') }}" />
+                    </div>
+                    <div class="--item">
+                        <img src="{{ asset('/site/img/feira/catalogo/itemExample.jpg') }}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
     @include('site.includes.publicidade')
 
 
