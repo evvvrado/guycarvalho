@@ -5,21 +5,30 @@
     <link href="{{ asset('admin/libs/select2/css/select2.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
     {{-- <link href="{{asset('admin/libs/select2/css/select2-bootstrap4.css')}}" id="app-style" rel="stylesheet" type="text/css" /> --}}
 
+
     <style>
         .filters {
-            margin-bottom: 22px;
             cursor: default;
-            border-radius: 5px;
-            background-color: var(--principal);
+            border-radius: 5px 5px 0 0;
             width: 100%;
             color: white;
             font-size: .8125rem;
-            padding: .47rem .75rem;
+            display: flex;
+            max-width: max-content;
+            /* border: solid white 1px; */
         }
 
         .filters span {
             cursor: pointer;
             transition: 0.32s;
+            padding: .84rem 1rem;
+
+            /* border: solid white 1px; */
+            border-radius: 5px 5px 0 0;
+
+            color: #495057;
+
+            font-weight: 600;
         }
 
         .filters span:hover {
@@ -27,7 +36,8 @@
         }
 
         .filters span.active {
-            color: #e5e5e5;
+            color: var(--principal);
+            background: white;
         }
 
         .card:not(.curso) {
@@ -45,8 +55,8 @@
 
 
     <div class="filters">
-        <span data-filter="curso" class="active">Curso ></span>
-        <span data-filter="modulos">Modulos ></span>
+        <span data-filter="curso" class="active">Curso</span>
+        <span data-filter="modulos">Modulos</span>
         <span data-filter="depoimentos">Depoimentos</span>
     </div>
 
@@ -126,7 +136,7 @@
                         <h4 class="card-title mb-3">Thumbnail</h4>
                         <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable"
                             style="max-width: 335px; height:
-                                                                                                                                                                                                                                                                                                                                    204px;">
+                                                                                                                                                                                                                                                                                                                                                204px;">
                             <div class="dz-message needsclick">
                                 <div class="mb-3">
                                     <i class="display-4 text-muted bx bxs-cloud-upload"></i>

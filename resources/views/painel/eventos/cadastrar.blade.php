@@ -7,21 +7,30 @@
 
 
 
+
     <style>
         .filters {
-            margin-bottom: 22px;
             cursor: default;
-            border-radius: 5px;
-            background-color: var(--principal);
+            border-radius: 5px 5px 0 0;
             width: 100%;
             color: white;
             font-size: .8125rem;
-            padding: .47rem .75rem;
+            display: flex;
+            max-width: max-content;
+            /* border: solid white 1px; */
         }
 
         .filters span {
             cursor: pointer;
             transition: 0.32s;
+            padding: .84rem 1rem;
+
+            /* border: solid white 1px; */
+            border-radius: 5px 5px 0 0;
+
+            color: #495057;
+
+            font-weight: 600;
         }
 
         .filters span:hover {
@@ -29,7 +38,8 @@
         }
 
         .filters span.active {
-            color: #e5e5e5;
+            color: var(--principal);
+            background: white;
         }
 
         .card:not(.evento) {
@@ -49,9 +59,9 @@
 
 
     <div class="filters">
-        <span data-filter="evento" class="active">Evento ></span>
-        <span data-filter="local">Local ></span>
-        <span data-filter="cursos">Cursos ></span>
+        <span data-filter="evento" class="active">Evento</span>
+        <span data-filter="local">Local</span>
+        <span data-filter="cursos">Cursos</span>
         <span data-filter="hoteis">Hoteis</span>
     </div>
 
