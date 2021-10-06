@@ -77,12 +77,13 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="valor">Valor do Curso (R$)</label>
-                                    <input id="valor" name="valor" type="number" class="form-control"
-                                        value="0" min="0" step="0.01">
+                                    <input id="valor" name="valor" type="number" class="form-control" value="0" min="0"
+                                        step="0.01">
                                 </div>
                                 <div class="mb-3">
                                     <label for="price">Total de Horas</label>
-                                    <input id="price" name="price" type="number" class="form-control" step="1" min="0" value="0">
+                                    <input id="price" name="price" type="number" class="form-control" step="1" min="0"
+                                        value="0">
                                 </div>
                                 <div class="mb-3">
                                     <label for="video">URL Do Vídeo</label>
@@ -100,12 +101,13 @@
                                     </select>
                                 </div> --}}
                                 <div class="mb-3">
-                                        <label class="control-label">Professores</label>
-                                        <select class="js-example-basic-multiple js-states form-control" multiple="multiple" name="professores[]" id="select_professores" multiple required>
-                                            <option value="" label="default"></option>
-                                            <option value="FA">Empresa 1</option>
-                                            <option value="EL">Empresa 2</option>
-                                        </select>
+                                    <label class="control-label">Professores</label>
+                                    <select class="js-example-basic-multiple js-states form-control" multiple="multiple"
+                                        name="professores[]" id="select_professores" multiple required>
+                                        <option value="" label="default"></option>
+                                        <option value="FA">Empresa 1</option>
+                                        <option value="EL">Empresa 2</option>
+                                    </select>
                                 </div>
 
 
@@ -186,83 +188,84 @@
                 </div>
 
 
-            <div class="card modulos">
-                <div class="card-body">
-                    <h4 class="card-title">Cadastro de Módulo</h4>
+                <div class="card modulos">
+                    <div class="card-body">
+                        <h4 class="card-title">Cadastro de Módulo</h4>
 
 
 
-                    <form>
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label for="productname">Nome do Módulo</label>
+                                        <input id="productname" name="productname" type="text" class="form-control"
+                                            placeholder="Insira o nome">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label for="manufacturerbrand">Descrição</label>
+                                        <textarea id="textarea" class="form-control" maxlength="107" rows="3"
+                                            placeholder="Limite de 107 Caracteres"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-body">
+                        <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        </div>
                         <div class="row">
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label for="productname">Nome do Módulo</label>
-                                    <input id="productname" name="productname" type="text" class="form-control"
-                                        placeholder="Insira o nome">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label for="manufacturerbrand">Descrição</label>
-                                    <textarea id="textarea" class="form-control" maxlength="107" rows="3"
-                                        placeholder="Limite de 107 Caracteres"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-wrap gap-2">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="card-body">
-                    <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <table id="datatable"
-                                class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
-                                role="grid" aria-describedby="datatable_info" style="width: 1185px;">
-                                <thead>
-                                    <tr role="row">
-                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
-                                            colspan="1" style="width: 68px;" aria-sort="ascending"
-                                            aria-label="Name: activate to sort column descending">Módulo</th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                            colspan="1" style="width: 70px;"
-                                            aria-label="Position: activate to sort column ascending">Descrição</th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                            colspan="1" style="width: 10px;"
-                                            aria-label="Start date: activate to sort column ascending"></th>
-                                    </tr>
-                                </thead>
+                            <div class="col-sm-12">
+                                <table id="datatable"
+                                    class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
+                                    role="grid" aria-describedby="datatable_info" style="width: 1185px;">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 68px;" aria-sort="ascending"
+                                                aria-label="Name: activate to sort column descending">Módulo</th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 70px;"
+                                                aria-label="Position: activate to sort column ascending">Descrição</th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 10px;"
+                                                aria-label="Start date: activate to sort column ascending"></th>
+                                        </tr>
+                                    </thead>
 
 
-                                <tbody>
-                                    <tr class="odd">
-                                        <td class="sorting_1 dtr-control">Módulo 01</td>
-                                        <td>Meu nome é Everaldo e eu moro em alfenas mas queria estar
-                                            morando em alfenas onde posso comprar todos os alfenas de toda alfenas</td>
-                                        <td>
-                                            <div class="btn-group edit-table-button ">
-                                                <button type="button" class="btn btn-info dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"
-                                                    style="height: 34px!important;"><i class="bx bx-edit"></i></button>
-                                                <div class="dropdown-menu" style="margin: 0px;">
-                                                    <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                    <tbody>
+                                        <tr class="odd">
+                                            <td class="sorting_1 dtr-control">Módulo 01</td>
+                                            <td>Meu nome é Everaldo e eu moro em alfenas mas queria estar
+                                                morando em alfenas onde posso comprar todos os alfenas de toda alfenas</td>
+                                            <td>
+                                                <div class="btn-group edit-table-button ">
+                                                    <button type="button" class="btn btn-info dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style="height: 34px!important;"><i
+                                                            class="bx bx-edit"></i></button>
+                                                    <div class="dropdown-menu" style="margin: 0px;">
+                                                        <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
+
+
+
                 </div>
-
-
-
-            </div>
 
             </div>
 
@@ -342,6 +345,9 @@
             $('#select_tag').select2({});
 
             $('#select_professores').select2({});
+
+
+            $('.select2-selection.select2-selection--multiple').addClass('form-control');
         });
 
 
