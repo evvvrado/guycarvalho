@@ -27,6 +27,11 @@ class CreateNoticiasTable extends Migration
             $table->string('slug', 100);
             $table->text('conteudo');
             $table->unsignedInteger('visualizacoes')->default(0);
+
+            // 0 => Notícia
+            // 1 => Artigo
+            $table->tinyInteger('tipo')->default(0);
+            
             $table->boolean("destaque")->default(false);
             $table->boolean("publicada")->default(false);
             $table->date("publicacao")->nullable();

@@ -54,6 +54,12 @@
 @section('conteudo')
 
 
+    <div class="filters">
+        <span data-filter="curso" class="active">Curso</span>
+        <span data-filter="modulos">Modulos</span>
+        <span data-filter="depoimentos">Depoimentos</span>
+    </div>
+
 
     @include('painel.includes.errors')
     <div class="row">
@@ -130,7 +136,7 @@
                         <h4 class="card-title mb-3">Thumbnail</h4>
                         <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable"
                             style="max-width: 335px; height:
-                                                                                                                                                                                                                                                                                                                                                        204px;">
+                                                                                                                                                                                                                                                                                                                                                204px;">
                             <div class="dz-message needsclick">
                                 <div class="mb-3">
                                     <i class="display-4 text-muted bx bxs-cloud-upload"></i>
@@ -155,9 +161,177 @@
             </div>
 
 
+            <div class="card modulos">
+                <div class="card-body">
+                    <h4 class="card-title">Cadastro de Módulo</h4>
+
+
+
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label for="productname">Nome do Módulo</label>
+                                    <input id="productname" name="productname" type="text" class="form-control"
+                                        placeholder="Insira o nome">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label for="manufacturerbrand">Descrição</label>
+                                    <textarea id="textarea" class="form-control" maxlength="107" rows="3"
+                                        placeholder="Limite de 107 Caracteres"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-body">
+                    <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="datatable"
+                                class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
+                                role="grid" aria-describedby="datatable_info" style="width: 1185px;">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 68px;" aria-sort="ascending"
+                                            aria-label="Name: activate to sort column descending">Módulo</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 70px;"
+                                            aria-label="Position: activate to sort column ascending">Descrição</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 10px;"
+                                            aria-label="Start date: activate to sort column ascending"></th>
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+                                    <tr class="odd">
+                                        <td class="sorting_1 dtr-control">Módulo 01</td>
+                                        <td>Meu nome é Everaldo e eu moro em alfenas mas queria estar
+                                            morando em alfenas onde posso comprar todos os alfenas de toda alfenas</td>
+                                        <td>
+                                            <div class="btn-group edit-table-button ">
+                                                <button type="button" class="btn btn-info dropdown-toggle"
+                                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                                    style="height: 34px!important;"><i class="bx bx-edit"></i></button>
+                                                <div class="dropdown-menu" style="margin: 0px;">
+                                                    <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
 
         </div>
 
+
+
+
+        <div class="card depoimentos">
+            <div class="card-body">
+                <h4 class="card-title">Cadastro de Depoimento <i> *Máximo de 4</i></h4>
+
+
+
+                <form>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="productname">Nome</label>
+                                <input id="productname" name="productname" type="text" class="form-control"
+                                    placeholder="Insira o nome">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="manufacturerbrand">Depoimento</label>
+                                <textarea id="textarea" class="form-control" maxlength="107" rows="3"
+                                    placeholder="Limite de 107 Caracteres"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-body col-12">
+                <h4 class="card-title mb-3">Foto do Depoimento</h4>
+                <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable">
+                    <div class="dz-message needsclick">
+                        <div class="mb-3">
+                            <i class="display-4 text-muted bx bxs-cloud-upload"></i>
+                        </div>
+                        <h4>Inserir imagem</h4>
+                    </div>
+                </form>
+            </div>
+            <div class="card-body">
+                <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="datatable"
+                            class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
+                            role="grid" aria-describedby="datatable_info" style="width: 1185px;">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                                        colspan="1" style="width: 68px;" aria-sort="ascending"
+                                        aria-label="Name: activate to sort column descending">Nome</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                        colspan="1" style="width: 70px;"
+                                        aria-label="Position: activate to sort column ascending">Depoimento</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                        colspan="1" style="width: 10px;"
+                                        aria-label="Start date: activate to sort column ascending"></th>
+                                </tr>
+                            </thead>
+
+
+                            <tbody>
+                                <tr class="odd">
+                                    <td class="sorting_1 dtr-control">Everaldo Júnior</td>
+                                    <td>Meu nome é Everaldo e eu moro em alfenas mas queria estar
+                                        morando em alfenas onde posso comprar todos os alfenas de toda alfenas</td>
+                                    <td>
+                                        <div class="btn-group edit-table-button ">
+                                            <button type="button" class="btn btn-info dropdown-toggle"
+                                                data-bs-toggle="dropdown" aria-expanded="false"
+                                                style="height: 34px!important;"><i class="bx bx-edit"></i></button>
+                                            <div class="dropdown-menu" style="margin: 0px;">
+                                                <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
 
     </div>
 
