@@ -56,8 +56,8 @@
 
     <div class="filters">
         <span data-filter="curso" class="active">Curso</span>
-        <span data-filter="modulos">Modulos</span>
-        <span data-filter="depoimentos">Depoimentos</span>
+        {{-- <span data-filter="modulos">Modulos</span>
+        <span data-filter="depoimentos">Depoimentos</span> --}}
     </div>
 
 
@@ -72,33 +72,40 @@
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="productname">Nome</label>
-                                    <input id="productname" name="productname" type="text" class="form-control"
+                                    <input id="productname" name="nome" type="text" class="form-control"
                                         placeholder="Insira o nome">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="price">Valor do Curso</label>
-                                    <input id="price" name="price" type="tel" class="form-control"
-                                        placeholder="Insira o valor">
+                                    <label for="valor">Valor do Curso (R$)</label>
+                                    <input id="valor" name="valor" type="number" class="form-control"
+                                        value="0" min="0" step="0.01">
                                 </div>
                                 <div class="mb-3">
                                     <label for="price">Total de Horas</label>
-                                    <input id="price" name="price" type="tel" class="form-control"
-                                        placeholder="Insira o total">
+                                    <input id="price" name="price" type="number" class="form-control" step="1" min="0" value="0">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="price">URL Do Vídeo</label>
-                                    <input id="price" name="price" type="tel" class="form-control"
-                                        placeholder="youtu.be/linkdovideo">
+                                    <label for="video">URL Do Vídeo</label>
+                                    <input id="video" name="video" type="text" class="form-control"
+                                        placeholder="youtu.be/linkdovideo" maxlength="255">
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                     <label class="control-label">Professores</label>
                                     <select class="form-control">
                                         <option data-select2-id="3">Selecione os Professore</option>
                                         <option value="FA">Empresa 1</option>
                                         <option value="EL">Empresa 2</option>
                                     </select>
+                                </div> --}}
+                                <div class="mb-3">
+                                        <label class="control-label">Professores</label>
+                                        <select class="js-example-basic-multiple js-states form-control" multiple="multiple" name="professores[]" id="select_professores" multiple required>
+                                            <option value="" label="default"></option>
+                                            <option value="FA">Empresa 1</option>
+                                            <option value="EL">Empresa 2</option>
+                                        </select>
                                 </div>
 
 
@@ -334,7 +341,7 @@
 
             $('#select_tag').select2({});
 
-            $('#select_hashtag').select2({});
+            $('#select_professores').select2({});
         });
 
 

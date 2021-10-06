@@ -16,6 +16,7 @@ class CreateCursosTable extends Migration
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
             $table->string("nome")->nullable();
+            $table->string("video")->nullable();
             $table->tinyInteger("tipo")->default(0);
             $table->tinyInteger("total_horas")->default(0);
             $table->boolean("certificacao")->default(false);
