@@ -279,6 +279,7 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                                 <li><a href="{{ route('painel.eventos') }}" key="t-default">Eventos</a></li>
                                 <li><a href="{{ route('painel.clinicas') }}" key="t-default">Clínicas</a></li>
                                 <li><a href="{{ route('painel.cursos') }}" key="t-default">Cursos</a></li>
+                                <li><a href="javascript: void(0)" key="t-default">Alunos</a></li>
                                 <li><a href="{{ route('painel.professores') }}" key="t-default">Professores</a></li>
                             </ul>
 
@@ -363,7 +364,7 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
 
 
                         <li>
-                            <a href="{{ route('painel.mapa') }}"" class="  waves-effect">
+                            <a href="{{ route('painel.mapa') }}"" class="   waves-effect">
                                 <i class="bx bx-map-alt" aria-hidden="true"></i>
                                 <span key="t-dashboards">Mapa do Site</span>
                             </a>
