@@ -55,8 +55,8 @@
 
 
     <div class="filters">
-        <span data-filter="curso" class="active">Curso</span>
-        <span data-filter="modulos">Modulos</span>
+        <span data-filter="curso" @if(!session()->get("aba")) class="active" @endif>Curso</span>
+        <span data-filter="modulos" @if(session()->get("aba") && session()->get("aba") == "modulo") class="active" @endif>Modulos</span>
         <span data-filter="depoimentos">Depoimentos</span>
     </div>
 
@@ -180,26 +180,26 @@
                 </div>
             </div>
 
-
             <div class="card modulos">
                 <div class="card-body">
                     <h4 class="card-title">Cadastro de Módulo</h4>
 
 
 
-                    <form>
+                    <form action="{{route('painel.cursos.modulo.salvar', ['curso' => $curso])}}" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label for="productname">Nome do Módulo</label>
-                                    <input id="productname" name="productname" type="text" class="form-control"
-                                        placeholder="Insira o nome">
+                                    <label for="nome">Nome do Módulo</label>
+                                    <input id="nome" name="nome" type="text" class="form-control"
+                                        placeholder="Insira o nome" maxlength="255">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label for="manufacturerbrand">Descrição</label>
-                                    <textarea id="textarea" class="form-control" maxlength="107" rows="3"
+                                    <label for="descricao">Descrição</label>
+                                    <textarea id="textarea" name="descricao" class="form-control" maxlength="107" rows="3"
                                         placeholder="Limite de 107 Caracteres"></textarea>
                                 </div>
                             </div>
@@ -233,8 +233,107 @@
 
 
                                 <tbody>
+                                    @foreach($curso->modulos as $modulo)
+                                        <tr class="odd">
+                                            <td class="sorting_1 dtr-control">{{$modulo->nome}}</td>
+                                            <td>{!! $modulo->descricao !!}</td>
+                                            <td>
+                                                <div class="btn-group edit-table-button ">
+                                                    <button type="button" class="btn btn-info dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style="height: 34px!important;"><i class="bx bx-edit"></i></button>
+                                                    <div class="dropdown-menu" style="margin: 0px;">
+                                                        <a class="dropdown-item" href="{{route('painel.cursos.modulo.deletar', ['modulo' => $modulo])}}" style="color: red" href="#">Excluir</a>
+                                                    </div>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="card depoimentos">
+                <div class="card-body">
+                    <h4 class="card-title">Cadastro de Depoimento <i> *Máximo de 4</i></h4>
+    
+    
+    
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label for="productname">Nome</label>
+                                    <input id="productname" name="productname" type="text" class="form-control"
+                                        placeholder="Insira o nome">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label for="manufacturerbrand">Depoimento</label>
+                                    <textarea id="textarea" class="form-control" maxlength="107" rows="3"
+                                        placeholder="Limite de 107 Caracteres"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
+                        </div>
+                    </form>
+    
+                    <h4 class="card-title my-3">Foto do depoimento</h4>
+                    <div class="col-12 mt-3">
+                        <div class="row">
+                            <div class="col-12 text-center d-flex align-items-center justify-content-center">
+                                <picture
+                                    style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                    <img id="depoimento-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                        style="height: 100%;" alt="">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <label class="btn btn-primary" for="depoimento-upload">Escolher</label>
+                                <input name="depoimento" id="depoimento-upload" style="display: none;" type="file">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="card-body">
+                    <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="datatable"
+                                class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
+                                role="grid" aria-describedby="datatable_info" style="width: 1185px;">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 68px;" aria-sort="ascending"
+                                            aria-label="Name: activate to sort column descending">Nome</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 70px;"
+                                            aria-label="Position: activate to sort column ascending">Depoimento</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 10px;"
+                                            aria-label="Start date: activate to sort column ascending"></th>
+                                    </tr>
+                                </thead>
+    
+    
+                                <tbody>
                                     <tr class="odd">
-                                        <td class="sorting_1 dtr-control">Módulo 01</td>
+                                        <td class="sorting_1 dtr-control">Everaldo Júnior</td>
                                         <td>Meu nome é Everaldo e eu moro em alfenas mas queria estar
                                             morando em alfenas onde posso comprar todos os alfenas de toda alfenas</td>
                                         <td>
@@ -246,7 +345,7 @@
                                                     <a class="dropdown-item" style="color: red" href="#">Excluir</a>
                                                 </div>
                                             </div>
-
+    
                                         </td>
                                     </tr>
                                 </tbody>
@@ -254,114 +353,11 @@
                         </div>
                     </div>
                 </div>
-
-
-
+    
+    
+    
             </div>
-
         </div>
-
-
-
-
-        <div class="card depoimentos">
-            <div class="card-body">
-                <h4 class="card-title">Cadastro de Depoimento <i> *Máximo de 4</i></h4>
-
-
-
-                <form>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="mb-3">
-                                <label for="productname">Nome</label>
-                                <input id="productname" name="productname" type="text" class="form-control"
-                                    placeholder="Insira o nome">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="mb-3">
-                                <label for="manufacturerbrand">Depoimento</label>
-                                <textarea id="textarea" class="form-control" maxlength="107" rows="3"
-                                    placeholder="Limite de 107 Caracteres"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-wrap gap-2">
-                        <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
-                    </div>
-                </form>
-
-                <h4 class="card-title my-3">Foto do depoimento</h4>
-                <div class="col-12 mt-3">
-                    <div class="row">
-                        <div class="col-12 text-center d-flex align-items-center justify-content-center">
-                            <picture
-                                style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                <img id="depoimento-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
-                                    style="height: 100%;" alt="">
-                            </picture>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-12 text-center">
-                            <label class="btn btn-primary" for="depoimento-upload">Escolher</label>
-                            <input name="depoimento" id="depoimento-upload" style="display: none;" type="file">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-body">
-                <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <table id="datatable"
-                            class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
-                            role="grid" aria-describedby="datatable_info" style="width: 1185px;">
-                            <thead>
-                                <tr role="row">
-                                    <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
-                                        colspan="1" style="width: 68px;" aria-sort="ascending"
-                                        aria-label="Name: activate to sort column descending">Nome</th>
-                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                        colspan="1" style="width: 70px;"
-                                        aria-label="Position: activate to sort column ascending">Depoimento</th>
-                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                        colspan="1" style="width: 10px;"
-                                        aria-label="Start date: activate to sort column ascending"></th>
-                                </tr>
-                            </thead>
-
-
-                            <tbody>
-                                <tr class="odd">
-                                    <td class="sorting_1 dtr-control">Everaldo Júnior</td>
-                                    <td>Meu nome é Everaldo e eu moro em alfenas mas queria estar
-                                        morando em alfenas onde posso comprar todos os alfenas de toda alfenas</td>
-                                    <td>
-                                        <div class="btn-group edit-table-button ">
-                                            <button type="button" class="btn btn-info dropdown-toggle"
-                                                data-bs-toggle="dropdown" aria-expanded="false"
-                                                style="height: 34px!important;"><i class="bx bx-edit"></i></button>
-                                            <div class="dropdown-menu" style="margin: 0px;">
-                                                <a class="dropdown-item" style="color: red" href="#">Excluir</a>
-                                            </div>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-
-
-        </div>
-
     </div>
 
 

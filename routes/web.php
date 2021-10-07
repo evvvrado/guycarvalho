@@ -259,7 +259,8 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::get('/sistema/cursos/cadastrar', [\App\Http\Controllers\CursosController::class, 'cadastrar'])->name("painel.cursos.cadastrar");
         Route::post('/sistema/cursos/salvar', [\App\Http\Controllers\CursosController::class, 'salvar'])->name("painel.cursos.salvar");
         Route::get('/sistema/cursos/editar/{curso}', [\App\Http\Controllers\CursosController::class, 'editar'])->name("painel.cursos.editar");
-
+        Route::post('/sistema/cursos/{curso}/modulo/salvar', [\App\Http\Controllers\ModulosController::class, 'salvar'])->name("painel.cursos.modulo.salvar");
+        Route::get('/sistema/cursos/modulo/deletar/{modulo}', [\App\Http\Controllers\ModulosController::class, 'deletar'])->name("painel.cursos.modulo.deletar");
         
         // ROTAS DE CLINICAS
         Route::get('/sistema/clinicas', [\App\Http\Controllers\ClinicaController::class, 'consultar'])->name("painel.clinicas");

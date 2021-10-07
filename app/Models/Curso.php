@@ -12,4 +12,8 @@ class Curso extends Model
     public function professores(){
         return $this->belongsToMany(Professor::class, 'curso_professors');
     }
+
+    public function modulos(){
+        return $this->hasMany(Modulo::class);
+    }
 }
