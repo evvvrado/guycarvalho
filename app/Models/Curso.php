@@ -16,4 +16,8 @@ class Curso extends Model
     public function modulos(){
         return $this->hasMany(Modulo::class);
     }
+
+    public function depoimentos(){
+        return $this->hasMany(CursoDepoimento::class);
+    }
 }

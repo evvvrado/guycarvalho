@@ -266,46 +266,48 @@
     
     
     
-                    <form>
+                    <form action="{{route('painel.cursos.depoimento.salvar', ['curso' => $curso])}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label for="productname">Nome</label>
-                                    <input id="productname" name="productname" type="text" class="form-control"
+                                    <label for="nome">Nome</label>
+                                    <input id="nome" name="nome" type="text" class="form-control"
                                         placeholder="Insira o nome">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label for="manufacturerbrand">Depoimento</label>
-                                    <textarea id="textarea" class="form-control" maxlength="107" rows="3"
+                                    <label for="depoimento">Depoimento</label>
+                                    <textarea id="textarea" name="depoimento" class="form-control" maxlength="107" rows="3"
                                         placeholder="Limite de 107 Caracteres"></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="d-flex flex-wrap gap-2">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
+                            <button type="submit" class="btn btn-primary waves-effect waves-light" @if($curso->depoimentos->count() == 4) disabled @endif>Adicionar</button>
+                            <small class="mt-2" style="color:red;">Este curso já possui 4 depoimentos. Exclua algum para cadastrar um novo.</small>
+                        </div>
+                        <h4 class="card-title my-3">Foto do depoimento</h4>
+                        <div class="col-12 mt-3">
+                            <div class="row">
+                                <div class="col-12 text-center d-flex align-items-center justify-content-center">
+                                    <picture
+                                        style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                        <img id="depoimento-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                            style="height: 100%;" alt="">
+                                    </picture>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-3">
+                                <div class="col-12 text-center">
+                                    <label class="btn btn-primary" for="depoimento-upload">Escolher</label>
+                                    <input name="foto" id="depoimento-upload" style="display: none;" type="file">
+                                </div>
+                            </div>
                         </div>
                     </form>
-    
-                    <h4 class="card-title my-3">Foto do depoimento</h4>
-                    <div class="col-12 mt-3">
-                        <div class="row">
-                            <div class="col-12 text-center d-flex align-items-center justify-content-center">
-                                <picture
-                                    style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                    <img id="depoimento-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
-                                        style="height: 100%;" alt="">
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12 text-center">
-                                <label class="btn btn-primary" for="depoimento-upload">Escolher</label>
-                                <input name="depoimento" id="depoimento-upload" style="display: none;" type="file">
-                            </div>
-                        </div>
-                    </div>
                 </div>
     
                 <div class="card-body">
@@ -332,22 +334,23 @@
     
     
                                 <tbody>
-                                    <tr class="odd">
-                                        <td class="sorting_1 dtr-control">Everaldo Júnior</td>
-                                        <td>Meu nome é Everaldo e eu moro em alfenas mas queria estar
-                                            morando em alfenas onde posso comprar todos os alfenas de toda alfenas</td>
-                                        <td>
-                                            <div class="btn-group edit-table-button ">
-                                                <button type="button" class="btn btn-info dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"
-                                                    style="height: 34px!important;"><i class="bx bx-edit"></i></button>
-                                                <div class="dropdown-menu" style="margin: 0px;">
-                                                    <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                    @foreach($curso->depoimentos as $depoimento)
+                                        <tr class="odd">
+                                            <td class="sorting_1 dtr-control">{{$depoimento->nome}}</td>
+                                            <td>{!! $depoimento->depoimento !!}</td>
+                                            <td>
+                                                <div class="btn-group edit-table-button ">
+                                                    <button type="button" class="btn btn-info dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style="height: 34px!important;"><i class="bx bx-edit"></i></button>
+                                                    <div class="dropdown-menu" style="margin: 0px;">
+                                                        <a class="dropdown-item" href="{{route('painel.cursos.depoimento.deletar', ['depoimento' => $depoimento])}}" style="color: red" href="#">Excluir</a>
+                                                    </div>
                                                 </div>
-                                            </div>
-    
-                                        </td>
-                                    </tr>
+        
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
