@@ -35,7 +35,7 @@
                         ">
                     <div class="auth-full-bg pt-lg-5 p-4">
                         <div class="w-100">
-                            <div class="bg-overlay"></div>
+                            {{-- <div class="bg-overlay"></div> --}}
                             <div class="d-flex h-100 flex-column">
                                 <div class="p-4 mt-auto">
                                     <div class="row justify-content-center">
@@ -58,6 +58,7 @@
                                         <img src="{{ asset('site/imagens/logo.png') }}" alt="" width="200"
                                             class="mx-auto auth-logo-light" />
                                     </a>
+                                    '
                                 </div>
                                 <div class="my-auto login-box">
                                     <div>
@@ -168,19 +169,21 @@
                                         <h5>Registrar conta</h5>
                                     </div>
                                     <div class="mt-4">
-                                        <form novalidate="" action="{{route('site.aluno.cadastrar')}}" method="post" class="form-horizontal av-invalid">
+                                        <form novalidate="" action="{{ route('site.aluno.cadastrar') }}" method="post"
+                                            class="form-horizontal av-invalid">
                                             @csrf
                                             <div class="mb-3">
                                                 <div class="form-group"><label for="nome"
                                                         class="">Nome</label>
-                                                        <input name="nome" placeholder="Digide seu nome" required="" id="nome"
+                                                        <input name="
+                                                        nome" placeholder="Digide seu nome" required="" id="nome"
                                                         type="text"
                                                         class="form-control is-untouched is-pristine av-invalid form-control"
                                                         value=""></div>
                                             </div>
                                             <div class="mb-3">
                                                 <div class="form-group"><label for="email"
-                                                        class="">E-mail</label><input name="email"
+                                                        class="">E-mail</label><input name=" email"
                                                         placeholder="Digite seu email" required="" id="emailregister"
                                                         type="email"
                                                         class="form-control is-untouched is-pristine av-invalid form-control"
@@ -192,7 +195,8 @@
                                                         class="">
                                                         Telefone
                                                         </label>
-                                                        <input name="telefone" placeholder="Digite seu telefone" required=""
+                                                        <input name="
+                                                        telefone" placeholder="Digite seu telefone" required=""
                                                         id="telefone" type="tel"
                                                         class="form-control is-untouched is-pristine av-invalid form-control"
                                                         value="">
@@ -200,14 +204,14 @@
                                             </div>
                                             <div class="mb-3">
                                                 <div class="form-group"><label for="email"
-                                                        class="">CPF</label><input name="cpf"
+                                                        class="">CPF</label><input name=" cpf"
                                                         placeholder="Digite seu cpf" required="" id="cpf" type="cpf"
                                                         class="form-control is-untouched is-pristine av-invalid form-control"
                                                         value=""></div>
                                             </div>
                                             <div class="mb-3">
                                                 <div class="form-group"><label for="password"
-                                                        class="">Senha</label><input name="senha"
+                                                        class="">Senha</label><input name=" senha"
                                                         placeholder="Digite sua senha" required="" id="senha"
                                                         type="password"
                                                         class="form-control is-untouched is-pristine av-invalid form-control"
@@ -336,6 +340,46 @@
         </div>
         <!-- end container-fluid -->
     </div>
+
+
+
+
+    @if (session()->get('erro'))
+        <div class="modal fade" id="modalErro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" style="width: 100%; max-width: 500px;" role="document">
+                <div class="modal-content" style="padding: 0px 0 30px 0; border-radius: 20px;">
+
+                    <div class="modal-body px-5 py-0">
+                        <button type="button" id="close-modal" class="close cpointer" data-dismiss="modal"
+                            aria-label="Close" style="position: absolute; top: 10px; right: 10px; z-index: 22;">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="mt-5">
+                            <div class="row mt-3">
+                                <div class="col-12 text-center">
+                                    <img src="{{ asset('site/img/icone_erro.png') }}"
+                                        style="width: 100px; margin: auto auto;" alt="Ícone de Cadastro">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center modal-erro-text">
+                                    <h1>Ops !</h1>
+                                </div>
+                            </div>
+                            <div class="row mt-5 mb-4">
+                                <div class="col-12 text-center modal-erro-text">
+                                    <h2>{{ session()->get('erro') }}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
+
     <!-- JAVASCRIPT -->
     <script src="{{ asset('admin/libs/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('admin/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
