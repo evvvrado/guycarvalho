@@ -47,7 +47,7 @@
 @endsection
 
 @section('titulo')
-    Projeto / <a style="color: unset" href="{{ route('painel.professores') }}">Professores</a> / Hotsite
+    Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Expositores</a> / Hotsite
 @endsection
 
 
@@ -59,8 +59,9 @@
         {{-- <span data-filter="cursos">Cursos</span> --}}
         <span data-filter="textos">Textos</span>
         <span data-filter="imagens">Imagens</span>
-        <span data-filter="depoimentos">Depoimento</span>
-        <span data-filter="depoimentosVideo">Depoimento em vídeo</span>
+        <span data-filter="depoimentos">Parceiros</span>
+        <span data-filter="galerias">Galerias</span>
+        {{-- <span data-filter="depoimentosVideo">Depoimento em vídeo</span> --}}
         <span data-filter="duvidas">Duvidas</span>
     </div>
 
@@ -75,14 +76,26 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label for="productname">Nome Visível</label>
-                                    <input id="productname" name="productname" type="text" placeholder="Insira o Nome"
+                                    <label for="productname">Slogan</label>
+                                    <input id="productname" name="productname" type="text" placeholder="Insira o Slogan"
                                         class="form-control">
                                 </div>
                                 <div class="mb-3">
                                     <label for="price">Telefone</label>
                                     <input class="form-control" type="tel" placeholder="Insira o telefone"
                                         id="example-tel-input">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="manufacturername">Slug</label>
+                                    <input class="form-control" type="url" placeholder="Insira o SLUG que ira pra URL"
+                                        id="example-url-input">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="manufacturername">Cor de destaque</label>
+                                    <input class="form-control" type="url" placeholder="Insira o SLUG que ira pra URL"
+                                        id="example-url-input">
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -96,15 +109,17 @@
                                     <input class="form-control" type="email" placeholder="Insira o e-mail"
                                         id="example-email-input">
                                 </div>
-                            </div>
-                            <div class="col-12 mb-3">
-                                <label for="manufacturername">Video Principal</label>
-                                <input class="form-control" type="url" placeholder="Insira a URL" id="example-url-input">
-                            </div>
-                            <div class="col-12 mb-3">
-                                <label for="">Sobre</label>
-                                <textarea class="form-control" name="resumo" style="min-height: 200px!important;"
-                                    rows="6"></textarea>
+                                <div class="mb-3">
+                                    <label for="manufacturername">Endereço</label>
+                                    <input id="endereco" name="endereco" type="text" placeholder="Insira o endereço"
+                                        class="form-control">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="manufacturername">Cor de Fundo</label>
+                                    <input class="form-control" type="url" placeholder="Insira o SLUG que ira pra URL"
+                                        id="example-url-input">
+                                </div>
                             </div>
                             <div class="d-flex flex-wrap gap-2">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
@@ -117,82 +132,82 @@
 
 
             {{-- <div class="card cursos">
-            <div class="card-body">
-                <h4 class="card-title">Cursos Vinculados</h4>
+                <div class="card-body">
+                    <h4 class="card-title">Cursos Vinculados</h4>
 
 
 
-                <form>
+                    <form>
+                        <div class="row">
+                            <div class="mb-3">
+                                <label class="control-label">Selecionar Curso</label>
+                                <select class="form-control">
+                                    <option data-select2-id="3">Selecionar Curso</option>
+                                    <option value="FA">Curso 1</option>
+                                    <option value="EL">Curso 2</option>
+                                    <option value="EL">Curso 3</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="manufacturername">Data de Exibição</label>
+                                <input class="form-control" type="date" id="example-date-input">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-body">
+                    <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                    </div>
                     <div class="row">
-                        <div class="mb-3">
-                            <label class="control-label">Selecionar Curso</label>
-                            <select class="form-control">
-                                <option data-select2-id="3">Selecionar Curso</option>
-                                <option value="FA">Curso 1</option>
-                                <option value="EL">Curso 2</option>
-                                <option value="EL">Curso 3</option>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="manufacturername">Data de Exibição</label>
-                            <input class="form-control" type="date" id="example-date-input">
-                        </div>
-                    </div>
-                    <div class="d-flex flex-wrap gap-2">
-                        <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
-                    </div>
-                </form>
-            </div>
-            <div class="card-body">
-                <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <table id="datatable"
-                            class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
-                            role="grid" aria-describedby="datatable_info" style="width: 1185px;">
-                            <thead>
-                                <tr role="row">
-                                    <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
-                                        colspan="1" style="width: 68px;" aria-sort="ascending"
-                                        aria-label="Name: activate to sort column descending">Curso</th>
-                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                        colspan="1" style="width: 70px;"
-                                        aria-label="Position: activate to sort column ascending">Data</th>
-                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                        colspan="1" style="width: 10px;"
-                                        aria-label="Start date: activate to sort column ascending"></th>
-                                </tr>
-                            </thead>
+                        <div class="col-sm-12">
+                            <table id="datatable"
+                                class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
+                                role="grid" aria-describedby="datatable_info" style="width: 1185px;">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 68px;" aria-sort="ascending"
+                                            aria-label="Name: activate to sort column descending">Curso</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 70px;"
+                                            aria-label="Position: activate to sort column ascending">Data</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 10px;"
+                                            aria-label="Start date: activate to sort column ascending"></th>
+                                    </tr>
+                                </thead>
 
 
-                            <tbody>
-                                <tr class="odd">
-                                    <td class="sorting_1 dtr-control">Curso 01</td>
-                                    <td>31/02/2022</td>
-                                    <td>
-                                        <div class="btn-group edit-table-button ">
-                                            <button type="button" class="btn btn-info dropdown-toggle"
-                                                data-bs-toggle="dropdown" aria-expanded="false"
-                                                style="height: 34px!important;"><i class="bx bx-edit"></i></button>
-                                            <div class="dropdown-menu" style="margin: 0px;">
-                                                <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                <tbody>
+                                    <tr class="odd">
+                                        <td class="sorting_1 dtr-control">Curso 01</td>
+                                        <td>31/02/2022</td>
+                                        <td>
+                                            <div class="btn-group edit-table-button ">
+                                                <button type="button" class="btn btn-info dropdown-toggle"
+                                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                                    style="height: 34px!important;"><i class="bx bx-edit"></i></button>
+                                                <div class="dropdown-menu" style="margin: 0px;">
+                                                    <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+
+
+
                 </div>
 
-
-
-            </div>
-
-        </div> --}}
+            </div> --}}
 
 
             <div class="card textos">
@@ -202,40 +217,40 @@
                         <div class="row">
                             <div class="mb-3">
                                 <label for="productname">Sessão 1</label>
-                                <input id="productname" name="productname" type="text" placeholder="Título da Sessão"
+                                <input id="productname" name="productname" type="text" placeholder="Texto inicial"
                                     class="form-control">
                             </div>
                             <div class="col-12 mb-3">
-                                <textarea class="form-control" name="resumo" placeholder="Paragrafo da Sesão"
+                                <textarea class="form-control" name="resumo" placeholder="Paragrafo da Sessão"
                                     style="min-height: 200px!important;" rows="6"></textarea>
                             </div>
                         </div>
 
 
                         <div class="row">
-                            <div class="mb-3">
-                                <label for="productname">Sessão 2</label>
-                                <input id="productname" name="productname" type="text" placeholder="Título da Sessão"
-                                    class="form-control">
+                            <div class="col-6">
+
+                                <div class="mb-3">
+                                    <label for="productname">Coluna 01</label>
+                                    <input id="productname" name="productname" type="text" placeholder="Título da Coluna"
+                                        class="form-control">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <textarea class="form-control" name="resumo" placeholder="Paragrafo da Coluna"
+                                        style="min-height: 200px!important;" rows="6"></textarea>
+                                </div>
                             </div>
-                            <div class="col-12 mb-3">
-                                <textarea class="form-control" name="resumo" placeholder="Paragrafo da Sesão"
-                                    style="min-height: 200px!important;" rows="6"></textarea>
-                            </div>
-                        </div>
+                            <div class="col-6">
 
-
-
-
-                        <div class="row">
-                            <div class="mb-3">
-                                <label for="productname">Sessão 3</label>
-                                <input id="productname" name="productname" type="text" placeholder="Título da Sessão"
-                                    class="form-control">
-                            </div>
-                            <div class="col-12 mb-3">
-                                <textarea class="form-control" name="resumo" placeholder="Paragrafo da Sesão"
-                                    style="min-height: 200px!important;" rows="6"></textarea>
+                                <div class="mb-3">
+                                    <label for="productname">Coluna 02</label>
+                                    <input id="productname" name="productname" type="text" placeholder="Título da Coluna"
+                                        class="form-control">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <textarea class="form-control" name="resumo" placeholder="Paragrafo da Coluna"
+                                        style="min-height: 200px!important;" rows="6"></textarea>
+                                </div>
                             </div>
                         </div>
 
@@ -252,7 +267,7 @@
 
             <div class="card depoimentos">
                 <div class="card-body">
-                    <h4 class="card-title">Cadastro de Depoimento <i> *Máximo de 4</i></h4>
+                    <h4 class="card-title">Cadastro de Parceiros</h4>
 
 
 
@@ -267,9 +282,9 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label for="manufacturerbrand">Depoimento</label>
-                                    <textarea id="textarea" class="form-control" maxlength="107" rows="3"
-                                        placeholder="Limite de 107 Caracteres"></textarea>
+                                    <label for="manufacturerbrand">URL</label>
+                                    <input class="form-control" type="url" placeholder="Insira a URL"
+                                        id="example-url-input">
                                 </div>
                             </div>
                         </div>
@@ -279,21 +294,21 @@
                     </form>
 
 
-                    <h4 class="card-title my-3">Foto do depoimento</h4>
+                    <h4 class="card-title my-3">Logo do Parceiro</h4>
                     <div class="col-12 mt-3">
                         <div class="row">
                             <div class="col-12 text-center d-flex align-items-center justify-content-center">
                                 <picture
                                     style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                    <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                    <img id="parceiro-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
                                         style="height: 100%;" alt="">
                                 </picture>
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-12 text-center">
-                                <label class="btn btn-primary" for="banner-upload">Escolher</label>
-                                <input name="banner" id="banner-upload" style="display: none;" type="file">
+                                <label class="btn btn-primary" for="parceiro-upload">Escolher</label>
+                                <input name="parceiro" id="parceiro-upload" style="display: none;" type="file">
                             </div>
                         </div>
                     </div>
@@ -349,7 +364,169 @@
             </div>
 
 
-            <div class="card depoimentosVideo">
+
+
+            <div class="card galerias">
+                <div class="card-body">
+                    <h4 class="card-title">Primeira Galeria</h4>
+
+
+
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label for="productname">Título</label>
+                                    <input id="productname" name="productname" type="text" class="form-control"
+                                        placeholder="Insira o nome">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label for="productname">Descrição</label>
+                                    <input id="productname" name="productname" type="text" class="form-control"
+                                        placeholder="Insira o nome">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
+                            <a name="" data-bs-toggle="modal" data-bs-target="#myModal" id="button-add"
+                                class="btn btn-success" style="height: 100%;">
+                                <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-body">
+                    <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="datatable"
+                                class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
+                                role="grid" aria-describedby="datatable_info" style="width: 1185px;">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 68px;" aria-sort="ascending"
+                                            aria-label="Name: activate to sort column descending">Nome</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 70px;"
+                                            aria-label="Position: activate to sort column ascending">Depoimento</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 10px;"
+                                            aria-label="Start date: activate to sort column ascending"></th>
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+                                    <tr class="odd">
+                                        <td class="sorting_1 dtr-control">Everaldo Júnior</td>
+                                        <td>Meu nome é Everaldo e eu moro em alfenas mas queria estar
+                                            morando em alfenas onde posso comprar todos os alfenas de toda alfenas</td>
+                                        <td>
+                                            <div class="btn-group edit-table-button ">
+                                                <button type="button" class="btn btn-info dropdown-toggle"
+                                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                                    style="height: 34px!important;"><i class="bx bx-edit"></i></button>
+                                                <div class="dropdown-menu" style="margin: 0px;">
+                                                    <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="card galerias">
+                    <div class="card-body">
+                        <h4 class="card-title">Segunda Galeria</h4>
+
+
+
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label for="productname">Título</label>
+                                        <input id="productname" name="productname" type="text" class="form-control"
+                                            placeholder="Insira o nome">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label for="productname">Descrição</label>
+                                        <input id="productname" name="productname" type="text" class="form-control"
+                                            placeholder="Insira o nome">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
+                                <a name="" data-bs-toggle="modal" data-bs-target="#myModal" id="button-add"
+                                    class="btn btn-success" style="height: 100%;">
+                                    <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-body">
+                        <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table id="datatable"
+                                    class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
+                                    role="grid" aria-describedby="datatable_info" style="width: 1185px;">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 68px;" aria-sort="ascending"
+                                                aria-label="Name: activate to sort column descending">Nome</th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 70px;"
+                                                aria-label="Position: activate to sort column ascending">Depoimento</th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 10px;"
+                                                aria-label="Start date: activate to sort column ascending"></th>
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                        <tr class="odd">
+                                            <td class="sorting_1 dtr-control">Everaldo Júnior</td>
+                                            <td>Meu nome é Everaldo e eu moro em alfenas mas queria estar
+                                                morando em alfenas onde posso comprar todos os alfenas de toda alfenas</td>
+                                            <td>
+                                                <div class="btn-group edit-table-button ">
+                                                    <button type="button" class="btn btn-info dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style="height: 34px!important;"><i
+                                                            class="bx bx-edit"></i></button>
+                                                    <div class="dropdown-menu" style="margin: 0px;">
+                                                        <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                                    </div>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            {{-- <div class="card depoimentosVideo">
                 <div class="card-body">
                     <h4 class="card-title">Cadastro de Depoimento <i> *Máximo de 6</i></h4>
 
@@ -424,7 +601,7 @@
 
 
 
-            </div>
+            </div> --}}
 
 
             <div class="card imagens">
@@ -468,6 +645,48 @@
                     </form>
                 </div> --}}
                 </div>
+
+
+                <div class="card-body row">
+                    <h4 class="card-title">Foto da segunda sessão</h4>
+
+
+
+                    <div class="col-12 mt-3">
+                        <div class="row">
+
+                            <div class="col-12 text-center d-flex align-items-center justify-content-center">
+                                <picture
+                                    style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                    <img id="principal-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                        style="height: 100%;" alt="">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <label class="btn btn-primary" for="principal-upload">Escolher</label>
+                                <input name="principal" id="principal-upload" style="display: none;" type="file">
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- <div class="col-3">
+                    <h4 class="card-title mb-3">Foto Principal *SEM FUNDO</h4>
+                    <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable"
+                        style="height: 600px !important; display: flex; align-items: center; justify-content: center;">
+                        <div class="dz-message needsclick">
+                            <div class="mb-3">
+                                <i class="display-4 text-muted bx bxs-cloud-upload"></i>
+                            </div>
+                            <h4>Inserir imagem</h4>
+                        </div>
+
+
+                    </form>
+                </div> --}}
+                </div>
+
                 {{-- <div class="card-body">
                 <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                 </div>
@@ -512,10 +731,7 @@
                         </table>
                     </div>
                 </div>
-            </div> --}}
-
-
-
+                </div> --}}
             </div>
 
 
@@ -602,8 +818,40 @@
     </div>
 
 
+
 @endsection
 
+
+
+<div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" style="display: none;"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mt-0" id="myModalLabel">Insira uma imagem</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="card-body container-fluid">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <img id="galeria-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                style="height: 200px; max-width: 100%;" alt="">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12 text-center">
+                            <label class="btn btn-primary" for="galeria-upload">Escolher</label>
+                            <label class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Fechar</label>
+                            <input name="galeria" id="galeria-upload" style="display: none;" type="file">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
 
 
 
@@ -618,6 +866,24 @@
             var reader = new FileReader();
             reader.onload = function() {
                 document.getElementById('principal-preview').src = this.result;
+            };
+            reader.readAsDataURL(file);
+        }, false);
+        var inp = document.getElementById('parceiro-upload');
+        inp.addEventListener('change', function(e) {
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function() {
+                document.getElementById('parceiro-preview').src = this.result;
+            };
+            reader.readAsDataURL(file);
+        }, false);
+        var inp = document.getElementById('galeria-upload');
+        inp.addEventListener('change', function(e) {
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function() {
+                document.getElementById('galeria-preview').src = this.result;
             };
             reader.readAsDataURL(file);
         }, false);
