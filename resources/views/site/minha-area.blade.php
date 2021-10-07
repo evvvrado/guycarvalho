@@ -3,7 +3,7 @@
 
 <head>
     <meta charset='utf-8'>
-    <title>Área do Cliente - ABS PE</title>
+    <title>Área do Cliente - ENAF DIGITAL</title>
 
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel='icon' type='image/vnd.microsoft.icon'
@@ -14,7 +14,6 @@
     <link rel='preload' type='text/css' as='style'
         href='https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Lato&family=Roboto:wght@500&family=Spartan:wght@400;700&display=swap'
         crossorigin='anonymous' />
-    <link rel='preload' type='text/css' as='style' href='{{ asset('site/css/reset.css') }}' />
     <link rel='preload' type='text/css' as='style' href='{{ asset('site/css/sistema.css') }}' />
 
     <link rel='preload' type='application/javascript' as='script' href='https://code.jquery.com/jquery-3.5.1.min.js'
@@ -29,9 +28,8 @@
         href='https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Poppins&family=Lato&family=Roboto:wght@500&family=Spartan:wght@400;700&display=swap'
         crossorigin='anonymous'>
 
-    
 
-    <link rel='stylesheet' href='{{ asset('site/css/reset.css') }}'>
+
     <link rel='stylesheet' href='{{ asset('site/css/sistema.css') }}'>
     <script src='https://code.jquery.com/jquery-3.5.1.min.js'
         integrity='sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=' crossorigin='anonymous'></script>
@@ -45,11 +43,9 @@
 
 
     <div style="position: fixed; width: 100%; top: 0; z-index: 9999">
-        {{-- NAVBAR SUPEROR --}}
-        @include("site.includes.aluno.navbar")
-        <!-- MENU LATERAL -->
-        @include("site.includes.aluno.menu_lateral")
-        <!-- MENU LATERAL -->
+        @include("site.includes.navbar")
+
+
         <section class="container-fluid _menu">
             <div class="container-fav">
                 <nav>
@@ -304,9 +300,10 @@
 
     <section class="container-fluid _copyRight">
         <div class="container-fav">
-            <p>Copyright © ABS Brasil - Todos os direitos reservados. Todo o conteúdo do site, incluindo fotos, imagens,
+            <p>Copyright © ENAF DIGITAL - Todos os direitos reservados. Todo o conteúdo do site, incluindo fotos,
+                imagens,
                 logotipos, marcas, dizeres, som, software, conjunto imagem, layout e trade dress, são de propriedade
-                exclusiva da ABS. É vedada a reprodução total ou parcial de qualquer elemento de identidade sem a
+                exclusiva do ENAF. É vedada a reprodução total ou parcial de qualquer elemento de identidade sem a
                 expressa autorização. A violação de qualquer direito mencionado implicará na responsabilização cível e
                 criminal nos termos da Lei. CNPJ: 17.190.409/0001-10
             </p>
@@ -314,7 +311,7 @@
             <p>
                 <strong>
                     Desenvolvido por
-                    <a href="https://7seventrends.com"" class=" _img">
+                    <a href="https://7seventrends.com"" class="              _img">
                         <img src="{{ asset('site/img/_logo7seven.png') }}" style="filter: brightness(0);""  alt="">
               </a> </div></p> 
               </strong>
@@ -326,11 +323,21 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
       <script>
+          $("header main button.hamburguer-menu").click(() => {
+              $("div._sidemenu nav").css("height", "497px");
+          });
+
+          $("div._sidemenu nav .hamburguerClose").click(() => {
+              $("div._sidemenu nav").css("height", "0");
+          });
+
+
+
           $("._menuMax").click(() => {
               $("._mobileMenu").css("display", "flex");
               $("._mobileMenu").animate({
                       left: "0",
-                      top: "0",
+                      top: "44px",
                   },
                   500
               );
@@ -339,20 +346,12 @@
           $("section._mobileMenu ._closeButton").click(() => {
               $("._mobileMenu").animate({
                       left: "-200vw",
-                      top: "0",
+                      top: "44px",
                   },
                   500
               );
           });
 
-
-          $("header main button.hamburguer-menu").click(() => {
-              $("div._sidemenu nav").css("height", "497px");
-          });
-
-          $("div._sidemenu nav .hamburguerClose").click(() => {
-              $("div._sidemenu nav").css("height", "0");
-          });
 
 
           const backdrop = {
@@ -374,6 +373,15 @@
           };
 
           backdrop.esconde();
+
+
+          $("._hamburguer, .close_superMenu").click(() => {
+              $(".d_superMenu").toggleClass("_showed");
+          });
+
+          $("._carrinho_button, .d_carrinho ._close").click(() => {
+              $(".d_carrinho").toggleClass("active");
+          });
       </script>
     </body>
   </html>
