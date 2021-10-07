@@ -94,8 +94,8 @@
 
                                 <div class="mb-3">
                                     <label for="manufacturername">Cor de destaque</label>
-                                    <input class="form-control" type="url" placeholder="Insira o SLUG que ira pra URL"
-                                        id="example-url-input">
+                                    <input class="form-control form-control-color" style="max-width:100%" type="color"
+                                        value="#556ee6" id="example-color-input">
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -117,8 +117,8 @@
 
                                 <div class="mb-3">
                                     <label for="manufacturername">Cor de Fundo</label>
-                                    <input class="form-control" type="url" placeholder="Insira o SLUG que ira pra URL"
-                                        id="example-url-input">
+                                    <input class="form-control form-control-color" style="max-width:100%" type="color"
+                                        value="#556ee6" id="example-color-input">
                                 </div>
                             </div>
                             <div class="d-flex flex-wrap gap-2">
@@ -477,7 +477,7 @@
                         </form>
                     </div>
                     <div class="card-body">
-                        <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        <div id="datatable_wrapper" xclass="dataTables_wrapper dt-bootstrap4 no-footer">
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
