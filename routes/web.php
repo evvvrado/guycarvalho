@@ -173,6 +173,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
 
         // ROTAS DE EXPOSITORES
         Route::get('/sistema/expositores', [\App\Http\Controllers\ExpositoresController::class, 'consultar'])->name("painel.expositores");
+        Route::get('/sistema/expositores/hotsite', [\App\Http\Controllers\ExpositoresController::class, 'hotsite'])->name("painel.expositores.hotsite");
         Route::get('/sistema/expositores/cadastro', [\App\Http\Controllers\ExpositoresController::class, 'cadastrar'])->name("painel.expositores.cadastro");
         
         Route::get('/sistema/expositores/editar', [\App\Http\Controllers\ExpositoresController::class, 'editar'])->name("painel.expositores.editar");

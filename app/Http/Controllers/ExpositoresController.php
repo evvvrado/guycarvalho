@@ -22,6 +22,11 @@ class ExpositoresController extends Controller
     public function editar(){
         return view("painel.expositores.editar");
     }
+    
+    
+    public function hotsite(){
+        return view("painel.expositores.hotsite");
+    }
 
 
 }
