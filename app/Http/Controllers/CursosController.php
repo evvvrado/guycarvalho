@@ -39,6 +39,7 @@ class CursosController extends Controller
             $curso = new Curso;
             $curso->nome = $request->nome;
             $curso->slug = Str::slug($request->nome);
+            $curso->save();
         }
 
         $curso->tipo = $request->tipo;
