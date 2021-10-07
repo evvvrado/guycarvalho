@@ -25,8 +25,8 @@ class CursosController extends Controller
         return view("painel.cursos.cadastrar");
     }
     
-    public function editar(){
-        return view("painel.cursos.editar");
+    public function editar(Curso $curso){
+        return view("painel.cursos.editar", ['curso' => $curso]);
     }
 
     public function salvar(Request $request){
@@ -48,6 +48,15 @@ class CursosController extends Controller
             $curso->certificacao = true;
         }else{
             $curso->certificacao = false;
+        }
+
+        // dd($curso->professores);
+
+        $curso->professores()->wherePivotNotIn("professor_id", $request->professores)->detach();
+        foreach($request->professores as $professor){
+            if(!$curso->professores->contains($professor)){
+                $curso->professores()->attach($professor);
+            }
         }
         
         $curso->video = $request->video;

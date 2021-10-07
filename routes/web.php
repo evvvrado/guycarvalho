@@ -258,11 +258,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::get('/sistema/curso/ativo/{curso}', [\App\Http\Controllers\CursosController::class, 'ativo'])->name("painel.curso.ativo");
         Route::get('/sistema/cursos/cadastrar', [\App\Http\Controllers\CursosController::class, 'cadastrar'])->name("painel.cursos.cadastrar");
         Route::post('/sistema/cursos/salvar', [\App\Http\Controllers\CursosController::class, 'salvar'])->name("painel.cursos.salvar");
-        Route::get('/sistema/cursos/editar', [\App\Http\Controllers\CursosController::class, 'editar'])->name("painel.cursos.editar");
-        Route::get('/includes/curso/formulario', function(){
-            return view("painel.cursos.formulario");
-        });
-
+        Route::get('/sistema/cursos/editar/{curso}', [\App\Http\Controllers\CursosController::class, 'editar'])->name("painel.cursos.editar");
 
         
         // ROTAS DE CLINICAS
@@ -279,16 +275,6 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
 
         // ROTAS DE CATALOGO  
         Route::get('/sistema/catalogo/cadastrar', [\App\Http\Controllers\CatalogoController::class, 'cadastrar'])->name("painel.catalogo.cadastro");
-
-        // ROTAS DE TURMAS
-        Route::get('/sistema/curso/{curso}/turmas', [\App\Http\Controllers\TurmasController::class, 'consultar'])->name("painel.turmas");
-        Route::post('/sistema/turmas/cadastrar', [\App\Http\Controllers\TurmasController::class, 'cadastrar'])->name("painel.turma.cadastrar");
-        Route::get('/sistema/turmas/api/getTurma/{turma}', [\App\Http\Controllers\TurmasController::class, 'getTurma']);
-        Route::get('/sistema/turma/ativo/{turma}', [\App\Http\Controllers\TurmasController::class, 'ativo'])->name("painel.turma.ativo");
-        Route::get('/sistema/turma/inscricao/{turma}', [\App\Http\Controllers\TurmasController::class, 'inscricao'])->name("painel.turma.inscricao");
-        Route::get('/includes/turma/formulario', function(){
-            return view("painel.turmas.formulario");
-        });
 
         //ROTAS DE VENDAS
         Route::get('/sistema/vendas', [\App\Http\Controllers\PagamentosController::class, 'vendas'])->name("painel.vendas");
@@ -308,23 +294,6 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::post('/sistema/destaques/cadastrar', [\App\Http\Controllers\DestaquesController::class, 'cadastrar'])->name("painel.destaque.cadastrar");
         Route::post('/sistema/destaques/salvar/{destaque}', [\App\Http\Controllers\DestaquesController::class, 'salvar'])->name("painel.destaque.salvar");
         Route::get('/sistema/destaques/deletar/{destaque}', [\App\Http\Controllers\DestaquesController::class, 'deletar'])->name("painel.destaque.deletar");
-
-        // ROTAS DE APPS
-        Route::get('/sistema/app', [\App\Http\Controllers\AppController::class, 'consultar'])->name("painel.app");
-        Route::get('/sistema/app/cadastro', [\App\Http\Controllers\AppController::class, 'cadastro'])->name("painel.app.cadastro");
-        Route::post('/sistema/app/cadastrar', [\App\Http\Controllers\AppController::class, 'cadastrar'])->name("painel.app.cadastrar");
-        Route::get('/sistema/app/relatorio/{app}', [\App\Http\Controllers\AppController::class, 'relatorio'])->name("painel.app.relatorio");
-        Route::get('/sistema/app/editar/{app}', [\App\Http\Controllers\AppController::class, 'editar'])->name("painel.app.editar");
-        Route::post('/sistema/app/salvar/{app}', [\App\Http\Controllers\AppController::class, 'salvar'])->name("painel.app.salvar");
-        Route::post('/sistema/app/rede/{app}', [\App\Http\Controllers\AppController::class, 'rede'])->name("painel.app.getree.rede");
-        Route::post('/sistema/app/rede/adicionar/{app}', [\App\Http\Controllers\AppController::class, 'adicionar_rede'])->name("painel.app.rede.adicionar");
-        Route::post('/sistema/app/rede/salvar/{elemento}', [\App\Http\Controllers\AppController::class, 'salvar_rede'])->name("painel.app.rede.salvar");
-        Route::get('/sistema/app/rede/remover/{elemento}', [\App\Http\Controllers\AppController::class, 'remover_rede'])->name("painel.app.rede.remover");
-
-        // ROTAS DE INCLUDES
-        Route::get('/includes/loading', function(){
-            return view("painel.includes.loading");
-        });
 
         
         

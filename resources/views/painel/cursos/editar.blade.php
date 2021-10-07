@@ -67,37 +67,40 @@
             <div class="card curso">
                 <div class="card-body">
                     <h4 class="card-title">Editar Cursos</h4>
-                    <form>
+                    <form action="{{route('painel.cursos.salvar')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="curso_id" value="{{$curso->id}}">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="productname">Nome</label>
-                                    <input id="productname" name="productname" type="text" class="form-control"
-                                        placeholder="Insira o nome">
+                                    <input id="productname" name="nome" type="text" class="form-control"
+                                        placeholder="Insira o nome" value="{{$curso->nome}}">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="price">Valor do Curso</label>
-                                    <input id="price" name="price" type="tel" class="form-control"
-                                        placeholder="Insira o valor">
+                                    <label for="valor">Valor do Curso (R$)</label>
+                                    <input id="valor" name="valor" type="number" class="form-control" min="0"
+                                        step="0.01" value="{{$curso->valor}}">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="price">Total de Horas</label>
-                                    <input id="price" name="price" type="tel" class="form-control"
-                                        placeholder="Insira o total">
+                                    <label for="total_horas">Total de Horas</label>
+                                    <input id="total_horas" name="total_horas" type="number" class="form-control" step="1" min="0"
+                                        value="{{$curso->total_horas}}">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="price">URL Do Vídeo</label>
-                                    <input id="price" name="price" type="tel" class="form-control"
-                                        placeholder="youtu.be/linkdovideo">
+                                    <label for="video">URL Do Vídeo</label>
+                                    <input id="video" name="video" type="text" class="form-control"
+                                        placeholder="youtu.be/linkdovideo" maxlength="255" value="{{$curso->video}}">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="control-label">Professores</label>
-                                    <select class="form-control">
-                                        <option data-select2-id="3">Selecione os Professore</option>
-                                        <option value="FA">Empresa 1</option>
-                                        <option value="EL">Empresa 2</option>
+                                    <select class="js-example-basic-multiple js-states form-control" multiple="multiple"
+                                        name="professores[]" id="select_professores" multiple required>
+                                        @foreach(App\Models\Professor::all() as $professor)
+                                            <option value="{{$professor->id}}" @if($curso->professores->contains($professor)) selected @endif>{{$professor->nome}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
@@ -105,11 +108,10 @@
 
                                 <div class="mb-3">
                                     <label class="control-label">Tipo de Curso</label>
-                                    <select class="form-control">
-                                        <option data-select2-id="3">Selecione o tipo</option>
-                                        <option value="FA">EAD</option>
-                                        <option value="EL">ONLINE</option>
-                                        <option value="EL">PRESENCIAL</option>
+                                    <select class="form-control" name="tipo">
+                                        @foreach(config("cursos.tipo_nome") as $codigo => $tipo)
+                                            <option value="{{$codigo}}" @if($curso->tipo == $codigo) selected @endif>{{$tipo}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
@@ -118,8 +120,7 @@
                                 <div class="mb-3 ">
                                     <label for="productdesc">Certificado</label>
                                     <div class="form-check form-switch form-switch-lg pt-3 ">
-                                        <input class="form-check-input form-control" type="checkbox" id="SwitchCheckSizelg"
-                                            checked="">
+                                        <input class="form-check-input form-control" name="certificacao" type="checkbox" @if($curso->certificacao) checked @endif id="SwitchCheckSizelg">
                                     </div>
                                 </div>
                             </div>
@@ -128,54 +129,54 @@
                             <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
                             <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
                         </div>
+                        <div class="row flex-row">
+                            <div class="card-body col-2">
+                                <div class="col-12 mt-3">
+                                    <div class="row">
+                                        <div
+                                            class="col-12 text-center d-flex align-items-center justify-content-center flex-column">
+                                            Thumbnail
+        
+                                            <picture
+                                                style="height: 350px; max-width: 350px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                                <img id="thumbnail-preview" @if(!$curso->thumbnail) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($curso->thumbnail) }}" @endif
+                                                    style="height: 100%;" alt="">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12 text-center">
+                                            <label class="btn btn-primary" for="thumbnail-upload">Escolher</label>
+                                            <input name="thumbnail" id="thumbnail-upload" style="display: none;" type="file">
+                                        </div>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+        
+                            <div class="card-body col-8">
+                                <div class="col-12 mt-3">
+                                    <div class="row">
+                                        <div
+                                            class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
+                                            Banner
+                                            <picture
+                                                style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                                <img id="banner-preview" @if(!$curso->banner) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($curso->banner) }}" @endif
+                                                    style="height: 100%;" alt="">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12 text-center">
+                                            <label class="btn btn-primary" for="banner-upload">Escolher</label>
+                                            <input name="banner" id="banner-upload" style="display: none;" type="file">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
-                </div>
-                <div class="row flex-row">
-                    <div class="card-body col-2">
-                        <div class="col-12 mt-3">
-                            <div class="row">
-                                <div
-                                    class="col-12 text-center d-flex align-items-center justify-content-center flex-column">
-                                    Thumbnail
-
-                                    <picture
-                                        style="height: 350px; max-width: 350px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                        <img id="thumbnail-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
-                                            style="height: 100%;" alt="">
-                                    </picture>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-12 text-center">
-                                    <label class="btn btn-primary" for="thumbnail-upload">Escolher</label>
-                                    <input name="thumbnail" id="thumbnail-upload" style="display: none;" type="file">
-                                </div>
-                            </div>
-                        </div>
-                        </form>
-                    </div>
-
-                    <div class="card-body col-8">
-                        <div class="col-12 mt-3">
-                            <div class="row">
-                                <div
-                                    class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
-                                    Banner
-                                    <picture
-                                        style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                        <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
-                                            style="height: 100%;" alt="">
-                                    </picture>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-12 text-center">
-                                    <label class="btn btn-primary" for="banner-upload">Escolher</label>
-                                    <input name="banner" id="banner-upload" style="display: none;" type="file">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -445,9 +446,10 @@
                 height: 600,
             });
 
-            $('#select_tag').select2({});
+            $('#select_professores').select2({});
 
-            $('#select_hashtag').select2({});
+
+            $('.select2-selection.select2-selection--multiple').addClass('form-control');
         });
 
 

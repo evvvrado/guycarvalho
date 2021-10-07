@@ -67,7 +67,7 @@
             <div class="card curso">
                 <div class="card-body">
                     <h4 class="card-title">Cadastro de Cursos</h4>
-                    <form action="{{route('painel.cursos.salvar')}}" method="POST">
+                    <form action="{{route('painel.cursos.salvar')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-sm-6">
@@ -93,14 +93,6 @@
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                {{-- <div class="mb-3">
-                                    <label class="control-label">Professores</label>
-                                    <select class="form-control">
-                                        <option data-select2-id="3">Selecione os Professore</option>
-                                        <option value="FA">Empresa 1</option>
-                                        <option value="EL">Empresa 2</option>
-                                    </select>
-                                </div> --}}
                                 <div class="mb-3">
                                     <label class="control-label">Professores</label>
                                     <select class="js-example-basic-multiple js-states form-control" multiple="multiple"
@@ -137,135 +129,56 @@
                             <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
                             <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
                         </div>
+                        <div class="row flex-row">
+                            <div class="card-body col-2">
+                                <div class="col-12 mt-3">
+                                    <div class="row">
+                                        <div
+                                            class="col-12 text-center d-flex align-items-center justify-content-center flex-column">
+                                            Thumbnail
+        
+                                            <picture
+                                                style="height: 350px; max-width: 350px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                                <img id="thumbnail-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                                    style="height: 100%;" alt="">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12 text-center">
+                                            <label class="btn btn-primary" for="thumbnail-upload">Escolher</label>
+                                            <input name="thumbnail" id="thumbnail-upload" style="display: none;" type="file">
+                                        </div>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+        
+                            <div class="card-body col-8">
+                                <div class="col-12 mt-3">
+                                    <div class="row">
+                                        <div
+                                            class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
+                                            Banner
+                                            <picture
+                                                style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                                <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                                    style="height: 100%;" alt="">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12 text-center">
+                                            <label class="btn btn-primary" for="banner-upload">Escolher</label>
+                                            <input name="banner" id="banner-upload" style="display: none;" type="file">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
-                <div class="row flex-row">
-                    <div class="card-body col-2">
-                        <div class="col-12 mt-3">
-                            <div class="row">
-                                <div
-                                    class="col-12 text-center d-flex align-items-center justify-content-center flex-column">
-                                    Thumbnail
 
-                                    <picture
-                                        style="height: 350px; max-width: 350px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                        <img id="thumbnail-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
-                                            style="height: 100%;" alt="">
-                                    </picture>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-12 text-center">
-                                    <label class="btn btn-primary" for="thumbnail-upload">Escolher</label>
-                                    <input name="thumbnail" id="thumbnail-upload" style="display: none;" type="file">
-                                </div>
-                            </div>
-                        </div>
-                        </form>
-                    </div>
-
-                    <div class="card-body col-8">
-                        <div class="col-12 mt-3">
-                            <div class="row">
-                                <div
-                                    class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
-                                    Banner
-                                    <picture
-                                        style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                        <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
-                                            style="height: 100%;" alt="">
-                                    </picture>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-12 text-center">
-                                    <label class="btn btn-primary" for="banner-upload">Escolher</label>
-                                    <input name="banner" id="banner-upload" style="display: none;" type="file">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                {{-- <div class="card modulos">
-                    <div class="card-body">
-                        <h4 class="card-title">Cadastro de Módulo</h4>
-
-
-
-                        <form>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="mb-3">
-                                        <label for="productname">Nome do Módulo</label>
-                                        <input id="productname" name="productname" type="text" class="form-control"
-                                            placeholder="Insira o nome">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="mb-3">
-                                        <label for="manufacturerbrand">Descrição</label>
-                                        <textarea id="textarea" class="form-control" maxlength="107" rows="3"
-                                            placeholder="Limite de 107 Caracteres"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-wrap gap-2">
-                                <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="card-body">
-                        <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <table id="datatable"
-                                    class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
-                                    role="grid" aria-describedby="datatable_info" style="width: 1185px;">
-                                    <thead>
-                                        <tr role="row">
-                                            <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
-                                                colspan="1" style="width: 68px;" aria-sort="ascending"
-                                                aria-label="Name: activate to sort column descending">Módulo</th>
-                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                                colspan="1" style="width: 70px;"
-                                                aria-label="Position: activate to sort column ascending">Descrição</th>
-                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                                colspan="1" style="width: 10px;"
-                                                aria-label="Start date: activate to sort column ascending"></th>
-                                        </tr>
-                                    </thead>
-
-
-                                    <tbody>
-                                        <tr class="odd">
-                                            <td class="sorting_1 dtr-control">Módulo 01</td>
-                                            <td>Meu nome é Everaldo e eu moro em alfenas mas queria estar
-                                                morando em alfenas onde posso comprar todos os alfenas de toda alfenas</td>
-                                            <td>
-                                                <div class="btn-group edit-table-button ">
-                                                    <button type="button" class="btn btn-info dropdown-toggle"
-                                                        data-bs-toggle="dropdown" aria-expanded="false"
-                                                        style="height: 34px!important;"><i
-                                                            class="bx bx-edit"></i></button>
-                                                    <div class="dropdown-menu" style="margin: 0px;">
-                                                        <a class="dropdown-item" style="color: red" href="#">Excluir</a>
-                                                    </div>
-                                                </div>
-
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div> --}}
 
             </div>
 
