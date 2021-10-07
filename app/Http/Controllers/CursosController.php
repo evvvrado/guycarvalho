@@ -16,9 +16,30 @@ class CursosController extends Controller
         return response()->json($curso->toJson());
     }
 
-    public function consultar(){
-        $cursos = Curso::all();
-        return view("painel.cursos.consultar", ["cursos" => $cursos]);
+    public function consultar(Request $request){
+        if($request->isMethod('get')){
+            $cursos = Curso::all();
+            return view("painel.cursos.consultar", ["cursos" => $cursos]);
+        }else{
+            $filtros = [];
+            if($request->nome != null){
+                $filtros[] = ["nome", "like", "%" . $request->nome . "%"];
+            }
+            if($request->tipo != null && $request->tipo != -1){
+                $filtros[] = ["tipo", "=", $request->tipo];
+            }
+            if($request->total_horas != null){
+                $filtros[] = ["total_horas", "=", $request->total_horas];
+            }
+            if($request->valor_minimo != null){
+                $filtros[] = ["valor", ">=", $request->valor_minimo];
+            }
+            if($request->valor_maximo != null){
+                $filtros[] = ["valor", "<=", $request->valor_maximo];
+            }
+            $cursos = Curso::where($filtros)->get();
+            return view("painel.cursos.consultar", ['cursos' => $cursos, "filtros" => $request->all()]);
+        }
     }
     
     public function cadastrar(){

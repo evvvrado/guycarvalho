@@ -15,13 +15,13 @@ class ProfessoresController extends Controller
             return view("painel.professores.consultar", ['professores' => $professores]);
         }else{
             $filtros = [];
-            if($request->nome){
+            if($request->nome != null){
                 $filtros[] = ["nome", "like", "%" . $request->nome . "%"];
             }
-            if($request->atuacao && $request->atuacao != -1){
+            if($request->atuacao != null && $request->atuacao != -1){
                 $filtros[] = ["atuacao", "=", $request->atuacao];
             }
-            if($request->empresa){
+            if($request->empresa != null){
                 $filtros[] = ["empresa", "like", "%" . $request->empresa . "%"];
             }
             $professores = Professor::where($filtros)->get();

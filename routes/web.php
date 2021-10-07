@@ -255,7 +255,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         
         // ROTAS DE CURSOS
         Route::get('/sistema/cursos/api/getCurso/{curso}', [\App\Http\Controllers\CursosController::class, 'getCurso']);
-        Route::get('/sistema/cursos', [\App\Http\Controllers\CursosController::class, 'consultar'])->name("painel.cursos");
+        Route::match(['get', 'post'],'/sistema/cursos', [\App\Http\Controllers\CursosController::class, 'consultar'])->name("painel.cursos");
         Route::get('/sistema/curso/ativo/{curso}', [\App\Http\Controllers\CursosController::class, 'ativo'])->name("painel.curso.ativo");
         Route::get('/sistema/cursos/cadastrar', [\App\Http\Controllers\CursosController::class, 'cadastrar'])->name("painel.cursos.cadastrar");
         Route::post('/sistema/cursos/salvar', [\App\Http\Controllers\CursosController::class, 'salvar'])->name("painel.cursos.salvar");

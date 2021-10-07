@@ -100,20 +100,50 @@
         <div class="card filter-body">
             <div class="card-body">
 
-                <form action="javascript: void(0);">
-
+                <form id="form-filtro" action="{{route('painel.cursos')}}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="nome">Nome</label>
+                        <input id="nome" name="nome" type="text" class="form-control"  @if(isset($filtros) && isset($filtros["nome"])) value="{{$filtros["nome"]}}" @endif>
+                    </div>
+                    <div class="mb-3">
+                        <label class="control-label">Tipo de Curso</label>
+                        <select class="form-control" name="tipo">
+                            <option value="-1">Todos</option>
+                            @foreach (config('cursos.tipo_nome') as $codigo => $tipo)
+                                <option value="{{ $codigo }}"  @if(isset($filtros) && isset($filtros["tipo"]) && $filtros["tipo"] == $codigo) selected @endif >{{ $tipo }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="total_horas">Total de Horas</label>
+                        <input id="total_horas" name="total_horas" type="number" class="form-control" step="1"
+                            min="0" @if(isset($filtros) && isset($filtros["total_horas"])) value="{{$filtros["total_horas"]}}" @endif>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <label for="valor_minimo">Valor Mínimo</label>
+                            <input id="valor_minimo" name="valor_minimo" type="number" class="form-control" step="1"
+                                min="0" @if(isset($filtros) && isset($filtros["valor_minimo"])) value="{{$filtros["valor_minimo"]}}" @endif>
+                        </div>
+                        <div class="col-6">
+                            <label for="valor_maximo">Valor Máximo</label>
+                            <input id="valor_maximo" name="valor_maximo" type="number" class="form-control" step="1"
+                                min="0" @if(isset($filtros) && isset($filtros["valor_maximo"])) value="{{$filtros["valor_maximo"]}}" @endif>
+                        </div>
+                    </div>
                 </form>
 
 
 
                 <div class="buttons-row">
                     <div>
-                        <button type="button" class="btn btn-success waves-effect waves-light">
+                        <button id="btn-filtrar" type="button" class="btn btn-success waves-effect waves-light">
                             <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
                         </button>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-danger waves-effect waves-light">
+                        <button id="btn-limpar" type="button" class="btn btn-danger waves-effect waves-light">
                             <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
                         </button>
                     </div>
@@ -264,6 +294,15 @@
                     "searchPlaceholder": "Filtrar",
                     "thousands": "."
                 }
+            });
+
+            $("#btn-filtrar").click(function(){
+                $("#form-filtro").submit();
+            });
+
+            $("#btn-limpar").click(function(){
+                $("input[type!='hidden']").val("");
+                $("select").val("-1");
             });
         });
 
