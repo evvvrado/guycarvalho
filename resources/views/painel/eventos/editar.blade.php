@@ -62,6 +62,7 @@
         <span data-filter="evento" class="active">Evento</span>
         <span data-filter="local">Local</span>
         <span data-filter="cursos">Cursos</span>
+        <span data-filter="embaixadores">Embaixadores e Convidados</span>
         <span data-filter="hoteis">Hoteis</span>
     </div>
 
@@ -93,7 +94,7 @@
 
                                 <div class="mb-3">
                                     <label for="price">URL Do Vídeo</label>
-                                    <input id="price" name="price" type="tel" class="form-control"
+                                    <input id="price" name="price" type="url" class="form-control"
                                         placeholder="youtu.be/linkdovideo">
                                 </div>
                             </div>
@@ -115,16 +116,6 @@
                                 <div class="mb-3">
                                     <label for="manufacturername">Data de encerramento</label>
                                     <input class="form-control" type="date" id="example-date-input">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="control-label">Professores e Embaixadores</label>
-                                    <select class="form-control">
-                                        <option data-select2-id="3">Selecione o tipo</option>
-                                        <option value="FA">Curso 1</option>
-                                        <option value="EL">Curso 2</option>
-                                        <option value="EL">Curso 3</option>
-                                    </select>
                                 </div>
 
                             </div>
@@ -419,6 +410,105 @@
                 </div>
 
             </div>
+        </div>
+
+
+        <div class="card embaixadores">
+            <div class="card-body">
+                <h4 class="card-title">Cadastro de Convidados</h4>
+
+
+
+                <form action="" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="nome">Nome</label>
+                                <input id="nome" name="nome" type="text" class="form-control" placeholder="Insira o nome"
+                                    required>
+                            </div>
+
+
+
+                            <div class="mb-3">
+                                <label class="control-label">Professor ou Embaixador</label>
+                                <select class="form-control">
+                                    <option data-select2-id="3">Selecione o tipo</option>
+                                    <option value="FA">Professor</option>
+                                    <option value="EL">Embaixador</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="nome">URL para redirecionar</label>
+                                <input class="form-control" type="url" placeholder="Insira a URL" id="example-url-input">
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
+
+                    </div>
+                    <h4 class="card-title my-3">Foto</h4>
+                    <div class="col-12 mt-3">
+                        <div class="row">
+                            <div class="col-12 text-center d-flex align-items-center justify-content-center">
+                                <picture
+                                    style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                    <img id="depoimento-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                        style="height: 100%;" alt="">
+                                </picture>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <label class="btn btn-primary" for="depoimento-upload">Escolher</label>
+                                <input name="foto" id="depoimento-upload" style="display: none;" type="file" required>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card-body">
+                <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="datatable"
+                            class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
+                            role="grid" aria-describedby="datatable_info" style="width: 1185px;">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                                        colspan="1" style="width: 68px;" aria-sort="ascending"
+                                        aria-label="Name: activate to sort column descending">Nome</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                        colspan="1" style="width: 70px;"
+                                        aria-label="Position: activate to sort column ascending">Função
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                        colspan="1" style="width: 10px;"
+                                        aria-label="Start date: activate to sort column ascending"></th>
+                                </tr>
+                            </thead>
+
+
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
 
 

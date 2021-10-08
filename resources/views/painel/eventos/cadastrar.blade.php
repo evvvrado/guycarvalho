@@ -108,15 +108,6 @@
                                     <input class="form-control" type="date" id="example-date-input">
                                 </div>
 
-                                <div class="mb-3">
-                                    <label class="control-label">Professores e Embaixadores</label>
-                                    <select class="form-control">
-                                        <option data-select2-id="3">Selecione o tipo</option>
-                                        <option value="FA">Curso 1</option>
-                                        <option value="EL">Curso 2</option>
-                                        <option value="EL">Curso 3</option>
-                                    </select>
-                                </div>
 
                             </div>
                         </div>
