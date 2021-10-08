@@ -355,8 +355,8 @@
             <div class="_bubble active" data-type="6">
                 <p>
                     <strong>Seja bem vindo!</strong>
-                    A nossa feira online, aqui você irá encontra o que precisa. Caso tenha dúvida basta
-                    falar com nossos colaboradores espalhados pela feira...
+                    <span>A nossa feira online, aqui você irá encontra o que precisa. Caso tenha dúvida basta
+                        falar com nossos colaboradores espalhados pela feira...</span>
                 </p>
             </div>
 
