@@ -418,7 +418,7 @@
 
 
 
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{route('painel.eventos.participante.adicionar', ['evento' => $evento])}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-sm-6">
@@ -431,11 +431,11 @@
 
 
                             <div class="mb-3">
-                                <label class="control-label">Professor ou Embaixador</label>
-                                <select class="form-control">
-                                    <option data-select2-id="3">Selecione o tipo</option>
-                                    <option value="FA">Professor</option>
-                                    <option value="EL">Embaixador</option>
+                                <label class="control-label">Embaixador ou Convidado</label>
+                                <select class="form-control" name="tipo">
+                                    @foreach(config("eventos.participantes") as $codigo => $funcao)
+                                        <option value="{{$codigo}}">{{$funcao}}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -443,7 +443,7 @@
                         <div class="col-sm-6">
                             <div class="mb-3">
                                 <label for="nome">URL para redirecionar</label>
-                                <input class="form-control" type="url" placeholder="Insira a URL" id="example-url-input">
+                                <input class="form-control" type="url" name="url" placeholder="Insira a URL" id="example-url-input" maxlength="255">
                             </div>
 
 
@@ -459,7 +459,7 @@
                             <div class="col-12 text-center d-flex align-items-center justify-content-center">
                                 <picture
                                     style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                    <img id="depoimento-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                    <img id="participante-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
                                         style="height: 100%;" alt="">
                                 </picture>
                             </div>
@@ -467,8 +467,8 @@
 
                         <div class="row mt-3">
                             <div class="col-12 text-center">
-                                <label class="btn btn-primary" for="depoimento-upload">Escolher</label>
-                                <input name="foto" id="depoimento-upload" style="display: none;" type="file" required>
+                                <label class="btn btn-primary" for="participante-upload">Escolher</label>
+                                <input name="foto" id="participante-upload" style="display: none;" type="file" required>
                             </div>
                         </div>
                     </div>
@@ -486,20 +486,33 @@
                             <thead>
                                 <tr role="row">
                                     <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
-                                        colspan="1" style="width: 68px;" aria-sort="ascending"
+                                        colspan="1" style="width: 15%;" aria-sort="ascending"
+                                        aria-label="Name: activate to sort column descending"></th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                                        colspan="1" style="width: 35%;" aria-sort="ascending"
                                         aria-label="Name: activate to sort column descending">Nome</th>
                                     <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                        colspan="1" style="width: 70px;"
+                                        colspan="1" style="width: 35%;"
                                         aria-label="Position: activate to sort column ascending">Função
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                        colspan="1" style="width: 10px;"
+                                        colspan="1" style="width: 15%;"
                                         aria-label="Start date: activate to sort column ascending"></th>
                                 </tr>
                             </thead>
 
 
                             <tbody>
+                                @foreach($evento->participantes as $participante)
+                                    <tr>
+                                        <td><img src="{{asset($participante->foto)}}" style="width: 100px;" alt=""></td>
+                                        <td>{{$participante->nome}}</td>
+                                        <td>
+                                            {{config("eventos.participantes")[$participante->tipo]}}
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -597,7 +610,15 @@
             reader.readAsDataURL(file);
         }, false);
 
-
+        var inp = document.getElementById('participante-upload');
+        inp.addEventListener('change', function(e) {
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function() {
+                document.getElementById('participante-preview').src = this.result;
+            };
+            reader.readAsDataURL(file);
+        }, false);
 
 
 

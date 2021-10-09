@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Evento;
 use App\Models\EventoCurso;
+use App\Models\EventoParticipante;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
@@ -102,6 +103,25 @@ class EventoController extends Controller
     public function deletar_curso(EventoCurso $evento_curso){
         $evento_curso->delete();
         toastr()->success("Curso removido do evento");
+        return redirect()->back();
+    }
+
+    public function adicionar_participante(Request $request, Evento $evento){
+        $participante = new EventoParticipante;
+        $participante->evento_id = $evento->id;
+        $participante->nome = $request->nome;
+        $participante->url = $request->url;
+        $participante->tipo = $request->tipo;
+
+        if($request->file("foto")){
+            Storage::delete($participante->foto);
+            $participante->foto = $request->file('foto')->store(
+                'site/imagens/eventos/' . $evento->id, 'local'
+            );
+        }
+
+        $participante->save();
+        toastr()->success("Participante adicionado ao evento");
         return redirect()->back();
     }
 }

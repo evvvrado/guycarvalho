@@ -278,6 +278,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::post('/sistema/eventos/{evento}/local/salvar', [\App\Http\Controllers\EventoController::class, 'salvar_local'])->name("painel.eventos.local.salvar");
         Route::post('/sistema/eventos/{evento}/curso/adicionar', [\App\Http\Controllers\EventoController::class, 'adicionar_curso'])->name("painel.eventos.curso.adicionar");
         Route::get('/sistema/eventos/curso/deletar/{evento_curso}', [\App\Http\Controllers\EventoController::class, 'deletar_curso'])->name("painel.eventos.curso.deletar");
+        Route::post('/sistema/eventos/{evento}/participante/adicionar', [\App\Http\Controllers\EventoController::class, 'adicionar_participante'])->name("painel.eventos.participante.adicionar");
 
         // ROTAS DE CATALOGO  
         Route::get('/sistema/catalogo/cadastrar', [\App\Http\Controllers\CatalogoController::class, 'cadastrar'])->name("painel.catalogo.cadastro");

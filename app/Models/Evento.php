@@ -12,4 +12,8 @@ class Evento extends Model
     public function cursos_ligados(){
         return $this->hasMany(EventoCurso::class);
     }
+
+    public function participantes(){
+        return $this->hasMany(EventoParticipante::class);
+    }
 }
