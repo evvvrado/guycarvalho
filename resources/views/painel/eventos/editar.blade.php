@@ -314,52 +314,50 @@
         <div class="card hoteis">
             <div class="card-body">
                 <h4 class="card-title">Hoteis Conveniados</h4>
-
-
-
-                <form>
+                <form action="{{route('painel.eventos.hotel.adicionar', ['evento' => $evento])}}" method="POST">
+                    @csrf
                     <div class="row">
 
                         <div class="mb-3">
-                            <label for="productname">Nome do Local</label>
-                            <input id="productname" name="productname" type="text" class="form-control"
+                            <label for="nome">Nome do Local</label>
+                            <input id="nome" name="nome" type="text" class="form-control" maxlength="255"
                                 placeholder="Insira o nome">
                         </div>
                         <div class="mb-3">
-                            <label for="productname">Endereço do Local</label>
-                            <input id="productname" name="productname" type="text" class="form-control"
-                                placeholder="Insira o nome">
+                            <label for="endereco">Endereço do Local</label>
+                            <input id="endereco" name="endereco" type="text" class="form-control"
+                                placeholder="Insira o endereco" maxlength="255">
                         </div>
                         <div class="mb-3">
-                            <label for="productname">URL de Redirecionamento</label>
-                            <input id="productname" name="productname" type="text" class="form-control"
-                                placeholder="goog.gl/exemplo">
+                            <label for="url">URL de Redirecionamento</label>
+                            <input id="url" name="url" type="url" class="form-control"
+                                placeholder="goog.gl/exemplo" maxlength="255">
                         </div>
                     </div>
                     <div class="d-flex flex-wrap gap-2">
                         <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
                     </div>
 
-
+                    <div class="col-12 mt-3">
+                        <div class="row">
+                            <div class="col-12 text-center d-flex align-items-start flex-column">
+                                <span class="my-3">Imagem do Hotel</span>
+                                <picture
+                                    style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                    <img id="hoteis-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                        style="height: 100%;" alt="">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <label class="btn btn-primary" for="hoteis-upload">Escolher</label>
+                                <input name="foto" id="hoteis-upload" style="display: none;" type="file">
+                            </div>
+                        </div>
+                    </div>
                 </form>
-                <div class="col-12 mt-3">
-                    <div class="row">
-                        <div class="col-12 text-center d-flex align-items-start flex-column">
-                            <span class="my-3">Imagem do Hotel</span>
-                            <picture
-                                style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                <img id="hoteis-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
-                                    style="height: 100%;" alt="">
-                            </picture>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-12 text-center">
-                            <label class="btn btn-primary" for="hoteis-upload">Escolher</label>
-                            <input name="hoteis" id="hoteis-upload" style="display: none;" type="file">
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="card-body">
                     <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                     </div>
@@ -384,21 +382,23 @@
 
 
                                 <tbody>
-                                    <tr class="odd">
-                                        <td class="sorting_1 dtr-control">Hotel Conveniado 1</td>
-                                        <td>Rua João Cesário, Jardim América - 180, Alfenas - MG</td>
-                                        <td>
-                                            <div class="btn-group edit-table-button ">
-                                                <button type="button" class="btn btn-info dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"
-                                                    style="height: 34px!important;"><i class="bx bx-edit"></i></button>
-                                                <div class="dropdown-menu" style="margin: 0px;">
-                                                    <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                    @foreach($evento->hoteis as $hotel)
+                                        <tr class="odd">
+                                            <td class="sorting_1 dtr-control">{{$hotel->nome}}</td>
+                                            <td>{{$hotel->endereco}}</td>
+                                            <td>
+                                                <div class="btn-group edit-table-button ">
+                                                    <button type="button" class="btn btn-info dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style="height: 34px!important;"><i class="bx bx-edit"></i></button>
+                                                    <div class="dropdown-menu" style="margin: 0px;">
+                                                        <a class="dropdown-item" href="{{route('painel.eventos.hotel.deletar', ['hotel' => $hotel])}}" style="color: red" href="#">Excluir</a>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -510,7 +510,16 @@
                                         <td>
                                             {{config("eventos.participantes")[$participante->tipo]}}
                                         </td>
-                                        <td></td>
+                                        <td>
+                                            <div class="btn-group edit-table-button ">
+                                                <button type="button" class="btn btn-info dropdown-toggle"
+                                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                                    style="height: 34px!important;"><i class="bx bx-edit"></i></button>
+                                                <div class="dropdown-menu" style="margin: 0px;">
+                                                    <a class="dropdown-item" href="{{route('painel.eventos.participante.deletar', ['participante' => $participante])}}" style="color: red" href="#">Excluir</a>
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -519,46 +528,7 @@
                 </div>
             </div>
 
-
-
         </div>
-
-
-
-
-
-        <!-- end card-->
-        {{-- <div class="card">
-          <div class="card-body">
-             <h4 class="card-title">Meta Data</h4>
-             <p class="card-title-desc">Fill all information below</p>
-             <form>
-                <div class="row">
-                   <div class="col-sm-6">
-                      <div class="mb-3">
-                         <label for="metatitle">Meta title</label>
-                         <input id="metatitle" name="productname" type="text" class="form-control">
-                      </div>
-                      <div class="mb-3">
-                         <label for="metakeywords">Meta Keywords</label>
-                         <input id="metakeywords" name="manufacturername" type="text" class="form-control">
-                      </div>
-                   </div>
-                   <div class="col-sm-6">
-                      <div class="mb-3">
-                         <label for="metadescription">Meta Description</label>
-                         <textarea class="form-control" id="metadescription" rows="5"></textarea>
-                      </div>
-                   </div>
-                </div>
-                <div class="d-flex flex-wrap gap-2">
-                   <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
-                   <button type="submit" class="btn btn-secondary waves-effect waves-light">Cencelar</button>
-                </div>
-             </form>
-          </div>
-       </div> --}}
-
 
     </div>
 

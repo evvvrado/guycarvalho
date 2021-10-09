@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Evento;
 use App\Models\EventoCurso;
 use App\Models\EventoParticipante;
+use App\Models\EventoHotel;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
@@ -15,7 +16,12 @@ class EventoController extends Controller
     //
 
     public function consultar(){
-        $eventos = Evento::all();
+        if(\Request::route()->getName() == 'painel.eventos'){
+            $eventos = Evento::where("clinica", false)->get();
+        }else{
+            $eventos = Evento::where("clinica", true)->get();
+        }
+        
         return view("painel.eventos.consultar", ["eventos" => $eventos]);
     }
     
@@ -122,6 +128,40 @@ class EventoController extends Controller
 
         $participante->save();
         toastr()->success("Participante adicionado ao evento");
+        return redirect()->back();
+    }
+
+    public function deletar_participante(EventoParticipante $participante){
+        Storage::delete($participante->foto);
+        $participante->delete();
+        toastr()->success("Participante removido do evento.");
+        return redirect()->back();
+    }
+
+    public function adicionar_hotel(Request $request, Evento $evento){
+        $hotel = new EventoHotel;
+        $hotel->evento_id = $evento->id;
+        $hotel->nome = $request->nome;
+        $hotel->endereco = $request->endereco;
+        $hotel->url = $request->url;
+        
+        if($request->file("foto")){
+            Storage::delete($hotel->foto);
+            $hotel->foto = $request->file('foto')->store(
+                'site/imagens/eventos/' . $evento->id, 'local'
+            );
+        }
+
+        $hotel->save();
+
+        toastr()->success("Hotel adicionado com sucesso!");
+        return redirect()->back();
+    }
+
+    public function deletar_hotel(EventoHotel $hotel){
+        Storage::delete($hotel->foto);
+        $hotel->delete();
+        toastr()->success("Hotel removido do evento.");
         return redirect()->back();
     }
 }

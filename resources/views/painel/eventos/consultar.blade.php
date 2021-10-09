@@ -42,10 +42,10 @@
                                         <tr role="row">
                                             <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
                                                 colspan="1" style="width: 68px;" aria-sort="ascending"
-                                                aria-label="Name: activate to sort column descending">Nome da Clínica</th>
+                                                aria-label="Name: activate to sort column descending">Nome do Evento</th>
                                             <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
                                                 colspan="1" style="width: 70px;"
-                                                aria-label="Position: activate to sort column ascending">Local da Clínica
+                                                aria-label="Position: activate to sort column ascending">Local do Evento
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
                                                 colspan="1" style="width: 70px;"
@@ -64,7 +64,7 @@
                                         @foreach($eventos as $evento)
                                             <tr class="odd">
                                                 <td class="sorting_1 dtr-control">{{$evento->nome}}</td>
-                                                <td></td>
+                                                <td>{{$evento->local_endereco}}</td>
                                                 <td>{{date('d/m/Y', strtotime($evento->inicio))}}</td>
                                                 <td>{{date('d/m/Y', strtotime($evento->fim))}}</td>
                                                 <td>

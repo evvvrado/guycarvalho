@@ -16,4 +16,8 @@ class Evento extends Model
     public function participantes(){
         return $this->hasMany(EventoParticipante::class);
     }
+
+    public function hoteis(){
+        return $this->hasMany(EventoHotel::class);
+    }
 }

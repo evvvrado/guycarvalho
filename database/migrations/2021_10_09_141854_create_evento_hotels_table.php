@@ -18,6 +18,7 @@ class CreateEventoHotelsTable extends Migration
             $table->unsignedBigInteger("evento_id");
             $table->string("nome")->nullable();
             $table->string("endereco")->nullable();
+            $table->string("url")->nullable();
             $table->string("foto")->nullable();
             $table->timestamps();
         });
