@@ -62,30 +62,31 @@
             <div class="card evento">
                 <div class="card-body">
                     <h4 class="card-title">Cadastro de Evento</h4>
-                    <form>
+                    <form action="{{route('painel.eventos.salvar')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label for="productname">Nome</label>
-                                    <input id="productname" name="productname" type="text" class="form-control"
-                                        placeholder="Insira o nome">
+                                    <label for="nome">Nome</label>
+                                    <input id="nome" name="nome" type="text" class="form-control"
+                                        placeholder="Insira o nome" maxlength="255">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="productname">SubTitulo</label>
-                                    <input id="productname" name="productname" type="text" class="form-control"
-                                        placeholder="Insira o nome">
+                                    <label for="titulo">Subtítulo</label>
+                                    <input id="titulo" name="titulo" type="text" class="form-control"
+                                        placeholder="Insira o subtítulo" maxlength="255">
                                 </div>
 
 
                                 <div class="mb-3">
-                                    <label for="manufacturername">Data de Início</label>
-                                    <input class="form-control" type="date" id="example-date-input">
+                                    <label for="inicio">Data de Início</label>
+                                    <input class="form-control" name="inicio" type="date" id="example-date-input" min="{{date('Y-m-d')}}">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="price">URL Do Vídeo</label>
-                                    <input id="price" name="price" type="tel" class="form-control"
-                                        placeholder="youtu.be/linkdovideo">
+                                    <label for="video">URL Do Vídeo</label>
+                                    <input id="video" name="video" type="text" class="form-control"
+                                        placeholder="youtu.be/linkdovideo" maxlength="255">
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -93,19 +94,19 @@
                                 <div class="mb-3">
                                     <label for="descricao">Descrição</label>
                                     <input id="descricao" name="descricao" type="text" class="form-control"
-                                        placeholder="Insira a decrição da clínica">
+                                        placeholder="Insira a decrição da clínica" maxlength="255">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="descricao">Parágrafo</label>
-                                    <input id="descricao" name="descricao" type="text" class="form-control"
-                                        placeholder="Insira o conteúdo do paragrafo">
+                                    <label for="sobre">Parágrafo</label>
+                                    <textarea id="sobre" name="sobre" class="form-control"
+                                        placeholder="Insira o conteúdo do paragrafo"></textarea>
                                 </div>
 
 
                                 <div class="mb-3">
-                                    <label for="manufacturername">Data de encerramento</label>
-                                    <input class="form-control" type="date" id="example-date-input">
+                                    <label for="fim">Data de encerramento</label>
+                                    <input class="form-control" name="fim" type="date" id="example-date-input" min="{{date('Y-m-d')}}">
                                 </div>
 
 
@@ -115,55 +116,56 @@
                             <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
                             <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
                         </div>
-                </div>
-
-                <div class="row flex-row">
-                    <div class="card-body col-2">
-                        <div class="col-12 mt-3">
-                            <div class="row">
-                                <div
-                                    class="col-12 text-center d-flex align-items-center justify-content-center flex-column">
-                                    Thumbnail
-
-                                    <picture
-                                        style="height: 350px; max-width: 350px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                        <img id="thumbnail-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
-                                            style="height: 100%;" alt="">
-                                    </picture>
+                        <div class="row flex-row">
+                            <div class="card-body col-2">
+                                <div class="col-12 mt-3">
+                                    <div class="row">
+                                        <div
+                                            class="col-12 text-center d-flex align-items-center justify-content-center flex-column">
+                                            Thumbnail
+        
+                                            <picture
+                                                style="height: 350px; max-width: 350px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                                <img id="thumbnail-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                                    style="height: 100%;" alt="">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12 text-center">
+                                            <label class="btn btn-primary" for="thumbnail-upload">Escolher</label>
+                                            <input name="thumbnail" id="thumbnail-upload" style="display: none;" type="file">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-12 text-center">
-                                    <label class="btn btn-primary" for="thumbnail-upload">Escolher</label>
-                                    <input name="thumbnail" id="thumbnail-upload" style="display: none;" type="file">
+        
+                            <div class="card-body col-8">
+                                <div class="col-12 mt-3">
+                                    <div class="row">
+                                        <div
+                                            class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
+                                            Banner
+                                            <picture
+                                                style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                                <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                                    style="height: 100%;" alt="">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12 text-center">
+                                            <label class="btn btn-primary" for="banner-upload">Escolher</label>
+                                            <input name="banner" id="banner-upload" style="display: none;" type="file">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        </form>
-                    </div>
-
-                    <div class="card-body col-8">
-                        <div class="col-12 mt-3">
-                            <div class="row">
-                                <div
-                                    class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
-                                    Banner
-                                    <picture
-                                        style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                        <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
-                                            style="height: 100%;" alt="">
-                                    </picture>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-12 text-center">
-                                    <label class="btn btn-primary" for="banner-upload">Escolher</label>
-                                    <input name="banner" id="banner-upload" style="display: none;" type="file">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </form>
                 </div>
+
+                
             </div>
 
 

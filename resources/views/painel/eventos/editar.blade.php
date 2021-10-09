@@ -72,30 +72,32 @@
             <div class="card evento">
                 <div class="card-body">
                     <h4 class="card-title">Editar Evento</h4>
-                    <form>
+                    <form action="{{route('painel.eventos.salvar')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="evento_id" value="{{$evento->id}}">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label for="productname">Nome</label>
-                                    <input id="productname" name="productname" type="text" class="form-control"
-                                        placeholder="Insira o nome">
+                                    <label for="nome">Nome</label>
+                                    <input id="nome" name="nome" type="text" class="form-control"
+                                        placeholder="Insira o nome" maxlength="255" value="{{$evento->nome}}">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="productname">SubTitulo</label>
-                                    <input id="productname" name="productname" type="text" class="form-control"
-                                        placeholder="Insira o nome">
+                                    <label for="titulo">Subtítulo</label>
+                                    <input id="titulo" name="titulo" type="text" class="form-control"
+                                        placeholder="Insira o subtítulo" maxlength="255" value="{{$evento->titulo}}">
                                 </div>
 
 
                                 <div class="mb-3">
-                                    <label for="manufacturername">Data de Início</label>
-                                    <input class="form-control" type="date" id="example-date-input">
+                                    <label for="inicio">Data de Início</label>
+                                    <input class="form-control" name="inicio" type="date" id="example-date-input" value="{{$evento->inicio}}">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="price">URL Do Vídeo</label>
-                                    <input id="price" name="price" type="url" class="form-control"
-                                        placeholder="youtu.be/linkdovideo">
+                                    <label for="video">URL Do Vídeo</label>
+                                    <input id="video" name="video" type="text" class="form-control"
+                                        placeholder="youtu.be/linkdovideo" maxlength="255" value="{{$evento->video}}">
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -103,20 +105,21 @@
                                 <div class="mb-3">
                                     <label for="descricao">Descrição</label>
                                     <input id="descricao" name="descricao" type="text" class="form-control"
-                                        placeholder="Insira a decrição da clínica">
+                                        placeholder="Insira a decrição da clínica" maxlength="255" {{$evento->descricao}}>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="descricao">Parágrafo</label>
-                                    <input id="descricao" name="descricao" type="text" class="form-control"
-                                        placeholder="Insira o conteúdo do paragrafo">
+                                    <label for="sobre">Parágrafo</label>
+                                    <textarea id="sobre" name="sobre" class="form-control"
+                                        placeholder="Insira o conteúdo do paragrafo">{!! $evento->sobre !!}</textarea>
                                 </div>
 
 
                                 <div class="mb-3">
-                                    <label for="manufacturername">Data de encerramento</label>
-                                    <input class="form-control" type="date" id="example-date-input">
+                                    <label for="fim">Data de encerramento</label>
+                                    <input class="form-control" name="fim" type="date" id="example-date-input" value="{{$evento->fim}}">
                                 </div>
+
 
                             </div>
                         </div>
@@ -124,99 +127,89 @@
                             <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
                             <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
                         </div>
+                        <div class="row flex-row">
+                            <div class="card-body col-2">
+                                <div class="col-12 mt-3">
+                                    <div class="row">
+                                        <div
+                                            class="col-12 text-center d-flex align-items-center justify-content-center flex-column">
+                                            Thumbnail
+        
+                                            <picture
+                                                style="height: 350px; max-width: 350px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                                <img id="thumbnail-preview" @if(!$evento->thumbnail) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($evento->thumbnail) }}" @endif
+                                                    style="height: 100%;" alt="">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12 text-center">
+                                            <label class="btn btn-primary" for="thumbnail-upload">Escolher</label>
+                                            <input name="thumbnail" id="thumbnail-upload" style="display: none;" type="file">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="card-body col-8">
+                                <div class="col-12 mt-3">
+                                    <div class="row">
+                                        <div
+                                            class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
+                                            Banner
+                                            <picture
+                                                style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                                <img id="banner-preview" @if(!$evento->banner) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($evento->banner) }}" @endif
+                                                    style="height: 100%;" alt="">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12 text-center">
+                                            <label class="btn btn-primary" for="banner-upload">Escolher</label>
+                                            <input name="banner" id="banner-upload" style="display: none;" type="file">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
 
-                <div class="row flex-row">
-                    <div class="card-body col-2">
-                        <div class="col-12 mt-3">
-                            <div class="row">
-                                <div
-                                    class="col-12 text-center d-flex align-items-center justify-content-center flex-column">
-                                    Thumbnail
-
-                                    <picture
-                                        style="height: 350px; max-width: 350px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                        <img id="thumbnail-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
-                                            style="height: 100%;" alt="">
-                                    </picture>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-12 text-center">
-                                    <label class="btn btn-primary" for="thumbnail-upload">Escolher</label>
-                                    <input name="thumbnail" id="thumbnail-upload" style="display: none;" type="file">
-                                </div>
-                            </div>
-                        </div>
-                        </form>
-                    </div>
-
-                    <div class="card-body col-8">
-                        <div class="col-12 mt-3">
-                            <div class="row">
-                                <div
-                                    class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
-                                    Banner
-                                    <picture
-                                        style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                        <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
-                                            style="height: 100%;" alt="">
-                                    </picture>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-12 text-center">
-                                    <label class="btn btn-primary" for="banner-upload">Escolher</label>
-                                    <input name="banner" id="banner-upload" style="display: none;" type="file">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
 
 
         <div class="card local">
             <div class="card-body">
-                <h4 class="card-title">Local da Clínica</h4>
-                <form>
+                <h4 class="card-title">Local do Evento</h4>
+                <form action="{{route('painel.eventos.local.salvar', ["evento" => $evento])}}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="mb-3">
-                                <label for="productname">Nome</label>
-                                <input id="productname" name="productname" type="text" class="form-control"
-                                    placeholder="Insira o nome">
+                                <label for="local_nome">Nome</label>
+                                <input id="local_nome" name="local_nome" type="text" class="form-control"
+                                    placeholder="Insira o nome do local" value="{{$evento->local_nome}}">
                             </div>
 
                         </div>
                         <div class="col-sm-6">
 
                             <div class="mb-3">
-                                <label for="descricao">Endereço</label>
-                                <input id="descricao" name="descricao" type="text" class="form-control"
-                                    placeholder="Insira a decrição da clínica">
+                                <label for="local_endereco">Endereço</label>
+                                <input id="local_endereco" name="local_endereco" type="text" class="form-control"
+                                    placeholder="Insira a endereço do local" value="{{$evento->local_endereco}}">
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex flex-wrap gap-2">
-                        <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
-                        <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
-                    </div>
-                </form>
-            </div>
-
-
-            <div class="card-body col-12">
-                <h4 class="card-title mb-3">Imagem do Local</h4>
-                <form>
                     <div class="col-12 mt-3">
                         <div class="row">
                             <div class="col-12 text-center d-flex align-items-center justify-content-center">
                                 <picture
                                     style="height: 525px; width: 100%; max-width: 756px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                    <img id="local-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                    <img id="local-preview" @if(!$evento->local_foto) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($evento->local_foto) }}" @endif
                                         style="height: 100%;" alt="">
                                 </picture>
                             </div>
@@ -224,9 +217,13 @@
                         <div class="row mt-3">
                             <div class="col-12 text-center">
                                 <label class="btn btn-primary" for="local-upload">Escolher</label>
-                                <input name="local" id="local-upload" style="display: none;" type="file">
+                                <input name="local_foto" id="local-upload" style="display: none;" type="file">
                             </div>
                         </div>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
+                        <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
                     </div>
                 </form>
             </div>
@@ -239,21 +236,21 @@
 
 
 
-                <form>
+                <form action="{{route('painel.eventos.curso.adicionar', ['evento' => $evento])}}" method="POST">
+                    @csrf
                     <div class="row">
                         <div class="mb-3">
                             <label class="control-label">Selecionar Curso</label>
-                            <select class="form-control">
-                                <option data-select2-id="3">Selecionar Curso</option>
-                                <option value="FA">Curso 1</option>
-                                <option value="EL">Curso 2</option>
-                                <option value="EL">Curso 3</option>
+                            <select class="form-control" name="curso_id">
+                                @foreach(App\Models\Curso::all() as $curso)
+                                    <option value="{{$curso->id}}">{{$curso->nome}}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="mb-3">
                             <label for="manufacturername">Data de Exibição</label>
-                            <input class="form-control" type="date" id="example-date-input">
+                            <input class="form-control" type="date" name="data" id="example-date-input" required>
                         </div>
                     </div>
                     <div class="d-flex flex-wrap gap-2">
@@ -285,21 +282,23 @@
 
 
                             <tbody>
-                                <tr class="odd">
-                                    <td class="sorting_1 dtr-control">Curso 01</td>
-                                    <td>31/02/2022</td>
-                                    <td>
-                                        <div class="btn-group edit-table-button ">
-                                            <button type="button" class="btn btn-info dropdown-toggle"
-                                                data-bs-toggle="dropdown" aria-expanded="false"
-                                                style="height: 34px!important;"><i class="bx bx-edit"></i></button>
-                                            <div class="dropdown-menu" style="margin: 0px;">
-                                                <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                @foreach($evento->cursos_ligados as $curso_ligado)
+                                    <tr class="odd">
+                                        <td class="sorting_1 dtr-control">{{$curso_ligado->curso->nome}}</td>
+                                        <td>{{date("d/m/Y", strtotime($curso_ligado->data))}}</td>
+                                        <td>
+                                            <div class="btn-group edit-table-button ">
+                                                <button type="button" class="btn btn-info dropdown-toggle"
+                                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                                    style="height: 34px!important;"><i class="bx bx-edit"></i></button>
+                                                <div class="dropdown-menu" style="margin: 0px;">
+                                                    <a class="dropdown-item" href="{{route('painel.eventos.curso.deletar', ['evento_curso' => $curso_ligado])}}" style="color: red" href="#">Excluir</a>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
