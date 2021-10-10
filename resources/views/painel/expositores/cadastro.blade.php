@@ -18,30 +18,39 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Cadastro de Expositor</h4>
-                    <form>
+                    <form action="{{route('painel.expositores.salvar')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label for="productname">Nome</label>
-                                    <input id="productname" name="productname" type="text" placeholder="Insira o Nome"
-                                        class="form-control">
+                                    <label for="nome">Nome</label>
+                                    <input id="nome" name="nome" type="text" placeholder="Insira o Nome"
+                                        class="form-control" maxlength="100">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="price">Telefone</label>
-                                    <input class="form-control" type="tel" placeholder="Insira o telefone"
-                                        id="example-tel-input">
+                                    <label for="telefone">Telefone</label>
+                                    <input class="form-control" name="telefone" type="tel" placeholder="Insira o telefone"
+                                        id="example-tel-input" maxlength="20">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="categoria">Categoria</label>
+                                    <select class="form-control" name="categoria" required>
+                                        @foreach(config("expositores.categorias_nome") as $codigo => $categoria)
+                                            <option value="{{$codigo}}">{{$categoria}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label for="manufacturername">Site</label>
-                                    <input class="form-control" type="url" placeholder="Insira a URL"
-                                        id="example-url-input">
+                                    <label for="site">Site</label>
+                                    <input class="form-control" name="site" type="url" placeholder="Insira a URL"
+                                        id="example-url-input" maxlength="255">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="manufacturername">E-mail</label>
-                                    <input class="form-control" type="email" placeholder="Insira o e-mail"
-                                        id="example-email-input">
+                                    <label for="email">E-mail</label>
+                                    <input class="form-control" name="email" type="email" placeholder="Insira o e-mail"
+                                        id="example-email-input" maxlength="100">
                                 </div>
                             </div>
                         </div>
@@ -49,67 +58,28 @@
                             <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
                             <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
                         </div>
+                        <div class="col-12 mt-3">
+                            <div class="row">
+                                <div class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
+                                    <span class="mb-3">
+                                        Logo do Expositor
+                                    </span>
+                                    <picture
+                                        style="height: 281px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                        <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                            style="height: 100%;" alt="">
+                                    </picture>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12 text-center">
+                                    <label class="btn btn-primary" for="banner-upload">Escolher</label>
+                                    <input name="foto" id="banner-upload" style="display: none;" type="file">
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
-            </div>
-            <div class="card">
-
-                <div class="card-body">
-
-                    <div class="col-12 mt-3">
-                        <div class="row">
-                            <div class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
-                                <span class="mb-3">
-                                    Logo do Expositor
-                                </span>
-                                <picture
-                                    style="height: 281px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                    <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
-                                        style="height: 100%;" alt="">
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12 text-center">
-                                <label class="btn btn-primary" for="banner-upload">Escolher</label>
-                                <input name="banner" id="banner-upload" style="display: none;" type="file">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- end card-->
-                {{-- <div class="card">
-          <div class="card-body">
-             <h4 class="card-title">Meta Data</h4>
-             <p class="card-title-desc">Fill all information below</p>
-             <form>
-                <div class="row">
-                   <div class="col-sm-6">
-                      <div class="mb-3">
-                         <label for="metatitle">Meta title</label>
-                         <input id="metatitle" name="productname" type="text" class="form-control">
-                      </div>
-                      <div class="mb-3">
-                         <label for="metakeywords">Meta Keywords</label>
-                         <input id="metakeywords" name="manufacturername" type="text" class="form-control">
-                      </div>
-                   </div>
-                   <div class="col-sm-6">
-                      <div class="mb-3">
-                         <label for="metadescription">Meta Description</label>
-                         <textarea class="form-control" id="metadescription" rows="5"></textarea>
-                      </div>
-                   </div>
-                </div>
-                <div class="d-flex flex-wrap gap-2">
-                   <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
-                   <button type="submit" class="btn btn-secondary waves-effect waves-light">Cencelar</button>
-                </div>
-             </form>
-          </div>
-       </div> --}}
             </div>
         </div>
     @endsection
@@ -118,16 +88,6 @@
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
         <script src="{{ asset('admin/libs/select2/js/select2.min.js') }}"></script>
         <script>
-            var inp = document.getElementById('logo-upload');
-            inp.addEventListener('change', function(e) {
-                var file = this.files[0];
-                var reader = new FileReader();
-                reader.onload = function() {
-                    document.getElementById('logo-preview').src = this.result;
-                };
-                reader.readAsDataURL(file);
-            }, false);
-
             var inp = document.getElementById('banner-upload');
             inp.addEventListener('change', function(e) {
                 var file = this.files[0];
@@ -139,13 +99,7 @@
             }, false);
 
             $(document).ready(function() {
-                $('#summernote').summernote({
-                    height: 600,
-                });
 
-                $('#select_tag').select2({});
-
-                $('#select_hashtag').select2({});
             });
         </script>
     @endsection

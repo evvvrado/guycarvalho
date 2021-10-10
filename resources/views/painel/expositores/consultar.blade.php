@@ -2,8 +2,10 @@
 
 @section('styles')
     <!-- DataTables -->
-    <link href="{{asset('admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ asset('admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}" rel="stylesheet"
+        type="text/css" />
 @endsection
 
 @section('titulo')
@@ -13,284 +15,150 @@
 @section('botoes')
 @endsection
 
-
-{{-- 
-@section('conteudo')
-    @include('painel.includes.errors')
-    <div class="row mt-3">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body" style="overflow-x: scroll;">
-                    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-
-
-                        <tbody>
-
-                            @foreach($categorias as $categoria)
-                                <tr>
-                                    <td>{{$categoria->nome}}</td>
-                                    <td>
-                                        <a href="" id="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditaCategoria{{$categoria->id}}" role="button">Editar</a>
-                                        <a name="" id="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalExcluiCategoria{{$categoria->id}}" role="button">Excluir</a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div> <!-- end col -->
-    </div> <!-- end row -->
-
-
-    <div class="modal fade" id="modalNovaCategoria" tabindex="-1" role="dialog" aria-labelledby="modalNovaCategoriaLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <form action="{{route('painel.categoria.cadastrar')}}" method="post">
-                        @csrf
-                        <div class="row">
-                            <div class="form-group col-12">
-                                <label for="nome">Nome</label>
-                                <input type="text" class="form-control" name="nome"
-                                    id="nome" aria-describedby="helpId" 
-                                >
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12 text-end">
-                                <button type="submit"
-                                    class="btn btn-primary">Salvar</button>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    @foreach($categorias as $categoria)
-        <div class="modal fade" id="modalEditaCategoria{{$categoria->id}}" tabindex="-1" role="dialog" aria-labelledby="modalEditaCategoria{{$categoria->id}}Label"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <form action="{{route('painel.categoria.salvar', ['categoria' => $categoria])}}" method="post">
-                            @csrf
-                            <div class="row">
-                                <div class="form-group col-12">
-                                    <label for="nome">Nome</label>
-                                    <input type="text" class="form-control" name="nome"
-                                        id="nome" aria-describedby="helpId" 
-                                        value="{{$categoria->nome}}">
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-12 text-end">
-                                    <button type="submit"
-                                        class="btn btn-primary">Salvar</button>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="modalExcluiCategoria{{$categoria->id}}" tabindex="-1" role="dialog" aria-labelledby="modalExcluiCategoria{{$categoria->id}}Label"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-12 text-center">
-                                <h5>Ao excluir a categoria "{{$categoria->nome}}" todas as notícias relacionadas a ela também serão excluídas. Deseja continuar ?</h5>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12 text-center">
-                                <a name="" id="" class="btn btn-danger" href="{{route('painel.categoria.deletar', ['categoria' => $categoria])}}" role="button">Excluir</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endforeach
-
-@endsection --}}
-
-
-
 @section('conteudo')
 
     <div class="row">
         <div class="col-9">
-            
+
             <div class="row"">
 
-                           
-                <div class="col-sm-12 col-md-6 mb-3"  style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
-                    
-                 <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;" style="padding-left: 0;" href="{{route('painel.expositores.cadastro')}}">
+                               
+                    <div class=" col-sm-12 col-md-6 mb-3"
+                style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
+
+                <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;"
+                    style="padding-left: 0;" href="{{ route('painel.expositores.cadastro') }}">
                     <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
-             </div>
+            </div>
             <div class="card">
                 <div class="card-body">
                     <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
 
-                           
-                           <i id="search-icon" class="bx bx-search" aria-hidden="true"></i>
-                           
-                        </div>
-                        <div class="row">
+
+                        <i id="search-icon" class="bx bx-search" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="row">
                         <div class="col-sm-12">
-                        <table id="datatable" class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable_info" style="width: 1185px;">
-                        <thead>
-                           <tr role="row">
-                              <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Nome</th>
-                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;" aria-label="Position: activate to sort column ascending">Site</th>
-                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 20px;" aria-label="Office: activate to sort column ascending">Telefone</th>    
-                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-label="Age: activate to sort column ascending">E-mail</th>
-                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;" aria-label="Start date: activate to sort column ascending"></th>
-                           </tr>
-                        </thead>
+                            <table id="datatable"
+                                class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
+                                role="grid" aria-describedby="datatable_info" style="width: 1185px;">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 68px;" aria-sort="ascending"
+                                            aria-label="Name: activate to sort column descending">Nome</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 70px;"
+                                            aria-label="Position: activate to sort column ascending">Site</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 20px;"
+                                            aria-label="Office: activate to sort column ascending">Telefone</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 68px;"
+                                            aria-label="Age: activate to sort column ascending">E-mail</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 10px;"
+                                            aria-label="Start date: activate to sort column ascending"></th>
+                                    </tr>
+                                </thead>
 
 
-                        <tbody>    
-                            <tr class="odd">
-                                <td class="sorting_1 dtr-control">Nike</td>
-                                <td>nike.com.br</td>
-                                <td>(35) 9 8809035</td>
-                                <td>nike@contato.com.br</td>
-                                <td>
-                                     <div class="btn-group edit-table-button ">
-                                        <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
-                                        <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" href="{{ route('painel.expositores.editar') }}">Editar</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" style="color: red" href="#">Excluir</a>
-                                        </div>
-                                    </div>
-                                    
-                                </td>
-                            </tr>     
-                            <tr class="odd">
-                                <td class="sorting_1 dtr-control">Nike</td>
-                                <td>nike.com.br</td>
-                                <td>(35) 9 8809035</td>
-                                <td>nike@contato.com.br</td>
-                                <td>
-                                     <div class="btn-group edit-table-button ">
-                                        <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
-                                        <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" href="{{ route('painel.expositores.editar') }}">Editar</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" style="color: red" href="#">Excluir</a>
-                                        </div>
-                                    </div>
-                                    
-                                </td>
-                            </tr>     
-                            <tr class="odd">
-                                <td class="sorting_1 dtr-control">Nike</td>
-                                <td>nike.com.br</td>
-                                <td>(35) 9 8809035</td>
-                                <td>nike@contato.com.br</td>
-                                <td>
-                                     <div class="btn-group edit-table-button ">
-                                        <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
-                                        <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" href="{{ route('painel.expositores.editar') }}">Editar</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" style="color: red" href="#">Excluir</a>
-                                        </div>
-                                    </div>
-                                    
-                                </td>
-                            </tr>     
-                            <tr class="odd">
-                                <td class="sorting_1 dtr-control">Nike</td>
-                                <td>nike.com.br</td>
-                                <td>(35) 9 8809035</td>
-                                <td>nike@contato.com.br</td>
-                                <td>
-                                     <div class="btn-group edit-table-button ">
-                                        <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
-                                        <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" href="{{ route('painel.expositores.editar') }}">Editar</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" style="color: red" href="#">Excluir</a>
-                                        </div>
-                                    </div>
-                                    
-                                </td>
-                            </tr>     
-                            <tr class="odd">
-                                <td class="sorting_1 dtr-control">Nike</td>
-                                <td>nike.com.br</td>
-                                <td>(35) 9 8809035</td>
-                                <td>nike@contato.com.br</td>
-                                <td>
-                                     <div class="btn-group edit-table-button ">
-                                        <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
-                                        <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" href="{{ route('painel.expositores.editar') }}">Editar</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" style="color: red" href="#">Excluir</a>
-                                        </div>
-                                    </div>
-                                    
-                                </td>
-                            </tr>   
-                        </tbody>
-                    </table>
-                </div></div>
+                                <tbody>
+                                    @foreach ($expositores as $expositor)
+                                        <tr class="odd">
+                                            <td class="sorting_1 dtr-control">{{ $expositor->nome }}</td>
+                                            <td>{{ $expositor->site }}</td>
+                                            <td>{{ $expositor->telefone }}</td>
+                                            <td>{{ $expositor->email }}</td>
+                                            <td>
+                                                <div class="btn-group edit-table-button ">
+                                                    <button type="button" class="btn btn-info dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                            class="bx bx-edit"></i></button>
+                                                    <div class="dropdown-menu" style="margin: 0px;">
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('painel.expositores.editar', ['expositor' => $expositor]) }}">Editar</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                                    </div>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
 
-          
-                </div>
 
                 </div>
+
             </div>
-        </div> <!-- end col -->
-        <div class="col-3">
-
-                           
-            <div class="col-sm-12 col-md-6 mb-3"  style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
-                <a class="btn" style="padding-left: 21px; color: white; height: 100%; cursor: default;"  href="">Filtros</a>
-            </div> <div class="card filter-body">
-                <div class="card-body">
-
-                  <form action="javascript: void(0);">
-                      
-                  </form>
+        </div>
+    </div> <!-- end col -->
+    <div class="col-3">
 
 
+        <div class="col-sm-12 col-md-6 mb-3" style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
+            <a class="btn" style="padding-left: 21px; color: white; height: 100%; cursor: default;"
+                href="">Filtros</a>
+        </div>
+        <div class="card filter-body">
+            <div class="card-body">
 
-                   <div class="buttons-row">
-                       <div>
-                        <button type="button" class="btn btn-success waves-effect waves-light">
+                <form id="form-filtro" action="{{route('painel.expositores')}}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="nome">Nome</label>
+                        <input id="nome" name="nome" type="text" placeholder="Insira o Nome" class="form-control"
+                            maxlength="100" @if(isset($filtros) && isset($filtros["nome"])) value="{{$filtros["nome"]}}" @endif>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefone">Telefone</label>
+                        <input class="form-control" name="telefone" type="tel" placeholder="Insira o telefone"
+                            id="example-tel-input" maxlength="20" @if(isset($filtros) && isset($filtros["telefone"])) value="{{$filtros["telefone"]}}" @endif>
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoria">Categoria</label>
+                        <select class="form-control" name="categoria" required>
+                            <option value="-1">Todas</option>
+                            @foreach(config("expositores.categorias_nome") as $codigo => $categoria)
+                                <option value="{{$codigo}}" @if(isset($filtros) && isset($filtros["categoria"]) && $filtros["categoria"] == $codigo) selected @endif>{{$categoria}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="site">Site</label>
+                        <input class="form-control" name="site" type="url" placeholder="Insira a URL"
+                            id="example-url-input" maxlength="255" @if(isset($filtros) && isset($filtros["site"])) value="{{$filtros["site"]}}" @endif>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email">E-mail</label>
+                        <input class="form-control" name="email" type="email" placeholder="Insira o e-mail"
+                            id="example-email-input" maxlength="100" @if(isset($filtros) && isset($filtros["email"])) value="{{$filtros["email"]}}" @endif>
+                    </div>
+                </form>
+
+
+
+                <div class="buttons-row">
+                    <div>
+                        <button id="btn-filtrar" type="button" class="btn btn-success waves-effect waves-light">
                             <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
                         </button>
-                       </div>
-                       <div>
-                        <button type="button" class="btn btn-danger waves-effect waves-light">
+                    </div>
+                    <div>
+                        <button id="btn-limpar" type="button" class="btn btn-danger waves-effect waves-light">
                             <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
                         </button>
-                       </div>
-                   </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 @endsection
@@ -298,12 +166,12 @@
 
 @section('scripts')
     <!-- Required datatable js -->
-    <script src="{{asset('admin/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{ asset('admin/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script>
         $(document).ready(function() {
-            $('#datatable').DataTable( {
-                language:{
+            $('#datatable').DataTable({
+                language: {
                     "emptyTable": "Nenhum registro encontrado",
                     "info": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
                     "infoEmpty": "Mostrando 0 até 0 de 0 registros",
@@ -433,13 +301,22 @@
                     },
                     "searchPlaceholder": "Filtrar",
                     "thousands": "."
-                } 
-            } );
-        } );    
+                }
+            });
+
+            $("#btn-filtrar").click(function(){
+                $("#form-filtro").submit();
+            });
+
+            $("#btn-limpar").click(function(){
+                $("input[type!='hidden']").val("");
+                $("select").val("-1");
+            });
+        });
 
         $(document).ready(() => {
-            
-        $('div.dataTables_wrapper div.dataTables_filter label').prepend($('#search-icon'));
+
+            $('div.dataTables_wrapper div.dataTables_filter label').prepend($('#search-icon'));
         })
-    </script> 
+    </script>
 @endsection

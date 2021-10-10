@@ -172,12 +172,11 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::get('/sistema/categorias/editar', [\App\Http\Controllers\CategoriasController::class, 'editar'])->name("painel.categorias.editar");
 
         // ROTAS DE EXPOSITORES
-        Route::get('/sistema/expositores', [\App\Http\Controllers\ExpositoresController::class, 'consultar'])->name("painel.expositores");
+        Route::match(['get', 'post'], '/sistema/expositores', [\App\Http\Controllers\ExpositoresController::class, 'consultar'])->name("painel.expositores");
         Route::get('/sistema/expositores/hotsite', [\App\Http\Controllers\ExpositoresController::class, 'hotsite'])->name("painel.expositores.hotsite");
         Route::get('/sistema/expositores/cadastro', [\App\Http\Controllers\ExpositoresController::class, 'cadastrar'])->name("painel.expositores.cadastro");
-        
-        Route::get('/sistema/expositores/editar', [\App\Http\Controllers\ExpositoresController::class, 'editar'])->name("painel.expositores.editar");
-        
+        Route::get('/sistema/expositores/editar/{expositor}', [\App\Http\Controllers\ExpositoresController::class, 'editar'])->name("painel.expositores.editar");
+        Route::post('/sistema/expositores/salvar', [\App\Http\Controllers\ExpositoresController::class, 'salvar'])->name("painel.expositores.salvar");    
 
         // ROTA DE PUBLICIDADE
         Route::get('/sistema/anuncios', [\App\Http\Controllers\PublicidadeController::class, 'consultarAnuncios'])->name("painel.anuncios");
