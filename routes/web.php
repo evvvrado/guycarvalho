@@ -266,7 +266,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::get('/sistema/cursos/depoimento/deletar/{depoimento}', [\App\Http\Controllers\CursoDepoimentosController::class, 'deletar'])->name("painel.cursos.depoimento.deletar");
         
         // ROTAS DE CLÍNICAS
-        Route::get('/sistema/clinicas', [\App\Http\Controllers\ClinicaController::class, 'consultar'])->name("painel.clinicas");
+        Route::match(['get', 'post'], '/sistema/clinicas', [\App\Http\Controllers\ClinicaController::class, 'consultar'])->name("painel.clinicas");
         Route::get('/sistema/clinicas/cadastrar', [\App\Http\Controllers\ClinicaController::class, 'cadastrar'])->name("painel.clinicas.cadastrar");
         Route::get('/sistema/clinicas/editar/{evento}', [\App\Http\Controllers\ClinicaController::class, 'editar'])->name("painel.clinicas.editar");
         Route::post('/sistema/clinicas/salvar', [\App\Http\Controllers\ClinicaController::class, 'salvar'])->name("painel.clinicas.salvar");
@@ -279,7 +279,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::get('/sistema/clinicas/hotel/deletar/{hotel}', [\App\Http\Controllers\ClinicaController::class, 'deletar_hotel'])->name("painel.clinicas.hotel.deletar");
                 
         // ROTAS DE EVENTOS
-        Route::get('/sistema/eventos', [\App\Http\Controllers\EventoController::class, 'consultar'])->name("painel.eventos");
+        Route::match(['get', 'post'], '/sistema/eventos', [\App\Http\Controllers\EventoController::class, 'consultar'])->name("painel.eventos");
         Route::get('/sistema/eventos/cadastrar', [\App\Http\Controllers\EventoController::class, 'cadastrar'])->name("painel.eventos.cadastrar");
         Route::get('/sistema/eventos/editar/{evento}', [\App\Http\Controllers\EventoController::class, 'editar'])->name("painel.eventos.editar");
         Route::post('/sistema/eventos/salvar', [\App\Http\Controllers\EventoController::class, 'salvar'])->name("painel.eventos.salvar");

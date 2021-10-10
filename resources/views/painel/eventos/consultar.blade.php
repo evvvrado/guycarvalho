@@ -106,20 +106,39 @@
             <div class="card filter-body">
                 <div class="card-body">
 
-                    <form action="javascript: void(0);">
+                    <form id="form-filtro" action="{{route('painel.eventos')}}" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="nome">Nome</label>
+                            <input id="nome" name="nome" type="text" class="form-control"
+                                placeholder="Insira o nome" maxlength="255" @if(isset($filtros) && isset($filtros["nome"])) value="{{$filtros["nome"]}}" @endif>
+                        </div>
+                        <div class="mb-3">
+                            <label for="local_endereco">Local</label>
+                            <input id="local_endereco" name="local_endereco" type="text" class="form-control"
+                                placeholder="Insira o endereço" maxlength="255" @if(isset($filtros) && isset($filtros["local_endereco"])) value="{{$filtros["local_endereco"]}}" @endif>
+                        </div>
+                        <div class="mb-3">
+                            <label for="inicio">Data de Início</label>
+                            <input class="form-control" name="inicio" type="date" @if(isset($filtros) && isset($filtros["inicio"])) value="{{$filtros["inicio"]}}" @endif>
+                        </div>
 
+                        <div class="mb-3">
+                            <label for="fim">Data de encerramento</label>
+                            <input class="form-control" name="fim" type="date" @if(isset($filtros) && isset($filtros["fim"])) value="{{$filtros["fim"]}}" @endif>
+                        </div>
                     </form>
 
 
 
                     <div class="buttons-row">
                         <div>
-                            <button type="button" class="btn btn-success waves-effect waves-light">
+                            <button id="btn-filtrar" type="button" class="btn btn-success waves-effect waves-light">
                                 <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
                             </button>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-danger waves-effect waves-light">
+                            <button id="btn-limpar" type="button" class="btn btn-danger waves-effect waves-light">
                                 <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
                             </button>
                         </div>
@@ -270,6 +289,15 @@
                     "searchPlaceholder": "Filtrar",
                     "thousands": "."
                 }
+            });
+
+            $("#btn-filtrar").click(function(){
+                $("#form-filtro").submit();
+            });
+
+            $("#btn-limpar").click(function(){
+                $("input[type!='hidden']").val("");
+                $("select").val("-1");
             });
         });
 

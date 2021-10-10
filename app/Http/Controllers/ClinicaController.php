@@ -16,8 +16,27 @@ class ClinicaController extends Controller
     //
 
     public function consultar(){
-        $eventos = Evento::where("clinica", true)->get();
-        return view("painel.clinicas.consultar", ["eventos" => $eventos]);
+        if($request->isMethod('get')){
+            $eventos = Evento::where("clinica", true)->get();
+            return view("painel.clinicas.consultar", ["eventos" => $eventos]);
+        }else{
+            $filtros = [];
+            if($request->nome != null){
+                $filtros[] = ["nome", "like", "%" . $request->nome . "%"];
+            }
+            if($request->local_endereco != null){
+                $filtros[] = ["local_endereco", "like", "%" . $request->local_endereco . "%"];
+            }
+            if($request->inicio != null){
+                $filtros[] = ["inicio", "=", $request->inicio];
+            }
+            if($request->fim != null){
+                $filtros[] = ["fim", "=", $request->fim];
+            }
+            $filtros[] = ["clinica", "=", true];
+            $eventos = Evento::where($filtros)->get();
+            return view("painel.clinicas.consultar", ["eventos" => $eventos, "filtros" => $request->all()]);
+        }
     }
     
     public function cadastrar(){

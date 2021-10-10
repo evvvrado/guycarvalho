@@ -15,14 +15,28 @@ class EventoController extends Controller
 {
     //
 
-    public function consultar(){
-        if(\Request::route()->getName() == 'painel.eventos'){
+    public function consultar(Request $request){
+        if($request->isMethod('get')){
             $eventos = Evento::where("clinica", false)->get();
+            return view("painel.eventos.consultar", ["eventos" => $eventos]);
         }else{
-            $eventos = Evento::where("clinica", true)->get();
+            $filtros = [];
+            if($request->nome != null){
+                $filtros[] = ["nome", "like", "%" . $request->nome . "%"];
+            }
+            if($request->local_endereco != null){
+                $filtros[] = ["local_endereco", "like", "%" . $request->local_endereco . "%"];
+            }
+            if($request->inicio != null){
+                $filtros[] = ["inicio", "=", $request->inicio];
+            }
+            if($request->fim != null){
+                $filtros[] = ["fim", "=", $request->fim];
+            }
+            $filtros[] = ["clinica", "=", false];
+            $eventos = Evento::where($filtros)->get();
+            return view("painel.eventos.consultar", ["eventos" => $eventos, "filtros" => $request->all()]);
         }
-        
-        return view("painel.eventos.consultar", ["eventos" => $eventos]);
     }
     
     public function cadastrar(){
