@@ -61,7 +61,7 @@
         <span data-filter="imagens">Imagens</span>
         <span data-filter="depoimentos">Depoimento</span>
         <span data-filter="depoimentosVideo">Depoimento em vídeo</span>
-        <span data-filter="duvidas">Duvidas</span>
+        <span data-filter="duvidas">Dúvidas</span>
     </div>
 
 

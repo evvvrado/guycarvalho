@@ -54,7 +54,8 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                                 <img src="{{ asset('site/img/enafCircle.svg') }}" alt="" width="22">
                             </span>
                             <span class="logo-lg">
-                                <img class="" src=" {{ asset('site/img/_logo57.svg') }}" alt="" height="44">
+                                <img class="" src=" {{ asset('site/img/_logo57.svg') }}" alt=""
+                                    height="44">
                             </span>
                         </a>
                     </div>
@@ -337,7 +338,7 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('painel.galeria') }}" key="t-default">Galeria</a></li>
                                 <li><a href="{{ route('painel.depoimento') }}" key="t-default">Depoimentos</a></li>
-                                <li><a href="{{ route('painel.duvidas') }}" key="t-default">Duvidas</a></li>
+                                <li><a href="{{ route('painel.duvidas') }}" key="t-default">Dúvidas</a></li>
                             </ul>
 
                         </li>
@@ -364,7 +365,7 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
 
 
                         <li>
-                            <a href="{{ route('painel.mapa') }}"" class="   waves-effect">
+                            <a href="{{ route('painel.mapa') }}"" class="    waves-effect">
                                 <i class="bx bx-map-alt" aria-hidden="true"></i>
                                 <span key="t-dashboards">Mapa do Site</span>
                             </a>

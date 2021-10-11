@@ -23,6 +23,7 @@
       ._apoiador {
         margin-top: 4.5rem;
         position: relative;
+        display: block;
         &::after {
           content: "";
           position: absolute;

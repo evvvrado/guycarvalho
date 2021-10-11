@@ -62,7 +62,7 @@
         <span data-filter="depoimentos">Parceiros</span>
         <span data-filter="galerias">Galerias</span>
         {{-- <span data-filter="depoimentosVideo">Depoimento em vídeo</span> --}}
-        <span data-filter="duvidas">Duvidas</span>
+        <span data-filter="duvidas">Dúvidas</span>
     </div>
 
 

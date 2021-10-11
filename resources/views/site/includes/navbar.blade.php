@@ -12,19 +12,18 @@
             <h3>Todas Categorias</h3>
             <div class="_lists">
                 <ul>
-                    <li><a href="{{ route('site.cursos') }}">Cursos</a></li>
+                    <li><a href="{{ route('site.clinicas') }}">Eventos</a></li>
                     <li><a href="{{ route('site.clinicas') }}">Clínicas</a></li>
-                    <li><a href="/">Eventos</a></li>
-                    <li><a href="{{ route('site.feira') }}">Feira Online</a></li>
-                    <li><a href="/nossoblog-lista.html">Blog</a></li>
-                    <li><a href="{{ route('site.quem_somos') }}">Sobre</a></li>
+                    <li><a href="{{ route('site.cursos') }}">Cursos</a></li>
+                    <li><a href="{{ route('site.professores') }}">Professores</a></li>
+                    <li><a style="color: green" href="{{ route('site.feira') }}">EXPO ENAF</a></li>
+                    <li><a href="{{ route('site.blog-grid') }}">Blog</a></li>
                 </ul>
                 <ul>
-                    <li><a href="/">Embaixadores</a></li>
-                    <li><a href="/nossoblog.html">Artigos</a></li>
-                    <li><a href="/contato.html">Imprenssa</a></li>
-                    <li><a href="{{ route('site.professores') }}">Professores</a></li>
-                    <li><a href="{{ route('site.duvidas') }}">Duvidas Frequentes</a></li>
+                    <li><a href="{{ route('site.quem_somos') }}">Sobre</a></li>
+                    <li><a href="{{ route('site.blog-lista') }}">Artigos</a></li>
+                    <li><a href="{{ route('site.contato') }}">Imprenssa</a></li>
+                    <li><a href="{{ route('site.duvidas') }}">Dúvidas Frequentes</a></li>
                 </ul>
             </div>
         </div>
@@ -154,7 +153,7 @@
                     <span>MENU</span>
                 </div>
                 <ul>
-                    <li><a href="/contato.html">CONTATO</a></li>
+                    <li><a href="{{ route('site.contato') }}">CONTATO</a></li>
                     <li><img src="{{ asset('site/img/hotsite/user.svg') }}" alt="Ícone de Usuário" /></li>
                     <li><img src="{{ asset('site/img/hotsite/cart.svg') }}" alt="Ícone de Carrinho" /></li>
                 </ul>

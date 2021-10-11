@@ -10,8 +10,10 @@
                 border: 1px solid #ececec;
                 width: 100%;
                 max-width: 28rem;
-                height: 41.5rem;
+                // height: 41.5rem;
                 // box-shadow: 10px 20px 40px rgba(19, 51, 113, 0.05);
+
+                padding-bottom: 3rem;
 
                 transition: 0.32s;
 
@@ -59,6 +61,17 @@
                             margin-top: 1.3rem;
                             font-size: 1.4rem;
                             color: $color-alternative;
+                        }
+
+                        button {
+                            @include alternative-btn(
+                                3.6rem,
+                                $color-thirdy,
+                                $white
+                            );
+                            margin: 0 auto;
+                            margin-top: 2rem;
+                            font-size: 1.6rem;
                         }
                     }
                 }
