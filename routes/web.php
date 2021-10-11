@@ -276,7 +276,9 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::get('/sistema/clinicas/participante/deletar/{participante}', [\App\Http\Controllers\ClinicaController::class, 'deletar_participante'])->name("painel.clinicas.participante.deletar");
         Route::post('/sistema/clinicas/{evento}/hotel/adicionar', [\App\Http\Controllers\ClinicaController::class, 'adicionar_hotel'])->name("painel.clinicas.hotel.adicionar");
         Route::get('/sistema/clinicas/hotel/deletar/{hotel}', [\App\Http\Controllers\ClinicaController::class, 'deletar_hotel'])->name("painel.clinicas.hotel.deletar");
-                
+        Route::post('/sistema/clinicas/{evento}/pacote/adicionar', [\App\Http\Controllers\ClinicaController::class, 'adicionar_pacote'])->name("painel.clinicas.pacote.adicionar");        
+        Route::get('/sistema/clinicas/pacote/deletar/{pacote}', [\App\Http\Controllers\ClinicaController::class, 'deletar_pacote'])->name("painel.clinicas.pacote.deletar");
+
         // ROTAS DE EVENTOS
         Route::match(['get', 'post'], '/sistema/eventos', [\App\Http\Controllers\EventoController::class, 'consultar'])->name("painel.eventos");
         Route::get('/sistema/eventos/cadastrar', [\App\Http\Controllers\EventoController::class, 'cadastrar'])->name("painel.eventos.cadastrar");
@@ -289,6 +291,8 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::get('/sistema/eventos/participante/deletar/{participante}', [\App\Http\Controllers\EventoController::class, 'deletar_participante'])->name("painel.eventos.participante.deletar");
         Route::post('/sistema/eventos/{evento}/hotel/adicionar', [\App\Http\Controllers\EventoController::class, 'adicionar_hotel'])->name("painel.eventos.hotel.adicionar");
         Route::get('/sistema/eventos/hotel/deletar/{hotel}', [\App\Http\Controllers\EventoController::class, 'deletar_hotel'])->name("painel.eventos.hotel.deletar");
+        Route::post('/sistema/eventos/{evento}/pacote/adicionar', [\App\Http\Controllers\EventoController::class, 'adicionar_pacote'])->name("painel.eventos.pacote.adicionar");
+        Route::get('/sistema/eventos/pacote/deletar/{pacote}', [\App\Http\Controllers\EventoController::class, 'deletar_pacote'])->name("painel.eventos.pacote.deletar");
 
         // ROTAS DE CATALOGO  
         Route::get('/sistema/catalogo/cadastrar', [\App\Http\Controllers\CatalogoController::class, 'cadastrar'])->name("painel.catalogo.cadastro");

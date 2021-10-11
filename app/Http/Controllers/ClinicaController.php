@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Curso;
+use App\Models\PacoteCurso;
 use App\Models\Evento;
 use App\Models\EventoCurso;
 use App\Models\EventoParticipante;
@@ -176,6 +178,39 @@ class ClinicaController extends Controller
         Storage::delete($hotel->foto);
         $hotel->delete();
         toastr()->success("Hotel removido do evento.");
+        return redirect()->back();
+    }
+
+    public function adicionar_pacote(Request $request, Evento $evento){
+        $pacote = new Curso;
+        $pacote->evento_id = $evento->id;
+        $pacote->nome = $request->nome;
+        $pacote->slug = Str::slug($request->nome);
+        $pacote->pacote = true;
+        $pacote->valor = $request->valor;
+        $pacote->descricao_pacote = $request->descricao_pacote;
+        $pacote->save();
+
+        foreach($request->cursos as $curso){
+            $pacote_curso = new PacoteCurso;
+            $pacote_curso->pacote_id = $pacote->id;
+            $pacote_curso->curso_id = $curso;
+            $pacote_curso->save();
+        }
+
+        toastr()->success("Pacote adicionado com sucesso!");
+        return redirect()->back();
+    }
+
+    public function deletar_pacote(Curso $pacote){
+        $cursos_ligados = PacoteCurso::where("pacote_id", $pacote->id)->get();
+
+        foreach($cursos_ligados as $curso){
+            $curso->delete();
+        }
+
+        $pacote->delete();
+        toastr()->success("Pacote removido com sucesso!");
         return redirect()->back();
     }
 }

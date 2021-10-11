@@ -328,41 +328,40 @@
 
 
 
-                <form action="{{ route('painel.clinicas.curso.adicionar', ['evento' => $evento]) }}" method="POST">
+                <form action="{{ route('painel.clinicas.pacote.adicionar', ["evento" => $evento]) }}" method="POST">
                     @csrf
                     <div class="row">
-
                         <div class="col-sm-6">
                             <div class="mb-3">
-                                <label for="local_nome">Nome</label>
-                                <input id="local_nome" name="local_nome" type="text" class="form-control"
-                                    placeholder="Insira o nome do local" value="{{ $evento->local_nome }}">
+                                <label for="nome">Nome</label>
+                                <input id="nome" name="nome" type="text" class="form-control"
+                                    placeholder="Insira o nome do local">
                             </div>
 
 
                             <div class="mb-3">
                                 <label class="control-label">Cursos</label>
                                 <select class="js-example-basic-multiple js-states form-control" multiple="multiple"
-                                    name="pacotes[]" id="select_cursospacote" multiple required>
-                                    @foreach (App\Models\Professor::all() as $professor)
-                                        <option value="{{ $professor->id }}" @if ($curso->professores->contains($professor)) selected @endif>
-                                            {{ $professor->nome }}</option>
+                                    name="cursos[]" id="select_cursospacote" multiple required>
+                                    @foreach (App\Models\Curso::where("pacote", false)->get() as $curso)
+                                        <option value="{{ $curso->id }}">
+                                            {{ $curso->nome }}</option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="mb-3">
-                                <label for="price">Valor do Pacote</label>
-                                <input id="price" name="price" type="text" placeholder="R$ 0,00" class="form-control">
+                                <label for="valor">Valor do Pacote (R$)</label>
+                                <input id="valor" name="valor" type="number" value="0" min="0" step="0.01">
                             </div>
                         </div>
 
                         <div class="col-sm-6">
 
                             <div class="mb-3" style="height: 100%">
-                                <label for="sobre">Descrição</label>
-                                <textarea id="sobre" name="sobre" class="form-control" style="height: 246px"
-                                    placeholder="Insira o conteúdo da descrição">{!! $evento->sobre !!}</textarea>
+                                <label for="descricao_pacote">Descrição</label>
+                                <textarea id="descricao_pacote" name="descricao_pacote" class="form-control" style="height: 246px"
+                                    placeholder="Insira o conteúdo da descrição"></textarea>
                             </div>
 
 
@@ -400,10 +399,15 @@
 
 
                             <tbody>
-                                @foreach ($evento->cursos_ligados as $curso_ligado)
+                                @foreach ($evento->pacotes as $pacote)
                                     <tr class="odd">
-                                        <td class="sorting_1 dtr-control">{{ $curso_ligado->curso->nome }}</td>
-                                        <td>{{ date('d/m/Y', strtotime($curso_ligado->data)) }}</td>
+                                        <td class="sorting_1 dtr-control">{{ $pacote->nome }}</td>
+                                        <td>R$ {{ number_format($pacote->valor, 2 ,",", ".") }}</td>
+                                        <td>
+                                            @foreach($pacote->cursos as $curso)
+                                                <span class="badge bg-secondary mx-1">{{$curso->nome}}</span>
+                                            @endforeach
+                                        </td>
                                         <td>
                                             <div class="btn-group edit-table-button ">
                                                 <button type="button" class="btn btn-info dropdown-toggle"
@@ -411,7 +415,7 @@
                                                     style="height: 34px!important;"><i class="bx bx-edit"></i></button>
                                                 <div class="dropdown-menu" style="margin: 0px;">
                                                     <a class="dropdown-item"
-                                                        href="{{ route('painel.clinicas.curso.deletar', ['evento_curso' => $curso_ligado]) }}"
+                                                        href="{{ route('painel.clinicas.pacote.deletar', ['pacote' => $pacote]) }}"
                                                         style="color: red" href="#">Excluir</a>
                                                 </div>
                                             </div>
