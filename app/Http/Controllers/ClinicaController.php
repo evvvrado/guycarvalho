@@ -15,7 +15,7 @@ class ClinicaController extends Controller
 {
     //
 
-    public function consultar(){
+    public function consultar(Request $request){
         if($request->isMethod('get')){
             $eventos = Evento::where("clinica", true)->get();
             return view("painel.clinicas.consultar", ["eventos" => $eventos]);
