@@ -20,7 +20,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Cadastro de Professor</h4>
-                    <form action="{{route('painel.professores.salvar')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('painel.professores.salvar') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-sm-6">
@@ -32,8 +32,8 @@
                                 <div class="mb-3">
                                     <label for="atuacao">Atuação</label>
                                     <select id="atuacao" name="atuacao" class="form-control">
-                                        @foreach(config("professores.atuacao_nome") as $codigo => $nome)
-                                            <option value="{{$codigo}}">{{$nome}}</option>
+                                        @foreach (config('professores.atuacao_nome') as $codigo => $nome)
+                                            <option value="{{ $codigo }}">{{ $nome }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -46,11 +46,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex flex-wrap gap-2">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
-                            <a href="{{route('painel.professores')}}" class="btn btn-secondary waves-effect waves-light">Cancelar</a>
-                        </div>
-
 
 
 
@@ -70,6 +65,12 @@
                                     <input name="foto" id="foto-upload" style="display: none;" type="file">
                                 </div>
                             </div>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
+                                <a href="{{ route('painel.professores') }}"
+                                    class="btn btn-secondary waves-effect waves-light">Cancelar</a>
+                            </div>
+
                         </div>
                     </form>
                 </div>

@@ -22,8 +22,8 @@
 
             <div class="row"">
 
-                               
-                    <div class=" col-sm-12 col-md-6 mb-3"
+                                       
+                            <div class="   col-sm-12 col-md-6 mb-3"
                 style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
 
                 <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;"
@@ -79,6 +79,8 @@
                                                     <div class="dropdown-menu" style="margin: 0px;">
                                                         <a class="dropdown-item"
                                                             href="{{ route('painel.expositores.editar', ['expositor' => $expositor]) }}">Editar</a>
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('painel.expositores.hotsite') }}">Hotsite</a>
                                                         <div class="dropdown-divider"></div>
                                                         <a class="dropdown-item" style="color: red" href="#">Excluir</a>
                                                     </div>
@@ -109,36 +111,36 @@
         <div class="card filter-body">
             <div class="card-body">
 
-                <form id="form-filtro" action="{{route('painel.expositores')}}" method="POST">
+                <form id="form-filtro" action="{{ route('painel.expositores') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="nome">Nome</label>
                         <input id="nome" name="nome" type="text" placeholder="Insira o Nome" class="form-control"
-                            maxlength="100" @if(isset($filtros) && isset($filtros["nome"])) value="{{$filtros["nome"]}}" @endif>
+                            maxlength="100" @if (isset($filtros) && isset($filtros['nome'])) value="{{ $filtros['nome'] }}" @endif>
                     </div>
                     <div class="mb-3">
                         <label for="telefone">Telefone</label>
                         <input class="form-control" name="telefone" type="tel" placeholder="Insira o telefone"
-                            id="example-tel-input" maxlength="20" @if(isset($filtros) && isset($filtros["telefone"])) value="{{$filtros["telefone"]}}" @endif>
+                            id="example-tel-input" maxlength="20" @if (isset($filtros) && isset($filtros['telefone'])) value="{{ $filtros['telefone'] }}" @endif>
                     </div>
                     <div class="mb-3">
                         <label for="categoria">Categoria</label>
                         <select class="form-control" name="categoria" required>
                             <option value="-1">Todas</option>
-                            @foreach(config("expositores.categorias_nome") as $codigo => $categoria)
-                                <option value="{{$codigo}}" @if(isset($filtros) && isset($filtros["categoria"]) && $filtros["categoria"] == $codigo) selected @endif>{{$categoria}}</option>
+                            @foreach (config('expositores.categorias_nome') as $codigo => $categoria)
+                                <option value="{{ $codigo }}" @if (isset($filtros) && isset($filtros['categoria']) && $filtros['categoria'] == $codigo) selected @endif>{{ $categoria }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="site">Site</label>
                         <input class="form-control" name="site" type="url" placeholder="Insira a URL"
-                            id="example-url-input" maxlength="255" @if(isset($filtros) && isset($filtros["site"])) value="{{$filtros["site"]}}" @endif>
+                            id="example-url-input" maxlength="255" @if (isset($filtros) && isset($filtros['site'])) value="{{ $filtros['site'] }}" @endif>
                     </div>
                     <div class="mb-3">
                         <label for="email">E-mail</label>
                         <input class="form-control" name="email" type="email" placeholder="Insira o e-mail"
-                            id="example-email-input" maxlength="100" @if(isset($filtros) && isset($filtros["email"])) value="{{$filtros["email"]}}" @endif>
+                            id="example-email-input" maxlength="100" @if (isset($filtros) && isset($filtros['email'])) value="{{ $filtros['email'] }}" @endif>
                     </div>
                 </form>
 
@@ -304,11 +306,11 @@
                 }
             });
 
-            $("#btn-filtrar").click(function(){
+            $("#btn-filtrar").click(function() {
                 $("#form-filtro").submit();
             });
 
-            $("#btn-limpar").click(function(){
+            $("#btn-limpar").click(function() {
                 $("input[type!='hidden']").val("");
                 $("select").val("-1");
             });

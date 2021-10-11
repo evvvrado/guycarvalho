@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Cadastro de Expositor</h4>
-                    <form action="{{route('painel.expositores.salvar')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('painel.expositores.salvar') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-sm-6">
@@ -35,8 +35,8 @@
                                 <div class="mb-3">
                                     <label for="categoria">Categoria</label>
                                     <select class="form-control" name="categoria" required>
-                                        @foreach(config("expositores.categorias_nome") as $codigo => $categoria)
-                                            <option value="{{$codigo}}">{{$categoria}}</option>
+                                        @foreach (config('expositores.categorias_nome') as $codigo => $categoria)
+                                            <option value="{{ $codigo }}">{{ $categoria }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -54,13 +54,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex flex-wrap gap-2">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
-                            <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
-                        </div>
                         <div class="col-12 mt-3">
                             <div class="row">
-                                <div class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
+                                <div
+                                    class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
                                     <span class="mb-3">
                                         Logo do Expositor
                                     </span>
@@ -76,6 +73,10 @@
                                     <label class="btn btn-primary" for="banner-upload">Escolher</label>
                                     <input name="foto" id="banner-upload" style="display: none;" type="file">
                                 </div>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
+                                <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
                             </div>
                         </div>
                     </form>

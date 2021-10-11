@@ -128,10 +128,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex flex-wrap gap-2">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
-                            <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
-                        </div>
                         <div class="row flex-row">
                             <div class="card-body col-2">
                                 <div class="col-12 mt-3">
@@ -176,6 +172,10 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
+                    <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
                 </div>
             </div>
             </form>

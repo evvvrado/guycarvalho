@@ -62,7 +62,7 @@
             <div class="card evento">
                 <div class="card-body">
                     <h4 class="card-title">Cadastro de Clínica</h4>
-                    <form action="{{route('painel.clinicas.salvar')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('painel.clinicas.salvar') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="clinica" value="1">
                         <div class="row">
@@ -81,7 +81,8 @@
 
                                 <div class="mb-3">
                                     <label for="inicio">Data de Início</label>
-                                    <input class="form-control" name="inicio" type="date" id="example-date-input" min="{{date('Y-m-d')}}">
+                                    <input class="form-control" name="inicio" type="date" id="example-date-input"
+                                        min="{{ date('Y-m-d') }}">
                                 </div>
 
                                 <div class="mb-3">
@@ -107,15 +108,12 @@
 
                                 <div class="mb-3">
                                     <label for="fim">Data de encerramento</label>
-                                    <input class="form-control" name="fim" type="date" id="example-date-input" min="{{date('Y-m-d')}}">
+                                    <input class="form-control" name="fim" type="date" id="example-date-input"
+                                        min="{{ date('Y-m-d') }}">
                                 </div>
 
 
                             </div>
-                        </div>
-                        <div class="d-flex flex-wrap gap-2">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
-                            <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
                         </div>
                         <div class="row flex-row">
                             <div class="card-body col-2">
@@ -124,10 +122,11 @@
                                         <div
                                             class="col-12 text-center d-flex align-items-center justify-content-center flex-column">
                                             Thumbnail
-        
+
                                             <picture
                                                 style="height: 350px; max-width: 350px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                                <img id="thumbnail-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                                <img id="thumbnail-preview"
+                                                    src="{{ asset('admin/images/thumb-padrao.png') }}"
                                                     style="height: 100%;" alt="">
                                             </picture>
                                         </div>
@@ -135,12 +134,13 @@
                                     <div class="row mt-3">
                                         <div class="col-12 text-center">
                                             <label class="btn btn-primary" for="thumbnail-upload">Escolher</label>
-                                            <input name="thumbnail" id="thumbnail-upload" style="display: none;" type="file">
+                                            <input name="thumbnail" id="thumbnail-upload" style="display: none;"
+                                                type="file">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-        
+
                             <div class="card-body col-8">
                                 <div class="col-12 mt-3">
                                     <div class="row">
@@ -149,7 +149,8 @@
                                             Banner
                                             <picture
                                                 style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                                <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                                <img id="banner-preview"
+                                                    src="{{ asset('admin/images/thumb-padrao.png') }}"
                                                     style="height: 100%;" alt="">
                                             </picture>
                                         </div>
@@ -162,11 +163,15 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
+                                <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
+                            </div>
                         </div>
                     </form>
                 </div>
 
-                
+
             </div>
 
         </div>

@@ -20,24 +20,25 @@
                     <h4 class="card-title">Editar Expositor</h4>
                     <form action="{{ route('painel.expositores.salvar') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" name="expositor_id" value="{{$expositor->id}}">
+                        <input type="hidden" name="expositor_id" value="{{ $expositor->id }}">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="nome">Nome</label>
                                     <input id="nome" name="nome" type="text" placeholder="Insira o Nome"
-                                        class="form-control" maxlength="100" value="{{$expositor->nome}}">
+                                        class="form-control" maxlength="100" value="{{ $expositor->nome }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="telefone">Telefone</label>
                                     <input class="form-control" name="telefone" type="tel" placeholder="Insira o telefone"
-                                        id="example-tel-input" maxlength="20" value="{{$expositor->telefone}}">
+                                        id="example-tel-input" maxlength="20" value="{{ $expositor->telefone }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="categoria">Categoria</label>
                                     <select class="form-control" name="categoria" required>
                                         @foreach (config('expositores.categorias_nome') as $codigo => $categoria)
-                                            <option value="{{ $codigo }}" @if($expositor->categoria == $codigo) selected @endif>{{ $categoria }}</option>
+                                            <option value="{{ $codigo }}" @if ($expositor->categoria == $codigo) selected @endif>{{ $categoria }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -46,18 +47,14 @@
                                 <div class="mb-3">
                                     <label for="site">Site</label>
                                     <input class="form-control" name="site" type="url" placeholder="Insira a URL"
-                                        id="example-url-input" maxlength="255" value="{{$expositor->site}}">
+                                        id="example-url-input" maxlength="255" value="{{ $expositor->site }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="email">E-mail</label>
                                     <input class="form-control" name="email" type="email" placeholder="Insira o e-mail"
-                                        id="example-email-input" maxlength="100" value="{{$expositor->email}}">
+                                        id="example-email-input" maxlength="100" value="{{ $expositor->email }}">
                                 </div>
                             </div>
-                        </div>
-                        <div class="d-flex flex-wrap gap-2">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
-                            <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
                         </div>
                         <div class="col-12 mt-3">
                             <div class="row">
@@ -68,8 +65,7 @@
                                     </span>
                                     <picture
                                         style="height: 281px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                        <img id="banner-preview" @if(!$expositor->foto) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($expositor->foto) }}" @endif
-                                            style="height: 100%;" alt="">
+                                        <img id="banner-preview" @if (!$expositor->foto) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($expositor->foto) }}" @endif style="height: 100%;" alt="">
                                     </picture>
                                 </div>
                             </div>
@@ -78,6 +74,10 @@
                                     <label class="btn btn-primary" for="banner-upload">Escolher</label>
                                     <input name="foto" id="banner-upload" style="display: none;" type="file">
                                 </div>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
+                                <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
                             </div>
                         </div>
                     </form>

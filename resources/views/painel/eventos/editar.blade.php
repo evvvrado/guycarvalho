@@ -72,32 +72,33 @@
             <div class="card evento">
                 <div class="card-body">
                     <h4 class="card-title">Editar Evento</h4>
-                    <form action="{{route('painel.eventos.salvar')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('painel.eventos.salvar') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" name="evento_id" value="{{$evento->id}}">
+                        <input type="hidden" name="evento_id" value="{{ $evento->id }}">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="nome">Nome</label>
                                     <input id="nome" name="nome" type="text" class="form-control"
-                                        placeholder="Insira o nome" maxlength="255" value="{{$evento->nome}}">
+                                        placeholder="Insira o nome" maxlength="255" value="{{ $evento->nome }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="titulo">Subtítulo</label>
                                     <input id="titulo" name="titulo" type="text" class="form-control"
-                                        placeholder="Insira o subtítulo" maxlength="255" value="{{$evento->titulo}}">
+                                        placeholder="Insira o subtítulo" maxlength="255" value="{{ $evento->titulo }}">
                                 </div>
 
 
                                 <div class="mb-3">
                                     <label for="inicio">Data de Início</label>
-                                    <input class="form-control" name="inicio" type="date" id="example-date-input" value="{{$evento->inicio}}">
+                                    <input class="form-control" name="inicio" type="date" id="example-date-input"
+                                        value="{{ $evento->inicio }}">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="video">URL Do Vídeo</label>
                                     <input id="video" name="video" type="text" class="form-control"
-                                        placeholder="youtu.be/linkdovideo" maxlength="255" value="{{$evento->video}}">
+                                        placeholder="youtu.be/linkdovideo" maxlength="255" value="{{ $evento->video }}">
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -105,7 +106,8 @@
                                 <div class="mb-3">
                                     <label for="descricao">Descrição</label>
                                     <input id="descricao" name="descricao" type="text" class="form-control"
-                                        placeholder="Insira a decrição da clínica" maxlength="255" {{$evento->descricao}}>
+                                        placeholder="Insira a decrição da clínica" maxlength="255"
+                                        {{ $evento->descricao }}>
                                 </div>
 
                                 <div class="mb-3">
@@ -117,15 +119,12 @@
 
                                 <div class="mb-3">
                                     <label for="fim">Data de encerramento</label>
-                                    <input class="form-control" name="fim" type="date" id="example-date-input" value="{{$evento->fim}}">
+                                    <input class="form-control" name="fim" type="date" id="example-date-input"
+                                        value="{{ $evento->fim }}">
                                 </div>
 
 
                             </div>
-                        </div>
-                        <div class="d-flex flex-wrap gap-2">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
-                            <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
                         </div>
                         <div class="row flex-row">
                             <div class="card-body col-2">
@@ -134,23 +133,24 @@
                                         <div
                                             class="col-12 text-center d-flex align-items-center justify-content-center flex-column">
                                             Thumbnail
-        
+
                                             <picture
                                                 style="height: 350px; max-width: 350px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                                <img id="thumbnail-preview" @if(!$evento->thumbnail) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($evento->thumbnail) }}" @endif
-                                                    style="height: 100%;" alt="">
+                                                <img id="thumbnail-preview" @if (!$evento->thumbnail) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($evento->thumbnail) }}" @endif style="height: 100%;"
+                                                    alt="">
                                             </picture>
                                         </div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-12 text-center">
                                             <label class="btn btn-primary" for="thumbnail-upload">Escolher</label>
-                                            <input name="thumbnail" id="thumbnail-upload" style="display: none;" type="file">
+                                            <input name="thumbnail" id="thumbnail-upload" style="display: none;"
+                                                type="file">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-        
+
                             <div class="card-body col-8">
                                 <div class="col-12 mt-3">
                                     <div class="row">
@@ -159,8 +159,8 @@
                                             Banner
                                             <picture
                                                 style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                                <img id="banner-preview" @if(!$evento->banner) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($evento->banner) }}" @endif
-                                                    style="height: 100%;" alt="">
+                                                <img id="banner-preview" @if (!$evento->banner) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($evento->banner) }}" @endif style="height: 100%;"
+                                                    alt="">
                                             </picture>
                                         </div>
                                     </div>
@@ -172,11 +172,15 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
+                                <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
+                            </div>
                         </div>
                     </form>
                 </div>
 
-                
+
             </div>
         </div>
 
@@ -184,14 +188,15 @@
         <div class="card local">
             <div class="card-body">
                 <h4 class="card-title">Local do Evento</h4>
-                <form action="{{route('painel.eventos.local.salvar', ["evento" => $evento])}}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('painel.eventos.local.salvar', ['evento' => $evento]) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="mb-3">
                                 <label for="local_nome">Nome</label>
                                 <input id="local_nome" name="local_nome" type="text" class="form-control"
-                                    placeholder="Insira o nome do local" value="{{$evento->local_nome}}">
+                                    placeholder="Insira o nome do local" value="{{ $evento->local_nome }}">
                             </div>
 
                         </div>
@@ -200,7 +205,7 @@
                             <div class="mb-3">
                                 <label for="local_endereco">Endereço</label>
                                 <input id="local_endereco" name="local_endereco" type="text" class="form-control"
-                                    placeholder="Insira a endereço do local" value="{{$evento->local_endereco}}">
+                                    placeholder="Insira a endereço do local" value="{{ $evento->local_endereco }}">
                             </div>
                         </div>
                     </div>
@@ -209,8 +214,7 @@
                             <div class="col-12 text-center d-flex align-items-center justify-content-center">
                                 <picture
                                     style="height: 525px; width: 100%; max-width: 756px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                    <img id="local-preview" @if(!$evento->local_foto) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($evento->local_foto) }}" @endif
-                                        style="height: 100%;" alt="">
+                                    <img id="local-preview" @if (!$evento->local_foto) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($evento->local_foto) }}" @endif style="height: 100%;" alt="">
                                 </picture>
                             </div>
                         </div>
@@ -236,14 +240,14 @@
 
 
 
-                <form action="{{route('painel.eventos.curso.adicionar', ['evento' => $evento])}}" method="POST">
+                <form action="{{ route('painel.eventos.curso.adicionar', ['evento' => $evento]) }}" method="POST">
                     @csrf
                     <div class="row">
                         <div class="mb-3">
                             <label class="control-label">Selecionar Curso</label>
                             <select class="form-control" name="curso_id">
-                                @foreach(App\Models\Curso::all() as $curso)
-                                    <option value="{{$curso->id}}">{{$curso->nome}}</option>
+                                @foreach (App\Models\Curso::all() as $curso)
+                                    <option value="{{ $curso->id }}">{{ $curso->nome }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -282,17 +286,19 @@
 
 
                             <tbody>
-                                @foreach($evento->cursos_ligados as $curso_ligado)
+                                @foreach ($evento->cursos_ligados as $curso_ligado)
                                     <tr class="odd">
-                                        <td class="sorting_1 dtr-control">{{$curso_ligado->curso->nome}}</td>
-                                        <td>{{date("d/m/Y", strtotime($curso_ligado->data))}}</td>
+                                        <td class="sorting_1 dtr-control">{{ $curso_ligado->curso->nome }}</td>
+                                        <td>{{ date('d/m/Y', strtotime($curso_ligado->data)) }}</td>
                                         <td>
                                             <div class="btn-group edit-table-button ">
                                                 <button type="button" class="btn btn-info dropdown-toggle"
                                                     data-bs-toggle="dropdown" aria-expanded="false"
                                                     style="height: 34px!important;"><i class="bx bx-edit"></i></button>
                                                 <div class="dropdown-menu" style="margin: 0px;">
-                                                    <a class="dropdown-item" href="{{route('painel.eventos.curso.deletar', ['evento_curso' => $curso_ligado])}}" style="color: red" href="#">Excluir</a>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('painel.eventos.curso.deletar', ['evento_curso' => $curso_ligado]) }}"
+                                                        style="color: red" href="#">Excluir</a>
                                                 </div>
                                             </div>
 
@@ -314,7 +320,7 @@
         <div class="card hoteis">
             <div class="card-body">
                 <h4 class="card-title">Hoteis Conveniados</h4>
-                <form action="{{route('painel.eventos.hotel.adicionar', ['evento' => $evento])}}" method="POST">
+                <form action="{{ route('painel.eventos.hotel.adicionar', ['evento' => $evento]) }}" method="POST">
                     @csrf
                     <div class="row">
 
@@ -330,8 +336,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="url">URL de Redirecionamento</label>
-                            <input id="url" name="url" type="url" class="form-control"
-                                placeholder="goog.gl/exemplo" maxlength="255">
+                            <input id="url" name="url" type="url" class="form-control" placeholder="goog.gl/exemplo"
+                                maxlength="255">
                         </div>
                     </div>
                     <div class="d-flex flex-wrap gap-2">
@@ -357,7 +363,7 @@
                         </div>
                     </div>
                 </form>
-                
+
                 <div class="card-body">
                     <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                     </div>
@@ -382,17 +388,20 @@
 
 
                                 <tbody>
-                                    @foreach($evento->hoteis as $hotel)
+                                    @foreach ($evento->hoteis as $hotel)
                                         <tr class="odd">
-                                            <td class="sorting_1 dtr-control">{{$hotel->nome}}</td>
-                                            <td>{{$hotel->endereco}}</td>
+                                            <td class="sorting_1 dtr-control">{{ $hotel->nome }}</td>
+                                            <td>{{ $hotel->endereco }}</td>
                                             <td>
                                                 <div class="btn-group edit-table-button ">
                                                     <button type="button" class="btn btn-info dropdown-toggle"
                                                         data-bs-toggle="dropdown" aria-expanded="false"
-                                                        style="height: 34px!important;"><i class="bx bx-edit"></i></button>
+                                                        style="height: 34px!important;"><i
+                                                            class="bx bx-edit"></i></button>
                                                     <div class="dropdown-menu" style="margin: 0px;">
-                                                        <a class="dropdown-item" href="{{route('painel.eventos.hotel.deletar', ['hotel' => $hotel])}}" style="color: red" href="#">Excluir</a>
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('painel.eventos.hotel.deletar', ['hotel' => $hotel]) }}"
+                                                            style="color: red" href="#">Excluir</a>
                                                     </div>
                                                 </div>
 
@@ -418,7 +427,8 @@
 
 
 
-                <form action="{{route('painel.eventos.participante.adicionar', ['evento' => $evento])}}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('painel.eventos.participante.adicionar', ['evento' => $evento]) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-sm-6">
@@ -433,8 +443,8 @@
                             <div class="mb-3">
                                 <label class="control-label">Embaixador ou Convidado</label>
                                 <select class="form-control" name="tipo">
-                                    @foreach(config("eventos.participantes") as $codigo => $funcao)
-                                        <option value="{{$codigo}}">{{$funcao}}</option>
+                                    @foreach (config('eventos.participantes') as $codigo => $funcao)
+                                        <option value="{{ $codigo }}">{{ $funcao }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -443,7 +453,8 @@
                         <div class="col-sm-6">
                             <div class="mb-3">
                                 <label for="nome">URL para redirecionar</label>
-                                <input class="form-control" type="url" name="url" placeholder="Insira a URL" id="example-url-input" maxlength="255">
+                                <input class="form-control" type="url" name="url" placeholder="Insira a URL"
+                                    id="example-url-input" maxlength="255">
                             </div>
 
 
@@ -503,12 +514,13 @@
 
 
                             <tbody>
-                                @foreach($evento->participantes as $participante)
+                                @foreach ($evento->participantes as $participante)
                                     <tr>
-                                        <td><img src="{{asset($participante->foto)}}" style="width: 100px;" alt=""></td>
-                                        <td>{{$participante->nome}}</td>
+                                        <td style="display: flex; align-items: center; justify-content:center;"><img
+                                                src="{{ asset($participante->foto) }}" style="width: 100px;" alt=""></td>
+                                        <td>{{ $participante->nome }}</td>
                                         <td>
-                                            {{config("eventos.participantes")[$participante->tipo]}}
+                                            {{ config('eventos.participantes')[$participante->tipo] }}
                                         </td>
                                         <td>
                                             <div class="btn-group edit-table-button ">
@@ -516,7 +528,9 @@
                                                     data-bs-toggle="dropdown" aria-expanded="false"
                                                     style="height: 34px!important;"><i class="bx bx-edit"></i></button>
                                                 <div class="dropdown-menu" style="margin: 0px;">
-                                                    <a class="dropdown-item" href="{{route('painel.eventos.participante.deletar', ['participante' => $participante])}}" style="color: red" href="#">Excluir</a>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('painel.eventos.participante.deletar', ['participante' => $participante]) }}"
+                                                        style="color: red" href="#">Excluir</a>
                                                 </div>
                                             </div>
                                         </td>
