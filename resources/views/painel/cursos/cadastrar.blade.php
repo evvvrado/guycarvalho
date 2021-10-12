@@ -87,6 +87,11 @@
                                         min="0" value="0">
                                 </div>
                                 <div class="mb-3">
+                                    <label for="titulo">Título do paragrafo</label>
+                                    <input id="titulo" name="nome" type="text" class="form-control"
+                                        placeholder="Insira o titulo">
+                                </div>
+                                <div class="mb-3">
                                     <label for="video">URL Do Vídeo</label>
                                     <input id="video" name="video" type="text" class="form-control"
                                         placeholder="youtu.be/linkdovideo" maxlength="255">
@@ -114,6 +119,21 @@
                                     </select>
                                 </div>
 
+                                <div class="mb-3">
+                                    <label for="descricao">Descrição</label>
+                                    <textarea id="textarea" name="descricao" class="form-control" maxlength="107" rows="3"
+                                        placeholder="Limite de 107 Caracteres" required></textarea>
+                                </div>
+
+
+
+                                <div class="mb-3">
+                                    <label for="descricao">Sobre o curso</label>
+                                    <textarea id="textarea" name="descricao" class="form-control" maxlength="107" rows="3"
+                                        placeholder="Descrição breve sobre o curso" required></textarea>
+                                </div>
+
+
 
 
                                 <div class="mb-3 ">
@@ -127,7 +147,7 @@
                         </div>
 
                         <div class="row flex-row">
-                            <div class="card-body col-2">
+                            <div class="card-body col-4">
                                 <div class="col-12 mt-3">
                                     <div class="row">
                                         <div
