@@ -14,7 +14,7 @@
             9 => "Recreação",
             10 => "Ritmos e Funcional",
             11 => "Musculação Feminina",
-        ]
+        ],
     ];
 
 ?>

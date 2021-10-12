@@ -46,7 +46,7 @@ class SiteController extends Controller
     }
 
     public function cursos(){
-        $cursos = Curso::where("ativo", true)->get();
+        $cursos = Curso::where("pacote", false)->get();
         return view("site.cursos", ["cursos" => $cursos]);
     }
 
@@ -91,7 +91,8 @@ class SiteController extends Controller
         return view("site.diretoria");
     }
     public function professores(){
-        return view("site.professores");
+        $professores = \App\Models\Professor::all();
+        return view("site.professores", ['professores' => $professores]);
     }
 
     public function experiencia(){
@@ -259,6 +260,7 @@ class SiteController extends Controller
     public function feira(){
         return view("site.feira");
     }
+
     public function feiraEmpresas(){
         return view("site.feira-empresas");
     }
@@ -290,9 +292,11 @@ class SiteController extends Controller
     public function blogGrid(){
         return view("site.blog-grid");
     }
+
     public function blogLista(){
         return view("site.blog-lista");
     }
+
     public function blogPost(){
         return view("site.blog");
     }

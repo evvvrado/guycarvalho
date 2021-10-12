@@ -62,6 +62,7 @@
         <span data-filter="evento" class="active">Evento</span>
         <span data-filter="local">Local</span>
         <span data-filter="cursos">Cursos</span>
+        <span data-filter="pacotes  ">Pacotes</span>
         <span data-filter="embaixadores">Embaixadores e Convidados</span>
         <span data-filter="hoteis">Hoteis</span>
     </div>
@@ -298,6 +299,120 @@
                                                 <div class="dropdown-menu" style="margin: 0px;">
                                                     <a class="dropdown-item"
                                                         href="{{ route('painel.eventos.curso.deletar', ['evento_curso' => $curso_ligado]) }}"
+                                                        style="color: red" href="#">Excluir</a>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="card pacotes">
+            <div class="card-body">
+                <h4 class="card-title">Pacotes dos Eventos</h4>
+
+
+
+                <form action="{{ route('painel.eventos.pacote.adicionar', ['evento' => $evento]) }}" method="POST">
+                    @csrf
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="nome">Nome</label>
+                                <input id="nome" name="nome" type="text" class="form-control"
+                                    placeholder="Insira o nome do local" required>
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label class="control-label">Cursos</label>
+                                <select class="js-example-basic-multiple js-states form-control" multiple="multiple"
+                                    name="cursos[]" id="select_cursospacote" multiple required>
+                                    @foreach (App\Models\Curso::where('pacote', false)->get() as $curso)
+                                        <option value="{{ $curso->id }}">
+                                            {{ $curso->nome }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="valor">Valor do Pacote (R$)</label>
+                                <input class="form-control" id="valor" name="valor" type="number" value="0" min="0"
+                                    step="0.01">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+
+                            <div class="mb-3" style="height: 100%">
+                                <label for="descricao_pacote">Descrição</label>
+                                <textarea id="descricao_pacote" name="descricao_pacote" class="form-control"
+                                    style="height: 246px" placeholder="Insira o conteúdo da descrição"></textarea>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-body">
+                <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="datatable"
+                            class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
+                            role="grid" aria-describedby="datatable_info" style="width: 1185px;">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                                        colspan="1" style="width: 68px;" aria-sort="ascending"
+                                        aria-label="Name: activate to sort column descending">Nome</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                        colspan="1" style="width: 70px;"
+                                        aria-label="Position: activate to sort column ascending">Valor</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                        colspan="1" style="width: 70px;"
+                                        aria-label="Position: activate to sort column ascending">Cursos</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                        colspan="1" style="width: 10px;"
+                                        aria-label="Start date: activate to sort column ascending"></th>
+                                </tr>
+                            </thead>
+
+
+                            <tbody>
+                                @foreach ($evento->pacotes as $pacote)
+                                    <tr class="odd">
+                                        <td class="sorting_1 dtr-control">{{ $pacote->nome }}</td>
+                                        <td>R$ {{ number_format($pacote->valor, 2, ',', '.') }}</td>
+                                        <td>
+                                            @foreach ($pacote->cursos as $curso)
+                                                <span class="badge bg-secondary mx-1">{{ $curso->nome }}</span>
+                                            @endforeach
+                                        </td>
+                                        <td>
+                                            <div class="btn-group edit-table-button ">
+                                                <button type="button" class="btn btn-info dropdown-toggle"
+                                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                                    style="height: 34px!important;"><i
+                                                        class="bx bx-edit"></i></button>
+                                                <div class="dropdown-menu" style="margin: 0px;">
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('painel.eventos.pacote.deletar', ['pacote' => $pacote]) }}"
                                                         style="color: red" href="#">Excluir</a>
                                                 </div>
                                             </div>
@@ -621,6 +736,9 @@
             $('#select_tag').select2({});
 
             $('#select_hashtag').select2({});
+            $('#select_cursospacote').select2({});
+            $('.select2-selection.select2-selection--multiple').addClass('form-control');
+            $('.select2-container').css('display', 'block');
         });
     </script>
 @endsection
