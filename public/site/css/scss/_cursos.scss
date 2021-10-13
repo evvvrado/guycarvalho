@@ -129,6 +129,7 @@
                     transform-origin: center;
                 }
                 &.presencial,
+                &.ead,
                 &[data-date="04Ago"],
                 &[data-date="05Ago"] {
                     display: none;

@@ -38,7 +38,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
 
     Route::get('/feira', [\App\Http\Controllers\SiteController::class, 'feira'])->name("site.feira");
     Route::get('/feira/empresas', [\App\Http\Controllers\SiteController::class, 'feiraEmpresas'])->name("site.feiraEmpresas");
-    Route::get('/feira/catalogo', [\App\Http\Controllers\SiteController::class, 'feiraCatalogo'])->name("site.catalogo  ");
+    Route::get('/feira/catalogo', [\App\Http\Controllers\SiteController::class, 'feiraCatalogo'])->name("site.catalogo");
 
     Route::get('/professores', [\App\Http\Controllers\SiteController::class, 'professores'])->name("site.professores");
     Route::get('/clinicas', [\App\Http\Controllers\SiteController::class, 'clinicas'])->name("site.clinicas");

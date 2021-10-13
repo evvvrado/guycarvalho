@@ -752,6 +752,11 @@ div._aFeira {
 
                 .a_c {
                     padding-left: 5.8rem;
+                    position: relative;
+
+                    ._bubble{
+                        top: -15.1rem;
+                    }
 
                     picture:not(._bubble picture) {
                         cursor: pointer;
@@ -1092,9 +1097,13 @@ div._aFeira {
                 .b_c {
                     padding-right: 4.5rem;
                     margin-top: 0.8rem;
+                    position: relative;
+
 
                     ._bubble {
                         transform: translateX(-5rem);
+                        top: -15.1rem;
+
                     }
 
                     picture:not(._bubble picture) {

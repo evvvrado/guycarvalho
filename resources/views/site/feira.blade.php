@@ -24,11 +24,25 @@
 
     <section class="container-fluid s_backtoFeira">
         <div class="container-fav">
-            <div class="_icon">
-                <img src="{{ asset('site/img/icon_filter.svg') }}" alt="Ícone de Filtro" />
+            <div class="_select">
+                <div class="_icon">
+                    <img src="{{ asset('site/img/icon_filter.svg') }}" alt="Ícone de Filtro" />
+                </div>
+                <a>SELECIONAR SESSÃO</a>
             </div>
-            <a>FILTRO</a>
+
+
+            
+            <div class="_filters">
+                <a href="javascript(0): void">
+                    Visite nossa feira
+                </a>
+                <a href="{{ route('site.catalogo')}}">Tenha nova experiência</a>
+            </div>
         </div>
+        
+
+
     </section>
 
 
@@ -362,6 +376,8 @@
 
             <h4>Entrada de Visitantes</h4>
         </div>
+
+        <div class="_bubble active cursorBubble"  style="position: fixed; top: 0; left: 0; z-index: 1000;" data-type="waiting"></div>
 
         <div class="_aFeira">
             <div class="_l1 _l">
@@ -2775,3 +2791,19 @@
 
     @include("site.includes.publicidade")
     @include("site.includes.footer-expanded")
+
+    <script>
+        const $cursor = document.querySelector('.cursorBubble');
+
+        $('.cursorBubble').hide()
+
+
+
+
+        const onMouseMove = (e) =>{
+            $cursor.style.left = e.pageX + 'px';
+            $cursor.style.top = e.pageY + 'px';
+        }
+        document.body.addEventListener('mousemove', onMouseMove);
+
+    </script>

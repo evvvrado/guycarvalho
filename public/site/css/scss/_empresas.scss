@@ -88,7 +88,8 @@ section.s_empresas {
 
       &.main {
         flex: 100%;
-        padding: 2.4rem 3.5rem 0 2.4rem;
+        padding: 2.4rem;
+        padding-bottom: 0;
         div {
           span {
             padding-top: 3.5rem;

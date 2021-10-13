@@ -3,333 +3,781 @@
 
 <body id="feiraEmpresas">
 
-@include("site.includes.navbar")
+  @include("site.includes.navbar")
 
-    <section class="container-fluid s_hero">
-      <div class="container-fav">
-        <div class="_h1 fade">
-          <img src="{{ asset('site/img/svg_poweroflife_minor.svg') }}" alt="Simbolo Power of Life" />
-        </div>
+  <section class="container-fluid s_hero">
+    <div class="container-fav">
+      <div class="_h1 fade">
+        <img src="{{ asset('site/img/svg_poweroflife_minor.svg') }}" alt="Simbolo Power of Life" />
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="container-fluid s_backtoFeira">
-      <div class="container-fav">
+  <section class="container-fluid s_backtoFeira">
+    <div class="container-fav">
+      <div style="display: flex; gap: 1rem; align-items:center;">
         <div class="_icon">
           <img src="{{ asset('site/img/halfarrowleft_back.svg') }}" alt="Seta para esquerda" />
         </div>
         <a href="{{ route('site.feira')}}">Voltar para feira</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="container-fluid s_empresas">
-      <div class="container-fav">
-        <div class="_box main">
-          <picture>
-            <img src="{{ asset('site/img/banner_empresa_nike.png') }}" alt="Empresa Nike" />
-          </picture>
+  <section class="container-fluid s_empresas">
+    <div class="container-fav">
+      <div class="_box main">
+        <picture>
+          <source media="(max-width: 660px)" srcset="{{ asset('site/img/banner_empresa_nike__mobile.jpg') }}">
+          <img src="{{ asset('site/img/banner_empresa_nike.png') }}" alt="Empresa Nike" />
+        </picture>
 
-          <div>
-            <span>Nike Sports</span>
+        <div>
+          <span>Nike Sports</span>
 
-            <span>
-              <div class="_icon">
-                <img src="{{ asset('site/img/icon_cursor.svg') }}" alt="Ícone de Cursor" />
-              </div>
+          <span>
+            <div class="_icon">
+              <img src="{{ asset('site/img/icon_cursor.svg') }}" alt="Ícone de Cursor" />
+            </div>
 
-              <a href="https://nikeworld.com.br">nikeworld.com.br</a>
-            </span>
+            <a href="https://nikeworld.com.br">nikeworld.com.br</a>
+          </span>
 
-            <span>
-              <div class="_icon">
-                <img src="{{ asset('site/img/icon_call.svg') }}" alt="Ícone de Chamada" />
-              </div>
+          <span>
+            <div class="_icon">
+              <img src="{{ asset('site/img/icon_call.svg') }}" alt="Ícone de Chamada" />
+            </div>
 
-              <a href="tel:3592665256">35 9266 5256</a>
-            </span>
+            <a href="tel:3592665256">35 9266 5256</a>
+          </span>
 
-            <span>
-              <div class="_icon">
-                <img src="{{ asset('site/img/icon_envelop.svg') }}" alt="Ícone de Evenelope" />
-              </div>
+          <span>
+            <div class="_icon">
+              <img src="{{ asset('site/img/icon_envelop.svg') }}" alt="Ícone de Evenelope" />
+            </div>
 
-              <a href="mail:contato@nike.com.br">contato@nike.com.br</a>
-            </span>
-          </div>
+            <a href="mail:contato@nike.com.br">contato@nike.com.br</a>
+          </span>
         </div>
+      </div>
 
-        <div class="_box">
-          <picture>
+      <div class="_box">
+        <picture>
+          <a href="{{ route('site.hotsite')}}">
             <img src="{{ asset('site/img/logo_empresa (2') }}).png" alt="Empresa Embaixadora" />
-          </picture>
+          </a>
+        </picture>
 
-          <div>
-            <span>Mizuno</span>
-            <ul>
-              <li><a href="">mizuno.com.br</a></li>
-              <li><a href="">35 99261 5899</a></li>
-              <li><a href="">contato@mizuno.com.br</a></li>
-            </ul>
-          </div>
+        <div>
+          <span>Mizuno</span>
+          <ul>
+            <li><a href="">mizuno.com.br</a></li>
+            <li><a href="">35 99261 5899</a></li>
+            <li><a href="">contato@mizuno.com.br</a></li>
+          </ul>
         </div>
+      </div>
 
-        <div class="_box">
-          <picture>
+      <div class="_box">
+        <picture>
+          <a href="{{ route('site.hotsite')}}">
             <img src="{{ asset('site/img/logo_empresa (3') }}).png" alt="Empresa Embaixadora" />
-          </picture>
+          </a>
+        </picture>
 
-          <div>
-            <span>Mizuno</span>
-            <ul>
-              <li><a href="">mizuno.com.br</a></li>
-              <li><a href="">35 99261 5899</a></li>
-              <li><a href="">contato@mizuno.com.br</a></li>
-            </ul>
-          </div>
+        <div>
+          <span>Mizuno</span>
+          <ul>
+            <li><a href="">mizuno.com.br</a></li>
+            <li><a href="">35 99261 5899</a></li>
+            <li><a href="">contato@mizuno.com.br</a></li>
+          </ul>
         </div>
+      </div>
 
-        <div class="_box">
-          <picture>
+      <div class="_box">
+        <picture>
+          <a href="{{ route('site.hotsite')}}">
             <img src="{{ asset('site/img/logo_empresa (4') }}).png" alt="Empresa Embaixadora" />
-          </picture>
+          </a>
+        </picture>
 
-          <div>
-            <span>Mizuno</span>
-            <ul>
-              <li><a href="">mizuno.com.br</a></li>
-              <li><a href="">35 99261 5899</a></li>
-              <li><a href="">contato@mizuno.com.br</a></li>
-            </ul>
-          </div>
+        <div>
+          <span>Mizuno</span>
+          <ul>
+            <li><a href="">mizuno.com.br</a></li>
+            <li><a href="">35 99261 5899</a></li>
+            <li><a href="">contato@mizuno.com.br</a></li>
+          </ul>
         </div>
+      </div>
 
-        <div class="_box">
-          <picture>
+      <div class="_box">
+        <picture>
+          <a href="{{ route('site.hotsite')}}">
             <img src="{{ asset('site/img/logo_empresa (5') }}).png" alt="Empresa Embaixadora" />
-          </picture>
+          </a>
+        </picture>
 
-          <div>
-            <span>Mizuno</span>
-            <ul>
-              <li><a href="">mizuno.com.br</a></li>
-              <li><a href="">35 99261 5899</a></li>
-              <li><a href="">contato@mizuno.com.br</a></li>
-            </ul>
-          </div>
+        <div>
+          <span>Mizuno</span>
+          <ul>
+            <li><a href="">mizuno.com.br</a></li>
+            <li><a href="">35 99261 5899</a></li>
+            <li><a href="">contato@mizuno.com.br</a></li>
+          </ul>
         </div>
+      </div>
 
-        <div class="_box">
-          <picture>
+      <div class="_box">
+        <picture>
+          <a href="{{ route('site.hotsite')}}">
             <img src="{{ asset('site/img/logo_empresa (6') }}).png" alt="Empresa Embaixadora" />
-          </picture>
+          </a>
+        </picture>
 
-          <div>
-            <span>Mizuno</span>
-            <ul>
-              <li><a href="">mizuno.com.br</a></li>
-              <li><a href="">35 99261 5899</a></li>
-              <li><a href="">contato@mizuno.com.br</a></li>
-            </ul>
-          </div>
+        <div>
+          <span>Mizuno</span>
+          <ul>
+            <li><a href="">mizuno.com.br</a></li>
+            <li><a href="">35 99261 5899</a></li>
+            <li><a href="">contato@mizuno.com.br</a></li>
+          </ul>
         </div>
+      </div>
 
-        <div class="_box">
-          <picture>
+      <div class="_box">
+        <picture>
+          <a href="{{ route('site.hotsite')}}">
             <img src="{{ asset('site/img/logo_empresa (7') }}).png" alt="Empresa Embaixadora" />
-          </picture>
+          </a>
+        </picture>
 
-          <div>
-            <span>Mizuno</span>
-            <ul>
-              <li><a href="">mizuno.com.br</a></li>
-              <li><a href="">35 99261 5899</a></li>
-              <li><a href="">contato@mizuno.com.br</a></li>
-            </ul>
-          </div>
+        <div>
+          <span>Mizuno</span>
+          <ul>
+            <li><a href="">mizuno.com.br</a></li>
+            <li><a href="">35 99261 5899</a></li>
+            <li><a href="">contato@mizuno.com.br</a></li>
+          </ul>
         </div>
+      </div>
 
-        <div class="_box">
-          <picture>
+      <div class="_box">
+        <picture>
+          <a href="{{ route('site.hotsite')}}">
             <img src="{{ asset('site/img/logo_empresa (8') }}).png" alt="Empresa Embaixadora" />
-          </picture>
+          </a>
+        </picture>
 
-          <div>
-            <span>Mizuno</span>
-            <ul>
-              <li><a href="">mizuno.com.br</a></li>
-              <li><a href="">35 99261 5899</a></li>
-              <li><a href="">contato@mizuno.com.br</a></li>
-            </ul>
-          </div>
+        <div>
+          <span>Mizuno</span>
+          <ul>
+            <li><a href="">mizuno.com.br</a></li>
+            <li><a href="">35 99261 5899</a></li>
+            <li><a href="">contato@mizuno.com.br</a></li>
+          </ul>
         </div>
+      </div>
 
-        <div class="_box">
-          <picture>
+      <div class="_box">
+        <picture>
+          <a href="{{ route('site.hotsite')}}">
             <img src="{{ asset('site/img/logo_empresa (9') }}).png" alt="Empresa Embaixadora" />
-          </picture>
+          </a>
+        </picture>
 
-          <div>
-            <span>Mizuno</span>
-            <ul>
-              <li><a href="">mizuno.com.br</a></li>
-              <li><a href="">35 99261 5899</a></li>
-              <li><a href="">contato@mizuno.com.br</a></li>
-            </ul>
-          </div>
+        <div>
+          <span>Mizuno</span>
+          <ul>
+            <li><a href="">mizuno.com.br</a></li>
+            <li><a href="">35 99261 5899</a></li>
+            <li><a href="">contato@mizuno.com.br</a></li>
+          </ul>
         </div>
+      </div>
 
-        <div class="_box">
-          <picture>
+      <div class="_box">
+        <picture>
+          <a href="{{ route('site.hotsite')}}">
             <img src="{{ asset('site/img/logo_empresa (10') }}).png" alt="Empresa Embaixadora" />
-          </picture>
+          </a>
+        </picture>
 
-          <div>
-            <span>Mizuno</span>
-            <ul>
-              <li><a href="">mizuno.com.br</a></li>
-              <li><a href="">35 99261 5899</a></li>
-              <li><a href="">contato@mizuno.com.br</a></li>
-            </ul>
-          </div>
+        <div>
+          <span>Mizuno</span>
+          <ul>
+            <li><a href="">mizuno.com.br</a></li>
+            <li><a href="">35 99261 5899</a></li>
+            <li><a href="">contato@mizuno.com.br</a></li>
+          </ul>
         </div>
+      </div>
 
-        <div class="_box">
-          <picture>
+      <div class="_box">
+        <picture>
+          <a href="{{ route('site.hotsite')}}">
             <img src="{{ asset('site/img/logo_empresa (11') }}).png" alt="Empresa Embaixadora" />
-          </picture>
+          </a>
+        </picture>
 
-          <div>
-            <span>Mizuno</span>
-            <ul>
-              <li><a href="">mizuno.com.br</a></li>
-              <li><a href="">35 99261 5899</a></li>
-              <li><a href="">contato@mizuno.com.br</a></li>
-            </ul>
-          </div>
+        <div>
+          <span>Mizuno</span>
+          <ul>
+            <li><a href="">mizuno.com.br</a></li>
+            <li><a href="">35 99261 5899</a></li>
+            <li><a href="">contato@mizuno.com.br</a></li>
+          </ul>
         </div>
+      </div>
 
-        <div class="_box">
-          <picture>
+      <div class="_box">
+        <picture>
+          <a href="{{ route('site.hotsite')}}">
             <img src="{{ asset('site/img/logo_empresa (12') }}).png" alt="Empresa Embaixadora" />
-          </picture>
+          </a>
+        </picture>
 
-          <div>
-            <span>Mizuno</span>
-            <ul>
-              <li><a href="">mizuno.com.br</a></li>
-              <li><a href="">35 99261 5899</a></li>
-              <li><a href="">contato@mizuno.com.br</a></li>
-            </ul>
-          </div>
+        <div>
+          <span>Mizuno</span>
+          <ul>
+            <li><a href="">mizuno.com.br</a></li>
+            <li><a href="">35 99261 5899</a></li>
+            <li><a href="">contato@mizuno.com.br</a></li>
+          </ul>
         </div>
+      </div>
 
-        <div class="_box">
-          <picture>
+      <div class="_box">
+        <picture>
+          <a href="{{ route('site.hotsite')}}">
             <img src="{{ asset('site/img/logo_empresa (1') }}).png" alt="Empresa Embaixadora" />
-          </picture>
+          </a>
+        </picture>
 
-          <div>
-            <span>Mizuno</span>
-            <ul>
-              <li><a href="">mizuno.com.br</a></li>
-              <li><a href="">35 99261 5899</a></li>
-              <li><a href="">contato@mizuno.com.br</a></li>
-            </ul>
-          </div>
+        <div>
+          <span>Mizuno</span>
+          <ul>
+            <li><a href="">mizuno.com.br</a></li>
+            <li><a href="">35 99261 5899</a></li>
+            <li><a href="">contato@mizuno.com.br</a></li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="container-fluid s_outrasEmpresas">
-      <div class="container-fav">
-        <div class="_title">
-          <h4>Outras empresas</h4>
-        </div>
-
-        <ul>
-          <li>
-            <a href="https://universal.com.br">
-              <span>Universal</span>
-              <legend>universal.com.br</legend>
-            </a>
-          </li>
-          <li>
-            <a href="https://probiótica.com.br">
-              <span>Probiótica</span>
-              <legend>probiótica.com.br</legend>
-            </a>
-          </li>
-          <li>
-            <a href="https://hyp8.com.br">
-              <span>hyp8</span>
-              <legend>hyp8.com.br</legend>
-            </a>
-          </li>
-          <li>
-            <a href="https://gefit.com.br">
-              <span>Gefit</span>
-              <legend>gefit.com.br</legend>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://universal.com.br">
-              <span>Universal</span>
-              <legend>universal.com.br</legend>
-            </a>
-          </li>
-          <li>
-            <a href="https://probiótica.com.br">
-              <span>Probiótica</span>
-              <legend>probiótica.com.br</legend>
-            </a>
-          </li>
-          <li>
-            <a href="https://hyp8.com.br">
-              <span>hyp8</span>
-              <legend>hyp8.com.br</legend>
-            </a>
-          </li>
-          <li>
-            <a href="https://gefit.com.br">
-              <span>Gefit</span>
-              <legend>gefit.com.br</legend>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://universal.com.br">
-              <span>Universal</span>
-              <legend>universal.com.br</legend>
-            </a>
-          </li>
-          <li>
-            <a href="https://probiótica.com.br">
-              <span>Probiótica</span>
-              <legend>probiótica.com.br</legend>
-            </a>
-          </li>
-          <li>
-            <a href="https://hyp8.com.br">
-              <span>hyp8</span>
-              <legend>hyp8.com.br</legend>
-            </a>
-          </li>
-          <li>
-            <a href="https://gefit.com.br">
-              <span>Gefit</span>
-              <legend>gefit.com.br</legend>
-            </a>
-          </li>
-        </ul>
+  <section class="container-fluid s_outrasEmpresas">
+    <div class="container-fav">
+      <div class="_title">
+        <h4>Outras empresas</h4>
       </div>
-    </section>
 
-@include('site.includes.publicidade')
-
-
-
-@include("site.includes.parceiros")
+      <ul>
+        <li>
+          <a href="https://universal.com.br">
+            <span>Universal</span>
 
 
-@include("site.includes.footer-expanded")
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>universal.com.br</legend>
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://probiótica.com.br">
+            <span>Probiótica</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>probiótica.com.br</legend>
+
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://hyp8.com.br">
+            <span>hyp8</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>hyp8.com.br</legend>
+
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://gefit.com.br">
+            <span>Gefit</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>gefit.com.br</legend>
+
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://universal.com.br">
+            <span>Universal</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>universal.com.br</legend>
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://probiótica.com.br">
+            <span>Probiótica</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>probiótica.com.br</legend>
+
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://hyp8.com.br">
+            <span>hyp8</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>hyp8.com.br</legend>
+
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://gefit.com.br">
+            <span>Gefit</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>gefit.com.br</legend>
+
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://universal.com.br">
+            <span>Universal</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>universal.com.br</legend>
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://probiótica.com.br">
+            <span>Probiótica</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>probiótica.com.br</legend>
+
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://hyp8.com.br">
+            <span>hyp8</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>hyp8.com.br</legend>
+
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://gefit.com.br">
+            <span>Gefit</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>gefit.com.br</legend>
+
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://universal.com.br">
+            <span>Universal</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>universal.com.br</legend>
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://probiótica.com.br">
+            <span>Probiótica</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>probiótica.com.br</legend>
+
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://hyp8.com.br">
+            <span>hyp8</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>hyp8.com.br</legend>
+
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://gefit.com.br">
+            <span>Gefit</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>gefit.com.br</legend>
+
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://universal.com.br">
+            <span>Universal</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>universal.com.br</legend>
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://probiótica.com.br">
+            <span>Probiótica</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>probiótica.com.br</legend>
+
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://hyp8.com.br">
+            <span>hyp8</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>hyp8.com.br</legend>
+
+            </main>
+          </a>
+        </li>
+        <li>
+          <a href="https://gefit.com.br">
+            <span>Gefit</span>
+
+
+            <main>
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>
+                <div class="_icon">
+                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
+                </div>
+                35 9 8809 4603
+              </legend>
+
+              <legend>gefit.com.br</legend>
+
+            </main>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  @include('site.includes.publicidade')
+
+
+
+  @include("site.includes.parceiros")
+
+
+  @include("site.includes.footer-expanded")
