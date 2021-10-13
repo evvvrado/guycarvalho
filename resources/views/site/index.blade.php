@@ -1,5 +1,7 @@
 @include("site.includes.head")
 
+<title>ENAF - Esporte, Fitness e Saúde</title>
+
 
 <body id="home">
 
