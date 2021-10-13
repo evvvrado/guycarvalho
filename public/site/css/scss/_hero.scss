@@ -209,30 +209,30 @@ section.s_backtoFeira {
         gap: 1rem;
         height: 100%;
 
-        ._select{
-            @include flex(row,center,flex-start);
+        ._select {
+            @include flex(row, center, flex-start);
             gap: 1rem;
         }
 
-        ._filters{
+        ._filters {
             height: 100%;
-            @include flex(row,center,center);
-            a{
+            @include flex(row, center, center);
+            a {
                 font-size: 2rem;
                 line-height: 116%;
-                color: #5B647B;
-            
+                color: #5b647b;
+
                 width: 100%;
                 width: 36.7rem;
                 height: 100%;
 
                 display: block;
-                border-bottom: solid 1px #C4C4C4;
+                border-bottom: solid 1px #c4c4c4;
 
                 line-height: 400%;
                 text-align: center;
 
-                &:first-child{
+                &:first-child {
                     color: $color-thirdy;
                     border-bottom: solid 3px $color-thirdy;
                 }
@@ -275,5 +275,13 @@ section.s_backtoFeira {
                 font-weight: 700;
             }
         }
+    }
+
+    @include responsive(1000px) {
+        height: auto;
+        .container-fav {
+            flex-direction: column;
+        }
+        margin-bottom: 8rem;
     }
 }

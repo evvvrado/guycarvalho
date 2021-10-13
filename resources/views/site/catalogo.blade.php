@@ -354,13 +354,13 @@
 
     <script>
         $('.--mask .--buttons .--next').click(function() {
-            $(this).closest('div.--mask').find('div.content').scrollLeft($(this).closest('div.--mask').find(
-                'div.content').scrollLeft() + $('.--item').width() * 6)
-        })
-        $('.--mask .--buttons .--before').click(function() {
-            $(this).closest('div.--mask').find('div.content').scrollLeft($(this).closest('div.--mask').find(
-                'div.content').scrollLeft() - $('.--item').width() * 6)
-        })
+        $(this).closest('div.--mask').find('div.content').scrollLeft($(this).closest('div.--mask').find(
+            'div.content').scrollLeft() + $('.--item').width() * 3)
+    })
+    $('.--mask .--buttons .--before').click(function() {
+        $(this).closest('div.--mask').find('div.content').scrollLeft($(this).closest('div.--mask').find(
+            'div.content').scrollLeft() - $('.--item').width() * 3)
+    })
 
-        $('.--mask .content').scrollLeft($('.--mask .content').width() / 3)
+    $('.--mask .content').scrollLeft($('.--mask .content').width() / 3)
     </script>
