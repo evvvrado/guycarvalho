@@ -19,7 +19,7 @@
         ._content {
             white-space: nowrap;
             max-width: 100%;
-            overflow-x: scroll;
+            overflow-x: hidden;
             overflow-y: visible;
             scroll-behavior: smooth;
             scroll-snap-type: x mandatory;
@@ -30,6 +30,7 @@
 
             @include responsive(730px) {
                 max-width: 100%;
+                overflow-x: scroll;
             }
 
             ._blogList {

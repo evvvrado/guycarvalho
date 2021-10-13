@@ -64,11 +64,7 @@
                         }
 
                         button {
-                            @include alternative-btn(
-                                3.6rem,
-                                $color-thirdy,
-                                $white
-                            );
+                            @include alternative-btn(3.6rem, $color-thirdy, $white);
                             margin: 0 auto;
                             margin-top: 2rem;
                             font-size: 1.6rem;
@@ -88,7 +84,7 @@
         .container-fav {
             overflow-x: scroll;
             ._eventList {
-                animation: autoscroll infinite 7s linear;
+                animation: autoscroll infinite 12s linear;
                 display: inline;
                 white-space: nowrap;
                 ._event {
