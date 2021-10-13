@@ -284,4 +284,12 @@ section.s_backtoFeira {
         }
         margin-bottom: 8rem;
     }
+
+    @include responsive(600px) {
+        .container-fav {
+            ._filters {
+                flex-direction: column;
+            }
+        }
+    }
 }
