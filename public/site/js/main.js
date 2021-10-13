@@ -103,7 +103,7 @@ $(document).ready(() => {
 
     $("._filter nav ._filterItem:first-child").click(() => {
         $("._filter nav ._filterItem").removeClass("active");
-        $("._filter nav ._filterItem:last-child").addClass("active");
+        $("._filter nav ._filterItem:first-child").addClass("active");
 
         $("._cursosList ._curso.presencial").css("display", "none");
         $("._cursosList ._curso.ead").css("display", "none");
@@ -119,7 +119,7 @@ $(document).ready(() => {
     });
     $("._filter nav ._filterItem:last-child").click(() => {
         $("._filter nav ._filterItem").removeClass("active");
-        $("._filter nav ._filterItem:first-child").addClass("active");
+        $("._filter nav ._filterItem:last-child").addClass("active");
 
         $("._cursosList ._curso.online").css("display", "none");
         $("._cursosList ._curso.ead").css("display", "none");

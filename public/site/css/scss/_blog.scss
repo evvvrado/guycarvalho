@@ -19,9 +19,14 @@
         ._content {
             white-space: nowrap;
             max-width: 100%;
-            overflow-x: hidden;
+            overflow-x: scroll;
             overflow-y: visible;
             scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+
+            #nossoblog & {
+                overflow: hidden;
+            }
 
             @include responsive(730px) {
                 max-width: 100%;
@@ -122,23 +127,30 @@
                             }
                         }
                     }
+
+                    @include responsive(600px) {
+                        flex-direction: column;
+                        width: 100vw;
+                    }
                 }
 
                 @include responsive(730px) {
-                    flex-direction: column;
+                    ._blog {
+                        scroll-snap-align: start;
+                        height: 55rem;
+                    }
                 }
             }
 
-            .rowling{
+            .rowling {
                 @include flex(row, center, space-between);
                 min-width: max-content;
             }
-            #nossoblog & ._blogList{
+            #nossoblog & ._blogList {
                 flex-wrap: wrap;
                 min-width: unset;
                 max-width: 1216px;
             }
-
         }
         ._menu {
             @include flex(row, center, flex-end);
