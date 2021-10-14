@@ -167,26 +167,6 @@ $(document).ready(() => {
         });
     });
 
-    $("._checkbox").click(function () {
-        var allSelected = 0;
-
-        $(this).toggleClass("_checked");
-
-        $(`._Professor`).addClass("off");
-
-        $("._checkbox").each(function () {
-            if (!$(this).hasClass("_checked")) {
-                allSelected++;
-                return 0;
-            }
-
-            $("._Professor" + $(this).data("filter")).removeClass("off");
-        });
-
-        if (allSelected == 13) {
-            $(`._Professor`).removeClass("off");
-        }
-    });
 
     $("form label input,form label textarea").focus(function () {
         $(this).parent().find("span").addClass("active");

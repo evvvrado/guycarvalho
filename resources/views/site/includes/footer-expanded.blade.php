@@ -22,7 +22,7 @@
                     <img src="{{ asset('/site/img/_logo45.svg') }}" alt="Logo Enaf" />
                 </div>
 
-                <div class="_whatsapp">Whats: (35) 9.87074902</div>
+                <div class="_whatsapp"><a style="color: white;" target="_blank" href="https://web.whatsapp.com/send?phone=">Whats: (35) 9.87074902</a></div>
 
                 <div class="_email">
                     <div class="_icon">
@@ -37,14 +37,12 @@
                         <ul>
                             <li>
                                 <a target="_blank" href="#">
-                                    <img src="{{ asset('/site/img/icon_facebook_footer.svg') }}"
-                                        alt="Ícone facebook" />
+                                    <img src="{{ asset('/site/img/icon_facebook_footer.svg') }}" alt="Ícone facebook" />
                                 </a>
                             </li>
                             <li>
                                 <a target="_blank" href="#">
-                                    <img src="{{ asset('/site/img/icon_instagram_footer.svg') }}"
-                                        alt="Ícone instagram" />
+                                    <img src="{{ asset('/site/img/icon_instagram_footer.svg') }}" alt="Ícone instagram" />
                                 </a>
                             </li>
                             <li>
@@ -59,8 +57,7 @@
                             </li>
                             <li>
                                 <a target="_blank" href="#">
-                                    <img src="{{ asset('/site/img/icon_linkedin_footer.svg') }}"
-                                        alt="Ícone linkedin" />
+                                    <img src="{{ asset('/site/img/icon_linkedin_footer.svg') }}" alt="Ícone linkedin" />
                                 </a>
                             </li>
                         </ul>
@@ -83,10 +80,8 @@
                     </ul>
                 </nav>
 
-                <a href="https://7seventrends.com"
-                    style="width: 100%; display: flex; align-items: flex-end; justify-content: center;">
-                    <img src="{{ asset('/site/img/_logo7seven.png') }}" alt="Ícone 7Seven"
-                        style="margin-top: 50px;" />
+                <a href="https://7seventrends.com" style="width: 100%; display: flex; align-items: flex-end; justify-content: center;">
+                    <img src="{{ asset('/site/img/_logo7seven.png') }}" alt="Ícone 7Seven" style="margin-top: 50px;" />
                 </a>
             </div>
         </div>
