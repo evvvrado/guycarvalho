@@ -44,10 +44,15 @@
                         pointer-events: none;
                     }
                     img {
-                        height: 100%;
+                        min-height: 100%;
+                        min-width: 100%;
+                        max-width: unset;
+                        max-height: unset;
+                        height: unset;
+                        width: unset;
+
                         filter: grayscale(1);
                         transition: 0.32s;
-                        max-width: unset;
 
                         &:hover {
                             cursor: pointer;

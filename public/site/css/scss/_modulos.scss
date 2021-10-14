@@ -1,6 +1,6 @@
 section.s_content {
   margin-top: 6.2rem;
-  margin-bottom: 18.6rem;
+  margin-bottom: 6.6rem;
 
   .container-fav {
     @include flex(column, flex-start, flex-start);
@@ -19,6 +19,7 @@ section.s_content {
       gap: 14.1rem;
 
       ._modulos {
+        width: 65.1rem;
         @include flex(Column, center, space-between);
         gap: 2.1rem;
 
@@ -79,11 +80,67 @@ section.s_content {
           }
         }
       }
+      ._pictures {
+        position: relative;
+        @include flex(row, center, flex-start);
+        flex-wrap: wrap;
+        gap: 2.1rem;
+
+        picture {
+          max-width: 20.1rem;
+          border-radius: 15px;
+          height: 37.2rem;
+
+          overflow: hidden;
+
+          @include flex(row, center, center);
+        }
+
+        img {
+          filter: saturate(0);
+
+          transition: 0.32s;
+
+          &:hover {
+            filter: none;
+            cursor: pointer;
+          }
+
+          min-width: 100%;
+          min-height: 100%;
+        }
+
+        &::after {
+          display: none;
+          content: "";
+          height: 17.2rem;
+          width: 100%;
+          max-width: 80rem;
+          background-image: url("../img/professores_Effect.svg");
+          position: absolute;
+          top: 20rem;
+
+          pointer-events: none;
+          left: 25rem;
+          opacity: 0.3;
+
+          transform: rotate(180deg);
+        }
+      }
 
       ._info {
+        max-width: 39.3rem;
         picture {
+          @include flex(row, center, center);
+          height: 100%;
+          width: 100%;
+          max-width: 38.6rem;
+          max-height: 37.2rem;
+
+          overflow: hidden;
+          border-radius: 0.8rem;
+
           img {
-            border-radius: 0.8rem;
             filter: saturate(0);
             transition: 1s;
 

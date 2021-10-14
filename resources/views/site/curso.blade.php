@@ -1,11 +1,12 @@
 @include("site.includes.head")
+<title>{{$curso->nome}} - ENAF</title>
 
 
 <body id="cursoDetalhes">
 
     @include("site.includes.navbar")
 
-    <section class="container-fluid s_hero">
+    <section class="container-fluid s_hero" style="background-image: url('{{ asset($curso->banner)}}')">
         <div class="container-fav">
             <div class="_h1 fade">
                 <h6>CURSO {{ strtoupper(config('cursos.tipo_nome')[$curso->tipo]) }}</h6>
@@ -21,14 +22,14 @@
                         </div>
                         <p>{{ $curso->total_horas }} horas</p>
                     </span>
-					@if ($curso->certificacao) 
-						<span>
-							<div class="_icon">
-								<img src="{{ asset('site/img/icon_medal.svg') }}" alt="Icone de medalha" />
-							</div>
-							<p>Certificado</p> 
-						</span>
-					@endif
+                    @if ($curso->certificacao)
+                    <span>
+                        <div class="_icon">
+                            <img src="{{ asset('site/img/icon_medal.svg') }}" alt="Icone de medalha" />
+                        </div>
+                        <p>Certificado</p>
+                    </span>
+                    @endif
 
                     <span>
                         <h6>R$ {{number_format($curso->valor, 2, ",", ".")}}</h6>
@@ -52,12 +53,35 @@
             </div>
 
             <div class="_video">
-                <img src="{{ asset('site/img/banner_video_curso.jpg') }}" alt="Vídeo do Evento" />
+                <iframe width="595" height="385" src="{{ $curso->video }}?autoplay=1" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
         <div class="blackout"></div>
     </section>
+
+
+    {{-- @if (count($curso->professores) > 1)
+
+    <section class="container-fluid s_embaixadores">
+        <div class="container-fav">
+            <div class="_title">
+                <h4>Professores</h4>
+            </div>
+
+            <div class="_pictures">
+                @foreach($curso->professores as $professor)
+                <picture>
+                    <img src="{{ asset($professor->foto) }}" onclick="" alt="{{$professor->nome}}" />
+                </picture>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    @endif --}}
+
 
     <section class="container-fluid s_content">
         <div class="container-fav">
@@ -67,59 +91,50 @@
 
             <main>
                 <div class="_modulos">
-					@foreach($curso->modulos as $modulo)
-						<div class="_box">
-							<div class="_main">
-								<span>{{$modulo->nome}}</span>
-								<div class="_icon">
-									<img src="{{ asset('site/img/arrowbottom.svg') }}" alt="Seta para baixo" />
-								</div>
-							</div>
-							<p>
-								{!! $modulo->descricao !!}
-							</p>
-						</div>
-					@endforeach
+                    @foreach($curso->modulos as $modulo)
+                    <div class="_box">
+                        <div class="_main">
+                            <span>{{$modulo->nome}}</span>
+                            <div class="_icon">
+                                <img src="{{ asset('site/img/arrowbottom.svg') }}" alt="Seta para baixo" />
+                            </div>
+                        </div>
+                        <p>
+                            {!! $modulo->descricao !!}
+                        </p>
+                    </div>
+                    @endforeach
                 </div>
+                @if (count($curso->professores) == 1)
 
+                @foreach($curso->professores as $professor)
                 <div class="_info">
                     <picture>
-                        <img src="{{ asset('site/img/pic_professor.jpg') }}" alt="Imagem do professor">
+                        <img src="{{ asset($professor->foto) }}" alt="Imagem do professor" alt="{{$professor->nome}}" onclick="">
                     </picture>
 
-                    <h4>Paulo Guerra</h4>
+                    <h4>{{$professor->nome}}</h4>
                     <p> A vantagem de usar Lorem Ipsum é que ele tem uma distribuição normal de letras, ao contrário de
                         "Conteúdo aqui, conteúdo aqui", fazendo com que ele tenha uma aparência similar a de um texto
                         legível.</p>
 
                 </div>
+                @endforeach
+
+                @else
+                <div class="_pictures">
+                    @foreach($curso->professores as $professor)
+                    <picture>
+                        <img src="{{ asset($professor->foto) }}" onclick="" alt="{{$professor->nome}}" />
+                    </picture>
+                    @endforeach
+                </div>
+                @endif
             </main>
         </div>
     </section>
 
 
-
-    <section class="container-fluid s_embaixadores">
-        <div class="container-fav">
-            <div class="_title">
-                <h4>Professores</h4>
-            </div>
-
-            <div class="_pictures">
-				@foreach($curso->professores as $professor)
-                	<img src="{{ asset($professor->foto) }}" onclick="" alt="{{$professor->nome}}" />
-				@endforeach
-                {{-- <img src="{{ asset('site/img/pic_embaixador02.png') }}" onclick="" alt="Embaixador ENAF" />
-                <img src="{{ asset('site/img/pic_embaixador03.png') }}" onclick="" alt="Embaixador ENAF" />
-                <img src="{{ asset('site/img/pic_embaixador04.png') }}" onclick="" alt="Embaixador ENAF" />
-                <img src="{{ asset('site/img/pic_embaixador05.png') }}" onclick="" alt="Embaixador ENAF" />
-                <img src="{{ asset('site/img/pic_embaixador06.png') }}" onclick="" alt="Embaixador ENAF" />
-                <img src="{{ asset('site/img/pic_embaixador07.png') }}" onclick="" alt="Embaixador ENAF" />
-                <img src="{{ asset('site/img/pic_embaixador08.png') }}" onclick="" alt="Embaixador ENAF" />
-                <img src="{{ asset('site/img/pic_embaixador09.png') }}" onclick="" alt="Embaixador ENAF" /> --}}
-            </div>
-        </div>
-    </section>
 
 
     <section class="container-fluid s_depoimentos _alternative">
@@ -133,11 +148,10 @@
 
                 <div class="_content">
                     <div class="_depoimentosList">
-						@foreach($curso->depoimentos as $depoimento)
+                        @foreach($curso->depoimentos as $depoimento)
                         <div class="_depoimento">
                             <div class="_pic">
-                                <img src="{{ asset($depoimento->foto) }}"
-                                    alt="{{$depoimento->nome}}" />
+                                <img src="{{ asset($depoimento->foto) }}" alt="{{$depoimento->nome}}" />
                             </div>
                             <div class="_text">
                                 <p>
@@ -146,7 +160,7 @@
                                 <h5>{{$depoimento->nome}}</h5>
                             </div>
                         </div>
-						@endforeach
+                        @endforeach
                     </div>
                 </div>
 

@@ -89,8 +89,8 @@ section.s_hero {
     }
 
     #cursoDetalhes & {
-        background-image: url("../img/banner_curso.jpg");
-
+        background-size: cover;
+        background-position: center;
         ._h1 {
             margin-top: 16rem;
 

@@ -25,6 +25,8 @@ section.s_cursoVideo {
     ._video {
       cursor: pointer;
       z-index: 2;
+      border-radius: 12px;
+      overflow: hidden;
     }
 
     @include responsive(930px) {

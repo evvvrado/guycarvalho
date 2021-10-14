@@ -16,6 +16,16 @@ section.s_embaixadores {
             flex-wrap: wrap;
             gap: 2.1rem;
 
+            picture {
+                max-width: 28.1rem;
+                border-radius: 15px;
+                height: 37.2rem;
+
+                overflow: hidden;
+
+                @include flex(row, center, center);
+            }
+
             img {
                 filter: saturate(0);
 
@@ -25,9 +35,13 @@ section.s_embaixadores {
                     filter: none;
                     cursor: pointer;
                 }
+
+                min-width: 100%;
+                min-height: 100%;
             }
 
             &::after {
+                display: none;
                 content: "";
                 height: 17.2rem;
                 width: 100%;

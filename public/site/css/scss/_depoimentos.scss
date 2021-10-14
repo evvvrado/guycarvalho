@@ -112,11 +112,22 @@
                         }
 
                         ._pic {
+                            width: 8.7rem;
+                            height: 8.7rem;
+
+                            border-radius: 50%;
+
+                            overflow: hidden;
+
+                            @include flex(row, center, center);
+
                             img {
-                                border-radius: 50%;
+                                height: 100%;
+                                max-width: unset;
                             }
                         }
                         ._text {
+                            width: 100%;
                             max-width: 24.2rem;
                             position: relative;
                             &::after {
@@ -132,6 +143,8 @@
                                 /* or 20px */
 
                                 letter-spacing: 0.01em;
+
+                                min-height: 9.5rem;
 
                                 /* #5B647B */
 
