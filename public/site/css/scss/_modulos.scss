@@ -108,6 +108,9 @@ section.s_content {
 
           min-width: 100%;
           min-height: 100%;
+          max-width: unset;
+
+          @include flex(row, center, center);
         }
 
         &::after {
