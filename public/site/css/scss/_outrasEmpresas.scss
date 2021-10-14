@@ -30,11 +30,47 @@ section.s_outrasEmpresas {
             font-size: 1.8rem;
             color: $color-darkest;
           }
+          
+          main{
+            @include flex(row,center,space-between);
+            width: 100%;
+            max-width: 65.1rem;
+            gap: 2rem;
+
+            legend:last-child{
+              width: 100%;
+              max-width: 12.8rem;
+            }
+          }
+
+          @include responsive(800px){
+            height: auto;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+
+            main{
+              flex-direction: column;
+              gap: 2rem;
+              max-width: unset;
+              width: auto;
+              legend{
+                border: none!important;
+              }
+            }
+          }
 
           legend {
             font-size: 1.8rem;
             line-height: 2.1rem;
             color: $color-alternative;
+
+            @include flex(row,center,center);
+            gap: 2rem;
+
+            &:not(:last-child){
+              padding-right: 2rem;
+              border-right: 1px solid #5b647b5e;
+            }
           }
 
           &:hover {

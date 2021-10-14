@@ -104,6 +104,11 @@
                         }
                         @include responsive(600px) {
                             gap: 2rem;
+
+                            ._pic {
+                                width: 20%;
+                                margin-top: 2.4rem;
+                            }
                         }
 
                         ._pic {

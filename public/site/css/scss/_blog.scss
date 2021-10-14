@@ -22,9 +22,15 @@
             overflow-x: hidden;
             overflow-y: visible;
             scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+
+            #nossoblog & {
+                overflow: hidden;
+            }
 
             @include responsive(730px) {
                 max-width: 100%;
+                overflow-x: scroll;
             }
 
             ._blogList {
@@ -54,6 +60,11 @@
                             line-height: 14px;
 
                             color: $color-thirdy;
+
+                            // background-color: #F4F4F4;
+                            // border-radius: 7.87808px;
+
+                            // padding: .8rem 1.5rem;
                         }
                         .blogTitle {
                             margin-bottom: 22px;
@@ -63,7 +74,7 @@
                         }
                         .blogDate {
                             color: $color-main;
-                            font-size: 14px;
+                            font-size: 1.8rem;
                         }
                     }
 
@@ -117,11 +128,29 @@
                             }
                         }
                     }
+
+                    @include responsive(600px) {
+                        flex-direction: column;
+                        width: 100vw;
+                    }
                 }
 
                 @include responsive(730px) {
-                    flex-direction: column;
+                    ._blog {
+                        scroll-snap-align: start;
+                        height: 55rem;
+                    }
                 }
+            }
+
+            .rowling {
+                @include flex(row, center, space-between);
+                min-width: max-content;
+            }
+            #nossoblog & ._blogList {
+                flex-wrap: wrap;
+                min-width: unset;
+                max-width: 1216px;
             }
         }
         ._menu {

@@ -20,6 +20,14 @@
             overflow-y: visible;
             scroll-behavior: smooth;
 
+            @include responsive(600px) {
+                scroll-snap-type: x mandatory;
+
+                ._picture {
+                    scroll-snap-align: center;
+                }
+            }
+
             ._galeriaList {
                 @include flex(row, center, space-between);
                 transition: 0.32s;

@@ -102,16 +102,27 @@ $(document).ready(() => {
     });
 
     $("._filter nav ._filterItem:first-child").click(() => {
+        $("._filter nav ._filterItem").removeClass("active");
         $("._filter nav ._filterItem:first-child").addClass("active");
-        $("._filter nav ._filterItem:last-child").removeClass("active");
 
         $("._cursosList ._curso.presencial").css("display", "none");
+        $("._cursosList ._curso.ead").css("display", "none");
         $("._cursosList ._curso.online").css("display", "inline-block");
     });
-    $("._filter nav ._filterItem:last-child").click(() => {
-        $("._filter nav ._filterItem:last-child").addClass("active");
-        $("._filter nav ._filterItem:first-child").removeClass("active");
+    $("._filter nav ._filterItem:nth-child(2)").click(() => {
+        $("._filter nav ._filterItem").removeClass("active");
+        $("._filter nav ._filterItem:nth-child(2)").addClass("active");
+
+        $("._cursosList ._curso.presencial").css("display", "none");
         $("._cursosList ._curso.online").css("display", "none");
+        $("._cursosList ._curso.ead").css("display", "inline-block");
+    });
+    $("._filter nav ._filterItem:last-child").click(() => {
+        $("._filter nav ._filterItem").removeClass("active");
+        $("._filter nav ._filterItem:last-child").addClass("active");
+
+        $("._cursosList ._curso.online").css("display", "none");
+        $("._cursosList ._curso.ead").css("display", "none");
         $("._cursosList ._curso.presencial").css("display", "inline-block");
     });
 
@@ -156,26 +167,6 @@ $(document).ready(() => {
         });
     });
 
-    $("._checkbox").click(function () {
-        var allSelected = 0;
-
-        $(this).toggleClass("_checked");
-
-        $(`._Professor`).addClass("off");
-
-        $("._checkbox").each(function () {
-            if (!$(this).hasClass("_checked")) {
-                allSelected++;
-                return 0;
-            }
-
-            $("._Professor" + $(this).data("filter")).removeClass("off");
-        });
-
-        if (allSelected == 13) {
-            $(`._Professor`).removeClass("off");
-        }
-    });
 
     $("form label input,form label textarea").focus(function () {
         $(this).parent().find("span").addClass("active");

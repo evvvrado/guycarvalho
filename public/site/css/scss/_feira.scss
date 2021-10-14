@@ -139,21 +139,15 @@ section.s_feira {
 
     div._box {
         width: 100%;
-        max-width: 53.3rem;
+        height: calc(100vh - 90px);
 
         position: absolute;
         display: none;
-
-        padding-bottom: 10.3rem;
-        padding-left: 8.1rem;
-        padding-top: 7rem;
-        padding-right: 7.5rem;
 
         box-shadow: 5px 9px 24px rgba(0, 0, 0, 0.1);
 
         background: $white;
 
-        top: 0;
         bottom: 0;
 
         left: 0;
@@ -162,7 +156,25 @@ section.s_feira {
         margin: auto;
 
         position: fixed;
-        z-index: 6;
+        z-index: 666;
+
+        aside {
+            padding-bottom: 10.3rem;
+            padding-left: 8.1rem;
+            padding-top: 7rem;
+            padding-right: 7.5rem;
+
+            max-width: 53.3rem;
+
+            margin-left: 12.1rem;
+        }
+
+        main {
+            height: 100%;
+            img {
+                height: 100%;
+            }
+        }
 
         picture {
             width: 100%;
@@ -223,9 +235,13 @@ section.s_feira {
         }
 
         &.gympass {
-            transform: translateY(25px);
-            display: block;
-            max-height: 83.2rem;
+            // transform: translateY(25px);
+            @include flex(row, center, space-between);
+            main {
+                img {
+                    content: url("../img/feira/GympassBanner.jpg");
+                }
+            }
 
             picture {
                 @include flex(row, center, center);
@@ -240,9 +256,14 @@ section.s_feira {
         }
 
         &.lionfit {
-            transform: translateY(25px);
-            display: block;
-            max-height: 83.2rem;
+            // transform: translateY(25px);
+            @include flex(row, center, space-between);
+            main {
+                img {
+                    content: url("../img/feira/LionBanner.jpg");
+                }
+            }
+
             picture {
                 @include flex(row, center, center);
                 img {
@@ -256,9 +277,15 @@ section.s_feira {
         }
 
         &.rede {
-            transform: translateY(25px);
-            display: block;
-            max-height: 83.2rem;
+            // transform: translateY(25px);
+            @include flex(row, center, space-between);
+            // max-height: 83.2rem;
+
+            main {
+                img {
+                    content: url("../img/feira/RedeBanner.jpg");
+                }
+            }
 
             picture {
                 @include flex(row, center, center);
@@ -273,22 +300,18 @@ section.s_feira {
         }
 
         &.sca {
-            display: block;
-            padding: 0;
-            padding-bottom: 10.3rem;
-
-            transform: scale(0.8);
-
-            picture {
+            @include flex(row, center, space-between);
+            main {
                 img {
-                    content: url("../img/feira/pic_SCA.jpg");
+                    content: url("../img/feira/SCABanner.jpg");
                 }
             }
 
-            h4,
-            div:not(._close) {
-                margin-left: 8.1rem;
-                margin-right: 7.5rem;
+            picture {
+                @include flex(row, center, center);
+                img {
+                    content: url("../img/feira/pic_SCA.png");
+                }
             }
 
             h4::after {
@@ -574,31 +597,31 @@ section.s_feira {
         }
     }
     @include responsive(800px) {
-        padding: 0!important;
+        padding: 0 !important;
         .container-fav {
             ._bubble.active {
                 display: block;
                 right: 0;
 
-                p::before{
+                p::before {
                     content: "Para uma melhor esperiencia por favor acessar de um computador ou notebook.";
                     position: static;
                 }
-                p{
-                    span, strong{
+                p {
+                    span,
+                    strong {
                         display: none;
                     }
                 }
             }
         }
-
     }
 
-    @include responsive(400px){
-        .container-fav{
-            margin-top: 4rem!important;
+    @include responsive(400px) {
+        .container-fav {
+            margin-top: 4rem !important;
             flex-direction: column;
-            ._bubble.active{
+            ._bubble.active {
                 display: block;
                 position: static;
                 right: 0;
@@ -752,6 +775,11 @@ div._aFeira {
 
                 .a_c {
                     padding-left: 5.8rem;
+                    position: relative;
+
+                    ._bubble {
+                        top: -15.1rem;
+                    }
 
                     picture:not(._bubble picture) {
                         cursor: pointer;
@@ -1092,9 +1120,11 @@ div._aFeira {
                 .b_c {
                     padding-right: 4.5rem;
                     margin-top: 0.8rem;
+                    position: relative;
 
                     ._bubble {
                         transform: translateX(-5rem);
+                        top: -15.1rem;
                     }
 
                     picture:not(._bubble picture) {
@@ -1225,7 +1255,7 @@ div._aFeira {
             position: relative;
 
             // ._c2 {
-                // display: none;
+            // display: none;
             // }
 
             // &::after {
@@ -1246,94 +1276,87 @@ div._aFeira {
         }
     }
 
-    
     @include responsive(1280px) {
-            ._a{
-                ._c2{
-                    ._c{
-                        background-position: center;
-                    }
-                    ._c::after{
-                        left: 0;
-                    }
+        ._a {
+            ._c2 {
+                ._c {
+                    background-position: center;
                 }
-            }
-
-    }
-
-    
-    @include responsive(1150px) {
-            ._a{
-                ._c2{
-                    ._c{
-                        transform: scale(0.9);
-
-                        background-image: url("../img/feira/content_border_1150.svg");
-                        background-size: 100% 100%;
-                        background-position: center;
-
-                        &::after{
-                            top: 12.5rem;
-                            content: url("../img/feira/content_details_1150.png");
-                        }
-                    }
-                }
-            }
-
-    }
-
-    
-    @include responsive(800px) {
-            ._a{
-                ._c2{
-                    ._c{
-                        background-image: url("../img/feira/content_border_mobile.svg");
-
-                        transform: none;
-                        svg.desktop-style{
-                            display: none!important;
-                        }
-                        svg.mobile-style{
-                            display: block!important;
-                            width: 100%!important;
-                            height: 100%;
-                        }
-
-                        &::after{
-                            content: "";
-                            left: -11px;
-                            top: 4px;
-                            width: 100%;
-                            height: 100%;
-
-                            background: url("../img/feira/content_details_mobile.png");
-                            background-size: auto 100%;
-                            background-position: center;
-                            background-repeat: no-repeat;
-                        }
+                ._c::after {
+                    left: 0;
                 }
             }
         }
     }
 
-    @include responsive(400px){
-        padding: 0!important;
-        ._a{
-            ._c2{
-                ._c{
+    @include responsive(1150px) {
+        ._a {
+            ._c2 {
+                ._c {
+                    transform: scale(0.9);
+
+                    background-image: url("../img/feira/content_border_1150.svg");
+                    background-size: 100% 100%;
+                    background-position: center;
+
+                    &::after {
+                        top: 12.5rem;
+                        content: url("../img/feira/content_details_1150.png");
+                    }
+                }
+            }
+        }
+    }
+
+    @include responsive(800px) {
+        ._a {
+            ._c2 {
+                ._c {
+                    background-image: url("../img/feira/content_border_mobile.svg");
+
+                    transform: none;
+                    svg.desktop-style {
+                        display: none !important;
+                    }
+                    svg.mobile-style {
+                        display: block !important;
+                        width: 100% !important;
+                        height: 100%;
+                    }
+
+                    &::after {
+                        content: "";
+                        left: -11px;
+                        top: 4px;
+                        width: 100%;
+                        height: 100%;
+
+                        background: url("../img/feira/content_details_mobile.png");
+                        background-size: auto 100%;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+                }
+            }
+        }
+    }
+
+    @include responsive(400px) {
+        padding: 0 !important;
+        ._a {
+            ._c2 {
+                ._c {
                     width: 337px;
                     height: 1119px;
 
-                    &::after{
+                    &::after {
                         left: 0;
                     }
                 }
             }
         }
-
     }
 
-    
     // @include responsive(1150px) {
     //     ._a{
     //         ._c2{

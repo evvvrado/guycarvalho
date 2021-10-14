@@ -29,6 +29,14 @@
 
                 ._Professor {
                     transition: 0.7s;
+                    height: 37.2rem;
+                    width: 100%;
+                    max-width: 28rem;
+                    overflow: hidden;
+                    border-radius: 0.8rem;
+
+                    @include flex(row, center, center);
+
                     &.off {
                         opacity: 0;
                         transform: scale(0);
@@ -36,12 +44,10 @@
                         pointer-events: none;
                     }
                     img {
-                        height: 37.2rem;
-                        width: 100%;
-                        max-width: 28rem;
+                        height: 100%;
                         filter: grayscale(1);
-                        border-radius: 0.8rem;
                         transition: 0.32s;
+                        max-width: unset;
 
                         &:hover {
                             cursor: pointer;

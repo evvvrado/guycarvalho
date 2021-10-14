@@ -54,94 +54,84 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                                 <img src="{{ asset('site/img/enafCircle.svg') }}" alt="" width="22">
                             </span>
                             <span class="logo-lg">
-                                <img class="" src=" {{ asset('site/img/_logo57.svg') }}" alt=""
-                                    height="44">
+                                <img class="" src=" {{ asset('site/img/_logo57.svg') }}" alt="" height="44">
                             </span>
                         </a>
                     </div>
 
-                    <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect"
-                        id="vertical-menu-btn" style="color: white;">
+                    <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn" style="color: white;">
                         <i class="fa fa-fw fa-bars"></i>
                     </button>
 
                     <!-- App Search-->
                     {{-- <form class="app-search d-none d-lg-block">
-                            <div class="position-relative">
-                                <select class="form-control">
-                                    <option>Nenhuma Academia Selecionada</option>
-                                    @foreach (\App\Models\Academia::all() as $academia)
-                                        <option value="{{$academia->id}}">{{$academia->nome}}</option>
-                                    @endforeach
-                                </select>
-                                <span class="bx bx-search-alt"></span>
-                            </div>
-                        </form> --}}
+                        <div class="position-relative">
+                            <select class="form-control">
+                                <option>Nenhuma Academia Selecionada</option>
+                                @foreach (\App\Models\Academia::all() as $academia)
+                                <option value="{{$academia->id}}">{{$academia->nome}}</option>
+                                @endforeach
+                            </select>
+                            <span class="bx bx-search-alt"></span>
+                        </div>
+                    </form> --}}
 
                     {{-- <div class="dropdown dropdown-mega d-none d-lg-block ms-2">
-                            <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                                <span key="t-megamenu">Mega Menu</span>
-                                <i class="mdi mdi-chevron-down"></i> 
-                            </button>
-                            <div class="dropdown-menu dropdown-megamenu">
-                                <div class="row">
-                                    
-                                </div>
+                        <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                            <span key="t-megamenu">Mega Menu</span>
+                            <i class="mdi mdi-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-megamenu">
+                            <div class="row">
 
                             </div>
-                        </div> --}}
+
+                        </div>
+                    </div> --}}
                 </div>
 
                 <div class="d-flex">
 
                     {{-- <div class="dropdown d-inline-block d-lg-none ms-2">
-                            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="mdi mdi-magnify"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
-                                aria-labelledby="page-header-search-dropdown">
-        
-                                <form class="p-3">
-                                    <div class="form-group m-0">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
-                                            </div>
+                        <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="mdi mdi-magnify"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-search-dropdown">
+
+                            <form class="p-3">
+                                <div class="form-group m-0">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
                                         </div>
                                     </div>
-                                </form>
-                            </div>
-                        </div> --}}
+                                </div>
+                            </form>
+                        </div>
+                    </div> --}}
 
                     <div class="dropdown d-none d-lg-inline-block ms-1">
-                        {{-- <button type="button" class="btn header-item noti-icon waves-effect"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="bx bx-customize"></i>
-                            </button> --}}
+                        {{-- <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="bx bx-customize"></i>
+                        </button> --}}
                         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                             <div class="px-lg-2">
                                 <div class="row g-0">
                                     <div class="col">
-                                        <a class="dropdown-icon-item" href="https://www.instagram.com/abs.brasil/"
-                                            target="_blank">
-                                            <img src="{{ asset('admin/images/icone_instagram.png') }}"
-                                                alt="Instagram">
+                                        <a class="dropdown-icon-item" href="https://www.instagram.com/abs.brasil/" target="_blank">
+                                            <img src="{{ asset('admin/images/icone_instagram.png') }}" alt="Instagram">
                                             <span>Instagram</span>
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <a class="dropdown-icon-item"
-                                            href="https://www.facebook.com/ABS-Brasil-105852698310241" target="_blank">
+                                        <a class="dropdown-icon-item" href="https://www.facebook.com/ABS-Brasil-105852698310241" target="_blank">
                                             <img src="{{ asset('admin/images/icone_facebook.png') }}" alt="Facebook">
                                             <span>Facebook</span>
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <a class="dropdown-icon-item"
-                                            href="https://www.youtube.com/channel/UCjm6Wo9sSzg3L88oFicZvYg"
-                                            target="_blank">
+                                        <a class="dropdown-icon-item" href="https://www.youtube.com/channel/UCjm6Wo9sSzg3L88oFicZvYg" target="_blank">
                                             <img src="{{ asset('admin/images/icone_youtube.png') }}" alt="Youtube">
                                             <span>Youtube</span>
                                         </a>
@@ -149,25 +139,25 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                                 </div>
 
                                 {{-- <div class="row g-0">
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#" target="_blank">
-                                                <img src="{{asset('admin/images/icone_linkedin.png')}}" alt="Linkedin">
-                                                <span>Linkedin</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#" target="_blank">
-                                                <img src="{{asset('admin/images/icone_tiktok.png')}}" alt="Tiktok">
-                                                <span>Tiktok</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="https://api.whatsapp.com/send?phone=5535997097707" target="_blank">
-                                                <img src="{{asset('admin/images/icone_whatsapp.png')}}" alt="Whatsapp">
-                                                <span>Whatsapp</span>
-                                            </a>
-                                        </div>
-                                    </div> --}}
+                                    <div class="col">
+                                        <a class="dropdown-icon-item" href="#" target="_blank">
+                                            <img src="{{asset('admin/images/icone_linkedin.png')}}" alt="Linkedin">
+                                            <span>Linkedin</span>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="dropdown-icon-item" href="#" target="_blank">
+                                            <img src="{{asset('admin/images/icone_tiktok.png')}}" alt="Tiktok">
+                                            <span>Tiktok</span>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="dropdown-icon-item" href="https://api.whatsapp.com/send?phone=5535997097707" target="_blank">
+                                            <img src="{{asset('admin/images/icone_whatsapp.png')}}" alt="Whatsapp">
+                                            <span>Whatsapp</span>
+                                        </a>
+                                    </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -179,14 +169,12 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                     </div>
 
                     <div class="dropdown d-inline-block">
-                        <button type="button" class="btn header-item noti-icon waves-effect"
-                            id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                        <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             <i class="bx bx-bell bx-tada"></i>
                             {{-- <span class="badge bg-danger rounded-pill">0</span> --}}
                         </button>
-                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
-                            aria-labelledby="page-header-notifications-dropdown">
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
                             <div class="p-3">
                                 <div class="row align-items-center">
                                     <div class="col">
@@ -201,10 +189,10 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                                 <a href="#" class="text-reset notification-item">
                                     <div class="media">
                                         {{-- <div class="avatar-xs me-3">
-                                                <span class="avatar-title bg-primary rounded-circle font-size-16">
-                                                    <i class="bx bx-cart"></i>
-                                                </span>
-                                            </div> --}}
+                                            <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                <i class="bx bx-cart"></i>
+                                            </span>
+                                        </div> --}}
                                         <div class="media-body">
                                             {{-- <h6 class="mt-0 mb-1" key="t-your-order">Your order is placed</h6> --}}
                                             <div class="font-size-12 text-muted">
@@ -221,25 +209,23 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                     </div>
 
                     <div class="dropdown d-inline-block">
-                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="rounded-circle header-profile-user" @if ($usuario->foto) src="{{ asset($usuario->foto) }}"
-                        @else src="{{ asset('site/img/enafCircle.svg') }}"
+                            @else src="{{ asset('site/img/enafCircle.svg') }}"
                             @endif
                             alt="Header Avatar">
-                            <span class="d-none d-xl-inline-block ms-1" style="color: white;"
-                                key="t-henry">{{ session()->get('usuario')['nome'] }}</span>
+                            <span class="d-none d-xl-inline-block ms-1" style="color: white;" key="t-henry">{{ session()->get('usuario')['nome'] }}</span>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
                             <!-- item-->
                             {{-- <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a>
-                                <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span key="t-my-wallet">My Wallet</span></a>
-                                <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span key="t-settings">Settings</span></a>
-                                <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span key="t-lock-screen">Lock screen</span></a>
-                                <div class="dropdown-divider"></div> --}}
-                            <a class="dropdown-item text-danger" href="{{ route('painel.sair') }}"><i
-                                    class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
+                            <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span key="t-my-wallet">My Wallet</span></a>
+                            <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span
+                                    key="t-settings">Settings</span></a>
+                            <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span key="t-lock-screen">Lock screen</span></a>
+                            <div class="dropdown-divider"></div> --}}
+                            <a class="dropdown-item text-danger" href="{{ route('painel.sair') }}"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
                                     key="t-logout">Sair</span></a>
                         </div>
                     </div>
@@ -280,7 +266,7 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                                 <li><a href="{{ route('painel.eventos') }}" key="t-default">Eventos</a></li>
                                 <li><a href="{{ route('painel.clinicas') }}" key="t-default">Clínicas</a></li>
                                 <li><a href="{{ route('painel.cursos') }}" key="t-default">Cursos</a></li>
-                                <li><a href="javascript: void(0)" key="t-default">Alunos</a></li>
+                                <li><a href="{{ route('painel.alunos') }}" key="t-default">Alunos</a></li>
                                 <li><a href="{{ route('painel.professores') }}" key="t-default">Professores</a></li>
                             </ul>
 
@@ -355,8 +341,7 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                                 <span key="t-dashboards">Informações</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('painel.informacoes.municipios') }}"
-                                        key="t-default">Municípios</a></li>
+                                <li><a href="{{ route('painel.informacoes.municipios') }}" key="t-default">Municípios</a></li>
                             </ul>
                         </li>
 
@@ -365,7 +350,7 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
 
 
                         <li>
-                            <a href="{{ route('painel.mapa') }}"" class="    waves-effect">
+                            <a href="{{ route('painel.mapa') }}"" class=" waves-effect">
                                 <i class="bx bx-map-alt" aria-hidden="true"></i>
                                 <span key="t-dashboards">Mapa do Site</span>
                             </a>
@@ -413,12 +398,13 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                 <div class="container-fluid">
                     <div class="row">
                         {{-- <div class="col-sm-6">
-                                <script>document.write(new Date().getFullYear())</script> © GEFIT | Fitness Intelligence.
-                            </div> --}}
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script> © GEFIT | Fitness Intelligence.
+                        </div> --}}
                         <div class="col-12">
                             <div class="text-sm-end d-none d-sm-block">
-                                <a href=""><img src="{{ asset('site/img/_logo7seven_black.png') }}" height="20px"
-                                        alt=""></a>
+                                <a href=""><img src="{{ asset('site/img/_logo7seven_black.png') }}" height="20px" alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -445,49 +431,51 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
             <!-- Settings -->
             <hr class="mt-0" />
             {{-- <div class="p-4 lista-atualizacoes">
-                    <h6 class="text-left mb-3 mt-4">16/06/2021 - V 0.7</h6>
-                    <ul class="">
-                        <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Sistema de cadastro e gerenciamento de destaque suspenso ao acessar o site.</span></li>
-                        <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de árvore de links (App link).</span></li>
-                    </ul>
-                    <h6 class="text-left mb-3 mt-4">15/06/2021 - V 0.6</h6>
-                    <ul class="">
-                        <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de logs.</span></li>
-                        <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição de implementação inicial da dashboard.</span></li>
-                    </ul>
-                    <h6 class="text-left mb-3 mt-4">07/06/2021 - V 0.5</h6>
-                    <ul class="">
-                        <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de notícias.</span></li>
-                        <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de usuários.</span></li>
-                        <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição das configurações de contato e redes sociais.</span></li>
-                        <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição das configurações de SEO das páginas.</span></li>
-                        <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de cadastro e controle de estaduais e suas diretorias.</span></li>
-                        <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de registro, consulta e exportação de mensagens de contato.</span></li>
-                    </ul>
-                </div> --}}
+                <h6 class="text-left mb-3 mt-4">16/06/2021 - V 0.7</h6>
+                <ul class="">
+                    <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Sistema de cadastro e gerenciamento de destaque suspenso ao acessar o site.</span></li>
+                    <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de árvore de links (App link).</span></li>
+                </ul>
+                <h6 class="text-left mb-3 mt-4">15/06/2021 - V 0.6</h6>
+                <ul class="">
+                    <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de logs.</span></li>
+                    <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição de implementação inicial da dashboard.</span></li>
+                </ul>
+                <h6 class="text-left mb-3 mt-4">07/06/2021 - V 0.5</h6>
+                <ul class="">
+                    <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de notícias.</span></li>
+                    <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de usuários.</span></li>
+                    <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição das configurações de contato e redes sociais.</span></li>
+                    <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição das configurações de SEO das páginas.</span></li>
+                    <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de cadastro e controle de estaduais e suas diretorias.</span></li>
+                    <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de registro, consulta e exportação de mensagens de contato.</span></li>
+                </ul>
+            </div> --}}
 
             {{-- <div class="rightbar-title d-flex align-items-center px-3 py-4">
-            
-                    <h5 class="m-0 me-2">Roadmap</h5>
 
-                    
-                </div>
-                <hr class="mt-0" />
-                <div class="p-4 lista-atualizacoes">
-                    <h6 class="text-left mb-3 mt-4">Atualizações futuras</h6>
-                    <ul class="">
-                        <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de imagens de compartilhamento (imagem que aparece quando se envia o link de uma página pelo whatsapp) e favicons.</span></li>
-                        <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de imagem no destaque do site.</span></li>
-                        <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de destaque suspenso ao acessar o site.</span></li>
-                        <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de Newsletter</span></li>
-                        <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de Email Marketing</span></li>
-                        <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de relacionamentos com pessoas físicas e jurídicas</span></li>
-                        <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Melhoramento da dashboard</span></li>
-                        <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de cursos</span></li>
-                        <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de configuração de parâmetros de gateway de pagamento</span></li>
-                        <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de alunos, professores e diretores.</span></li>
-                    </ul>
-                </div> --}}
+                <h5 class="m-0 me-2">Roadmap</h5>
+
+
+            </div>
+            <hr class="mt-0" />
+            <div class="p-4 lista-atualizacoes">
+                <h6 class="text-left mb-3 mt-4">Atualizações futuras</h6>
+                <ul class="">
+                    <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de imagens de compartilhamento (imagem que aparece quando se
+                            envia o link de uma página pelo whatsapp) e favicons.</span></li>
+                    <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de imagem no destaque do site.</span></li>
+                    <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de destaque suspenso ao acessar o site.</span></li>
+                    <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de Newsletter</span></li>
+                    <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de Email Marketing</span></li>
+                    <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de relacionamentos com pessoas físicas e jurídicas</span>
+                    </li>
+                    <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Melhoramento da dashboard</span></li>
+                    <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de cursos</span></li>
+                    <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de configuração de parâmetros de gateway de pagamento</span></li>
+                    <li><i class="fa fas fa-clock" aria-hidden="true" style="color: orange;"></i> <span>Sistema de cadastro e gerenciamento de alunos, professores e diretores.</span></li>
+                </ul>
+            </div> --}}
         </div> <!-- end slimscroll-menu-->
     </div>
     <!-- /Right-bar -->

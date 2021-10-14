@@ -1,38 +1,30 @@
-body#catalogo{
-    background: #3C445B;
+body#catalogo {
+    background: #3c445b;
 
-    h2{
-        font-family: 'Inter';
+    h2 {
+        font-family: "Inter";
         font-style: normal;
         font-weight: 600;
         font-size: 2.6rem;
-        color: #E5E5E5;
+        color: #e5e5e5;
 
         margin-bottom: 1.4rem;
-
     }
 
-
-    section.s_hero{
+    section.s_hero {
         background-image: url("../img/feira/catalogo/banner_hero.jpg");
         background-size: cover;
 
-        @include responsive(600px) {
-            height: auto;
-            padding-bottom: 2rem;
-        }
-
- 
-        .container-fav{
-            .buttonline{
+        .container-fav {
+            .buttonline {
                 @include flex(row, center, space-between);
                 gap: 1.3rem;
 
                 max-width: 51.2rem;
 
                 margin-top: 3rem;
-    
-                a{
+
+                a {
                     height: 6.2rem;
                     padding: 1.5rem 3.8rem;
                     @include flex(row, center, space-between);
@@ -42,43 +34,55 @@ body#catalogo{
                     gap: 2rem;
 
                     transition: 0.32s;
-    
-                    span{
-                        font-family: 'Inter';
+
+                    span {
+                        font-family: "Inter";
                         font-style: normal;
                         font-weight: 600;
                         font-size: 2.2rem;
                         color: #141414;
                     }
 
-                    &:last-child{
-
-                        background: rgba($color: white, $alpha: .5);
+                    &:last-child {
+                        background: rgba($color: white, $alpha: 0.5);
                     }
 
-
-                    &:hover{
+                    &:hover {
                         transform: scale(1.05);
                     }
                 }
             }
         }
 
-            
+        @include responsive(600px) {
+            height: auto;
+            padding-bottom: 2rem;
+
+            background-size: cover;
+            background-position: center;
+
+            .container-fav {
+                ._h1 {
+                    margin-top: 2rem;
+                }
+                .buttonline {
+                    flex-direction: column;
+                }
+            }
+        }
     }
 
-    .container-fluid:not(section.s_hero.container-fluid, footer .container-fluid){
+    .container-fluid:not(section.s_hero.container-fluid, footer .container-fluid) {
         padding: 0 9rem;
     }
 
-
-    .s_catalogoList{
+    .s_catalogoList {
         position: relative;
         margin-top: 4.4rem;
         margin-bottom: 4.4rem;
-        
-        &:hover{
-            h2::after{
+
+        &:hover {
+            h2::after {
                 content: ">";
                 position: absolute;
                 color: #e5e5e53a;
@@ -86,13 +90,13 @@ body#catalogo{
             }
         }
 
-        &.--livro{
-            .--mask{
-                .content{
-                    .--list{
-                        .--item{
+        &.--livro {
+            .--mask {
+                .content {
+                    .--list {
+                        .--item {
                             overflow: hidden;
-                            img{
+                            img {
                                 border-radius: 0.6rem;
                                 // height: 54.9rem;
                             }
@@ -100,11 +104,9 @@ body#catalogo{
                     }
                 }
             }
-
         }
 
-
-        h2{
+        h2 {
             position: sticky;
             top: 0;
             left: 0;
@@ -113,31 +115,30 @@ body#catalogo{
             user-select: none;
         }
 
-        .--mask{
+        .--mask {
             position: relative;
             width: 100%;
 
-            &:before{
+            &:before {
                 content: "";
                 width: 100%;
                 height: 100%;
 
                 position: absolute;
                 top: 0;
-                background: radial-gradient(circle, rgba(60,68,91,0) 67%, rgba(60,68,91,1) 100%);
+                background: radial-gradient(circle, rgba(60, 68, 91, 0) 67%, rgba(60, 68, 91, 1) 100%);
                 z-index: 2;
 
                 pointer-events: none;
             }
 
-
-            &:hover{
-                .--buttons{
+            &:hover {
+                .--buttons {
                     opacity: 1;
                 }
             }
 
-            .--buttons{
+            .--buttons {
                 position: absolute;
                 top: 0;
                 height: 100%;
@@ -153,7 +154,7 @@ body#catalogo{
                 opacity: 0;
                 transition: 0.32s;
 
-                div{
+                div {
                     background: rgba(0, 0, 0, 0.274);
 
                     height: 100%;
@@ -166,40 +167,38 @@ body#catalogo{
                     pointer-events: all;
                     cursor: pointer;
 
-                    img{
+                    img {
                         transition: 0.32s;
                     }
 
-                    &.--before{
+                    &.--before {
                         transform: rotate(180deg);
                     }
 
-                    &:hover{
-                        img{
+                    &:hover {
+                        img {
                             transform: scale(1.05);
                         }
                     }
                 }
             }
-            
-            .content{
+
+            .content {
                 overflow-x: hidden;
 
-                &::-webkit-scrollbar{
+                &::-webkit-scrollbar {
                     display: none;
                 }
 
                 scroll-behavior: smooth;
 
-
-                .--list{
+                .--list {
                     @include flex(row, flex-start, flex-start);
                     width: max-content;
                     position: relative;
-                    gap: .5rem;
+                    gap: 0.5rem;
 
-
-                    .--item{
+                    .--item {
                         width: 13.666666vw;
                         height: auto;
 
@@ -208,13 +207,11 @@ body#catalogo{
                         transition: 0.32s;
                         cursor: pointer;
 
-                        &:hover{
+                        &:hover {
                             opacity: 0.5;
                         }
 
-                        
-
-                        div.--info{
+                        div.--info {
                             width: 100%;
                             position: absolute;
                             z-index: 0;
@@ -222,15 +219,13 @@ body#catalogo{
                             left: 0;
                             top: 0;
 
-
-
                             @include flex(row, center, space-around);
-                            span{
+                            span {
                                 color: White;
                                 font-weight: bold;
                             }
 
-                            i{
+                            i {
                                 color: $color-featured;
                             }
                         }
@@ -240,99 +235,106 @@ body#catalogo{
         }
     }
 
-    .s_top5{
+    .s_top5 {
         margin-top: 6.4rem;
         margin-bottom: 6.4rem;
-        .--mask{
-            .content{
-                .--list{
+        .--mask {
+            .content {
+                .--list {
                     @include flex(row, center, center);
                     gap: 1rem;
 
-                    .--item{
+                    .--item {
                         @include flex(row, flex-start, flex-start);
 
                         transition: 0.32s;
                         cursor: pointer;
 
-                        &:hover{
+                        &:hover {
                             opacity: 0.5;
                         }
-
-
                     }
                 }
             }
         }
     }
 
-
-
-    .s_publi{
+    .s_publi {
         margin-bottom: 4rem;
 
-        img{
-            border-radius: .6rem;
+        img {
+            border-radius: 6px;
+            width: 100%;
         }
     }
 
-
-    @include responsive(1280px){
-        .container-fluid:not(section.s_hero.container-fluid, footer .container-fluid){
+    @include responsive(1280px) {
+        .container-fluid:not(section.s_hero.container-fluid, footer .container-fluid) {
             padding: 0 4rem;
         }
         .s_catalogoList {
-            .--mask{
-                .--buttons{
+            .--mask {
+                .--buttons {
                     opacity: 1;
                 }
-                .content{
-                    .--list{
-        
-                        .--item{
+                .content {
+                    .--list {
+                        .--item {
                             width: 19vw;
                         }
                     }
-                    }
-        
-
+                }
             }
         }
-
     }
-    
-    @include responsive(900px){
-        .container-fluid:not(section.s_hero.container-fluid, footer .container-fluid){
+
+    @include responsive(900px) {
+        .container-fluid:not(section.s_hero.container-fluid, footer .container-fluid) {
             padding: 0 4rem;
         }
         .s_catalogoList {
-            .--mask{    
-                .content{
-                    .--list{
-        
-                        .--item{
+            .--mask {
+                .content {
+                    .--list {
+                        .--item {
                             width: 26vw;
                         }
                     }
                 }
-        
-
             }
         }
 
-        .s_top5{ 
+        .s_top5 {
             .--mask {
                 .content {
                     overflow: scroll;
                     scroll-snap-type: x mandatory;
-                    .--list{
+                    .--list {
                         width: max-content;
 
-                        .--item{
+                        .--item {
                             scroll-snap-align: left;
                         }
                     }
-                } 
+                }
+            }
+        }
+    }
+
+    @include responsive(600px) {
+        .s_catalogoList {
+            .--mask {
+                .--buttons {
+                    display: none;
+                }
+                .content {
+                    overflow: scroll;
+                    .--list {
+                        .--item {
+                            width: 40vw;
+                        }
+                    }
+                }
             }
         }
     }

@@ -1,5 +1,7 @@
 @include("site.includes.head")
 
+<title>ENAF - Esporte, Fitness e Saúde</title>
+
 
 <body id="home">
 
@@ -27,13 +29,13 @@
         <div class="container-fav">
             <div class="_case fade">
                 {{-- <div class="_buttons">
-        <div class="_previous">
-          <img src="{{ asset('site/img/halfarrowleft.svg') }}" alt="Evento Anterior" />
-        </div>
-        <div class="_next">
-          <img src="{{ asset('site/img/halfarrowright.svg') }}" alt="Próximo Evento" />
-        </div>
-      </div> --}}
+                    <div class="_previous">
+                        <img src="{{ asset('site/img/halfarrowleft.svg') }}" alt="Evento Anterior" />
+                    </div>
+                    <div class="_next">
+                        <img src="{{ asset('site/img/halfarrowright.svg') }}" alt="Próximo Evento" />
+                    </div>
+                </div> --}}
                 <div class="_img">
                     <img src="{{ asset('site/img/case_nextEvent.jpg') }}" alt="Próximo evento aqui no ENAF" />
                 </div>
@@ -206,6 +208,68 @@
                         <div class="_top">
                             <h4 class="curso_name">Musculação Feminina</h4>
                             <p class="curso_description">Programa para maximizar os resultados</p>
+                        </div>
+                        <div class="_bottom">
+                            <p class="curso_certificate">Certificado de 10hs</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="_curso ead">
+                    <div class="_pic">
+                        <img src="{{ asset('site/img/curso_Pic (4).jpg') }}" alt="Imagem deste curso" />
+                    </div>
+                    <div class="_content">
+                        <div class="_top">
+                            <h4 class="curso_name">Musculação Feminina</h4>
+                            <p class="curso_description">Programa para maximizar os resultados</p>
+                        </div>
+                        <div class="_bottom">
+                            <p class="curso_certificate">Certificado de 10hs</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="_curso ead">
+                    <div class="_pic">
+                        <img src="{{ asset('site/img/curso_Pic (3).jpg') }}" alt="Imagem deste curso" />
+                    </div>
+                    <div class="_content">
+                        <div class="_top">
+                            <h4 class="curso_name">Cross Training</h4>
+                            <p class="curso_description">Baseado na metodologia do CrossFit</p>
+                        </div>
+                        <div class="_bottom">
+                            <p class="curso_certificate">Certificado de 10hs</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="_curso ead">
+                    <div class="_pic">
+                        <img src="{{ asset('site/img/curso_Pic (1).jpg') }}" alt="Imagem deste curso" />
+                    </div>
+                    <div class="_content">
+                        <div class="_top">
+                            <h4 class="curso_name">Meeting de musculação</h4>
+                            <p class="curso_description">
+                                Treinamentos para hipertrofia muscular e suplementação combinada
+                            </p>
+                        </div>
+                        <div class="_bottom">
+                            <p class="curso_certificate">Certificado de 10hs</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="_curso ead">
+                    <div class="_pic">
+                        <img src="{{ asset('site/img/curso_Pic (2).jpg') }}" alt="Imagem deste curso" />
+                    </div>
+                    <div class="_content">
+                        <div class="_top">
+                            <h4 class="curso_name">Treinamento Multifuncional</h4>
+                            <p class="curso_description">& Longevidade Saudável Aplicação Prática</p>
                         </div>
                         <div class="_bottom">
                             <p class="curso_certificate">Certificado de 10hs</p>
@@ -484,8 +548,7 @@
                     <div class="_depoimentosList">
                         <div class="_depoimento">
                             <div class="_pic">
-                                <img src="{{ asset('site/img/depoimento_Pic (1).jpg') }}"
-                                    alt="Foto de Dr. Turíbio" />
+                                <img src="{{ asset('site/img/depoimento_Pic (1).jpg') }}" alt="Foto de Dr. Turíbio" />
                             </div>
                             <div class="_text">
                                 <p>
@@ -497,8 +560,7 @@
                         </div>
                         <div class="_depoimento">
                             <div class="_pic">
-                                <img src="{{ asset('site/img/depoimento_Pic (2).jpg') }}"
-                                    alt="Foto de Dr. Turíbio" />
+                                <img src="{{ asset('site/img/depoimento_Pic (2).jpg') }}" alt="Foto de Dr. Turíbio" />
                             </div>
                             <div class="_text">
                                 <p>
@@ -510,8 +572,7 @@
                         </div>
                         <div class="_depoimento">
                             <div class="_pic">
-                                <img src="{{ asset('site/img/depoimento_Pic (3).jpg') }}"
-                                    alt="Foto de Dr. Turíbio" />
+                                <img src="{{ asset('site/img/depoimento_Pic (3).jpg') }}" alt="Foto de Dr. Turíbio" />
                             </div>
                             <div class="_text">
                                 <p>
@@ -527,8 +588,7 @@
                 <div class="_menu">
                     <div class="_buttons">
                         <div class="_previous _button">
-                            <img src="{{ asset('site/img/halfarrowleft_alternative.svg') }}"
-                                alt="Seta indicando a esquerda" />
+                            <img src="{{ asset('site/img/halfarrowleft_alternative.svg') }}" alt="Seta indicando a esquerda" />
                         </div>
 
                         <div class="_indicator">
@@ -538,8 +598,7 @@
                         </div>
 
                         <div class="_next _button">
-                            <img src="{{ asset('site/img/halfarrowright_alternative.svg') }}"
-                                alt="Seta indicando a direita" />
+                            <img src="{{ asset('site/img/halfarrowright_alternative.svg') }}" alt="Seta indicando a direita" />
                         </div>
                     </div>
                 </div>
