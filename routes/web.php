@@ -22,10 +22,10 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
 
 // Route::middleware(['redirecionainicio'])->group(function () {
     Route::get('/quem-somos', [\App\Http\Controllers\SiteController::class, 'quem_somos'])->name("site.quem_somos");
-    Route::get('/curso/{slug}', [\App\Http\Controllers\SiteController::class, 'curso'])->name("site.curso");
-    Route::get('/curso/{slug}/instrutores', [\App\Http\Controllers\SiteController::class, 'instrutores'])->name("site.curso.instrutores");
-    Route::get('/curso/{slug}/local', [\App\Http\Controllers\SiteController::class, 'local'])->name("site.curso.local");
-    Route::get('/curso/{slug}/programacao', [\App\Http\Controllers\SiteController::class, 'programacao'])->name("site.curso.programacao");
+    // Route::get('/curso/{slug}', [\App\Http\Controllers\SiteController::class, 'curso'])->name("site.curso");
+    // Route::get('/curso/{slug}/instrutores', [\App\Http\Controllers\SiteController::class, 'instrutores'])->name("site.curso.instrutores");
+    // Route::get('/curso/{slug}/local', [\App\Http\Controllers\SiteController::class, 'local'])->name("site.curso.local");
+    // Route::get('/curso/{slug}/programacao', [\App\Http\Controllers\SiteController::class, 'programacao'])->name("site.curso.programacao");
     Route::post('/contato/salvar', [\App\Http\Controllers\MensagemController::class, 'salvar'])->name("site.contato.salvar");
 
 
@@ -45,7 +45,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
     Route::get('/clinicas/clinica', [\App\Http\Controllers\SiteController::class, 'clinica'])->name("site.clinica");
     Route::get('/eventos/evento', [\App\Http\Controllers\SiteController::class, 'evento'])->name("site.evento");
     Route::get('/cursos', [\App\Http\Controllers\SiteController::class, 'cursos'])->name("site.cursos");
-    Route::get('/cursos/curso', [\App\Http\Controllers\SiteController::class, 'curso'])->name("site.curso");
+    Route::get('/cursos/curso/{slug}', [\App\Http\Controllers\SiteController::class, 'curso'])->name("site.curso");
     Route::get('/contato', [\App\Http\Controllers\SiteController::class, 'contato'])->name("site.contato");
 
     Route::get('/blog/lista', [\App\Http\Controllers\SiteController::class, 'blogLista'])->name("site.blog-lista");

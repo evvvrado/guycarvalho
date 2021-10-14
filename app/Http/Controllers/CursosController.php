@@ -65,6 +65,9 @@ class CursosController extends Controller
 
         $curso->tipo = $request->tipo;
         $curso->total_horas = $request->total_horas;
+        $curso->descricao = $request->descricao;
+        $curso->titulo = $request->titulo;
+        $curso->sobre = $request->sobre;
         
         if($request->certificacao){
             $curso->certificacao = true;

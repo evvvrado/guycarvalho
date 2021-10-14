@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="titulo">Título do paragrafo</label>
-                                    <input id="titulo" name="nome" type="text" class="form-control"
+                                    <input id="titulo" name="titulo" type="text" class="form-control"
                                         placeholder="Insira o titulo">
                                 </div>
                                 <div class="mb-3">
@@ -128,8 +128,8 @@
 
 
                                 <div class="mb-3">
-                                    <label for="descricao">Sobre o curso</label>
-                                    <textarea id="textarea" name="descricao" class="form-control" maxlength="107" rows="3"
+                                    <label for="sobre">Sobre o curso</label>
+                                    <textarea id="textarea" name="sobre" class="form-control" maxlength="107" rows="3"
                                         placeholder="Descrição breve sobre o curso" required></textarea>
                                 </div>
 

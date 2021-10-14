@@ -43,13 +43,13 @@
                         <div class="_content">
                             <div class="_top">
                                 <h4 class="curso_name">{{$curso->nome}}</h4>
-                                {{-- <p class="curso_description">
-                                    Treinamentos para hipertrofia muscular e suplementação combinada
-                                </p> --}}
+                                <p class="curso_description">
+                                    {!! $curso->descricao !!}
+                                </p>
                             </div>
                             <div class="_bottom">
                                 <p class="curso_price">R$ {{number_format($curso->valor, 2, ",", ".")}}</p>
-                                <button>Comprar</button>
+                                <button onclick="window.location.href = '{{route('site.curso', ['slug' => $curso->slug])}}'">Ver mais</button>
                             </div>
                         </div>
                     </div>

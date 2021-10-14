@@ -56,9 +56,11 @@ class SiteController extends Controller
     //     return view("site.curso", ["curso" => $curso, "turma" => $turma, "aba" => "detalhes"]);
     // }
 
-    public function curso(){
-        return view("site.curso");
+    public function curso($slug){
+        $curso = Curso::where("slug", $slug)->first();
+        return view("site.curso", ['curso' => $curso]);
     }
+
     public function instrutores($slug){
         $curso = Curso::where("slug", $slug)->first();
         $turma = $curso->turmas->where("ativo", true)->sortBy("data")->first();
