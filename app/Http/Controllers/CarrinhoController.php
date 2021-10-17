@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Turma;
+use App\Models\Curso;
 use App\Models\Carrinho;
 use App\Models\CarrinhoProduto;
 use App\Models\Aluno;
@@ -17,7 +17,7 @@ class CarrinhoController extends Controller
 {
     //
 
-    public function adicionar(Turma $turma){
+    public function adicionar(Curso $curso){
         if(!session()->get("aluno")){
             session()->put(["produto_adicionar" => url()->current()]);
             return redirect()->route("site.carrinho-identificacao");
@@ -37,8 +37,8 @@ class CarrinhoController extends Controller
 
             $produto = new CarrinhoProduto;
             $produto->carrinho_id = $carrinho->id;
-            $produto->turma_id = $turma->id;
-            $produto->total = $turma->preco;
+            $produto->curso_id = $curso->id;
+            $produto->total = $curso->valor;
             $produto->save();
 
             $carrinho->total += $produto->total;
@@ -46,6 +46,20 @@ class CarrinhoController extends Controller
 
             return redirect()->route("site.carrinho-efetuar");
         }
+    }
+
+    public function remover(Curso $curso){
+        $carrinho = Carrinho::find(session()->get("carrinho"));
+        $produto = CarrinhoProduto::where([["carrinho_id", $carrinho->id], ["curso_id", $curso->id]]);
+        $produto->delete();
+        $carrinho->total -= $curso->preco;
+        $carrinho->save();
+        if($carrinho->produtos->count() == 0){
+            $carrinho->delete();
+            session()->forget("carrinho");
+            return redirect()->route('site.index');
+        }
+        return redirect()->back();
     }
 
     public function identificar(Request $request){

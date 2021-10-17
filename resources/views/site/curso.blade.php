@@ -36,7 +36,7 @@
                     </span>
 
                     <span>
-                        <div class="_btn">Comprar</dvi>
+                        <div class="_btn" onclick="window.location.href ='{{ route('site.carrinho-adicionar', ['curso' => $curso]) }}'">Comprar</dvi>
                     </span>
                 </div>
             </div>

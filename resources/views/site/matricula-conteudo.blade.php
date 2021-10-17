@@ -172,11 +172,11 @@
 
     <div class="detalhesdeCurso container-fluid">
         <div class="container-fav">
-            <h1>{{ $matricula->turma->curso->titulo }}</h1>
+            <h1>{{ $matricula->curso->titulo }}</h1>
 
             <main>
                 <div class="list">
-                    @foreach ($matricula->turma->conteudos->where('publicacao', '<=', date('Y-m-d H:i:s')) as $conteudo)
+                    @foreach ($matricula->curso->conteudos->where('publicacao', '<=', date('Y-m-d H:i:s')) as $conteudo)
                         <article>
                             <div class="date">
                                 {{ date('d/m/Y', strtotime($conteudo->publicacao)) }}<br>

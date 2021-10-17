@@ -155,7 +155,9 @@
                 <ul>
                     <li><a href="{{ route('site.contato') }}">CONTATO</a></li>
                     <li><img src="{{ asset('site/img/hotsite/user.svg') }}" alt="Ícone de Usuário" /></li>
-                    <li><img src="{{ asset('site/img/hotsite/cart.svg') }}" alt="Ícone de Carrinho" /></li>
+                    @if(session()->get("carrinho"))
+                        <li><img src="{{ asset('site/img/hotsite/cart.svg') }}" alt="Ícone de Carrinho" /></li>
+                    @endif
                 </ul>
             </nav>
         </div>
@@ -179,8 +181,10 @@
                     <li><a href="{{ route('site.contato') }}">CONTATO</a></li>
                     <li><a href="{{ route('site.minha-conta') }}"><img src="{{ asset('site/img/user.svg') }}"
                                 alt="Ícone de Usuário" /></a></li>
-                    <li class="_carrinho_button"><img src="{{ asset('site/img/cart.svg') }}"
-                            alt="Ícone de Carrinho" /></li>
+                    @if(session()->get("carrinho"))
+                        <li class="_carrinho_button"><img src="{{ asset('site/img/cart.svg') }}"
+                                alt="Ícone de Carrinho" /></li>
+                    @endif
                 </ul>
             </nav>
         </div>

@@ -130,7 +130,7 @@
 							</div>
 							<div class="_content">
 								{{--  <h3 class="isOnline">Curso Online</h3>  --}}
-								<h2 class="itemName">{{$produto->turma->curso->titulo}}</h2>
+								<h2 class="itemName">{{$produto->curso->titulo}}</h2>
 								{{--  <p class="itemExtra">Certificado de 10hs</p>  --}}
 								<div class="itemValue">
 									<strong>R$ <span class="_itemValue">{{number_format($produto->total, 2, ",", ".")}}</span></strong>
