@@ -21,20 +21,20 @@
 
     --wine1: #103A51;
     --wine2: #89143a;
-    --wine3: #811337;
+    --wine3: #20356F;
     --wine4: #570d25;
     --wine5: #90143c;
     --wine6: #560d24;
-    --wine7: rgba(218, 41, 28, 0.3);
+    --wine7: #1ac6d634;
     --wine8: #1AC7D6;
     --wine9: #a72b43;
     --wine10: #911941;
     --wine11: #D1F4F7;
-    --wine12: #bb1048;
+    --wine12: #20356F;
 
-    --lightbrown: #d9a863;
+    --lightbrown: #1AC7D6;
     --lightred: #1AC7D6;
-    --orange: #feaa3f;
+    --orange: #1AC7D6;
     --orange2: #1AC7D6;
 
     --white: #fff;
@@ -748,7 +748,7 @@ body._carrinho header .container-fav ._first {
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 74.5rem;
+    /* max-width: 74.5rem; */
     justify-content: space-between;
 }
 
@@ -1330,6 +1330,17 @@ section.s_compraRealizada
     background: var(--gray11);
     color: var(--orange2);
 }
+
+
+body._carrinho section.s_identificacao .container-fav{
+    padding-top: 131px!important;
+}
+
+body._carrinho._tocenter section.s_identificacao .container-fav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 body._carrinho section.s_identificacao .container-fav ._half ._top {
     border-bottom: solid 2px var(--lightbrown);
 }
@@ -1347,8 +1358,6 @@ body._carrinho
     ._top
     ._title._active {
     border: none;
-}
-body._carrinho section.s_identificacao .container-fav ._half ._top .arrow {
 }
 body._carrinho section.s_identificacao .container-fav ._pagamento {
     width: 100%;
@@ -1426,7 +1435,7 @@ body._carrinho
     .row
     p {
     font-size: 1.4rem;
-    color: #d9a863;
+    color: #1AC7D6;
 }
 body._carrinho section.s_identificacao .container-fav ._pagamento ._cupom {
     width: 100%;
@@ -1980,7 +1989,7 @@ body._carrinho
 
     padding-bottom: 2.9rem;
 
-    border-bottom: 2px solid #d9a863;
+    border-bottom: 2px solid #1AC7D6;
 }
 .detalhesdeCurso .container-fav main {
     position: relative;

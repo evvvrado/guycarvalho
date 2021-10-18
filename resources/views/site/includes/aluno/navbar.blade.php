@@ -3,7 +3,7 @@
         <main>
             <div class="logos _hi">
                 <a href="/" class="logo-abspe">
-                    <img src="{{ asset('site/img/_logo92.png') }}" alt="Logo ABS-Pernambuco" />
+                    <img src="{{ asset('site/img/_logo92.png') }}" alt="Logo ENAF DIGITAL" />
                 </a>
 
                 <a href="/" class="logo-asi">
@@ -25,11 +25,9 @@
 
             {{-- <button class="menu-item btn-primary">Associado</a></button> --}}
             @if (!session()->get('aluno'))
-                <button class="menu-item btn-primary"
-                    onclick="window.location.href = '{{ route('site.minha-conta') }}'">Minha conta</a></button>
+            <button class="menu-item btn-primary" onclick="window.location.href = '{{ route('site.minha-conta') }}'">Minha conta</a></button>
             @else
-                <button class="menu-item btn-primary"
-                    onclick="window.location.href = '{{ route('site.minha-area') }}'">Minha área</a></button>
+            <button class="menu-item btn-primary" onclick="window.location.href = '{{ route('site.minha-area') }}'">Minha área</a></button>
             @endif
             <button class="menu-item hamburguer-menu">
                 <img src="{{ asset('site/img/hamburguer.svg') }}" alt="" />
