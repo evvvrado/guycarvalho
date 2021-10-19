@@ -83,7 +83,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.eventos') }}">Eventos<
                             <div class="mb-3">
                                 <label for="inicio">Hora de Início</label>
 
-                                <input class="form-control" name="horainicio" type="time" id="example-date-input">
+                                <input class="form-control" name="hora_inicio" type="time" id="example-date-input">
 
                             </div>
 
@@ -111,7 +111,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.eventos') }}">Eventos<
                             </div>
                             <div class="mb-3">
                                 <label for="fim">Hora de encerramento</label>
-                                <input class="form-control" name="horafim" type="time" id="example-date-input">
+                                <input class="form-control" name="hora_fim" type="time" id="example-date-input">
                             </div>
 
 
