@@ -1,4 +1,5 @@
 @include("site.includes.head")
+<title>Nossos Cursos </title>
 
 
 <body id="nossoscursos">

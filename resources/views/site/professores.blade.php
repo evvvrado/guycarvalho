@@ -1,6 +1,6 @@
 @include("site.includes.head")
 
-<title>Nosso time de Professores ~ ENAF</title>
+<title>Nosso time de Professores </title>
 
 
 <body id="professores">

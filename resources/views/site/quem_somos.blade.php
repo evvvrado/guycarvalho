@@ -1,5 +1,5 @@
 @include("site.includes.head")
-
+<title>Quem somos</title>
 
 <body id="sobre">
 

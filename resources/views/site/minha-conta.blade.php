@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>ENAF - Painel do Aluno</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta content="Painel de controle ~ ENAF" name="description" />
+    <meta content="Painel de controle " name="description" />
     <meta content="Luis Gustavo de Souza Carvalho" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('admin/images/favicon.ico') }}" />

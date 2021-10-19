@@ -1,5 +1,5 @@
 @include("site.includes.head")
-
+<title>@if(session()->get("tipo") == "clinica") Nossas Clínicas @else Nossos Eventos @endif</title>
 
 <body id="nossoscursos">
 
@@ -35,21 +35,22 @@
         <div class="container-fav">
             <div class="_eventList">
                 @foreach($eventos as $evento)
-                    <div class="_event"  @if($evento->clinica) onclick="window.location.href = '{{route('site.clinica', ['slug' => $evento->slug])}}'" @else onclick="window.location.href = '{{route('site.evento', ['slug' => $evento->slug])}}'" @endif>
-                        <div class="_pic">
-                            <img src="{{ asset($evento->thumbnail) }}" alt="Imagem do {{$evento->nome}}" />
+                <div class="_event" @if($evento->clinica) onclick="window.location.href = '{{route('site.clinica', ['slug' => $evento->slug])}}'" @else onclick="window.location.href =
+                    '{{route('site.evento', ['slug' => $evento->slug])}}'" @endif>
+                    <div class="_pic">
+                        <img src="{{ asset($evento->thumbnail) }}" alt="Imagem do {{$evento->nome}}" />
+                    </div>
+                    <div class="_content">
+                        <div class="_top">
+                            <h4 class="event_name">{{$evento->nome}}</h4>
+                            <p class="event_local">{{$evento->local_endereco}}</p>
                         </div>
-                        <div class="_content">
-                            <div class="_top">
-                                <h4 class="event_name">{{$evento->nome}}</h4>
-                                <p class="event_local">{{$evento->local_endereco}}</p>
-                            </div>
-                            <div class="_bottom">
-                                <span class="event_date">{{date('d/m', strtotime($evento->inicio))}} a {{date('d/m', strtotime($evento->fim))}}</span>
-                                {{-- <p class="event_time">Sábado: 08h às 18h</p> --}}
-                            </div>
+                        <div class="_bottom">
+                            <span class="event_date">{{date('d/m', strtotime($evento->inicio))}} a {{date('d/m', strtotime($evento->fim))}}</span>
+                            {{-- <p class="event_time">Sábado: 08h às 18h</p> --}}
                         </div>
                     </div>
+                </div>
                 @endforeach
 
                 @include('site.includes.publicidade')
@@ -62,53 +63,30 @@
             <div class="_apoio">
                 <span>Apoio</span>
                 <div class="_apoiador">
-                    <img src="{{ asset('site/img/apoio_Gefit.svg') }}" alt="Logo Gefit Fitness Intelligence"
-                        title="Gefit ~ Gestão de Academias" />
+                    <img src="{{ asset('site/img/apoio_Gefit.svg') }}" alt="Logo Gefit Fitness Intelligence" title="Gefit ~ Gestão de Academias" />
                 </div>
             </div>
             <div class="_patrocinadores">
                 <span>Patrocinadores</span>
                 <div class="_patrocinadorList">
                     <div class="_patrocinador">
-                        <img src="{{ asset('site/img/patrocinadores_SCA.png') }}" alt="Logo SCA"
-                            title="SCA ~ ISTEMA COMPLETO PARA ACADEMIAS, CLUBES E STUDIOS." />
+                        <img src="{{ asset('site/img/patrocinadores_SCA.png') }}" alt="Logo SCA" title="SCA ~ ISTEMA COMPLETO PARA ACADEMIAS, CLUBES E STUDIOS." />
                     </div>
                     <div class="_patrocinador">
-                        <img src="{{ asset('site/img/patrocinadores_LION.png') }}" alt="Logo Lion"
-                            title="Lion ~ Equipamentos Fitness" />
+                        <img src="{{ asset('site/img/patrocinadores_LION.png') }}" alt="Logo Lion" title="Lion ~ Equipamentos Fitness" />
                     </div>
                     <div class="_patrocinador">
-                        <img src="{{ asset('site/img/patrocinadores_GYMPASS.png') }}" alt="Logo Gympass"
-                            title="Gympass ~ Academias próximas - Descubra academias perto" />
+                        <img src="{{ asset('site/img/patrocinadores_GYMPASS.png') }}" alt="Logo Gympass" title="Gympass ~ Academias próximas - Descubra academias perto" />
                     </div>
                     <div class="_patrocinador">
-                        <img src="{{ asset('site/img/patrocinadores_REDE.png') }}" alt="Logo Rede"
-                            title="Rede ~ Máquina de cartão de crédito e débito sem fio" />
+                        <img src="{{ asset('site/img/patrocinadores_REDE.png') }}" alt="Logo Rede" title="Rede ~ Máquina de cartão de crédito e débito sem fio" />
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="container-fluid s_destaque">
-        <div class="container-fav">
-            <div class="_content fade">
-                <div class="_line">
-                    <button>
-                        <img src="{{ asset('site/img/arrowright.svg') }}" alt="Seta para direita" />
-                    </button>
-                </div>
-                <h6></h6>
-                <div class="_svg">
-                    <img src="{{ asset('site/img/svg_poweroflife_white.svg') }}" alt="Power of Life" />
-                </div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                </p>
-            </div>
-        </div>
-    </section>
+    @include('site.includes.destaque')
 
 
 
