@@ -13,7 +13,7 @@
                     <div class="_icon">
                         <img src="{{ asset('/site/img/icon_envelop_footer.svg') }}" alt="Ícone de Envelope" />
                     </div>
-                    <a href="mailto:faleconosco@enaf.com.br"> faleconosco@enaf.com.br </a>
+                    <a href="mailto:contato@enafdigital.com.br"> contato@enafdigital.com.br </a>
                 </div>
 
                 <div class="_social">
@@ -21,51 +21,48 @@
                     <div class="_media">
                         <ul>
                             <li>
-                                <a href="https://www.facebook.com/enaf.oficial/">
+                                <a target="_blank" href="#">
                                     <img src="{{ asset('/site/img/icon_facebook_footer.svg') }}" alt="Ícone facebook" />
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/enaf.oficial/">
+                                <a target="_blank" href="#">
                                     <img src="{{ asset('/site/img/icon_instagram_footer.svg') }}" alt="Ícone instagram" />
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a target="_blank" href="#">
                                     <img src="{{ asset('/site/img/icon_youtube_footer.svg') }}" alt="Ícone youtube" />
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a target="_blank" href="#">
                                     <img src="{{ asset('/site/img/icon_twitter_footer.svg') }}" alt="Ícone twitter" />
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a target="_blank" href="#">
                                     <img src="{{ asset('/site/img/icon_linkedin_footer.svg') }}" alt="Ícone linkedin" />
                                 </a>
                             </li>
-                        </ul>
+                        </ul>g
                     </div>
                 </div>
             </div>
             <div class="_end">
                 <nav>
                     <ul>
-                        <li><a href="/">EVENTOS</a></li>
-                        <li><a href="{{ route('site.cursos') }}">CURSOS ONLINE</a></li>
-                        <li><a href="{{ route('site.clinicas') }}">CLÍNICAS</a></li>
-                        <li><a href="{{ route('site.professores') }}">PROFESSORES</a></li>
-                        <li><a href="/">EMBAIXADORES</a></li>
-                        <li><a href="{{ route('site.feira') }}">Feira Online</a></li>
-                        <li><a href="/nossoblog-lista.html">BLOG</a></li>
-                        <li><a href="/nossoblog.html">ARTIGOS</a></li>
-                        <li><a href="/contato.html">IMPRENSA</a></li>
-                        <li><a href="{{ route('site.contato') }}">CONTATO</a></li>
-                    </ul>
+                        <li><a href="{{ route('site.clinicas') }}">Eventos</a></li>
+                        <li><a href="{{ route('site.clinicas') }}">Clínicas</a></li>
+                        <li><a href="{{ route('site.cursos') }}">Cursos</a></li>
+                        <li><a href="{{ route('site.professores') }}">Professores</a></li>
+                        <li><a href="{{ route('site.feira') }}">EXPO ENAF</a></li>
+                        <li><a href="{{ route('site.quem_somos') }}">Sobre</a></li>
+                        <li><a href="{{ route('site.blog-lista') }}">Artigos</a></li>
+                        <li><a href="{{ route('site.blog-grid') }}">Blog</a></li>
+                        <li><a href="{{ route('site.contato') }}">Imprenssa</a></li>
+                        <li><a href="{{ route('site.duvidas') }}">Dúvidas Frequentes</a></li>
                 </nav>
-
-
 
                 <a href="https://7seventrends.com" style="width: 100%; display: flex; align-items: flex-end; justify-content: center;">
                     <img src="{{ asset('/site/img/_logo7seven.png') }}" alt="Ícone 7Seven" style="margin-top: 50px;" />

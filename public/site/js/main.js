@@ -97,6 +97,7 @@ $(document).ready(() => {
         $(".d_superMenu").toggleClass("_showed");
     });
 
+
     $("._carrinho_button, .d_carrinho ._close").click(() => {
         $(".d_carrinho").toggleClass("active");
     });
@@ -339,3 +340,5 @@ console.log(
     "color:#5cedd7; font-family:monospace; font-size: 15px",
     "color: #0379E8; font-family:monospace; font-size: 15px"
 );
+
+

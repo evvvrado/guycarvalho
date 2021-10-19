@@ -67,7 +67,7 @@
                         <div class="_bottom">
                             <span class="event_date">20 de Jun.</span>
                             <p class="event_time">Sábado: 08h às 18h</p>
-                            <button>Comprar</button>
+                            <button>Ver mais</button>
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                         <div class="_bottom">
                             <span class="event_date">20 a 22 de Ago.</span>
                             <p class="event_time">Sábado: 08h às 18h</p>
-                            <button>Comprar</button>
+                            <button>Ver mais</button>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                         <div class="_bottom">
                             <span class="event_date">08 a 12 de Out.</span>
                             <p class="event_time">Sábado: 08h às 18h</p>
-                            <button>Comprar</button>
+                            <button>Ver mais</button>
                         </div>
                     </div>
                 </div>
@@ -115,7 +115,7 @@
                         <div class="_bottom">
                             <span class="event_date">12 de Jan.</span>
                             <p class="event_time">Sábado: 08h às 18h</p>
-                            <button>Comprar</button>
+                            <button>Ver mais</button>
                         </div>
                     </div>
                 </div>
@@ -354,7 +354,7 @@
                     para estudantes e profissionais de sport, fitness e saúde.
                 </p>
                 <button>
-                    <img src="{{ asset('site/img/arrowright_white.svg') }}" alt="Seta para a direita" />
+                    <img src="{{ asset('site/img/arrowright_white.svg') }}" onclick="window.location.href = '{{ route('site.quem_somos')}}'" alt="Seta para a direita" />
                 </button>
             </div>
             <div class="_right">
@@ -497,7 +497,7 @@
         <div class="container-fav">
             <div class="_numeros">
                 <div class="_title">
-                    <h6>Alguns números dos 34 anos</h6>
+                    <h6>Alguns números dos 35 anos</h6>
                 </div>
 
                 <div class="_boxes">
@@ -505,35 +505,35 @@
                         <div class="_icon">
                             <img src="{{ asset('site/img/icon_calendar.svg') }}" alt="Ícone de calendário" />
                         </div>
-                        <span class="counting">125</span>
+                        <span class="counting">144</span>
                         <p>Eventos</p>
                     </div>
                     <div class="_box">
                         <div class="_icon">
                             <img src="{{ asset('site/img/icon_pin.svg') }}" alt="Ícone de Pin" />
                         </div>
-                        <span class="counting">21</span>
+                        <span class="counting">26</span>
                         <p>Cidades</p>
                     </div>
                     <div class="_box">
                         <div class="_icon">
                             <img src="{{ asset('site/img/icon_check@x2') }}.svg" alt="Ícone de check" />
                         </div>
-                        <span class="counting">292000</span>
+                        <span class="counting">323982</span>
                         <p>Congressistas</p>
                     </div>
                     <div class="_box">
                         <div class="_icon">
                             <img src="{{ asset('site/img/icon_persons.svg') }}" alt="Ícone de Perssoas" />
                         </div>
-                        <span class="counting">122</span>
+                        <span class="counting">5493</span>
                         <p>Professores</p>
                     </div>
                     <div class="_box">
                         <div class="_icon">
                             <img src="{{ asset('site/img/icon_layers.svg') }}" alt="Ícone de Páginas" />
                         </div>
-                        <span class="counting">4000</span>
+                        <span class="counting">4563</span>
                         <p>Cursos</p>
                     </div>
                 </div>
@@ -924,3 +924,12 @@
     @include("site.includes.parceiros")
 
     @include("site.includes.footer-expanded")
+    <script>
+        $("button[name='hero_button']").click(() =>{
+            window.location.href= "{{ route('site.quem_somos') }}"
+        })
+
+        $(".s_destaque button").click(() =>{
+            window.location.href= "{{ route('site.feira') }}"
+        })
+    </script>

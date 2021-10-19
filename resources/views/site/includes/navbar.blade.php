@@ -17,11 +17,11 @@
                     <li><a href="{{ route('site.cursos') }}">Cursos</a></li>
                     <li><a href="{{ route('site.professores') }}">Professores</a></li>
                     <li><a style="color: green" href="{{ route('site.feira') }}">EXPO ENAF</a></li>
-                    <li><a href="{{ route('site.blog-grid') }}">Blog</a></li>
                 </ul>
                 <ul>
                     <li><a href="{{ route('site.quem_somos') }}">Sobre</a></li>
                     <li><a href="{{ route('site.blog-lista') }}">Artigos</a></li>
+                    <li><a href="{{ route('site.blog-grid') }}">Blog</a></li>
                     <li><a href="{{ route('site.contato') }}">Imprenssa</a></li>
                     <li><a href="{{ route('site.duvidas') }}">Dúvidas Frequentes</a></li>
                 </ul>
@@ -140,54 +140,52 @@
 </div>
 
 @if (Route::is('site.hotsite') || Route::is('site.minha-area') || Route::is('site.minha-area-dados'))
-    <header class="container-fluid">
-        <div class="container-fav">
-            <div class="_logo">
-                <a href="/"> <img src="{{ asset('site/img/hotsite/_logo57.png') }}" alt="Logo Enaf" /></a>
-            </div>
-            <nav>
-                <div class="_hamburguer" title="Abrir Super-Menu">
-                    <div class="_icon">
-                        <img src="{{ asset('site/img/hotsite/list.svg') }}" alt="Menu Hamburguer" />
-                    </div>
-                    <span>MENU</span>
-                </div>
-                <ul>
-                    <li><a href="{{ route('site.contato') }}">CONTATO</a></li>
-                    <li><img src="{{ asset('site/img/hotsite/user.svg') }}" alt="Ícone de Usuário" /></li>
-                    @if(session()->get("carrinho"))
-                        <li><img src="{{ asset('site/img/hotsite/cart.svg') }}" alt="Ícone de Carrinho" /></li>
-                    @endif
-                </ul>
-            </nav>
+<header class="container-fluid">
+    <div class="container-fav">
+        <div class="_logo">
+            <a href="/"> <img src="{{ asset('site/img/hotsite/_logo57.png') }}" alt="Logo Enaf" /></a>
         </div>
-    </header>
+        <nav>
+            <div class="_hamburguer" title="Abrir Super-Menu">
+                <div class="_icon">
+                    <img src="{{ asset('site/img/hotsite/list.svg') }}" alt="Menu Hamburguer" />
+                </div>
+                <span>MENU</span>
+            </div>
+            <ul>
+                <li><a href="{{ route('site.contato') }}">CONTATO</a></li>
+                <li><img src="{{ asset('site/img/hotsite/user.svg') }}" alt="Ícone de Usuário" /></li>
+                @if(session()->get("carrinho"))
+                <li><img src="{{ asset('site/img/hotsite/cart.svg') }}" alt="Ícone de Carrinho" /></li>
+                @endif
+            </ul>
+        </nav>
+    </div>
+</header>
 
 @else
-    <header class="container-fluid">
-        <div class="container-fav">
-            <div class="_logo">
-                <a href="/"> <img src="{{ asset('site/img/_logo57.svg') }}" alt="Logo Enaf" /></a>
-            </div>
-
-            <nav>
-                <div class="_hamburguer" title="Abrir Super-Menu">
-                    <div class="_icon">
-                        <img src="{{ asset('site/img/list.svg') }}" alt="Menu Hamburguer" />
-                    </div>
-                    <span>MENU</span>
-                </div>
-                <ul>
-                    <li><a href="{{ route('site.contato') }}">CONTATO</a></li>
-                    <li><a href="{{ route('site.minha-conta') }}"><img src="{{ asset('site/img/user.svg') }}"
-                                alt="Ícone de Usuário" /></a></li>
-                    @if(session()->get("carrinho"))
-                        <li class="_carrinho_button"><img src="{{ asset('site/img/cart.svg') }}"
-                                alt="Ícone de Carrinho" /></li>
-                    @endif
-                </ul>
-            </nav>
+<header class="container-fluid">
+    <div class="container-fav">
+        <div class="_logo">
+            <a href="/"> <img src="{{ asset('site/img/_logo57.svg') }}" alt="Logo Enaf" /></a>
         </div>
-    </header>
+
+        <nav>
+            <div class="_hamburguer" title="Abrir Super-Menu">
+                <div class="_icon">
+                    <img src="{{ asset('site/img/list.svg') }}" alt="Menu Hamburguer" />
+                </div>
+                <span>MENU</span>
+            </div>
+            <ul>
+                <li><a href="{{ route('site.contato') }}">CONTATO</a></li>
+                <li><a href="{{ route('site.minha-conta') }}"><img src="{{ asset('site/img/user.svg') }}" alt="Ícone de Usuário" /></a></li>
+                @if(session()->get("carrinho"))
+                <li class="_carrinho_button"><img src="{{ asset('site/img/cart.svg') }}" alt="Ícone de Carrinho" /></li>
+                @endif
+            </ul>
+        </nav>
+    </div>
+</header>
 
 @endif

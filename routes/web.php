@@ -26,6 +26,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
     // Route::get('/curso/{slug}/instrutores', [\App\Http\Controllers\SiteController::class, 'instrutores'])->name("site.curso.instrutores");
     // Route::get('/curso/{slug}/local', [\App\Http\Controllers\SiteController::class, 'local'])->name("site.curso.local");
     // Route::get('/curso/{slug}/programacao', [\App\Http\Controllers\SiteController::class, 'programacao'])->name("site.curso.programacao");
+    Route::get('/sejamembro', [\App\Http\Controllers\SiteController::class, 'aguarde'])->name("site.aguarde");
     Route::post('/contato/salvar', [\App\Http\Controllers\MensagemController::class, 'salvar'])->name("site.contato.salvar");
 
 
