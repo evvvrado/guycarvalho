@@ -43,8 +43,9 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
 
     Route::get('/professores', [\App\Http\Controllers\SiteController::class, 'professores'])->name("site.professores");
     Route::get('/clinicas', [\App\Http\Controllers\SiteController::class, 'clinicas'])->name("site.clinicas");
-    Route::get('/clinicas/clinica', [\App\Http\Controllers\SiteController::class, 'clinica'])->name("site.clinica");
-    Route::get('/eventos/evento', [\App\Http\Controllers\SiteController::class, 'evento'])->name("site.evento");
+    Route::get('/clinicas/clinica/{slug}', [\App\Http\Controllers\SiteController::class, 'clinica'])->name("site.clinica");
+    Route::get('/eventos', [\App\Http\Controllers\SiteController::class, 'eventos'])->name("site.eventos");
+    Route::get('/eventos/evento/{slug}', [\App\Http\Controllers\SiteController::class, 'evento'])->name("site.evento");
     Route::get('/cursos', [\App\Http\Controllers\SiteController::class, 'cursos'])->name("site.cursos");
     Route::get('/cursos/curso/{slug}', [\App\Http\Controllers\SiteController::class, 'curso'])->name("site.curso");
     Route::get('/contato', [\App\Http\Controllers\SiteController::class, 'contato'])->name("site.contato");

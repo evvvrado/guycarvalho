@@ -12,7 +12,7 @@
             <h3>Todas Categorias</h3>
             <div class="_lists">
                 <ul>
-                    <li><a href="{{ route('site.clinicas') }}">Eventos</a></li>
+                    <li><a href="{{ route('site.eventos') }}">Eventos</a></li>
                     <li><a href="{{ route('site.clinicas') }}">Clínicas</a></li>
                     <li><a href="{{ route('site.cursos') }}">Cursos</a></li>
                     <li><a href="{{ route('site.professores') }}">Professores</a></li>
@@ -179,7 +179,11 @@
             </div>
             <ul>
                 <li><a href="{{ route('site.contato') }}">CONTATO</a></li>
-                <li><a href="{{ route('site.minha-conta') }}"><img src="{{ asset('site/img/user.svg') }}" alt="Ícone de Usuário" /></a></li>
+                @if(!session()->get("aluno"))
+                    <li><a href="{{ route('site.minha-conta') }}"><img src="{{ asset('site/img/user.svg') }}" alt="Ícone de Usuário" /></a></li>
+                @else
+                    <li><a href="{{ route('site.minha-area') }}"><img src="{{ asset('site/img/user.svg') }}" alt="Ícone de Usuário" /></a></li>
+                @endif
                 @if(session()->get("carrinho"))
                 <li class="_carrinho_button"><img src="{{ asset('site/img/cart.svg') }}" alt="Ícone de Carrinho" /></li>
                 @endif

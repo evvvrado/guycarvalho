@@ -27,10 +27,10 @@ class GerencianetController extends Controller
         // $gerencianet->enviarBoletoEmail(1334034, 'gusouza980@gmail.com');
         $turmas = [];
         foreach($carrinho->produtos as $produto){
-            $produto->turma->inscritos += 1;
-            $produto->turma->save();
+            // $produto->turma->inscritos += 1;
+            // $produto->turma->save();
             $gerencianet->addItem([
-                'name' => $produto->turma->curso->titulo, // nome do item, produto ou serviço
+                'name' => $produto->curso->titulo, // nome do item, produto ou serviço
                 'amount' => 1, // quantidade
                 'value' => intval($produto->total * 100)
             ]);
@@ -121,8 +121,8 @@ class GerencianetController extends Controller
             return redirect()->route("site.carrinho-confirmacao");
         }else{
             foreach($carrinho->produtos as $produto){
-                $produto->turma->inscritos -= 1;
-                $produto->turma->save();
+                // $produto->turma->inscritos -= 1;
+                // $produto->turma->save();
             }
             session()->flash("erro", "Problema na finalização da compra. Tente novamente mais tarde.");
             return redirect()->route("site.carrinho.pagamento.boleto");

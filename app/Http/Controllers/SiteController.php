@@ -110,7 +110,13 @@ class SiteController extends Controller
     }
 
     public function clinicas(){
-        return view("site.clinicas");
+        $eventos = \App\Models\Evento::where("clinica", true)->get();
+        return view("site.clinicas", ["eventos" => $eventos]);
+    }
+
+    public function eventos(){
+        $eventos = \App\Models\Evento::where("clinica", false)->get();
+        return view("site.clinicas", ["eventos" => $eventos]);
     }
 
     public function minhaArea(){
@@ -271,17 +277,15 @@ class SiteController extends Controller
         return view("site.catalogo");
     }
 
-    public function clinica(){
-        return view("site.clinica");
-
+    public function clinica($slug){
+        $evento = \App\Models\Evento::where("slug", $slug)->first();
+        return view("site.clinica", ["evento" => $evento]);
     }
 
-
-    public function evento(){
-        return view("site.evento");
-
+    public function evento($slug){
+        $evento = \App\Models\Evento::where("slug", $slug)->first();
+        return view("site.clinica", ["evento" => $evento]);
     }
-
 
     public function hotsite(){
         return view("site.hotsite");
