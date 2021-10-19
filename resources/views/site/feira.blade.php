@@ -7,20 +7,8 @@
 
 
 
-    <section class="container-fluid s_destaque">
-        <div class="container-fav">
-            <div class="_content fade">
-                <h6></h6>
-                <div class="_svg">
-                    <img src="{{ asset('site/img/svg_poweroflife_white.svg') }}" alt="Power of Life" />
-                </div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                </p>
-            </div>
-        </div>
-    </section>
+
+    @include('site.includes.destaque')
 
     <section class="container-fluid s_backtoFeira">
         <div class="container-fav">

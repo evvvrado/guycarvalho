@@ -45,7 +45,7 @@
                                     <img src="{{ asset('/site/img/icon_linkedin_footer.svg') }}" alt="Ícone linkedin" />
                                 </a>
                             </li>
-                        </ul>g
+                        </ul>
                     </div>
                 </div>
             </div>
