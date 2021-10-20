@@ -84,6 +84,7 @@
             @include fade(translateY(200px), 2s);
 
             #nossoscursos & {
+                gap: 1rem;
                 .content {
                     white-space: nowrap;
                     max-width: 100%;
