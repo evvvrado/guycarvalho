@@ -9,6 +9,10 @@
     <section class="container-fluid s_hero">
         <div class="container-fav">
             <div class="_h1 fade">
+                |@php
+
+
+                @endphp
                 <p>Pilates</p>
                 <h6>Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</h6>
 

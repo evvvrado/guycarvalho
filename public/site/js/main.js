@@ -127,29 +127,6 @@ $(document).ready(() => {
         $("._cursosList ._curso.presencial").css("display", "inline-block");
     });
 
-    if ($("body#clinica").length) {
-        if (
-            $("#clinica .s_cursos .container-fav ._cursosList ._curso").data(
-                "date"
-            ).length
-        ) {
-            $("._filter nav ._filterItem").click(function () {
-                var filter = $(this).data("date");
-
-                $("._filter nav ._filterItem").removeClass("active");
-
-                $(this).addClass("active");
-                $(
-                    `#clinica .s_cursos._atracoes .container-fav ._cursosList ._curso`
-                ).hide();
-                $(
-                    `#clinica .s_cursos._atracoes .container-fav ._cursosList ._curso[data-date="${filter}"]`
-                ).show();
-                console.log(filter);
-            });
-        }
-    }
-
     $("._menu ._previous").click(function () {
         var content = $(this).closest("div.container-fav").find("div._content");
         content.scrollLeft(content.scrollLeft() - content.width());
