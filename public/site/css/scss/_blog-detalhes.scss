@@ -4,6 +4,15 @@
     padding-top: 17.3rem;
 
     .container-fav {
+        ._pic {
+            height: 44.3rem;
+            display: flex;
+            overflow: hidden;
+
+            img {
+                min-width: 100%;
+            }
+        }
         ._menu {
             margin-top: 4rem;
             margin-bottom: 8rem;
@@ -11,7 +20,6 @@
             @include flex(row, center, space-between);
 
             max-width: 241px;
-
             ._comp {
                 @include flex(row, center, center);
                 gap: 1rem;
