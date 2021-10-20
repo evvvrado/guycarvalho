@@ -20,7 +20,7 @@
                             <p class="blogDate">{{date("d.m.Y", strtotime($noticia->publicacao))}}</p>
                         </div>
                     </div>
-                @endforeach
+                    @endforeach
             </div>
         </div>
 

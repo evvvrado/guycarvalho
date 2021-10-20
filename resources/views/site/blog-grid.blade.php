@@ -1,4 +1,5 @@
 @include("site.includes.head")
+<title>@if($tipo == 0) Nosso Blog @else Nossos Artigos @endif</title>
 
 
 <body id="nossoblog">
@@ -28,27 +29,22 @@
             <div class="_content">
                 <div class="rowling">
                     <div class="_blogList">
-						@foreach($noticias as $noticia)
-							<div class="_blog" 
-								@if($tipo == 0) 
-									onclick="window.location.href = '{{route('site.noticia', ['categoria' => $noticia->categoria->slug, 'noticia' => $noticia->slug])}}'"
-								@else
-									onclick="window.location.href = '{{route('site.artigo', ['categoria' => $noticia->categoria->slug, 'noticia' => $noticia->slug])}}'"
-								@endif
-							>
-								<div class="_pic">
-									<img src="{{ asset($noticia->preview) }}" alt="{{$noticia->titulo}}" />
-								</div>
-								<div class="_info">
-									<span class="blogTag">{{strtoupper($noticia->categoria->nome)}}</span>
-									<h6 class="blogTitle">{{$noticia->titulo}}</h6>
-									<p class="blogText">
-										{{$noticia->resumo}}
-									</p>
-									<p class="blogDate">{{date('d.m.Y', strtotime($noticia->publicacao))}}</p>
-								</div>
-							</div>
-						@endforeach
+                        @foreach($noticias as $noticia)
+                        <div class="_blog" @if($tipo==0) onclick="window.location.href = '{{route('site.noticia', ['categoria' => $noticia->categoria->slug, 'noticia' => $noticia->slug])}}'" @else
+                            onclick="window.location.href = '{{route('site.artigo', ['categoria' => $noticia->categoria->slug, 'noticia' => $noticia->slug])}}'" @endif>
+                            <div class="_pic">
+                                <img src="{{ asset($noticia->preview) }}" alt="{{$noticia->titulo}}" />
+                            </div>
+                            <div class="_info">
+                                <span class="blogTag">{{strtoupper($noticia->categoria->nome)}}</span>
+                                <h6 class="blogTitle">{{$noticia->titulo}}</h6>
+                                <p class="blogText">
+                                    {{$noticia->resumo}}
+                                </p>
+                                <p class="blogDate">{{date('d.m.Y', strtotime($noticia->publicacao))}}</p>
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

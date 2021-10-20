@@ -1,4 +1,5 @@
 @include("site.includes.head")
+<title>{{ $noticia->titulo }}</title>
 
 
 <body id="blogPostagem">
@@ -43,40 +44,39 @@
                     {!! $noticia->conteudo !!}
                 </p>
 
-			</main>
+            </main>
 
             <div class="_lastones _posts">
                 <div class="_text">Últimas postagens</div>
 
                 <div class="_lastpost-list">
-					@foreach(\App\Models\Noticia::where([["publicacao", "<=", date("Y-m-d")], ["tipo", $noticia->tipo]])->orderby("publicacao")->limit(3)->get() as $noticia)
-						<div class="_post">
-							<div class="_pic">
-								<img src="{{ asset($noticia->preview) }}" alt="" />
-							</div>
-							<div class="_content">
-								<span class="date">{{date('d/m/Y', strtotime($noticia->publicacao))}}</span>
-								<div class="_postTitle">{{$noticia->titulo}}</div>
-								<a href="{{route('site.noticia', ['categoria' => $noticia->categoria->slug, 'noticia' => $noticia->slug])}}">
-									Leia mais
-									<div class="_icon">
-										<img src="{{ asset('site/img/blog_icon_arrowright.svg') }}"
-											alt="Seta para direita" />
-									</div>
-								</a>
-							</div>
-						</div>
-					@endforeach
+                    @foreach(\App\Models\Noticia::where([["publicacao", "<=", date("Y-m-d")], ["tipo", $noticia->tipo]])->orderby("publicacao")->limit(3)->get() as $noticia)
+                        <div class="_post">
+                            <div class="_pic">
+                                <img src="{{ asset($noticia->preview) }}" alt="" />
+                            </div>
+                            <div class="_content">
+                                <span class="date">{{date('d/m/Y', strtotime($noticia->publicacao))}}</span>
+                                <div class="_postTitle">{{$noticia->titulo}}</div>
+                                <a href="{{route('site.noticia', ['categoria' => $noticia->categoria->slug, 'noticia' => $noticia->slug])}}">
+                                    Leia mais
+                                    <div class="_icon">
+                                        <img src="{{ asset('site/img/blog_icon_arrowright.svg') }}" alt="Seta para direita" />
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        @endforeach
                 </div>
             </div>
         </div>
     </section>
 
-	@if($noticia->tipo == 0)
-		@include('site.includes.blog-noticias')
-	@else
-		@include('site.includes.blog-artigos')
-	@endif
+    @if($noticia->tipo == 0)
+    @include('site.includes.blog-noticias')
+    @else
+    @include('site.includes.blog-artigos')
+    @endif
 
     <section class="container-fluid s_send">
         <div class="container-fav">
