@@ -25,6 +25,7 @@
 
     @include('site.includes.publicidade')
 
+
     <section class="container-fluid s_nextEvent">
         <div class="container-fav">
             <div class="_case fade">
@@ -37,15 +38,16 @@
                     </div>
                 </div> --}}
                 <div class="_img">
-                    <img src="{{ asset('site/img/case_nextEvent.jpg') }}" alt="Próximo evento aqui no ENAF" />
+                    <img src="{{ asset($eventos[0]->thumbnail) }}" alt="Próximo evento aqui no ENAF" />
                 </div>
             </div>
             <div class="_content">
                 <h6>Próximo evento</h6>
-                <h2 class="event_name">Enaf Day Strong</h2>
-                <span class="event_date">Sábado: 08h às 18h</span>
-                <p class="event_local">São Paulo - SP</p>
-                <button name="event_button">
+                <h2 class="event_name">{{$eventos[0]->nome}}</h2>
+                <span class="event_date">{{date('d/m', strtotime($eventos[0]->inicio))}} a {{date('d/m', strtotime($eventos[0]->fim))}}<br> {{ $eventos[0]->hora_inicio }} às {{ $eventos[0]->hora_fim
+                    }}</span>
+                <p class="event_local">{{$eventos[0]->local_endereco}}</p>
+                <button name="event_button" onclick="window.location.href = '{{route('site.clinica', ['slug' => $eventos[0]->slug])}}'">
                     <img src="{{ asset('site/img/arrowright_white.svg') }}" alt="Vamos nessa!" title="Vamos nessa!" />
                 </button>
             </div>
@@ -55,23 +57,32 @@
     <section class="container-fluid s_events">
         <div class="container-fav">
             <div class="_eventList">
-                <div class="_event">
+
+
+                @foreach($eventos->slice(1,5) as $evento)
+                <div class="_event" @if($evento->clinica) onclick="window.location.href = '{{route('site.clinica', ['slug' => $evento->slug])}}'" @else onclick="window.location.href =
+                    '{{route('site.evento', ['slug' => $evento->slug])}}'" @endif>
                     <div class="_pic">
-                        <img src="{{ asset('site/img/events_Pic (1).jpg') }}" alt="Imagem deste evento" />
+                        <img src="{{ asset($evento->thumbnail) }}" alt="Imagem do {{$evento->nome}}" />
                     </div>
                     <div class="_content">
                         <div class="_top">
-                            <h4 class="event_name">Strong Day</h4>
-                            <p class="event_local">Poços de Caldas - MG</p>
+                            <h4 class="event_name">{{$evento->nome}}</h4>
+                            <p class="event_local">{{$evento->local_endereco}}</p>
                         </div>
                         <div class="_bottom">
-                            <span class="event_date">20 de Jun.</span>
-                            <p class="event_time">Sábado: 08h às 18h</p>
+                            <span class="event_date">{{date('d/m', strtotime($evento->inicio))}} a {{date('d/m', strtotime($evento->fim))}}</span>
+                            <p class="event_time">Horário: {{ $evento->hora_inicio }} às {{ $evento->hora_fim }}</p>
                             <button>Ver mais</button>
                         </div>
                     </div>
                 </div>
-                <div class="_event">
+                @endforeach
+
+
+
+
+                {{-- <div class="_event">
                     <div class="_pic">
                         <img src="{{ asset('site/img/events_Pic (2).jpg') }}" alt="Imagem deste evento" />
                     </div>
@@ -118,7 +129,7 @@
                             <button>Ver mais</button>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -140,7 +151,7 @@
                 <p>É hora de se capacitar com professores que são referência do mercado</p>
                 <span> Você estuda nos seus horários, de acordo com sua conveniência. </span>
 
-                <button>
+                <button onclick="window.location.href = '{{ route('site.professores')}}'">
                     <img src="{{ asset('site/img/arrowright_white.svg') }}" alt="Seta para direita" />
                 </button>
             </div>
@@ -148,21 +159,12 @@
             <div class="_right">
                 <div class="_content">
                     <div class="_professores">
+                        @foreach ($professores as $professor)
                         <div class="_professor">
-                            <img src="{{ asset('site/img/professores_Pic (1).jpg') }}" alt="Professor Enaf" />
+                            <img src="{{ asset($professor->foto) }}" alt="{{ $professor->nome}}" />
                         </div>
-                        <div class="_professor">
-                            <img src="{{ asset('site/img/professores_Pic (2).jpg') }}" alt="Professor Enaf" />
-                        </div>
-                        <div class="_professor">
-                            <img src="{{ asset('site/img/professores_Pic (3).jpg') }}" alt="Professor Enaf" />
-                        </div>
-                        <div class="_professor">
-                            <img src="{{ asset('site/img/professores_Pic (4).jpg') }}" alt="Professor Enaf" />
-                        </div>
-                        <div class="_professor">
-                            <img src="{{ asset('site/img/professores_Pic (1).jpg') }}" alt="Professor Enaf" />
-                        </div>
+
+                        @endforeach
                     </div>
                 </div>
             </div>

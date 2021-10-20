@@ -11,23 +11,90 @@
             </div>
         </div>
         <div class="_cursosList">
-            <div class="_curso online">
+
+            @foreach ($cursos->where('tipo', 1)->take(4) as $curso)
+
+            <div class="_curso online" onclick="window.location.href = '{{route('site.curso', ['slug' => $curso->slug])}}'">
                 <div class="_pic">
-                    <img src="{{ asset('site/img/curso_Pic (1).jpg') }}" alt="Imagem deste curso" />
+                    <img src="{{ asset($curso->thumbnail) }}" alt="{{$curso->nome}}" />
                 </div>
                 <div class="_content">
                     <div class="_top">
-                        <h4 class="curso_name">Meeting de musculação</h4>
+                        <h4 class="curso_name">{{$curso->nome}}</h4>
                         <p class="curso_description">
-                            Treinamentos para hipertrofia muscular e suplementação combinada
+                            {!! $curso->descricao !!}
                         </p>
                     </div>
                     <div class="_bottom">
-                        <p class="curso_certificate">Certificado de 10hs</p>
+                        @if ($curso->certificacao)
+                        <p class="curso_certificate">Certificado de {{ $curso->total_horas }} horas</p>
+                        @endif
                     </div>
                 </div>
+
             </div>
-            <div class="_curso online">
+
+
+            @endforeach
+
+
+
+            @foreach ($cursos->where('tipo', 0)->take(4) as $curso)
+
+            <div class="_curso ead" onclick="window.location.href = '{{route('site.curso', ['slug' => $curso->slug])}}'">
+                <div class="_pic">
+                    <img src="{{ asset($curso->thumbnail) }}" alt="{{$curso->nome}}" />
+                </div>
+                <div class="_content">
+                    <div class="_top">
+                        <h4 class="curso_name">{{$curso->nome}}</h4>
+                        <p class="curso_description">
+                            {!! $curso->descricao !!}
+                        </p>
+                    </div>
+                    <div class="_bottom">
+                        @if ($curso->certificacao)
+                        <p class="curso_certificate">Certificado de {{ $curso->total_horas }} horas</p>
+                        @endif
+                    </div>
+                </div>
+
+            </div>
+
+
+            @endforeach
+
+
+
+            @foreach ($cursos->where('tipo', 1)->take(4) as $curso)
+
+            <div class="_curso presencial" onclick="window.location.href = '{{route('site.curso', ['slug' => $curso->slug])}}'">
+                <div class="_pic">
+                    <img src="{{ asset($curso->thumbnail) }}" alt="{{$curso->nome}}" />
+                </div>
+                <div class="_content">
+                    <div class="_top">
+                        <h4 class="curso_name">{{$curso->nome}}</h4>
+                        <p class="curso_description">
+                            {!! $curso->descricao !!}
+                        </p>
+                    </div>
+                    <div class="_bottom">
+                        @if ($curso->certificacao)
+                        <p class="curso_certificate">Certificado de {{ $curso->total_horas }} horas</p>
+                        @endif
+                    </div>
+                </div>
+
+            </div>
+
+
+            @endforeach
+
+
+
+
+            {{-- <div class="_curso online">
                 <div class="_pic">
                     <img src="{{ asset('site/img/curso_Pic (2).jpg') }}" alt="Imagem deste curso" />
                 </div>
@@ -189,7 +256,7 @@
                         <p class="curso_certificate">Certificado de 10hs</p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>

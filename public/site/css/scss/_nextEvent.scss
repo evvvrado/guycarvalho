@@ -14,8 +14,11 @@
       ._img {
         width: 94.4rem;
         height: 52.5rem;
+        border-radius: 0.8rem;
+        overflow: hidden;
         img {
-          border-radius: 0.8rem;
+          min-width: 100%;
+          min-height: 100%;
         }
       }
       ._buttons {

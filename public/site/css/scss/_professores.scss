@@ -62,14 +62,26 @@
                     flex-wrap: nowrap;
                     gap: 3.2rem;
                     width: max-content;
-                    img {
-                        transition: 0.32s;
-                        filter: saturate(0);
+                    ._professor {
                         border-radius: 0.8rem;
 
-                        &:hover {
-                            filter: saturate(1);
-                            cursor: pointer;
+                        width: 100%;
+                        max-width: 28.1rem;
+
+                        height: 46.4rem;
+
+                        overflow: hidden;
+
+                        img {
+                            transition: 0.32s;
+                            filter: saturate(0);
+
+                            min-width: 100%;
+                            min-height: 100%;
+                            &:hover {
+                                filter: saturate(1);
+                                cursor: pointer;
+                            }
                         }
                     }
                 }
@@ -79,6 +91,7 @@
                     height: 17.2rem;
                     width: 100%;
                     max-width: 80rem;
+                    pointer-events: none;
                     background-image: url("../img/professores_Effect.svg");
                     position: absolute;
                     bottom: 0;

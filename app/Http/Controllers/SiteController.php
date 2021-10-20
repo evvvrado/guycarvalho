@@ -25,15 +25,20 @@ class SiteController extends Controller
     }
 
     public function index(){
+
+        $eventos = \App\Models\Evento::where("clinica", false)->orderBy("inicio")->get();
+        $cursos = Curso::where("pacote", false)->get();
+        $professores = \App\Models\Professor::all();
         
         $pagina = Pagina::where("nome", "Home")->first();
         $destaques = Noticia::where("publicada", true)->orderBy("publicacao", "DESC")->take(4)->get();
+        
         if(!session()->get("destaque")){
             $destaque_suspenso = DestaqueSuspenso::where([["inicio", "<=", date("Y-m-d H:i:s")], ["fim", ">=", date("Y-m-d H:i:s")]])->orderBy("created_at")->first();
             session()->put(["destaque" => true]);
-            return view("site.index", ["pagina" => $pagina, "destaques" => $destaques, "destaque_suspenso" => $destaque_suspenso]);
+            return view("site.index", ["eventos" => $eventos, "cursos" => $cursos, 'professores' => $professores, "pagina" => $pagina, "destaques" => $destaques, "destaque_suspenso" => $destaque_suspenso]);
         }else{
-            return view("site.index", ["pagina" => $pagina, "destaques" => $destaques]);
+            return view("site.index", ["eventos" => $eventos, "cursos" => $cursos, 'professores' => $professores], ["pagina" => $pagina, "destaques" => $destaques]);
         }
     }
 
@@ -57,8 +62,9 @@ class SiteController extends Controller
     // }
 
     public function curso($slug){
+        $cursos = Curso::where("pacote", false)->get();
         $curso = Curso::where("slug", $slug)->first();
-        return view("site.curso", ['curso' => $curso]);
+        return view("site.curso", ["cursos" => $cursos], ['curso' => $curso]);
     }
 
     public function instrutores($slug){

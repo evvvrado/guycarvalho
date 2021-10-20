@@ -185,7 +185,7 @@
         </div>
     </section>
 
-    <section class="container-fluid s_cursos">
+    {{-- <section class="container-fluid s_cursos">
         <div class="container-fav">
             <div class="title">
                 <h4>Veja também</h4>
@@ -317,7 +317,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
+
+    @include('site.includes.cursos')
 
     @include('site.includes.publicidade')
 
