@@ -190,7 +190,7 @@
             </div>
             <div class="_bottom">
               <p class="curso_price">R$ {{ number_format($curso->curso->valor, 2, ',', '.') }}</p>
-              <button>Comprar</button>
+              <button onclick="window.location.href = '{{ route('site.curso', ['slug' => $curso->slug]) }}'">Comprar</button>
             </div>
           </div>
         </div>
@@ -199,7 +199,7 @@
     </div>
   </section>
 
-  {{-- <section class="container-fluid s_cursos">
+  {{-- <section class=" container-fluid s_cursos">
     <div class="container-fav">
       <div class="_title">
         <h4>Cursos</h4>
