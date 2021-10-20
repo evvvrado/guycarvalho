@@ -21,12 +21,13 @@ Blog / <a style="color: unset" href="{{ route('painel.artigos') }}">Artigo</a>
                                
                     <div class=" col-sm-12 col-md-6 mb-3" style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
 
-            <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;" style="padding-left: 0;" href="{{ route('painel.noticia.cadastro') }} ">
-                <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;"
+                    style="padding-left: 0;" href="{{ route('painel.artigo.cadastro') }} ">
+                    <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
 
 
                     <i id="search-icon" class="bx bx-search" aria-hidden="true"></i>
