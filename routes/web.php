@@ -74,6 +74,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
     Route::get('/sommelier', [\App\Http\Controllers\SiteController::class, 'sommelier'])->name("site.sommelier");
     Route::get('/noticias/{slug?}', [\App\Http\Controllers\SiteController::class, 'noticias'])->name("site.noticias");
     Route::get('/noticia/{categoria}/{noticia}', [\App\Http\Controllers\SiteController::class, 'noticia'])->name("site.noticia");
+    Route::get('/artigo/{categoria}/{noticia}', [\App\Http\Controllers\SiteController::class, 'noticia'])->name("site.artigo");
     Route::get('/recuperar-senha', [\App\Http\Controllers\SiteController::class, 'recuperar_senha'])->name("site.recuperar-senha");
 
     //ROTAS DE CARRINHO
@@ -221,9 +222,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::get('/sistema/artigos/publicar/{artigo}', [\App\Http\Controllers\ArtigosController::class, 'publicar'])->name("painel.artigo.publicar");
         Route::get('/sistema/artigos/preview/{artigo}', [\App\Http\Controllers\ArtigosController::class, 'preview'])->name("painel.artigo.preview");
 
-        // ROTAS DE ARTIGOS
-
-        
+        // ROTAS DE NOTICIAS
         Route::match(['get','post'], '/sistema/noticias', [\App\Http\Controllers\NoticiasController::class, 'consultar'])->name("painel.noticias");
         Route::get('/sistema/noticias/cadastro', [\App\Http\Controllers\NoticiasController::class, 'cadastro'])->name("painel.noticia.cadastro");
         Route::get('/sistema/noticias/leads/{noticia}', [\App\Http\Controllers\NoticiasController::class, 'visitas'])->name("painel.noticia.visitas");
@@ -233,6 +232,15 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::get('/sistema/noticias/deletar/{noticia}', [\App\Http\Controllers\NoticiasController::class, 'deletar'])->name("painel.noticia.deletar");
         Route::get('/sistema/noticias/publicar/{noticia}', [\App\Http\Controllers\NoticiasController::class, 'publicar'])->name("painel.noticia.publicar");
         Route::get('/sistema/noticias/preview/{noticia}', [\App\Http\Controllers\NoticiasController::class, 'preview'])->name("painel.noticia.preview");
+
+        // ROTAS DE ARTIGOS
+        
+        Route::match(['get','post'], '/sistema/artigos', [\App\Http\Controllers\ArtigosController::class, 'consultar'])->name("painel.artigos");
+        Route::get('/sistema/artigos/cadastro', [\App\Http\Controllers\ArtigosController::class, 'cadastro'])->name("painel.artigo.cadastro");
+        Route::post('/sistema/artigos/cadastrar', [\App\Http\Controllers\ArtigosController::class, 'cadastrar'])->name("painel.artigo.cadastrar");
+        Route::get('/sistema/artigos/editar/{noticia}', [\App\Http\Controllers\ArtigosController::class, 'editar'])->name("painel.artigo.editar");
+        Route::get('/sistema/artigos/deletar/{noticia}', [\App\Http\Controllers\ArtigosController::class, 'deletar'])->name("painel.artigo.deletar");
+
 
         // ROTAS DE PROFESSORES
         Route::match(['get', 'post'], '/sistema/professores', [\App\Http\Controllers\ProfessoresController::class, 'consultar'])->name("painel.professores");

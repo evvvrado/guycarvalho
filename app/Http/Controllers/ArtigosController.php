@@ -13,9 +13,28 @@ class ArtigosController extends Controller
 {
     //
 
-    public function consultar(){
-        // $artigos = artigo::all();
-        return view("painel.artigos.consultar");
+    public function consultar(Request $request){
+        if($request->isMethod('get')){
+            $noticias = Noticia::where("tipo", 1)->get();
+            return view("painel.artigos.consultar", ["noticias" => $noticias]);
+        }else{
+            $filtros = [];
+            if($request->titulo != null){
+                $filtros[] = ["titulo", "like", "%" . $request->titulo . "%"];
+            }
+            if($request->autor != null){
+                $filtros[] = ["autor", "like", "%" . $request->autor . "%"];
+            }
+            if($request->categoria_id != null && $request->categoria_id != -1){
+                $filtros[] = ["categoria_id", "=", $request->categoria_id];
+            }
+            if($request->publicacao != null && $request->publicacao != -1){
+                $filtros[] = ["publicacao", "=", $request->publicacao];
+            }
+            $filtros[] = ['tipo', '=', 1];
+            $noticias = Noticia::where($filtros)->get();
+            return view("painel.artigos.consultar", ["noticias" => $noticias, "filtros" => $request->all()]);
+        }
     }
     
     public function cadastro(){
@@ -23,138 +42,104 @@ class ArtigosController extends Controller
     }
 
     public function cadastrar(Request $request){
-        $request->validate([
-            'titulo' => 'unique:artigos,titulo',
-        ]);
-
-        $artigo = new artigo;
-        $artigo->usuario_id = session()->get("usuario")["id"];
-        $artigo->titulo = $request->titulo;
-        $artigo->subtitulo = $request->subtitulo;
-        $artigo->autor = $request->autor;
-        $artigo->publicacao = $request->publicacao;
-        $artigo->fonte = $request->fonte;
-        $artigo->resumo = $request->resumo;
-        $artigo->conteudo = $request->conteudo;
-        $artigo->slug = Str::slug($artigo->titulo);
-        $artigo->categoria_id = $request->categoria_id;
+        // dd($request->all());
+        if($request->noticia_id){
+            $request->validate([
+                'titulo' => 'unique:noticias,titulo,'.$request->noticia_id,
+            ]);
+            $noticia = Noticia::find($request->noticia_id);
+        }else{
+            $request->validate([
+                'titulo' => 'unique:noticias,titulo',
+            ]);
+            $noticia = new Noticia;
+            $noticia->usuario_id = session()->get("usuario")["id"];
+        }
         
+        $noticia->titulo = $request->titulo;
+        $noticia->subtitulo = $request->subtitulo;
+        $noticia->autor = $request->autor;
+        $noticia->publicacao = $request->publicacao;
+        $noticia->fonte = $request->fonte;
+        $noticia->resumo = $request->resumo;
+        $noticia->conteudo = $request->conteudo;
+        $noticia->slug = Str::slug($noticia->titulo);
+        $noticia->tipo = 1;
+
+        if(is_numeric($request->categoria_id)){
+            $noticia->categoria_id = $request->categoria_id;
+        }else{
+            $nova_categoria = new Categoria;
+            $nova_categoria->nome = $request->categoria_id;
+            $nova_categoria->slug = Str::slug($nova_categoria->nome);
+            $nova_categoria->save();
+            $noticia->categoria_id = $nova_categoria->id;
+        }
+
         if($request->file("preview")){
-            $artigo->preview = $request->file('preview')->store(
-                'site/imagens/artigos/' . Str::slug($artigo->titulo), 'local'
+            $noticia->preview = $request->file('preview')->store(
+                'site/imagens/noticias/' . Str::slug($noticia->titulo), 'local'
             );
         }
 
         if($request->file("banner")){
-            $artigo->banner = $request->file('banner')->store(
-                'site/imagens/artigos/' . Str::slug($artigo->titulo), 'local'
+            $noticia->banner = $request->file('banner')->store(
+                'site/imagens/noticias/' . Str::slug($noticia->titulo), 'local'
             );
         }
 
-        $artigo->save();
+        $noticia->save();
         
+        $noticia->tags()->detach();
         foreach($request->tags as $tag){
-            $artigo->tags()->attach($tag);
-        }   
-
-        foreach($request->hashtags as $hashtag){
-            $artigo->hashtags()->attach($hashtag);
-        }  
+            if(is_numeric($tag)){
+                $noticia->tags()->attach($tag);
+            }else{
+                $nova_tag = new Tag;
+                $nova_tag->nome = $tag;
+                $nova_tag->save();
+                $noticia->tags()->attach($nova_tag);
+            }
+        }    
         
-        Log::channel('artigos')->info('<b>CADASTRANDO artigo</b>: O usuario <b>' . session()->get("usuario")["usuario"] . '</b> cadastrou a artigo <b>' . $artigo->titulo . '</b>');
+        // Log::channel('noticias')->info('<b>CADASTRANDO NOTICIA</b>: O usuario <b>' . session()->get("usuario")["usuario"] . '</b> cadastrou a noticia <b>' . $noticia->titulo . '</b>');
         toastr()->success("Notícia salva com sucesso!");
 
         return redirect()->route("painel.artigos");
 
     }
-    
-    public function editar(){
-        return view("painel.artigos.editar");
+
+    public function editar($noticia){
+        $noticia = Noticia::find($noticia);
+        return view("painel.artigos.editar", ["noticia" => $noticia]);
     }
 
-    // public function editar(artigo $artigo){
-    //     return view("painel.artigos.editar", ["artigo" => $artigo]);
-    // }
+    public function deletar(Noticia $noticia){
+        Storage::disk('public')->delete($noticia->preview);
+        Storage::disk('public')->delete($noticia->banner);
+        $noticia->tags()->detach();
+        $noticia->delete();
+        toastr()->success("Notícia removida com sucesso!");
 
-    // public function salvar(Request $request, artigo $artigo){
-    //     // $request->validate([
-    //     //     'titulo' => 'unique:artigos,titulo,'.$artigo->id,
-    //     // ]);
+        return redirect()->route("painel.artigos");
+    }
 
-    //     $old = $artigo->getOriginal();
+    public function publicar(Noticia $noticia){
+        if($noticia->publicada){
+            $noticia->publicada = false;
+        }else{
+            $noticia->publicada = true;
+        }
+        $noticia->save();
+        return redirect()->back();
+    }
 
-    //     $artigo->titulo = $request->titulo;
-    //     $artigo->subtitulo = $request->subtitulo;
-    //     $artigo->autor = $request->autor;
-    //     $artigo->publicacao = $request->publicacao;
-    //     $artigo->fonte = $request->fonte;
-    //     $artigo->resumo = $request->resumo;
-    //     $artigo->conteudo = $request->conteudo;
-    //     $artigo->slug = Str::slug($artigo->titulo);
-    //     $artigo->categoria_id = $request->categoria_id;
+    public function preview(Noticia $noticia){
+        $configuracoes = Configuracao::first();
+        return view("painel.artigos.preview", ["noticia" => $noticia, "configuracoes" => $configuracoes]);
+    }
 
-    //     if($request->file("preview")){
-    //         Storage::delete($artigo->preview);
-    //         $artigo->preview = $request->file('preview')->store(
-    //             'site/imagens/artigos/' . Str::slug($artigo->titulo), 'local'
-    //         );
-    //     }
-
-    //     if($request->file("banner")){
-    //         Storage::delete($artigo->banner);
-    //         $artigo->banner = $request->file('banner')->store(
-    //             'site/imagens/artigos/' . Str::slug($artigo->titulo), 'local'
-    //         );
-    //     }
-
-    //     $artigo->save();
-        
-    //     foreach($artigo->getChanges() as $campo => $valor){
-    //         if(!in_array($campo, ["updated_at", "slug"])){
-    //             Log::channel('artigos')->info('<b>EDITANDO artigo #'.$artigo->id.'</b>: O usuario <b>' . session()->get("usuario")["usuario"] . '</b> alterou o valor do campo <b>' . $campo . '</b> de <b>' . $old[$campo] . '</b> para <b>' . $valor . '</b>');
-    //         }
-    //     }
-
-    //     $artigo->tags()->detach();
-    //     foreach($request->tags as $tag){
-    //         $artigo->tags()->attach($tag);
-    //     }
-
-    //     $artigo->hashtags()->detach();
-    //     foreach($request->hashtags as $hashtag){
-    //         $artigo->hashtags()->attach($hashtag);
-    //     }  
-
-    //     toastr()->success("Notícia salva com sucesso!");
-
-    //     return redirect()->route("painel.artigos");
-    // }
-
-    // public function deletar(artigo $artigo){
-    //     Storage::disk('public')->delete($artigo->preview);
-    //     $artigo->tags()->detach();
-    //     $artigo->delete();
-    //     toastr()->success("Notícia removida com sucesso!");
-
-    //     return redirect()->route("painel.artigos");
-    // }
-
-    // public function publicar(artigo $artigo){
-    //     if($artigo->publicada){
-    //         $artigo->publicada = false;
-    //     }else{
-    //         $artigo->publicada = true;
-    //     }
-    //     $artigo->save();
-    //     return redirect()->back();
-    // }
-
-    // public function preview(artigo $artigo){
-    //     $configuracoes = Configuracao::first();
-    //     return view("painel.artigos.preview", ["artigo" => $artigo, "configuracoes" => $configuracoes]);
-    // }
-
-    // public function visitas(artigo $artigo){
-    //     return view("painel.artigos.leads", ['artigo' => $artigo]);
-    // }
+    public function visitas(Noticia $noticia){
+        return view("painel.artigos.leads", ['noticia' => $noticia]);
+    }
 }

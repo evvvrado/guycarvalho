@@ -9,128 +9,18 @@
 
         <div class="_content">
             <div class="_blogList">
-                <div class="_blog">
-                    <div class="_pic">
-                        <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
+                @foreach(\App\Models\Noticia::where([["publicacao", "<=", date("Y-m-d")], ["tipo", 1]])->orderby("publicacao")->limit(12)->get() as $noticia)
+                    <div class="_blog" onclick="window.location.href = '{{route('site.artigo', ['categoria' => $noticia->categoria->slug, 'noticia' => $noticia->slug])}}'">
+                        <div class="_pic">
+                            <img src="{{ asset($noticia->preview) }}" alt="{{$noticia->titulo}}" />
+                        </div>
+                        <div class="_info">
+                            <span class="blogTag">{{strtoupper($noticia->categoria->nome)}}</span>
+                            <h6 class="blogTitle">{{$noticia->titulo}}</h6>
+                            <p class="blogDate">{{date("d.m.Y", strtotime($noticia->publicacao))}}</p>
+                        </div>
                     </div>
-                    <div class="_info">
-                        <span class="blogTag">DICAS</span>
-                        <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
-                        <p class="blogDate">12.09.2020</p>
-                    </div>
-                </div>
-                <div class="_blog">
-                    <div class="_pic">
-                        <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
-                    </div>
-                    <div class="_info">
-                        <span class="blogTag">DICAS</span>
-                        <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
-                        <p class="blogDate">12.09.2020</p>
-                    </div>
-                </div>
-                <div class="_blog">
-                    <div class="_pic">
-                        <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
-                    </div>
-                    <div class="_info">
-                        <span class="blogTag">DICAS</span>
-                        <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
-                        <p class="blogDate">12.09.2020</p>
-                    </div>
-                </div>
-                <div class="_blog">
-                    <div class="_pic">
-                        <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
-                    </div>
-                    <div class="_info">
-                        <span class="blogTag">DICAS</span>
-                        <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
-                        <p class="blogDate">12.09.2020</p>
-                    </div>
-                </div>
-
-                <div class="_blog">
-                    <div class="_pic">
-                        <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
-                    </div>
-                    <div class="_info">
-                        <span class="blogTag">DICAS</span>
-                        <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
-                        <p class="blogDate">12.09.2020</p>
-                    </div>
-                </div>
-                <div class="_blog">
-                    <div class="_pic">
-                        <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
-                    </div>
-                    <div class="_info">
-                        <span class="blogTag">DICAS</span>
-                        <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
-                        <p class="blogDate">12.09.2020</p>
-                    </div>
-                </div>
-                <div class="_blog">
-                    <div class="_pic">
-                        <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
-                    </div>
-                    <div class="_info">
-                        <span class="blogTag">DICAS</span>
-                        <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
-                        <p class="blogDate">12.09.2020</p>
-                    </div>
-                </div>
-                <div class="_blog">
-                    <div class="_pic">
-                        <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
-                    </div>
-                    <div class="_info">
-                        <span class="blogTag">DICAS</span>
-                        <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
-                        <p class="blogDate">12.09.2020</p>
-                    </div>
-                </div>
-
-                <div class="_blog">
-                    <div class="_pic">
-                        <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
-                    </div>
-                    <div class="_info">
-                        <span class="blogTag">DICAS</span>
-                        <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
-                        <p class="blogDate">12.09.2020</p>
-                    </div>
-                </div>
-                <div class="_blog">
-                    <div class="_pic">
-                        <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
-                    </div>
-                    <div class="_info">
-                        <span class="blogTag">DICAS</span>
-                        <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
-                        <p class="blogDate">12.09.2020</p>
-                    </div>
-                </div>
-                <div class="_blog">
-                    <div class="_pic">
-                        <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
-                    </div>
-                    <div class="_info">
-                        <span class="blogTag">DICAS</span>
-                        <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
-                        <p class="blogDate">12.09.2020</p>
-                    </div>
-                </div>
-                <div class="_blog">
-                    <div class="_pic">
-                        <img src="{{ asset('site/img/blog_post.jpg') }}" alt="Capa do Blog" />
-                    </div>
-                    <div class="_info">
-                        <span class="blogTag">DICAS</span>
-                        <h6 class="blogTitle">Como a alimentação saudável afeta na nossa saúde</h6>
-                        <p class="blogDate">12.09.2020</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
 

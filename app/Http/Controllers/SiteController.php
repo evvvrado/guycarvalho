@@ -264,7 +264,7 @@ class SiteController extends Controller
         $visita->cep = $cep;
 
         $visita->save();
-        return view("site.noticia", ["noticia" => $noticia]);
+        return view("site.blog", ["noticia" => $noticia]);
     }
 
     public function recuperar_senha(){
