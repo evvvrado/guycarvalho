@@ -52,6 +52,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
 
     Route::get('/blog/lista', [\App\Http\Controllers\SiteController::class, 'blogLista'])->name("site.blog-lista");
     Route::get('/blog/', [\App\Http\Controllers\SiteController::class, 'blogGrid'])->name("site.blog-grid");
+    Route::get('/artigos/', [\App\Http\Controllers\SiteController::class, 'artigoGrid'])->name("site.artigo-grid");
     Route::get('/blog/blog', [\App\Http\Controllers\SiteController::class, 'blogPost'])->name("site.blog");
     
     Route::get('/treinador', [\App\Http\Controllers\TreinadorController::class, 'treinador'])->name("site.treinador");

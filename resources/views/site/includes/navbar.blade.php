@@ -20,7 +20,7 @@
                 </ul>
                 <ul>
                     <li><a href="{{ route('site.quem_somos') }}">Sobre</a></li>
-                    <li><a href="{{ route('site.blog-lista') }}">Artigos</a></li>
+                    <li><a href="{{ route('site.artigo-grid') }}">Artigos</a></li>
                     <li><a href="{{ route('site.blog-grid') }}">Blog</a></li>
                     <li><a href="{{ route('site.contato') }}">Imprenssa</a></li>
                     <li><a href="{{ route('site.duvidas') }}">Dúvidas Frequentes</a></li>

@@ -298,11 +298,18 @@ class SiteController extends Controller
 
     }
 
+    // ARTIGO
+
+    public function artigoGrid(){
+        $noticias = Noticia::where([["publicacao", "<=", date("Y-m-d")], ["tipo", 1]])->orderby("publicacao", "DESC")->get();
+        return view("site.blog-grid", ['noticias' => $noticias, 'tipo' => 1]);
+    }
 
     //BLOG
 
     public function blogGrid(){
-        return view("site.blog-grid");
+        $noticias = Noticia::where([["publicacao", "<=", date("Y-m-d")], ["tipo", 0]])->orderby("publicacao", "DESC")->get();
+        return view("site.blog-grid", ['noticias' => $noticias, 'tipo' => 0]);
     }
 
     public function blogLista(){
