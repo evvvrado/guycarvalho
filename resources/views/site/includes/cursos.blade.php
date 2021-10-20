@@ -66,7 +66,7 @@
 
 
 
-            @foreach ($cursos->where('tipo', 1)->take(4) as $curso)
+            @foreach ($cursos->where('tipo', 2)->take(4) as $curso)
 
             <div class="_curso presencial" onclick="window.location.href = '{{route('site.curso', ['slug' => $curso->slug])}}'">
                 <div class="_pic">
