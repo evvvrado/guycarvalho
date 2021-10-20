@@ -111,7 +111,6 @@ class NoticiasController extends Controller
     }
 
     public function editar(Noticia $noticia){
-        dd($noticia);
         return view("painel.noticias.editar", ["noticia" => $noticia]);
     }
 

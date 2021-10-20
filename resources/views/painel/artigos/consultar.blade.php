@@ -25,7 +25,7 @@
                 style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
 
                 <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;"
-                    style="padding-left: 0;" href="{{ route('painel.noticia.cadastro') }} ">
+                    style="padding-left: 0;" href="{{ route('painel.artigo.cadastro') }} ">
                     <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
             </div>
             <div class="card">
