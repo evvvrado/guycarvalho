@@ -5,7 +5,7 @@
 
   @include("site.includes.navbar")
 
-  <section class="container-fluid s_hero">
+  <section class="container-fluid s_hero" style="background: url('{{ asset($evento->banner)}}')">
     <div class="container-fav">
       <div class="_h1 fade">
         <h6>{{ date('d/m', strtotime($evento->inicio)) }} a {{ date('d/m', strtotime($evento->fim)) }}</h6>
@@ -27,7 +27,8 @@
       </div>
 
       <div class="_video">
-        <img src="{{ asset('site/img/banner_video_evento.jpg') }}" alt="Vídeo do Evento" />
+        <iframe width="595" height="385" src="{{ $evento->video }}?autoplay=1" title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -56,11 +57,13 @@
             </p>
             <span>CURSOS INCLUIDOS</span>
 
-            @foreach($pacote->cursos as $curso)
-            <strong>{{$curso->nome}}</strong>
-            <span class="_pa">{{config("cursos.tipo_nome")[$curso->tipo]}}</span>
-            <p class="_date">01/10/2020 das 8h as 12h</p>
-            @endforeach
+            <div class="_meetings">
+              @foreach($pacote->cursos as $curso)
+              <strong>{{$curso->nome}}</strong>
+              <span class="_pa">{{config("cursos.tipo_nome")[$curso->tipo]}}</span>
+              <p class="_date">01/10/2020 das 8h as 12h</p>
+              @endforeach
+            </div>
             {{-- <strong>Meeting de musculação</strong>
             <span class="_pa">Palestras</span>
             <p class="_date">01/10/2020 das 8h as 12h</p> --}}
@@ -275,7 +278,9 @@
 
       <div class="_pictures">
         @foreach($evento->participantes as $participante)
-        <img src="{{ asset($participante->foto) }}" onclick="window.location.href = '{{$participante->url}}'" alt="{{$participante->nome}}" />
+        <picture>
+          <img src="{{ asset($participante->foto) }}" onclick="window.location.href = '{{$participante->url}}'" alt="{{$participante->nome}}" />
+        </picture>
         @endforeach
         {{-- <img src="{{ asset('site/img/pic_embaixador02.png') }}" onclick="" alt="Embaixador ENAF" />
         <img src="{{ asset('site/img/pic_embaixador03.png') }}" onclick="" alt="Embaixador ENAF" />

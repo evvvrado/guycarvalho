@@ -38,11 +38,27 @@ section.s_tabela {
       main {
         padding-top: 2.9rem;
         padding-left: 4.9rem;
-        max-width: 30.3rem;
+        max-width: 100%;
+
+        ._meetings {
+          height: 28.5rem;
+          overflow-y: scroll;
+
+          &::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+          }
+          &::-webkit-scrollbar-thumb {
+            width: 5px;
+            height: 15px;
+            background-color: #a8d8dc;
+          }
+        }
 
         p {
           font-size: 1.4rem;
           line-height: 140%;
+          max-width: 30.3rem;
 
           letter-spacing: 0.02em;
 
@@ -50,6 +66,7 @@ section.s_tabela {
 
           &:first-child {
             margin-bottom: 4.5rem;
+            min-height: 7.8rem;
           }
 
           &._date {
@@ -124,7 +141,6 @@ section.s_tabela {
           span {
             background: $gradient-sky;
             -webkit-background-clip: text;
-
             -webkit-text-fill-color: transparent;
           }
           strong {
@@ -167,26 +183,6 @@ section.s_tabela {
           background-color: #f2994a;
         }
         main {
-          p {
-            max-width: 30.3rem;
-          }
-
-          ._meetings {
-            max-height: 28.5rem;
-            overflow-y: scroll;
-
-            &::-webkit-scrollbar {
-              width: 5px;
-              height: 5px;
-            }
-            &::-webkit-scrollbar-thumb {
-              width: 5px;
-              height: 15px;
-              background-color: #a8d8dc;
-            }
-          }
-          max-width: 100%;
-
           span {
             color: #f2994a;
           }

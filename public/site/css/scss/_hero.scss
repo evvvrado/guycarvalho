@@ -60,8 +60,7 @@ section.s_hero {
         }
     }
     #clinica & {
-        background: url("../img/header_clinica.jpg");
-        background-size: auto 100%;
+        background-size: cover;
         background-position: center;
 
         .container-fav {

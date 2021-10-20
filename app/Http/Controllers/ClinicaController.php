@@ -66,6 +66,8 @@ class ClinicaController extends Controller
         $evento->sobre = $request->sobre;
         $evento->inicio = $request->inicio;
         $evento->fim = $request->fim;
+        $evento->hora_inicio = $request->hora_inicio;
+        $evento->hora_fim = $request->hora_fim;
         $evento->video = $request->video;
 
         if($request->file("thumbnail")){

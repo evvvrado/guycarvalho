@@ -29,31 +29,38 @@
             </div>
         </div>
     </section>
-
-
     <section class="container-fluid s_events">
         <div class="container-fav">
-            <div class="_eventList">
-                @foreach($eventos as $evento)
-                <div class="_event" @if($evento->clinica) onclick="window.location.href = '{{route('site.clinica', ['slug' => $evento->slug])}}'" @else onclick="window.location.href =
-                    '{{route('site.evento', ['slug' => $evento->slug])}}'" @endif>
-                    <div class="_pic">
-                        <img src="{{ asset($evento->thumbnail) }}" alt="Imagem do {{$evento->nome}}" />
-                    </div>
-                    <div class="_content">
-                        <div class="_top">
-                            <h4 class="event_name">{{$evento->nome}}</h4>
-                            <p class="event_local">{{$evento->local_endereco}}</p>
-                        </div>
-                        <div class="_bottom">
-                            <span class="event_date">{{date('d/m', strtotime($evento->inicio))}} a {{date('d/m', strtotime($evento->fim))}}</span>
-                            {{-- <p class="event_time">Sábado: 08h às 18h</p> --}}
-                        </div>
-                    </div>
-                </div>
-                @endforeach
+            <div class="content">
 
-                @include('site.includes.publicidade')
+                <div class="_eventList">
+                    @foreach($eventos as $evento)
+
+
+                    <script>
+
+                    </script>
+                    <div class="_event" @if($evento->clinica) onclick="window.location.href = '{{route('site.clinica', ['slug' => $evento->slug])}}'" @else onclick="window.location.href =
+                        '{{route('site.evento', ['slug' => $evento->slug])}}'" @endif>
+                        <div class="_pic">
+                            <img src="{{ asset($evento->thumbnail) }}" alt="Imagem do {{$evento->nome}}" />
+                        </div>
+                        <div class="_content">
+                            <div class="_top">
+                                <h4 class="event_name">{{$evento->nome}}</h4>
+                                <p class="event_local">{{$evento->local_endereco}}</p>
+                            </div>
+                            <div class="_bottom">
+                                <span class="event_date">{{date('d/m', strtotime($evento->inicio))}} a {{date('d/m', strtotime($evento->fim))}}</span>
+                                <p class="event_time">Horário: {{ $evento->hora_inicio }} às {{ $evento->hora_fim }}</p>
+                                <button>Ver mais</button>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+
+                    @include('site.includes.publicidade')
+                </div>
             </div>
         </div>
     </section>

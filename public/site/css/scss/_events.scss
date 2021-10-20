@@ -19,8 +19,13 @@
 
                 border-radius: 0.8rem;
                 ._pic {
+                    border-radius: 0.8rem 0.8rem 0 0;
+                    overflow: hidden;
+                    max-width: 100%;
+                    max-height: 19.4rem;
                     img {
-                        border-radius: 0.8rem 0.8rem 0 0;
+                        min-height: 100%;
+                        min-width: 100%;
                     }
                 }
                 ._content {
@@ -78,6 +83,31 @@
                 }
             }
             @include fade(translateY(200px), 2s);
+
+            ._content {
+                white-space: nowrap;
+                max-width: 100%;
+                overflow-x: hidden;
+                overflow-y: visible;
+                scroll-behavior: smooth;
+                scroll-snap-type: x mandatory;
+
+                #nossoscursos & {
+                    overflow: hidden;
+
+                    ._eventList {
+                        @include flex(row, center, space-between);
+                        transition: 0.32s;
+                        min-width: max-content;
+                        gap: 25px;
+                    }
+
+                    @include responsive(730px) {
+                        max-width: 100%;
+                        overflow-x: scroll;
+                    }
+                }
+            }
         }
     }
     @include responsive(992px) {
