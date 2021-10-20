@@ -3,79 +3,81 @@
 
 <body id="clinica">
 
-  @include("site.includes.navbar")
+    @include("site.includes.navbar")
 
-  <section class="container-fluid s_hero" style="background: url('{{ asset($evento->banner)}}')">
-    <div class="container-fav">
-      <div class="_h1 fade">
-        <h6>{{ date('d/m', strtotime($evento->inicio)) }} a {{ date('d/m', strtotime($evento->fim)) }}</h6>
-        <h4>{{ $evento->nome }}</h4>
-        <p>
-          {!! $evento->descricao !!}
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="container-fluid s_eventoVideo">
-    <div class="container-fav">
-      <div class="_text">
-        <h4>{{ $evento->titulo }}</h4>
-        <p>
-          {!! $evento->sobre !!}
-        </p>
-      </div>
-
-      <div class="_video">
-        <iframe width="595" height="385" src="{{ $evento->video }}?autoplay=1" title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <div class="blackout"></div>
-  </section>
-
-
-  <section class="container-fluid s_destaque">
-    <div class="container-fav">
-    </div>
-  </section>
-
-  <section class="container-fluid s_tabela">
-    <div class="container-fav">
-      <div class="_title">
-        <h4>Temos o pacote ideal para você</h4>
-      </div>
-
-      <div class="_table fade">
-        @foreach($evento->pacotes as $pacote)
-        <div class="_col">
-          <div class="_top">{{$pacote->nome}}</div>
-          <main>
-            <p>
-              {!! $pacote->descricao !!}
-            </p>
-            <span>CURSOS INCLUIDOS</span>
-
-            <div class="_meetings">
-              @foreach($pacote->cursos as $curso)
-              <strong>{{$curso->nome}}</strong>
-              <span class="_pa">{{config("cursos.tipo_nome")[$curso->tipo]}}</span>
-              <p class="_date">01/10/2020 das 8h as 12h</p>
-              @endforeach
+    <section class="container-fluid s_hero" style="background: url('{{ asset($evento->banner) }}')">
+        <div class="container-fav">
+            <div class="_h1 fade">
+                <h6>{{ date('d/m', strtotime($evento->inicio)) }} a {{ date('d/m', strtotime($evento->fim)) }}</h6>
+                <h4>{{ $evento->nome }}</h4>
+                <p>
+                    {!! $evento->descricao !!}
+                </p>
             </div>
-            {{-- <strong>Meeting de musculação</strong>
+        </div>
+    </section>
+
+    <section class="container-fluid s_eventoVideo">
+        <div class="container-fav">
+            <div class="_text">
+                <h4>{{ $evento->titulo }}</h4>
+                <p>
+                    {!! $evento->sobre !!}
+                </p>
+            </div>
+
+            <div class="_video">
+                <iframe width="595" height="385" src="{{ $evento->video }}?autoplay=1" title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="blackout"></div>
+    </section>
+
+
+    <section class="container-fluid s_destaque">
+        <div class="container-fav">
+        </div>
+    </section>
+
+    <section class="container-fluid s_tabela">
+        <div class="container-fav">
+            <div class="_title">
+                <h4>Temos o pacote ideal para você</h4>
+            </div>
+
+            <div class="_table fade">
+                @foreach ($evento->pacotes as $pacote)
+                    <div class="_col">
+                        <div class="_top">{{ $pacote->nome }}</div>
+                        <main>
+                            <p>
+                                {!! $pacote->descricao_pacote !!}
+                            </p>
+                            <span>CURSOS INCLUIDOS</span>
+
+                            <div class="_meetings">
+                                @foreach ($pacote->cursos as $curso)
+                                    <strong>{{ $curso->nome }}</strong>
+                                    <span class="_pa">{{ config('cursos.tipo_nome')[$curso->tipo] }}</span>
+                                    <p class="_date">01/10/2020 das 8h as 12h</p>
+                                @endforeach
+                            </div>
+                            {{-- <strong>Meeting de musculação</strong>
             <span class="_pa">Palestras</span>
             <p class="_date">01/10/2020 das 8h as 12h</p> --}}
-          </main>
+                        </main>
 
-          <div class="_bottom">
-            <strong>R$ {{number_format($pacote->valor, 2, ",", ".")}}</strong>
-            <button>Comprar</button>
-          </div>
-        </div>
-        @endforeach
-        {{-- <div class="_col">
+                        <div class="_bottom">
+                            <strong>R$ {{ number_format($pacote->valor, 2, ',', '.') }}</strong>
+                            <button>Comprar</button>
+                        </div>
+                    </div>
+                @endforeach
+                {{-- <div class="_col">
           <div class="_top">2 DAY PASS</div>
           <main>
             <p>
@@ -131,74 +133,76 @@
             <button>Comprar</button>
           </div>
         </div> --}}
-      </div>
-    </div>
-  </section>
-
-
-  <section class="container-fluid s_destaque reduzido">
-    <div class="container-fav">
-      <div class="_content fade">
-        <div class="_line">
-          <button>
-            <img src="{{ asset('site/img/arrowright.svg') }}" alt="Seta para direita" />
-          </button>
-        </div>
-        <h6></h6>
-        <div class="_svg">
-          <img src="{{ asset('site/img/svg_poweroflife_white.svg') }}" alt="Power of Life" />
-        </div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="container-fluid s_cursos _atracoes">
-    <div class="container-fav">
-      <div class="title">
-        <h4>Cursos</h4>
-        <div class="_filter">
-          <nav>
-            @php
-            $cont = 0;
-            @endphp
-            @foreach($evento->cursos_ligados->unique("data") as $curso)
-            <div class="_filterItem @if($cont == 0) active @endif" data-date="{{date('dm', strtotime($curso->data))}}">{{date('d/m', strtotime($curso->data))}}</div>
-            @php
-            $cont++;
-            @endphp
-            @endforeach
-          </nav>
-        </div>
-      </div>
-      <div class="_cursosList">
-        @foreach($evento->cursos_ligados as $curso)
-        <div class="_curso" data-date="{{date('dm', strtotime($curso->data))}}">
-          <div class="_pic">
-            <img src="{{ asset($curso->curso->thumbnail) }}" alt="{{$curso->curso->nome}}" />
-          </div>
-          <div class="_content">
-            <div class="_top">
-              <h4 class="curso_name">{{$curso->curso->nome}}</h4>
-              <p class="curso_description">
-                {!! $curso->curso->descricao !!}
-              </p>
             </div>
-            <div class="_bottom">
-              <p class="curso_price">R$ {{number_format($curso->curso->valor, 2, ",", ".")}}</p>
-              <button>Comprar</button>
-            </div>
-          </div>
         </div>
-        @endforeach
-      </div>
-    </div>
-  </section>
+    </section>
 
-  {{-- <section class="container-fluid s_cursos">
+
+    <section class="container-fluid s_destaque reduzido">
+        <div class="container-fav">
+            <div class="_content fade">
+                <div class="_line">
+                    <button>
+                        <img src="{{ asset('site/img/arrowright.svg') }}" alt="Seta para direita" />
+                    </button>
+                </div>
+                <h6></h6>
+                <div class="_svg">
+                    <img src="{{ asset('site/img/svg_poweroflife_white.svg') }}" alt="Power of Life" />
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid s_cursos _atracoes">
+        <div class="container-fav">
+            <div class="title">
+                <h4>Cursos</h4>
+                <div class="_filter">
+                    <nav>
+                        @php
+                            $cont = 0;
+                        @endphp
+                        @foreach ($evento->cursos_ligados->unique('data') as $curso)
+                            <div class="_filterItem @if ($cont == 0) active @endif"
+                                data-date="{{ date('dm', strtotime($curso->data)) }}">
+                                {{ date('d/m', strtotime($curso->data)) }}</div>
+                            @php
+                                $cont++;
+                            @endphp
+                        @endforeach
+                    </nav>
+                </div>
+            </div>
+            <div class="_cursosList">
+                @foreach ($evento->cursos_ligados as $curso)
+                    <div class="_curso" data-date="{{ date('dm', strtotime($curso->data)) }}">
+                        <div class="_pic">
+                            <img src="{{ asset($curso->curso->thumbnail) }}" alt="{{ $curso->curso->nome }}" />
+                        </div>
+                        <div class="_content">
+                            <div class="_top">
+                                <h4 class="curso_name">{{ $curso->curso->nome }}</h4>
+                                <p class="curso_description">
+                                    {!! $curso->curso->descricao !!}
+                                </p>
+                            </div>
+                            <div class="_bottom">
+                                <p class="curso_price">R$ {{ number_format($curso->curso->valor, 2, ',', '.') }}</p>
+                                <button>Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- <section class="container-fluid s_cursos">
     <div class="container-fav">
       <div class="_title">
         <h4>Cursos</h4>
@@ -270,19 +274,21 @@
     </div>
   </section> --}}
 
-  <section class="container-fluid s_embaixadores">
-    <div class="container-fav">
-      <div class="_title">
-        <h4>Embaixadores e Convidados</h4>
-      </div>
+    <section class="container-fluid s_embaixadores">
+        <div class="container-fav">
+            <div class="_title">
+                <h4>Embaixadores e Convidados</h4>
+            </div>
 
-      <div class="_pictures">
-        @foreach($evento->participantes as $participante)
-        <picture>
-          <img src="{{ asset($participante->foto) }}" onclick="window.location.href = '{{$participante->url}}'" alt="{{$participante->nome}}" />
-        </picture>
-        @endforeach
-        {{-- <img src="{{ asset('site/img/pic_embaixador02.png') }}" onclick="" alt="Embaixador ENAF" />
+            <div class="_pictures">
+                @foreach ($evento->participantes as $participante)
+                    <picture>
+                        <img src="{{ asset($participante->foto) }}"
+                            onclick="window.location.href = '{{ $participante->url }}'"
+                            alt="{{ $participante->nome }}" />
+                    </picture>
+                @endforeach
+                {{-- <img src="{{ asset('site/img/pic_embaixador02.png') }}" onclick="" alt="Embaixador ENAF" />
         <img src="{{ asset('site/img/pic_embaixador03.png') }}" onclick="" alt="Embaixador ENAF" />
         <img src="{{ asset('site/img/pic_embaixador04.png') }}" onclick="" alt="Embaixador ENAF" />
         <img src="{{ asset('site/img/pic_embaixador05.png') }}" onclick="" alt="Embaixador ENAF" />
@@ -290,56 +296,56 @@
         <img src="{{ asset('site/img/pic_embaixador07.png') }}" onclick="" alt="Embaixador ENAF" />
         <img src="{{ asset('site/img/pic_embaixador08.png') }}" onclick="" alt="Embaixador ENAF" />
         <img src="{{ asset('site/img/pic_embaixador09.png') }}" onclick="" alt="Embaixador ENAF" /> --}}
-      </div>
-    </div>
-  </section>
-
-  <section class="container-fluid s_eventLocal">
-    <div class="container-fav">
-      <div class="_pic fade">
-        <img src="{{ asset($evento->local_foto) }}" alt="{{$evento->local_nome}}" />
-      </div>
-      <div class="_text">
-        <h6>Local</h6>
-        <h4>{{$evento->local_nome}}</h4>
-        <p>{{$evento->local_endereco}}</p>
-
-        <a href="#">Ver no maps</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="container-fluid s_hoteis">
-    <div class="container-fav">
-      <div class="title">
-        <h4>Hoteis conveniados</h4>
-      </div>
-      <div class="_hoteisList">
-        @foreach($evento->hoteis as $hotel)
-        <div class="_hotel">
-          <div class="_pic">
-            <img src="{{ asset($hotel->foto) }}" alt="{{$hotel->nome}}" />
-          </div>
-          <div class="_content">
-            <div class="_top">
-              <h4 class="hotel_name">{{$hotel->nome}}</h4>
-              <p class="hotel_description">
-                {{$hotel->endereco}}
-              </p>
             </div>
-            <div class="_bottom">
-              <a href="{{$hotel->url}}">Saiba Mais</a>
-            </div>
-          </div>
         </div>
-        @endforeach
-      </div>
-    </div>
-  </section>
+    </section>
 
-  @include('site.includes.publicidade')
+    <section class="container-fluid s_eventLocal">
+        <div class="container-fav">
+            <div class="_pic fade">
+                <img src="{{ asset($evento->local_foto) }}" alt="{{ $evento->local_nome }}" />
+            </div>
+            <div class="_text">
+                <h6>Local</h6>
+                <h4>{{ $evento->local_nome }}</h4>
+                <p>{{ $evento->local_endereco }}</p>
+
+                <a href="#">Ver no maps</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid s_hoteis">
+        <div class="container-fav">
+            <div class="title">
+                <h4>Hoteis conveniados</h4>
+            </div>
+            <div class="_hoteisList">
+                @foreach ($evento->hoteis as $hotel)
+                    <div class="_hotel">
+                        <div class="_pic">
+                            <img src="{{ asset($hotel->foto) }}" alt="{{ $hotel->nome }}" />
+                        </div>
+                        <div class="_content">
+                            <div class="_top">
+                                <h4 class="hotel_name">{{ $hotel->nome }}</h4>
+                                <p class="hotel_description">
+                                    {{ $hotel->endereco }}
+                                </p>
+                            </div>
+                            <div class="_bottom">
+                                <a href="{{ $hotel->url }}">Saiba Mais</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    @include('site.includes.publicidade')
 
 
-  @include("site.includes.parceiros")
+    @include("site.includes.parceiros")
 
-  @include("site.includes.footer")
+    @include("site.includes.footer")

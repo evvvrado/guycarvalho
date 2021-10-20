@@ -108,7 +108,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.eventos') }}">Eventos<
 
                             <div class="mb-3">
                                 <label for="descricao">Descrição</label>
-                                <input id="descricao" name="descricao" type="text" class="form-control" placeholder="Insira a decrição da clínica" maxlength="255" {{ $evento->descricao }}>
+                                <input id="descricao" name="descricao" type="text" class="form-control" placeholder="Insira a decrição da clínica" maxlength="255" value="{{ $evento->descricao }}">
                             </div>
 
                             <div class="mb-3">
@@ -408,7 +408,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.eventos') }}">Eventos<
     <div class="card hoteis">
         <div class="card-body">
             <h4 class="card-title">Hoteis Conveniados</h4>
-            <form action="{{ route('painel.eventos.hotel.adicionar', ['evento' => $evento]) }}" method="POST">
+            <form action="{{ route('painel.eventos.hotel.adicionar', ['evento' => $evento]) }}" method="POST"  enctype="multipart/form-data">
                 @csrf
                 <div class="row">
 

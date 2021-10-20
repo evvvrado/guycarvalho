@@ -17,7 +17,8 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Cadastro de Notícia</h4>
-                    <form>
+                    <form id="form-cadastro" action="{{route('painel.noticia.cadastrar')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
@@ -27,8 +28,11 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="categoria">Categoria</label>
-                                    <input id="categoria" name="categoria" type="text" placeholder="Categoria da Notícia"
-                                        class="form-control">
+                                    <select class="form-control" name="categoria_id" id="select_categoria">
+                                        @foreach(\App\Models\Categoria::all() as $categoria)
+                                            <option value="{{$categoria->id}}">{{$categoria->nome}}</option>}
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="fonte">Fonte</label>
@@ -44,12 +48,15 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="publicacaodata">Data de Publicação</label>
-                                    <input class="form-control" type="date" id="publicacaodata">
+                                    <input class="form-control" name="publicacao" type="date" id="publicacaodata">
                                 </div>
                                 <div class="mb-3">
                                     <label for="tags">Tags</label>
-                                    <input id="tags" name="tags" type="text" placeholder="Tags da Notícia"
-                                        class="form-control">
+                                    <select class="form-control" name="tags[]" id="select_tag" multiple="multiple">
+                                        @foreach(\App\Models\Tag::all() as $tag)
+                                            <option value="{{$tag->id}}">{{$tag->nome}}</option>}
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -68,59 +75,60 @@
                             </div>
 
                         </div>
+                        <div class="row flex-row">
+                            <div class="card-body col-2">
+                                <div class="col-12 mt-3">
+                                    <div class="row">
+                                        <div
+                                            class="col-12 text-center d-flex align-items-center justify-content-center flex-column">
+                                            Thumbnail
+        
+                                            <picture
+                                                style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                                <img id="thumbnail-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                                    style="height: 100%;" alt="">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12 text-center">
+                                            <label class="btn btn-primary" for="thumbnail-upload">Escolher</label>
+                                            <input name="preview" id="thumbnail-upload" style="display: none;" type="file">
+                                        </div>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+        
+                            <div class="card-body col-8">
+                                <div class="col-12 mt-3">
+                                    <div class="row">
+                                        <div
+                                            class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
+                                            Banner
+                                            <picture
+                                                style="height: 281px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                                <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                                    style="height: 100%;" alt="">
+                                            </picture>
+                                        </div>  
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12 text-center">
+                                            <label class="btn btn-primary" for="banner-upload">Escolher</label>
+                                            <input name="banner" id="banner-upload" style="display: none;" type="file">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="d-flex flex-wrap gap-2">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
+                            <button id="btn-submit" type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
                             <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
                         </div>
                     </form>
                 </div>
-                <div class="row flex-row">
-                    <div class="card-body col-2">
-                        <div class="col-12 mt-3">
-                            <div class="row">
-                                <div
-                                    class="col-12 text-center d-flex align-items-center justify-content-center flex-column">
-                                    Thumbnail
-
-                                    <picture
-                                        style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                        <img id="thumbnail-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
-                                            style="height: 100%;" alt="">
-                                    </picture>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-12 text-center">
-                                    <label class="btn btn-primary" for="thumbnail-upload">Escolher</label>
-                                    <input name="thumbnail" id="thumbnail-upload" style="display: none;" type="file">
-                                </div>
-                            </div>
-                        </div>
-                        </form>
-                    </div>
-
-                    <div class="card-body col-8">
-                        <div class="col-12 mt-3">
-                            <div class="row">
-                                <div
-                                    class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
-                                    Banner
-                                    <picture
-                                        style="height: 281px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                        <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
-                                            style="height: 100%;" alt="">
-                                    </picture>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-12 text-center">
-                                    <label class="btn btn-primary" for="banner-upload">Escolher</label>
-                                    <input name="banner" id="banner-upload" style="display: none;" type="file">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
 
 
                 <!-- end card-->
@@ -163,12 +171,12 @@
         <script src="{{ asset('admin/libs/select2/js/select2.min.js') }}"></script>
         <script src="{{ asset('admin/libs/dropzone/min/dropzone.min.js') }}"></script>
         <script>
-            var inp = document.getElementById('logo-upload');
+            var inp = document.getElementById('thumbnail-upload');
             inp.addEventListener('change', function(e) {
                 var file = this.files[0];
                 var reader = new FileReader();
                 reader.onload = function() {
-                    document.getElementById('logo-preview').src = this.result;
+                    document.getElementById('thumbnail-preview').src = this.result;
                 };
                 reader.readAsDataURL(file);
             }, false);
@@ -184,13 +192,21 @@
             }, false);
 
             $(document).ready(function() {
+                $("#btn-submit").click(function(){
+                    $("#form-cadastro").submit();
+                });
+
                 $('#summernote').summernote({
                     height: 600,
                 });
 
-                $('#select_tag').select2({});
+                $('#select_tag').select2({
+                    tags: true
+                });
 
-                $('#select_hashtag').select2({});
+                $('#select_categoria').select2({
+                    tags: true
+                });
             });
         </script>
     @endsection
