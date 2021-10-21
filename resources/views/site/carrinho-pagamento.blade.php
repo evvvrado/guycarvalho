@@ -139,68 +139,68 @@
 
                     <div class="_pagamentoCartao">
                         @if($forma == 'cartao')
-                            <div class="_text">
-                                <span>Pagamento Cartão de Crédito</span>
-                                <p>Digite os dados do seu cartão abaixo:</p>
+                        <div class="_text">
+                            <span>Pagamento Cartão de Crédito</span>
+                            <p>Digite os dados do seu cartão abaixo:</p>
+                        </div>
+                        <div class="_form">
+                            <div>
+                                <small style="color: red;">{{session()->get("erro")}}</small>
                             </div>
-                            <div class="_form">
-                                <div>
-                                    <small style="color: red;">{{session()->get("erro")}}</small>
-                                </div>
 
-                                <form action="{{route('site.carrinho.finalizar.credito.cielo')}}" method="POST">
-                                    @csrf
-                                    <label>
-                                        <span>N. Cartão</span>
-                                        <input type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" name="numero" maxlength="19" />
-                                    </label>
-                                    <label>
-                                        <span>Nome do cartão</span>
-                                        <input type="text" name="nome" />
-                                    </label>
-                                    <label>
-                                        <span>Validade</span>
-                                        <input type="tel" inputmode="numeric" name="expiracao" maxlength="7" />
-                                    </label>
-                                    <label>
-                                        <span>CVV</span>
-                                        <input type="tel" maxlength="3" name="cvv" />
-                                    </label>
-                                    <label>
-                                        <span>Parcelas</span>
-                                        <input type="number" name="parcelas" max="10" min="1" step="1" required />
-                                    </label>
-                                    <button type="submit">
-                                        Efetuar pagamento <img src="{{ asset('site/img/arrowlong.svg') }}" alt="" />
-                                    </button>
-                                </form>
-                            </div>
+                            <form action="{{route('site.carrinho.finalizar.credito.cielo')}}" method="POST">
+                                @csrf
+                                <label>
+                                    <span>N. Cartão</span>
+                                    <input type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" name="numero" maxlength="19" />
+                                </label>
+                                <label>
+                                    <span>Nome do cartão</span>
+                                    <input type="text" name="nome" />
+                                </label>
+                                <label>
+                                    <span>Validade</span>
+                                    <input type="tel" inputmode="numeric" name="expiracao" maxlength="7" />
+                                </label>
+                                <label>
+                                    <span>CVV</span>
+                                    <input type="tel" maxlength="3" name="cvv" />
+                                </label>
+                                <label>
+                                    <span>Parcelas</span>
+                                    <input type="number" name="parcelas" max="10" min="1" step="1" required />
+                                </label>
+                                <button type="submit">
+                                    Efetuar pagamento <img src="{{ asset('site/img/arrowlong.svg') }}" alt="" />
+                                </button>
+                            </form>
+                        </div>
                         @else
-                            <div class="_text">
-                                <span>Pagamento por boleto ou carnê</span>
-                                <p>Escolha o número de parcelas desejadas:</p>
+                        <div class="_text">
+                            <span>Pagamento por boleto ou carnê</span>
+                            <p>Escolha o número de parcelas desejadas:</p>
+                        </div>
+                        <div class="_form">
+                            <div>
+                                <small style="color: red;">{{session()->get("erro")}}</small>
                             </div>
-                            <div class="_form">
-                                <div>
-                                    <small style="color: red;">{{session()->get("erro")}}</small>
-                                </div>
 
-                                <form action="{{route('site.carrinho.finalizar.boleto')}}" method="POST">
-                                    @csrf
-                                    <label>
-                                        <span>Parcelas</span>
-                                        <select name="parcelas" required>
-                                            <option value="1">1x de {{$carrinho->total - ($carrinho->total * 10 / 100)}}</option>
-                                            @for($i = 2; ((($carrinho->total / $i) > $configuracao->min_valor_parcela_boleto) && $i <= $configuracao->max_parcelas_boleto); $i++)
-                                                <option value="{{$i}}">{{$i}}x de {{number_format($carrinho->total / $i, 2, ",", ".")}}</option>
-                                                @endfor
-                                        </select>
-                                    </label>
-                                    <button type="submit">
-                                        Efetuar pagamento <img src="{{ asset('site/img/arrowlong.svg') }}" alt="" />
-                                    </button>
-                                </form>
-                            </div>
+                            <form action="{{route('site.carrinho.finalizar.boleto')}}" method="POST">
+                                @csrf
+                                <label>
+                                    <span>Parcelas</span>
+                                    <select name="parcelas" required>
+                                        <option value="1">1x de {{$carrinho->total - ($carrinho->total * 10 / 100)}}</option>
+                                        @for($i = 2; ((($carrinho->total / $i) > $configuracao->min_valor_parcela_boleto) && $i <= $configuracao->max_parcelas_boleto); $i++)
+                                            <option value="{{$i}}">{{$i}}x de {{number_format($carrinho->total / $i, 2, ",", ".")}}</option>
+                                            @endfor
+                                    </select>
+                                </label>
+                                <button type="submit">
+                                    Efetuar pagamento <img src="{{ asset('site/img/arrowlong.svg') }}" alt="" />
+                                </button>
+                            </form>
+                        </div>
                         @endif
                     </div>
                 </div>
@@ -213,6 +213,10 @@
     @include('site.includes.aluno.footer')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
     @include('site.includes.gerencianet')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+        integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js" integrity="sha512-0XDfGxFliYJPFrideYOoxdgNIvrwGTLnmK20xZbCAvPfLGQMzHUsaqZK8ZoH+luXGRxTrS46+Aq400nCnAT0/w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $("form label input,form label textarea").focus(function() {
             $(this).parent().find("span").addClass("active");
@@ -239,10 +243,11 @@
                 400
             );
         });
+
+        $('form label input[name = "cpf"]').mask("000.000.000-00", {
+        reverse: true,
+    });
+    $('form label input[name = "telefone"]').mask("(00) 00000-0000");
+    $('form label input[name = "expiracao"]').mask("00/0000");
+    $('form label input[name= "numero"]').mask("0000 0000 0000 0000");
     </script>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
-        integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js" integrity="sha512-0XDfGxFliYJPFrideYOoxdgNIvrwGTLnmK20xZbCAvPfLGQMzHUsaqZK8ZoH+luXGRxTrS46+Aq400nCnAT0/w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
