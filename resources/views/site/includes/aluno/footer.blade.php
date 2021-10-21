@@ -23,7 +23,7 @@
     <section class="container-fav s_info">
         <div class="_left">
             <p>Av. Raja Gabaglia, 2000 - Sala 805 e PVMT 8 - Bloco 1
-                Alpes - Belo Horizonte - MG / 30.494-170/p>
+                Alpes - Belo Horizonte - MG / 30.494-170</p>
 
             <div class="_siga">
                 <p>Siga-nos</p>
