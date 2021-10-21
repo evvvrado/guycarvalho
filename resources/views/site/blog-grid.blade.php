@@ -9,14 +9,12 @@
     <section class="container-fluid s_hero">
         <div class="container-fav">
             <div class="_h1 fade">
-                |@php
 
 
-                @endphp
-                <p>Pilates</p>
-                <h6>Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</h6>
+                <p>{{$noticias[0]->categoria->nome}}</p>
+                <h6>{{$noticias[0]->titulo}}</h6>
 
-                <p>by <span>Redação Enaf</span> • 2 semanas atrás</p>
+                <p>by <span>{{$noticias[0]->autor}}</span> • {{date('d.m.Y', strtotime($noticias[0]->publicacao))}}</p>
             </div>
         </div>
     </section>

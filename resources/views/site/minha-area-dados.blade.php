@@ -42,11 +42,11 @@
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
-                    <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
+                <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                    <img src="{{ asset($aluno->avatar) }}" style="max-width: 100%;" alt="">
+                <img src="{{ asset($aluno->avatar) }}" style="max-width: 100%;" alt="">
                 @endif
             </div>
             <div class="_text">
@@ -106,11 +106,11 @@
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
-                    <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
+                <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                    <img src="{{ asset($aluno->avatar) }}" alt="">
+                <img src="{{ asset($aluno->avatar) }}" alt="">
                 @endif
             </div>
             <div class="_text">
@@ -166,24 +166,21 @@
                 <div class="dados-div">
 
                     <label>
-                        <input type="text" name="rua" placeholder="Rua, 180" value="{{ $aluno->rua }}"
-                            class="_dadosComponent">
+                        <input type="text" name="rua" placeholder="Rua, 180" value="{{ $aluno->rua }}" class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/doorData.svg') }}" alt="">
                         </div>
                     </label>
 
                     <label>
-                        <input type="text" name="cidade" placeholder="Cidade" value="{{ $aluno->cidade }}"
-                            class="_dadosComponent">
+                        <input type="text" name="cidade" placeholder="Cidade" value="{{ $aluno->cidade }}" class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/pinData.svg') }}" alt="">
                         </div>
                     </label>
 
                     <label>
-                        <input type="text" name="estado" placeholder="Estado" value="{{ $aluno->estado }}"
-                            class="_dadosComponent">
+                        <input type="text" name="estado" placeholder="Estado" value="{{ $aluno->estado }}" class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/pinData.svg') }}" alt="">
                         </div>
@@ -205,8 +202,7 @@
             </div>
             <form class="_dados">
                 <label>
-                    <input type="password" name="senha_antiga" placeholder="Senha Antiga" value=""
-                        class="_dadosComponent">
+                    <input type="password" name="senha_antiga" placeholder="Senha Antiga" value="" class="_dadosComponent">
                     <div class="_icon">
                         <img src="{{ asset('site/img/sistema/lockData.svg') }}" alt="">
                     </div>
@@ -225,18 +221,16 @@
         <div class="_left">
             <div class="userImg">
                 @if (!$aluno->avatar)
-                    <img src="{{ asset('site/img/sistema/userBig.svg') }}" style="max-width: 100%;
+                <img src="{{ asset('site/img/sistema/userBig.svg') }}" style="max-width: 100%;
                         min-height: unset;
                         min-width: unset;" alt="">
                 @else
-                    <img src="{{ asset($aluno->avatar) }}" style="max-width: 100%;" alt="">
+                <img src="{{ asset($aluno->avatar) }}" style="max-width: 100%;" alt="">
                 @endif
             </div>
             <a href="" id="select_avatar">Alterar Imagem</a>
-            <a style="display:none;     margin-left: 8.7rem;" id="ajax_loading"><img
-                    src="{{ asset('site/img/ajax-loading.gif') }}" alt="" width="50"></a>
-            <form id="form-avatar" action="{{ route('site.minha-area-dados.avatar.alterar') }}" method="post"
-                enctype="multipart/form-data" style="display: none;">
+            <a style="display:none;     margin-left: 8.7rem;" id="ajax_loading"><img src="{{ asset('site/img/ajax-loading.gif') }}" alt="" width="50"></a>
+            <form id="form-avatar" action="{{ route('site.minha-area-dados.avatar.alterar') }}" method="post" enctype="multipart/form-data" style="display: none;">
                 @csrf
                 <input type="file" id="avatar" name="avatar">
             </form>
@@ -248,5 +242,28 @@
 
 @include('site.includes.aluno.footer')
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
+<script>
+    $(document).ready(function() {
+            $("#select_avatar").click(function(e) {
+                e.preventDefault();
+                $("#avatar").trigger('click');
+            });
+            $("#avatar").change(function() {
+                $("#select_avatar").hide();
+                $("#ajax_loading").show();
+                $("#form-avatar").submit();
+            });
+        });
+        $("._menuMax").click(() => {
+            $("._mobileMenu").css("display", "flex");
+            $("._mobileMenu").animate({
+                    left: "0",
+                    top: "0",
+                },
+                500
+            );
+        });
+</script>
 
 </html>

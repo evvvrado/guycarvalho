@@ -1,7 +1,6 @@
 @include('site.includes.aluno.header')
 
 
-
 <section class="container-fluid _menu">
     <div class="container-fav">
         <nav>
@@ -14,7 +13,7 @@
                         Minha Área
                     </a>
                 </li>
-                <li>
+                <li class="_active">
                     <a href="/minha-area/compras">
                         <div class="svg">
                             <img src="{{ asset('site/img/sistema/bag.svg') }}" alt="">
@@ -22,7 +21,7 @@
                         Meus Pedidos
                     </a>
                 </li>
-                <li class="_active">
+                <li>
                     <a href="/minha-area/matriculas">
                         <div class="svg">
                             <img src="{{ asset('site/img/sistema/page.svg') }}" alt="">
@@ -78,7 +77,7 @@
                         Minha Área
                     </a>
                 </li>
-                <li>
+                <li class="_active">
                     <a href="/minha-area/compras">
                         <div class="svg">
                             <img src="{{ asset('site/img/sistema/bag.svg') }}" alt="">
@@ -86,7 +85,7 @@
                         Meus Pedidos
                     </a>
                 </li>
-                <li class="_active">
+                <li>
                     <a href="/minha-area/matriculas">
                         <div class="svg">
                             <img src="{{ asset('site/img/sistema/page.svg') }}" alt="">
@@ -125,34 +124,138 @@
 
 </section>
 </div>
-<div class="detalhesdeCurso container-fluid">
-    <div class="container-fav">
-        <h1>{{ $matricula->curso->titulo }}</h1>
 
-        <main>
-            <div class="list">
-                @foreach ($matricula->curso->conteudos->where('publicacao', '<=', date('Y-m-d H:i:s')) as $conteudo) <article>
-                    <div class="date">
-                        {{ date('d/m/Y', strtotime($conteudo->publicacao)) }}<br>
-                        {{-- 20:00 --}}
+
+
+<section class="container-fluid _meusPedidos _detalhes">
+    <div class="container-fav">
+        <div class="_top">
+            <h2>Detalhes do Pedido: 512214124</h2>
+
+        </div>
+
+        <div class="_pedidosList">
+            <div class="_pedido">
+                <h3>N. 5588893390122</h3>
+                <div class="_info">
+                    <div class="data">
+                        <div class="_svg">
+                            <img src="/img/sistema/calendar.svg" alt="">
+                        </div>
+                        <p>12.05.2020</p>
                     </div>
-                    <picture><img src="{{ asset('site/img/sistema/approved.svg') }}" alt="Aprovado">
-                    </picture>
-                    <div class="content">
-                        <span>{{ $conteudo->descricao }}</span>
-                        <a href="{{ asset($conteudo->arquivo) }}" download>Baixar</a>
+                    <div class="numero">
+                        <div class="_svg">
+                            <img src="/img/sistema/plane.svg" alt="">
+                        </div>
+                        <p>03 Produtos</p>
                     </div>
-                    </article>
-                    @endforeach
+                </div>
+                <button class="btn-primary">
+                    Ver Boleto
+                    <div class="_svg">
+                        <img src="/img/sistema/buttonArrowRight.svg" alt="">
+                    </div>
+                </button>
             </div>
-        </main>
+            <div class="_pedido">
+                <h3>N. 5588893390122</h3>
+                <div class="_info">
+                    <div class="data">
+                        <div class="_svg">
+                            <img src="/img/sistema/calendar.svg" alt="">
+                        </div>
+                        <p>12.05.2020</p>
+                    </div>
+                    <div class="numero">
+                        <div class="_svg">
+                            <img src="/img/sistema/plane.svg" alt="">
+                        </div>
+                        <p>03 Produtos</p>
+                    </div>
+                </div>
+                <button class="btn-primary">
+                    Ver Boleto
+                    <div class="_svg">
+                        <img src="/img/sistema/buttonArrowRight.svg" alt="">
+                    </div>
+                </button>
+            </div>
+            <div class="_pedido">
+                <h3>N. 5588893390122</h3>
+                <div class="_info">
+                    <div class="data">
+                        <div class="_svg">
+                            <img src="/img/sistema/calendar.svg" alt="">
+                        </div>
+                        <p>12.05.2020</p>
+                    </div>
+                    <div class="numero">
+                        <div class="_svg">
+                            <img src="/img/sistema/plane.svg" alt="">
+                        </div>
+                        <p>03 Produtos</p>
+                    </div>
+                </div>
+                <button class="btn-primary">
+                    Ver Boleto
+                    <div class="_svg">
+                        <img src="/img/sistema/buttonArrowRight.svg" alt="">
+                    </div>
+                </button>
+            </div>
+            <div class="_pedido">
+                <h3>N. 5588893390122</h3>
+                <div class="_info">
+                    <div class="data">
+                        <div class="_svg">
+                            <img src="/img/sistema/calendar.svg" alt="">
+                        </div>
+                        <p>12.05.2020</p>
+                    </div>
+                    <div class="numero">
+                        <div class="_svg">
+                            <img src="/img/sistema/plane.svg" alt="">
+                        </div>
+                        <p>03 Produtos</p>
+                    </div>
+                </div>
+                <button class="btn-primary">
+                    Ver Boleto
+                    <div class="_svg">
+                        <img src="/img/sistema/buttonArrowRight.svg" alt="">
+                    </div>
+                </button>
+            </div>
+        </div>
     </div>
 
-    @include('site.includes.aluno.footer')
-    </body>
-
-    </html>
 
 
-    </html>
-</div>
+</section>
+
+
+
+<section class="container-fluid _meusPedidos">
+    <div class="container-fav">
+        <div class="_top">
+            <h2>Meus Pedidos</h2>
+            <div class="_topbutton">
+                <p>Status da Compra</p>
+                <div class="_btn">
+                    <img src="img/sistema/threeDots.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+@include('site.includes.aluno.footer')
+</body>
+
+</html>

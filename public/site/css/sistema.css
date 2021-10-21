@@ -432,6 +432,9 @@ section._meusPedidos ._pedidosList ._pedido {
     border: solid 1px var(--gray11);
     border-radius: 0.4rem;
 }
+section._meusPedidos._detalhes ._pedidosList ._pedido{
+    height: auto;
+}
 
 section._meusPedidos ._pedidosList ._pedido h3 {
     margin-bottom: 2.4rem;
@@ -463,6 +466,9 @@ section._meusPedidos ._pedidosList ._pedido button.btn-primary {
     padding: 1.2rem 3.8rem;
 
     font-size: 1.4rem;
+}section._meusPedidos._detalhes ._pedidosList ._pedido button.btn-primary{
+    margin-bottom: 0;
+    justify-content: center;
 }
 section._meusPedidos ._pedidosList ._pedido ._status {
     padding-top: 2.2rem;

@@ -34,10 +34,10 @@
             }
 
             ._blogList {
-                @include flex(row, center, space-between);
+                @include flex(row, center, flex-start);
                 transition: 0.32s;
                 min-width: max-content;
-                gap: 25px;
+                gap: 1rem;
 
                 white-space: initial;
                 ._blog {

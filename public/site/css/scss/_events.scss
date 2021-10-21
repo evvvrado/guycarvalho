@@ -3,7 +3,7 @@
     padding-bottom: 6.35rem;
     .container-fav {
         ._eventList {
-            @include flex(row, center, space-between);
+            @include flex(row, center, flex-start);
             flex-wrap: wrap;
             // gap: 2rem;
             ._event {

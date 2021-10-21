@@ -139,7 +139,8 @@
     </div>
 </div>
 
-@if (Route::is('site.hotsite') || Route::is('site.minha-area') || Route::is('site.minha-area-dados'))
+@if (Route::is('site.hotsite') || Route::is('site.minha-area') || Route::is('site.minha-area-dados') || Route::is('site.minha-area-compras') || Route::is('site.minha-area-matricula') ||
+Route::is('site.minha-area-detalhes'))
 <header class="container-fluid">
     <div class="container-fav">
         <div class="_logo">
@@ -180,9 +181,9 @@
             <ul>
                 <li><a href="{{ route('site.contato') }}">CONTATO</a></li>
                 @if(!session()->get("aluno"))
-                    <li><a href="{{ route('site.minha-conta') }}"><img src="{{ asset('site/img/user.svg') }}" alt="Ícone de Usuário" /></a></li>
+                <li><a href="{{ route('site.minha-conta') }}"><img src="{{ asset('site/img/user.svg') }}" alt="Ícone de Usuário" /></a></li>
                 @else
-                    <li><a href="{{ route('site.minha-area') }}"><img src="{{ asset('site/img/user.svg') }}" alt="Ícone de Usuário" /></a></li>
+                <li><a href="{{ route('site.minha-area') }}"><img src="{{ asset('site/img/user.svg') }}" alt="Ícone de Usuário" /></a></li>
                 @endif
                 @if(session()->get("carrinho"))
                 <li class="_carrinho_button"><img src="{{ asset('site/img/cart.svg') }}" alt="Ícone de Carrinho" /></li>
