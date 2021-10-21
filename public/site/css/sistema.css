@@ -442,7 +442,7 @@ section._detalhesdoPedido {
     flex-direction: column;
 
     padding-top: 7.3rem;
-    padding-bottom: 17.4rem;
+    padding-bottom: 5.4rem;
 }
 section._detalhesdoPedido ._top {
     display: flex;
@@ -1912,53 +1912,55 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
     margin-top: 0.65rem;
 }
 
-.detalhesdeCurso .container-fav ._info {
+._detalhesdoPedido .container-fav ._info {
     width: 100%;
+    border-bottom: 2px solid var(--gray16);
     padding-top: 4rem;
 }
-.detalhesdeCurso .container-fav ._info ._infoItem {
+._detalhesdoPedido .container-fav ._info ._infoItem {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     margin-bottom: 4.2rem;
 }
-.detalhesdeCurso .container-fav ._info ._infoItem div {
+._detalhesdoPedido .container-fav ._info ._infoItem div {
     display: flex;
 }
-.detalhesdeCurso .container-fav ._info ._infoItem ._name {
+._detalhesdoPedido .container-fav ._info ._infoItem ._name {
     width: 100%;
     max-width: 23.5rem;
     justify-content: space-between;
 }
-.detalhesdeCurso .container-fav ._info ._infoItem ._name .text {
+._detalhesdoPedido .container-fav ._info ._infoItem ._name .text {
     display: flex;
     gap: 1.7rem;
 }
-.detalhesdeCurso .container-fav ._info ._infoItem ._name .text span {
+._detalhesdoPedido .container-fav ._info ._infoItem ._name .text span {
     font-size: 1.6rem;
     font-weight: 500;
     color: var(--wine12);
 }
-.detalhesdeCurso .container-fav ._info ._infoItem ._pagInfo {
-    flex-direction: column;
+._detalhesdoPedido .container-fav ._info ._infoItem ._pagInfo {
+    flex-direction: row;
     width: 100%;
-    max-width: 40.2rem;
+    max-width: 65.2rem;
 }
-.detalhesdeCurso .container-fav ._info ._infoItem ._pagInfo p {
+._detalhesdoPedido .container-fav ._info ._infoItem ._pagInfo p {
     font-size: 1.4rem;
     color: var(--lightbrown);
     font-weight: 500;
     display: inline-block;
 }
-.detalhesdeCurso .container-fav ._info ._infoItem ._pagInfo ._cCard {
+._detalhesdoPedido .container-fav ._info ._infoItem ._pagInfo ._cCard {
     display: block;
     width: 100%;
 }
 
-.detalhesdeCurso .container-fav ._info ._infoItem ._pagInfo ._payment {
+._detalhesdoPedido .container-fav ._info ._infoItem ._pagInfo ._payment {
     font-size: 1.6rem;
     font-weight: 500;
+    width: 100%;
 
     margin-top: 1.6rem;
 
