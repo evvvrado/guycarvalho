@@ -135,17 +135,17 @@
         </div>
 
 
-        {{-- <div class="_info">
+        <div class="_info">
             <div class="_id _infoItem">
                 <div class="_name">
                     <div class="text">
                         <div class="_svg">
-                            <img src="{{ asset('site/img/sistema/userData.svg') }}" alt="" />
+                            <img src="{{ asset('site/img/sistema/userData.svg') }}" alt="">
                         </div>
                         <span>Identificação</span>
                     </div>
                     <div class="_arrow">
-                        <img src="{{ asset('site/img/sistema/arrowright.svg') }}" alt="" />
+                        <img src="{{ asset('site/img/sistema/arrowright.svg') }}" alt="">
                     </div>
                 </div>
                 <div class="_userINFO">
@@ -180,7 +180,7 @@
                     <div class="_payment">R$ {{number_format($venda->total, 2 , ",", ".")}} em {{$venda->parcelas}}x</div>
                 </div>
             </div>
-        </div> --}}
+        </div>
 
     </div>
 </section>
