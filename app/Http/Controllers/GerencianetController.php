@@ -21,7 +21,7 @@ class GerencianetController extends Controller
         $carrinho = Carrinho::find(session()->get("carrinho"));
         $aluno = Aluno::find(session()->get("aluno")["id"]);
         if ($parcelas == 1) {
-            $desconto = intval($carrinho->total * 10 / 100);
+            $desconto = 1000;
         } else {
             $desconto = 0;
         }
@@ -52,7 +52,7 @@ class GerencianetController extends Controller
 
         if ($parcelas == 1) {
             $gerencianet->addDesconto([
-                'type' => 'currency',
+                'type' => 'percentage',
                 'value' => $desconto
             ]);
             $gerencianet->addBoleto([
