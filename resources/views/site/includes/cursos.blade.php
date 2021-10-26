@@ -32,7 +32,8 @@
                             Certificado de {{ $curso->total_horas }} horas
                             @else
                             Curso de {{ $curso->total_horas}} horas
-                            @endif</p>
+                            @endif
+                        </p>
                         <button>Comprar</button>
                     </div>
                 </div>
