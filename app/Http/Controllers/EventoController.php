@@ -191,6 +191,8 @@ class EventoController extends Controller
         $pacote->pacote = true;
         $pacote->valor = $request->valor;
         $pacote->descricao_pacote = $request->descricao_pacote;
+        $pacote->gerencianet = true;
+        $pacote->cielo = true;
         $pacote->save();
 
         foreach($request->cursos as $curso){
