@@ -62,25 +62,26 @@
 
 
                                 <tbody>
-                                    <tr class="odd">
-                                        <td class="sorting_1 dtr-control">Everaldo</td>
-                                        <td class="depoimento-row">Meu nome é Everaldo e eu moro em alfenas mas queria estar
-                                            morando em alfenas onde posso comprar todos os alfenas de toda alfenas</td>
-                                        <td>
-                                            <div class="btn-group edit-table-button ">
-                                                <button type="button" class="btn btn-info dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"><i
-                                                        class="bx bx-edit"></i></button>
-                                                <div class="dropdown-menu" style="margin: 0px;">
-                                                    <a class="dropdown-item"
-                                                        href="{{ route('painel.depoimento.editar') }}">Editar</a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                    @foreach($depoimentos as $depoimento)
+                                        <tr class="odd">
+                                            <td class="sorting_1 dtr-control">{{$depoimento->nome}}</td>
+                                            <td class="depoimento-row">{{$depoimento->depoimento}}</td>
+                                            <td>
+                                                <div class="btn-group edit-table-button ">
+                                                    <button type="button" class="btn btn-info dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                            class="bx bx-edit"></i></button>
+                                                    <div class="dropdown-menu" style="margin: 0px;">
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('painel.depoimento.editar') }}">Editar</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" style="color: red" href="{{route('painel.depoimento.deletar', ['depoimento' => $depoimento])}}">Excluir</a>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

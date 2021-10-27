@@ -202,9 +202,11 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::get('/sistema/galeria', [\App\Http\Controllers\GaleriaController::class, 'consultar'])->name("painel.galeria");
         
         
-        Route::get('/sistema/depoimento', [\App\Http\Controllers\DepoimentoController::class, 'consultar'])->name("painel.depoimento");
+        Route::match(['get', 'post'], '/sistema/depoimentos', [\App\Http\Controllers\DepoimentoController::class, 'consultar'])->name("painel.depoimento");
         Route::get('/sistema/depoimento/cadastro', [\App\Http\Controllers\DepoimentoController::class, 'cadastrar'])->name("painel.depoimento.cadastro");
+        Route::post('/sistema/depoimento/salvar', [\App\Http\Controllers\DepoimentoController::class, 'salvar'])->name("painel.depoimento.salvar");
         Route::get('/sistema/depoimento/editar', [\App\Http\Controllers\DepoimentoController::class, 'editar'])->name("painel.depoimento.editar");
+        Route::get('/sistema/depoimento/deletar/{depoimento}', [\App\Http\Controllers\DepoimentoController::class, 'deletar'])->name("painel.depoimento.deletar");
 
         
         
