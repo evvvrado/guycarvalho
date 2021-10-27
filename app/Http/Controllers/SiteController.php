@@ -16,6 +16,7 @@ use App\Models\Aluno;
 use App\Models\Venda;
 use App\Models\Matricula;
 use App\Models\Expositor;
+use App\Models\Contrato;
 use Illuminate\Support\Facades\Storage;
 
 class SiteController extends Controller
