@@ -211,9 +211,11 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/depoimento/deletar/{depoimento}', [\App\Http\Controllers\DepoimentoController::class, 'deletar'])->name("painel.depoimento.deletar");
 
 
-    Route::get('/sistema/duvidas', [\App\Http\Controllers\DuvidasController::class, 'consultar'])->name("painel.duvidas");
+    Route::match(['get','post'], '/sistema/duvidas', [\App\Http\Controllers\DuvidasController::class, 'consultar'])->name("painel.duvidas");
     Route::get('/sistema/duvidas/cadastro', [\App\Http\Controllers\DuvidasController::class, 'cadastrar'])->name("painel.duvidas.cadastro");
-    Route::get('/sistema/duvidas/editar', [\App\Http\Controllers\DuvidasController::class, 'editar'])->name("painel.duvidas.editar");
+    Route::get('/sistema/duvidas/editar/{duvida}', [\App\Http\Controllers\DuvidasController::class, 'editar'])->name("painel.duvidas.editar");
+    Route::post('/sistema/duvidas/salvar', [\App\Http\Controllers\DuvidasController::class, 'salvar'])->name("painel.duvidas.salvar");
+    Route::get('/sistema/duvidas/deletar/{duvida}', [\App\Http\Controllers\DuvidasController::class, 'deletar'])->name("painel.duvidas.deletar");
 
 
     // ROTAS DE NOTÍCIAS
