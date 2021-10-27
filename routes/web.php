@@ -170,12 +170,11 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/hashtags/deletar/{hashtag}', [\App\Http\Controllers\HashtagsController::class, 'deletar'])->name("painel.hashtag.deletar");
 
     // ROTAS DE CATEGORIAS
-    Route::get('/sistema/categorias', [\App\Http\Controllers\CategoriasController::class, 'consultar'])->name("painel.categorias");
-    Route::post('/sistema/categorias/salvar/{categoria}', [\App\Http\Controllers\CategoriasController::class, 'salvar'])->name("painel.categoria.salvar");
-    Route::get('/sistema/categorias/deletar/{categoria}', [\App\Http\Controllers\CategoriasController::class, 'deletar'])->name("painel.categoria.deletar");
-
-    Route::get('/sistema/categorias/cadastrar', [\App\Http\Controllers\CategoriasController::class, 'cadastrar'])->name("painel.categorias.cadastro");
-    Route::get('/sistema/categorias/editar', [\App\Http\Controllers\CategoriasController::class, 'editar'])->name("painel.categorias.editar");
+    Route::match(['get', 'post'], '/sistema/categorias', [\App\Http\Controllers\ContratosController::class, 'consultar'])->name("painel.categorias");
+    Route::post('/sistema/categorias/salvar', [\App\Http\Controllers\ContratosController::class, 'salvar'])->name("painel.categoria.salvar");
+    Route::get('/sistema/categorias/deletar/{contrato}', [\App\Http\Controllers\ContratosController::class, 'deletar'])->name("painel.categoria.deletar");
+    Route::get('/sistema/categorias/cadastrar', [\App\Http\Controllers\ContratosController::class, 'cadastrar'])->name("painel.categorias.cadastro");
+    Route::get('/sistema/categorias/editar/{contrato}', [\App\Http\Controllers\ContratosController::class, 'editar'])->name("painel.categorias.editar");
 
     // ROTAS DE EXPOSITORES
     Route::match(['get', 'post'], '/sistema/expositores', [\App\Http\Controllers\ExpositoresController::class, 'consultar'])->name("painel.expositores");
