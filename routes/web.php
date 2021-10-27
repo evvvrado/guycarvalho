@@ -189,10 +189,11 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/anuncios/editar', [\App\Http\Controllers\PublicidadeController::class, 'editarAnuncios'])->name("painel.anuncios.editar");
 
 
-    Route::get('/sistema/patrocinadores', [\App\Http\Controllers\PublicidadeController::class, 'consultarPatrocinadores'])->name("painel.patrocinadores");
-    Route::get('/sistema/patrocinadores/cadastro', [\App\Http\Controllers\PublicidadeController::class, 'cadastrarPatrocinadores'])->name("painel.patrocinadores.cadastro");
-    Route::get('/sistema/patrocinadores/editar', [\App\Http\Controllers\PublicidadeController::class, 'editarPatrocinadores'])->name("painel.patrocinadores.editar");
-
+    Route::match(['get','post'], '/sistema/patrocinadores', [\App\Http\Controllers\PatrocinadoresController::class, 'consultar'])->name("painel.patrocinadores");
+    Route::get('/sistema/patrocinadores/cadastro', [\App\Http\Controllers\PatrocinadoresController::class, 'cadastrar'])->name("painel.patrocinadores.cadastro");
+    Route::get('/sistema/patrocinadores/editar/{patrocinador}', [\App\Http\Controllers\PatrocinadoresController::class, 'editar'])->name("painel.patrocinadores.editar");
+    Route::get('/sistema/patrocinadores/deletar/{patrocinador}', [\App\Http\Controllers\PatrocinadoresController::class, 'deletar'])->name("painel.patrocinadores.deletar");
+    Route::post('/sistema/patrocinadores/salvar', [\App\Http\Controllers\PatrocinadoresController::class, 'salvar'])->name("painel.patrocinadores.salvar");
 
     Route::get('/sistema/apoio', [\App\Http\Controllers\PublicidadeController::class, 'consultarApoio'])->name("painel.apoio");
     Route::get('/sistema/apoio/cadastro', [\App\Http\Controllers\PublicidadeController::class, 'cadastrarApoio'])->name("painel.apoio.cadastro");
