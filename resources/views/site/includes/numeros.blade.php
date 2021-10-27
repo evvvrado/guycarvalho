@@ -52,7 +52,7 @@
             <div class="_content">
                 <div class="_depoimentosList">
 
-                    @foreach(\App\Models\Depoimento::take(3) as $depoimento)
+                    @foreach(\App\Models\Depoimento::take(3)->get() as $depoimento)
                     <div class="_depoimento">
                         <div class="_pic">
                             <img src="{{ asset($depoimento->foto) }}" alt="{{$depoimento->nome}}" />
