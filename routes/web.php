@@ -282,6 +282,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::get('/sistema/clinicas/editar/{evento}', [\App\Http\Controllers\ClinicaController::class, 'editar'])->name("painel.clinicas.editar");
         Route::post('/sistema/clinicas/salvar', [\App\Http\Controllers\ClinicaController::class, 'salvar'])->name("painel.clinicas.salvar");
         Route::post('/sistema/clinicas/{evento}/local/salvar', [\App\Http\Controllers\ClinicaController::class, 'salvar_local'])->name("painel.clinicas.local.salvar");
+        Route::post('/sistema/clinicas/{evento}/divulgacao/salvar', [\App\Http\Controllers\ClinicaController::class, 'salvar_divulgacao'])->name("painel.clinicas.divulgacao.salvar");
         Route::post('/sistema/clinicas/{evento}/curso/adicionar', [\App\Http\Controllers\ClinicaController::class, 'adicionar_curso'])->name("painel.clinicas.curso.adicionar");
         Route::get('/sistema/clinicas/curso/deletar/{evento_curso}', [\App\Http\Controllers\ClinicaController::class, 'deletar_curso'])->name("painel.clinicas.curso.deletar");
         Route::post('/sistema/clinicas/{evento}/participante/adicionar', [\App\Http\Controllers\ClinicaController::class, 'adicionar_participante'])->name("painel.clinicas.participante.adicionar");
@@ -297,6 +298,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::get('/sistema/eventos/editar/{evento}', [\App\Http\Controllers\EventoController::class, 'editar'])->name("painel.eventos.editar");
         Route::post('/sistema/eventos/salvar', [\App\Http\Controllers\EventoController::class, 'salvar'])->name("painel.eventos.salvar");
         Route::post('/sistema/eventos/{evento}/local/salvar', [\App\Http\Controllers\EventoController::class, 'salvar_local'])->name("painel.eventos.local.salvar");
+        Route::post('/sistema/eventos/{evento}/divulgacao/salvar', [\App\Http\Controllers\EventoController::class, 'salvar_divulgacao'])->name("painel.eventos.divulgacao.salvar");
         Route::post('/sistema/eventos/{evento}/curso/adicionar', [\App\Http\Controllers\EventoController::class, 'adicionar_curso'])->name("painel.eventos.curso.adicionar");
         Route::get('/sistema/eventos/curso/deletar/{evento_curso}', [\App\Http\Controllers\EventoController::class, 'deletar_curso'])->name("painel.eventos.curso.deletar");
         Route::post('/sistema/eventos/{evento}/participante/adicionar', [\App\Http\Controllers\EventoController::class, 'adicionar_participante'])->name("painel.eventos.participante.adicionar");
