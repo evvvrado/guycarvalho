@@ -15,6 +15,7 @@ use App\Models\Curso;
 use App\Models\Aluno;
 use App\Models\Venda;
 use App\Models\Matricula;
+use App\Models\Expositor;
 use Illuminate\Support\Facades\Storage;
 
 class SiteController extends Controller
@@ -322,9 +323,10 @@ class SiteController extends Controller
         return view("site.feira");
     }
 
-    public function feiraEmpresas()
+    public function feiraEmpresas($categoria)
     {
-        return view("site.feira-empresas");
+        $expositores = Expositor::where("categoria", $categoria)->get();
+        return view("site.feira-empresas", ["expositores" => $expositores]);
     }
 
     public function feiraCatalogo()

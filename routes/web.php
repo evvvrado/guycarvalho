@@ -39,7 +39,7 @@ Route::get('/duvidas', [\App\Http\Controllers\SiteController::class, 'duvidas'])
 // ENAF ~
 
 Route::get('/feira', [\App\Http\Controllers\SiteController::class, 'feira'])->name("site.feira");
-Route::get('/feira/empresas', [\App\Http\Controllers\SiteController::class, 'feiraEmpresas'])->name("site.feiraEmpresas");
+Route::get('/feira/empresas/{categoria}', [\App\Http\Controllers\SiteController::class, 'feiraEmpresas'])->name("site.feiraEmpresas");
 Route::get('/feira/catalogo', [\App\Http\Controllers\SiteController::class, 'feiraCatalogo'])->name("site.catalogo");
 
 Route::get('/professores', [\App\Http\Controllers\SiteController::class, 'professores'])->name("site.professores");
