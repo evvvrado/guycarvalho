@@ -73,7 +73,7 @@
                                                             class="bx bx-edit"></i></button>
                                                     <div class="dropdown-menu" style="margin: 0px;">
                                                         <a class="dropdown-item"
-                                                            href="{{ route('painel.depoimento.editar') }}">Editar</a>
+                                                            href="{{ route('painel.depoimento.editar', ['depoimento' => $depoimento]) }}">Editar</a>
                                                         <div class="dropdown-divider"></div>
                                                         <a class="dropdown-item" style="color: red" href="{{route('painel.depoimento.deletar', ['depoimento' => $depoimento])}}">Excluir</a>
                                                     </div>
@@ -104,20 +104,30 @@
         <div class="card filter-body">
             <div class="card-body">
 
-                <form action="javascript: void(0);">
-
+                <form id="form-filtro" action="{{route('painel.depoimento')}}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="nome">Nome</label>
+                        <input id="nome" name="nome" type="text" class="form-control"
+                            placeholder="" @if (isset($filtros) && isset($filtros['nome'])) value="{{ $filtros['nome'] }}" @endif>
+                    </div>
+                    <div class="mb-3">
+                        <label for="depoimento">Depoimento</label>
+                        <input id="depoimento" name="depoimento" type="text" class="form-control"
+                            placeholder="" @if (isset($filtros) && isset($filtros['depoimento'])) value="{{ $filtros['depoimento'] }}" @endif>
+                    </div>
                 </form>
 
 
 
                 <div class="buttons-row">
                     <div>
-                        <button type="button" class="btn btn-success waves-effect waves-light">
+                        <button id="btn-filtrar" type="button" class="btn btn-success waves-effect waves-light">
                             <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
                         </button>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-danger waves-effect waves-light">
+                        <button id="btn-limpar" type="button" class="btn btn-danger waves-effect waves-light">
                             <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
                         </button>
                     </div>
@@ -268,6 +278,15 @@
                     "searchPlaceholder": "Filtrar",
                     "thousands": "."
                 }
+            });
+
+            $("#btn-filtrar").click(function(){
+                $("#form-filtro").submit();
+            });
+
+            $("#btn-limpar").click(function(){
+                $("input[type!='hidden']").val("");
+                $("select").val("-1");
             });
         });
 

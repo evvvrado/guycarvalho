@@ -12,8 +12,8 @@ class DepoimentoController extends Controller
     //
 
     
-    public function editar(){
-        return view("painel.depoimento.editar");
+    public function editar(Depoimento $depoimento){
+        return view("painel.depoimento.editar", ['depoimento' => $depoimento]);
     }
     
     public function cadastrar(){
@@ -49,24 +49,15 @@ class DepoimentoController extends Controller
             $depoimentos = Depoimento::all();
             return view("painel.depoimento.consultar", ['depoimentos' => $depoimentos]);
         }else{
-            // $filtros = [];
-            // if($request->nome != null){
-            //     $filtros[] = ["nome", "like", "%" . $request->nome . "%"];
-            // }
-            // if($request->tipo != null && $request->tipo != -1){
-            //     $filtros[] = ["tipo", "=", $request->tipo];
-            // }
-            // if($request->total_horas != null){
-            //     $filtros[] = ["total_horas", "=", $request->total_horas];
-            // }
-            // if($request->valor_minimo != null){
-            //     $filtros[] = ["valor", ">=", $request->valor_minimo];
-            // }
-            // if($request->valor_maximo != null){
-            //     $filtros[] = ["valor", "<=", $request->valor_maximo];
-            // }
-            // $cursos = Curso::where($filtros)->get();
-            // return view("painel.cursos.consultar", ['cursos' => $cursos, "filtros" => $request->all()]);
+            $filtros = [];
+            if($request->nome != null){
+                $filtros[] = ["nome", "like", "%" . $request->nome . "%"];
+            }
+            if($request->depoimento != null){
+                $filtros[] = ["depoimento", "like", "%" . $request->depoimento . "%"];
+            }
+            $depoimentos = Depoimento::where($filtros)->get();
+            return view("painel.depoimento.consultar", ['depoimentos' => $depoimentos, "filtros" => $request->all()]);
         }
     }
 
