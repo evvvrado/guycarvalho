@@ -184,9 +184,11 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/sistema/expositores/salvar', [\App\Http\Controllers\ExpositoresController::class, 'salvar'])->name("painel.expositores.salvar");
 
     // ROTA DE PUBLICIDADE
-    Route::get('/sistema/anuncios', [\App\Http\Controllers\PublicidadeController::class, 'consultarAnuncios'])->name("painel.anuncios");
-    Route::get('/sistema/anuncios/cadastro', [\App\Http\Controllers\PublicidadeController::class, 'cadastrarAnuncios'])->name("painel.anuncios.cadastro");
-    Route::get('/sistema/anuncios/editar', [\App\Http\Controllers\PublicidadeController::class, 'editarAnuncios'])->name("painel.anuncios.editar");
+    Route::match(['get','post'], '/sistema/anuncios', [\App\Http\Controllers\AnunciosController::class, 'consultar'])->name("painel.anuncios");
+    Route::get('/sistema/anuncios/cadastro', [\App\Http\Controllers\AnunciosController::class, 'cadastrar'])->name("painel.anuncios.cadastro");
+    Route::post('/sistema/anuncios/salvar', [\App\Http\Controllers\AnunciosController::class, 'salvar'])->name("painel.anuncios.salvar");
+    Route::get('/sistema/anuncios/editar/{anuncio}', [\App\Http\Controllers\AnunciosController::class, 'editar'])->name("painel.anuncios.editar");
+    Route::get('/sistema/anuncios/deletar/{anuncio}', [\App\Http\Controllers\AnunciosController::class, 'deletar'])->name("painel.anuncios.deletar");
 
 
     Route::match(['get','post'], '/sistema/patrocinadores', [\App\Http\Controllers\PatrocinadoresController::class, 'consultar'])->name("painel.patrocinadores");
