@@ -335,7 +335,7 @@ class SiteController extends Controller
     public function clinica($slug)
     {
         $evento = \App\Models\Evento::where("slug", $slug)->first();
-        if($evento->fim < date("Y-m-d 00:00:00")){
+        if ($evento->fim < date("Y-m-d 00:00:00")) {
             return redirect()->back();
         }
         return view("site.clinica", ["evento" => $evento]);
@@ -344,7 +344,7 @@ class SiteController extends Controller
     public function evento($slug)
     {
         $evento = \App\Models\Evento::where("slug", $slug)->first();
-        if($evento->fim < date("Y-m-d 00:00:00")){
+        if ($evento->fim < date("Y-m-d 00:00:00")) {
             return redirect()->back();
         }
         return view("site.clinica", ["evento" => $evento]);
