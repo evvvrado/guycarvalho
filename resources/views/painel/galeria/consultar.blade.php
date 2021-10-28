@@ -56,7 +56,7 @@ Institucional / Galerias
                                             <div class="dropdown-menu" style="margin: 0px;">
                                                 <a class="dropdown-item" href="{{ route('painel.galeria.cadastrar', ['galeria' => $galeria]) }}">Fotos</a>
                                                 <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                                <a class="dropdown-item" style="color: red" href="{{ route('painel.galeria.deletar', ['galeria' => $galeria]) }}">Excluir</a>
                                             </div>
                                         </div>
 

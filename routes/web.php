@@ -206,6 +206,7 @@ Route::middleware(['admin'])->group(function () {
     // ROTA DE INSTITUCIONAL
     Route::match(['get','post'],'/sistema/galeria', [\App\Http\Controllers\GaleriaController::class, 'consultar'])->name("painel.galeria");
     Route::post('/sistema/galeria/salvar', [\App\Http\Controllers\GaleriaController::class, 'salvar'])->name("painel.galeria.salvar");
+    Route::get('/sistema/galeria/deletar/{galeria}', [\App\Http\Controllers\GaleriaController::class, 'deletar'])->name("painel.galeria.deletar");
     Route::get('/sistema/galeria/foto/{galeria}', [\App\Http\Controllers\GaleriaController::class, 'cadastrar'])->name("painel.galeria.cadastrar");
     Route::post('/sistema/galeria/foto/{galeria}/adicionar', [\App\Http\Controllers\GaleriaController::class, 'adicionar_foto'])->name("painel.galeria.foto.adicionar");
     Route::get('/sistema/galeria/foto/deletar/{foto}', [\App\Http\Controllers\GaleriaController::class, 'deletar_foto'])->name("painel.galeria.foto.deletar");

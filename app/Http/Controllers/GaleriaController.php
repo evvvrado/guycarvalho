@@ -66,6 +66,16 @@ class GaleriaController extends Controller
         return redirect()->back();
     }
 
+    public function deletar(Galeria $galeria){
+        foreach($galeria->fotos as $foto){
+            Storage::delete($foto->imagem);
+            $foto->delete();
+        }
+        $galeria->delete();
+        toastr()->success("Galeria excluida com sucesso!");
+        return redirect()->back();
+    }
+
     public function cadastrar(Galeria $galeria)
     {
         return view("painel.galeria.cadastrar", ['galeria' => $galeria]);
