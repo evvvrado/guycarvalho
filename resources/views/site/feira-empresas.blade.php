@@ -1,5 +1,15 @@
 @include("site.includes.head")
-<title>CATEGORIA ENAF</title>
+
+@php
+$categorias = config('expositores.categorias_nome');
+$categoriaid = $expositores->first();
+@endphp
+
+@if ($categoriaid)
+<title>ENAF - {{$categorias[$categoriaid->categoria]}}</title>
+@else
+<title>ENAF- Vazio</title>
+@endif
 
 <body id="feiraEmpresas">
 

@@ -459,8 +459,8 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                             <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Apoio
                             <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Depoimentos
                             <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Dúvidas
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Galeria
                             <hr>
-                            <br><i class="fas fa-cog" aria-hidden="true" style="color: red;"></i> Galeria 🤳
                             <br><i class="fas fa-cog" aria-hidden="true" style="color: red;"></i> Hotsites 🔥
                             <br><i class="fas fa-cog" aria-hidden="true" style="color: red;"></i> Financeiro 💰
                             <br><i class="fas fa-cog" aria-hidden="true" style="color: red;"></i> Dashboard 💻
