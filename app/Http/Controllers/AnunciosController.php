@@ -52,6 +52,7 @@ class AnunciosController extends Controller
 
     public function deletar(Anuncio $anuncio){
         Storage::delete($anuncio->imagem_desktop);
+        Storage::delete($anuncio->imagem_mobile);
         $anuncio->delete();
         return redirect()->back();
     }

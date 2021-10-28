@@ -197,9 +197,11 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/patrocinadores/deletar/{patrocinador}', [\App\Http\Controllers\PatrocinadoresController::class, 'deletar'])->name("painel.patrocinadores.deletar");
     Route::post('/sistema/patrocinadores/salvar', [\App\Http\Controllers\PatrocinadoresController::class, 'salvar'])->name("painel.patrocinadores.salvar");
 
-    Route::get('/sistema/apoio', [\App\Http\Controllers\PublicidadeController::class, 'consultarApoio'])->name("painel.apoio");
-    Route::get('/sistema/apoio/cadastro', [\App\Http\Controllers\PublicidadeController::class, 'cadastrarApoio'])->name("painel.apoio.cadastro");
-    Route::get('/sistema/apoio/editar', [\App\Http\Controllers\PublicidadeController::class, 'editarApoio'])->name("painel.apoio.editar");
+    Route::match(['get','post'], '/sistema/apoio', [\App\Http\Controllers\ApoioController::class, 'consultar'])->name("painel.apoio");
+    Route::get('/sistema/apoio/cadastro', [\App\Http\Controllers\ApoioController::class, 'cadastrar'])->name("painel.apoio.cadastro");
+    Route::get('/sistema/apoio/editar/{apoio}', [\App\Http\Controllers\ApoioController::class, 'editar'])->name("painel.apoio.editar");
+    Route::post('/sistema/apoio/salvar', [\App\Http\Controllers\ApoioController::class, 'salvar'])->name("painel.apoio.salvar");
+    Route::get('/sistema/apoio/deletar/{apoio}', [\App\Http\Controllers\ApoioController::class, 'deletar'])->name("painel.apoio.deletar");
 
     // ROTA DE INSTITUCIONAL
     Route::get('/sistema/galeria', [\App\Http\Controllers\GaleriaController::class, 'consultar'])->name("painel.galeria");
