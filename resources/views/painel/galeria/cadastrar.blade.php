@@ -1,154 +1,77 @@
 @extends('painel.template.main')
 
 @section('styles')
-<!-- DataTables -->
-<link href="{{ asset('admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- DataTables -->
+    <link href="{{ asset('admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ asset('admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}" rel="stylesheet"
+        type="text/css" />
+        <link href="{{asset('admin/libs/magnific-popup/magnific-popup.css')}}" rel="stylesheet" type="text/css" />
+
 @endsection
 
 @section('titulo')
-Institucional / <a style="color: unset" href="{{ route('painel.galeria') }}">Galerias</a> / Detalhes
+    Institucional / <a style="color: unset" href="{{ route('painel.galeria') }}">Galerias</a> / Detalhes
 @endsection
 
 
 @section('conteudo')
 
-<div class="row">
-    <div class="col-9">
-
-        <div class="row"">
-
-                                                                       
-                                                            <div class=" col-sm-12 col-md-6 mb-3" style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
-
-            <a name="" data-bs-toggle="modal" data-bs-target="#myModal" id="button-add" class="btn" style="height: 100%; padding-left: 0;" style="padding-left: 0;">
-                <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-
-
-                    <i id="search-icon" class="bx bx-search" aria-hidden="true"></i>
-
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <table id="datatable" class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable_info"
-                            style="width: 1185px;">
-                            <thead>
-                                <tr role="row">
-                                    <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-sort="ascending"
-                                        aria-label="Name: activate to sort column descending">Nome</th>
-                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="max-width: 10px; width: 10px;"
-                                        aria-label="Start date: activate to sort column ascending"></th>
-                                </tr>
-                            </thead>
-
-
-                            <tbody>
-                                <tr class="odd">
-                                    <td class="sorting_1 dtr-control">Foto (1)</td>
-                                    <td>
-                                        <div class="btn-group edit-table-button ">
-                                            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
-                                            <div class="dropdown-menu" style="margin: 0px;">
-                                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#myModal">Editar</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" style="color: red" href="#">Excluir</a>
-                                            </div>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-
-
-            </div>
-
-        </div>
-    </div>
-</div> <!-- end col -->
-<div class="col-3">
-
-
-    <div class="col-sm-12 col-md-6 mb-3" style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
-        <a class="btn" style="padding-left: 21px; color: white; height: 100%; cursor: default;" href="">Filtros</a>
-    </div>
-    <div class="card filter-body">
-        <div class="card-body">
-
-            <form action="javascript: void(0);">
-
-            </form>
-
-
-
-            <div class="buttons-row">
-                <div>
-                    <button type="button" class="btn btn-success waves-effect waves-light">
-                        <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
-                    </button>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-danger waves-effect waves-light">
-                        <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-
-
-<div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title mt-0" id="myModalLabel">Insira uma imagem</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-
-                <div class="card-body container-fluid">
-
-                    <div class="row">
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="height: 200px; max-width: 100%;" alt="">
+    <div class="row mt-3">
+        <div class="col-12 col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Adicionar Imagem</h5>
+                    <form action="{{ route('painel.galeria.foto.adicionar', ['galeria' => $galeria]) }}" method="post"
+                        enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                    style="height: 200px; max-width: 100%;" alt="">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-12 text-center">
-                            <label class="btn btn-primary" for="banner-upload">Escolher</label>
-                            <label class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Fechar</label>
-                            <input name="banner" id="banner-upload" style="display: none;" type="file">
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <label class="btn btn-primary mb-0" for="banner-upload">Escolher</label>
+                                <button type="submit" class="btn btn-primary">Salvar</button>
+                                <input name="imagem" id="banner-upload" style="display: none;" type="file">
+                            </div>
                         </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="zoom-gallery d-flex flex-wrap">
+                        @foreach ($galeria->fotos as $foto)
+                            <a href="{{ asset($foto->imagem) }}" class="px-1" title="" fid="{{ $foto->id }}"><img
+                                    src="{{ asset($foto->imagem) }}" alt="" width="275"></a>
+                        @endforeach
+                        {{-- <a href="assets/images/small/img-7.jpg" title="Project 2"><img src="assets/images/small/img-7.jpg" alt="" width="275"></a> --}}
                     </div>
                 </div>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div>
+        </div>
+    </div>
 
 @endsection
 
 
 @section('scripts')
-<!-- Required datatable js -->
-<script src="{{ asset('admin/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('admin/libs/dropzone/min/dropzone.min.js') }}"></script>
-<script>
-    var inp = document.getElementById('banner-upload');
+    <!-- Required datatable js -->
+    <script src="{{ asset('admin/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('admin/libs/dropzone/min/dropzone.min.js') }}"></script>
+    <script src="{{asset('admin/libs/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+
+    <script>
+        var inp = document.getElementById('banner-upload');
         inp.addEventListener('change', function(e) {
             var file = this.files[0];
             var reader = new FileReader();
@@ -291,11 +214,36 @@ Institucional / <a style="color: unset" href="{{ route('painel.galeria') }}">Gal
                     "thousands": "."
                 }
             });
+            $(".zoom-gallery").magnificPopup({
+                delegate: "a",
+                type: "image",
+                closeOnContentClick: !1,
+                closeBtnInside: !1,
+                mainClass: "mfp-with-zoom mfp-img-mobile",
+                image: {
+                    verticalFit: !0,
+                    titleSrc: function (e) {
+                        return (
+                            ' <a href="/sistema/galeria/foto/deletar/' +
+                            e.el.attr("fid") +
+                            '" style="color: red;">Excluir</a>'
+                        );
+                    },
+                },
+                gallery: { enabled: !0 },
+                zoom: {
+                    enabled: !0,
+                    duration: 300,
+                    opener: function (e) {
+                        return e.find("img");
+                    },
+                },
+            });
         });
 
         $(document).ready(() => {
 
             $('div.dataTables_wrapper div.dataTables_filter label').prepend($('#search-icon'));
         })
-</script>
+    </script>
 @endsection

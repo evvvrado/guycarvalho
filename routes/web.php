@@ -204,8 +204,11 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/apoio/deletar/{apoio}', [\App\Http\Controllers\ApoioController::class, 'deletar'])->name("painel.apoio.deletar");
 
     // ROTA DE INSTITUCIONAL
-    Route::get('/sistema/galeria', [\App\Http\Controllers\GaleriaController::class, 'consultar'])->name("painel.galeria");
-    Route::get('/sistema/galeria/foto', [\App\Http\Controllers\GaleriaController::class, 'cadastrar'])->name("painel.galeria.cadastrar");
+    Route::match(['get','post'],'/sistema/galeria', [\App\Http\Controllers\GaleriaController::class, 'consultar'])->name("painel.galeria");
+    Route::post('/sistema/galeria/salvar', [\App\Http\Controllers\GaleriaController::class, 'salvar'])->name("painel.galeria.salvar");
+    Route::get('/sistema/galeria/foto/{galeria}', [\App\Http\Controllers\GaleriaController::class, 'cadastrar'])->name("painel.galeria.cadastrar");
+    Route::post('/sistema/galeria/foto/{galeria}/adicionar', [\App\Http\Controllers\GaleriaController::class, 'adicionar_foto'])->name("painel.galeria.foto.adicionar");
+    Route::get('/sistema/galeria/foto/deletar/{foto}', [\App\Http\Controllers\GaleriaController::class, 'deletar_foto'])->name("painel.galeria.foto.deletar");
 
 
     Route::match(['get', 'post'], '/sistema/depoimentos', [\App\Http\Controllers\DepoimentoController::class, 'consultar'])->name("painel.depoimento");
