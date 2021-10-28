@@ -1,10 +1,18 @@
+@php
+$apoios = \App\Models\Apoio::all();
+$apoio = $apoios->first();
+@endphp
+
+
 <section class="container-fluid s_parceiros">
     <div class="container-fav">
         <div class="_apoio">
             <span>Apoio</span>
-            <a target="_blank" href="https://gefit.com.br" class="_apoiador">
-                <img src="{{ asset('site/img/apoio_Gefit.svg') }}" alt="Logo Gefit Fitness Intelligence" title="Gefit ~ Gestão de Academias" />
+            @if ($apoio)
+            <a target="_blank" href="{{ $apoio->url }}" class="_apoiador">
+                <img src="{{ asset($apoio->foto) }}" alt="{{ $apoio->nome }}" title="{{ $apoio->nome }} ~ CLIQUE PARA VER MAIS" />
             </a>
+            @endif
         </div>
         <div class="_patrocinadores">
             <span>Patrocinadores</span>

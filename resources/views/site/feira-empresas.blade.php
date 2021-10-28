@@ -1,24 +1,5 @@
 @include("site.includes.head")
-
-<script>
-  var array = Array();
-  var expositores = Array();
-</script>
-
-@foreach (config('expositores.categorias_nome') as $codigo => $categoria)
-<script>
-  array[{{$codigo}}] = '{{$categoria}}'
-</script>
-@endforeach
-
-<script>
-  expositores.push({!! $expositores !!});
-  console.log(expositores.categoria)
-
-</script>
-
-
-<title>ENAF -</title>
+<title>CATEGORIA ENAF</title>
 
 <body id="feiraEmpresas">
 
