@@ -1,77 +1,72 @@
 @extends('painel.template.main')
 
 @section('styles')
-    <!-- DataTables -->
-    <link href="{{ asset('admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet"
-        type="text/css" />
-    <link href="{{ asset('admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}" rel="stylesheet"
-        type="text/css" />
-        <link href="{{asset('admin/libs/magnific-popup/magnific-popup.css')}}" rel="stylesheet" type="text/css" />
+<!-- DataTables -->
+<link href="{{ asset('admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{asset('admin/libs/magnific-popup/magnific-popup.css')}}" rel="stylesheet" type="text/css" />
 
 @endsection
 
 @section('titulo')
-    Institucional / <a style="color: unset" href="{{ route('painel.galeria') }}">Galerias</a> / Detalhes
+Institucional / <a style="color: unset" href="{{ route('painel.galeria') }}">Galerias</a> / Detalhes
 @endsection
 
 
 @section('conteudo')
 
-    <div class="row mt-3">
-        <div class="col-12 col-lg-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title mb-3">Adicionar Imagem</h5>
-                    <form action="{{ route('painel.galeria.foto.adicionar', ['galeria' => $galeria]) }}" method="post"
-                        enctype="multipart/form-data">
-                        @csrf
-                        <div class="row">
-                            <div class="col-12 text-center">
-                                <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
-                                    style="height: 200px; max-width: 100%;" alt="">
-                            </div>
+<div class="row mt-3">
+    <div class="col-12 col-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title mb-3">Adicionar Imagem</h5>
+                <form action="{{ route('painel.galeria.foto.adicionar', ['galeria' => $galeria]) }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="height: 200px; max-width: 100%;" alt="">
                         </div>
-                        <div class="row mt-3">
-                            <div class="col-12 text-center">
-                                <label class="btn btn-primary mb-0" for="banner-upload">Escolher</label>
-                                <button type="submit" class="btn btn-primary">Salvar</button>
-                                <input name="imagem" id="banner-upload" style="display: none;" type="file">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mt-3">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="zoom-gallery d-flex flex-wrap">
-                        @foreach ($galeria->fotos as $foto)
-                            <a href="{{ asset($foto->imagem) }}" class="px-1" title="" fid="{{ $foto->id }}"><img
-                                    src="{{ asset($foto->imagem) }}" alt="" width="275"></a>
-                        @endforeach
-                        {{-- <a href="assets/images/small/img-7.jpg" title="Project 2"><img src="assets/images/small/img-7.jpg" alt="" width="275"></a> --}}
                     </div>
+                    <div class="row mt-3">
+                        <div class="col-12 text-center">
+                            <label class="btn btn-primary mb-0" for="banner-upload">Escolher</label>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                            <input name="imagem" id="banner-upload" style="display: none;" type="file">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="zoom-gallery d-flex flex-wrap">
+                    @foreach ($galeria->fotos as $foto)
+                    <a href="{{ asset($foto->imagem) }}" class="px-1" title="" fid="{{ $foto->id }}"><img src="{{ asset($foto->imagem) }}" alt="" width="275"></a>
+                    @endforeach
+                    {{-- <a href="assets/images/small/img-7.jpg" title="Project 2"><img src="assets/images/small/img-7.jpg" alt="" width="275"></a> --}}
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 @endsection
 
 
 @section('scripts')
-    <!-- Required datatable js -->
-    <script src="{{ asset('admin/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('admin/libs/dropzone/min/dropzone.min.js') }}"></script>
-    <script src="{{asset('admin/libs/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+<!-- Required datatable js -->
+<script src="{{ asset('admin/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('admin/libs/dropzone/min/dropzone.min.js') }}"></script>
+<script src="{{asset('admin/libs/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
 
-    <script>
-        var inp = document.getElementById('banner-upload');
+<script>
+    var inp = document.getElementById('banner-upload');
         inp.addEventListener('change', function(e) {
             var file = this.files[0];
             var reader = new FileReader();
@@ -226,7 +221,7 @@
                         return (
                             ' <a href="/sistema/galeria/foto/deletar/' +
                             e.el.attr("fid") +
-                            '" style="color: red;">Excluir</a>'
+                            '" style="font-weight: bold; font-size: 17px; color: red;"><i class="fas fa-times-circle"></i> Excluir</a>'
                         );
                     },
                 },
@@ -245,5 +240,5 @@
 
             $('div.dataTables_wrapper div.dataTables_filter label').prepend($('#search-icon'));
         })
-    </script>
+</script>
 @endsection
