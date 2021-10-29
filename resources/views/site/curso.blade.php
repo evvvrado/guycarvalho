@@ -368,7 +368,6 @@
             }
             else if($(document).scrollTop() == 0){
                 $(".t_box").removeClass('active');
-
             }
         })
     </script>
