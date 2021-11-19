@@ -96,7 +96,14 @@
                                 </label>
                                 <label>
                                     <span>Parcelas</span>
-                                    <input type="number" name="parcelas" max="10" min="1" step="1" placeholder="0" required />
+                                    <select name="parcelas" id="parcelas" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
                                 </label>
                                 <button type="submit">
                                     Efetuar pagamento <img src="{{ asset('site/img/arrowlong.svg') }}" alt="" />

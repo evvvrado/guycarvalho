@@ -110,7 +110,7 @@
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                <img src="{{ asset($aluno->avatar) }}" alt="">
+                <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
                 @endif
             </div>
             <div class="_text">

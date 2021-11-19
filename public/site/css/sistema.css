@@ -846,13 +846,13 @@ body._carrinho header .container-fav ._first ._duvidas p {
 }
 
 section.s_identificacao form label input,
-section.s_identificacao form label textarea {
+section.s_identificacao form label textarea,
+section.s_identificacao form label select {
     width: 100%;
-    border: solid 2px var(--gray13);
+    border: solid 1px #d8d8d8;
     padding-top: 0.8rem;
     padding-left: 2.7rem;
-    height: 6.2rem;
-
+    height: 5.2rem;
     font-family: "Inter";
     font-weight: bold;
     font-size: 1.2rem;
@@ -1482,7 +1482,7 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
 
 @media only screen and (max-width: 730px) {
     section.s_identificacao .container-fav ._half .content ._offtitle ._right {
-        display: none;
+        /* display: none; */
     }
     section.s_identificacao .container-fav ._half .content ._offtitle ._left {
         width: 100%;
@@ -1499,8 +1499,11 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
 }
 
 @media only screen and (max-width: 600px) {
+    section._minhasMatriculas ._matriculasList._expanded {
+        flex-wrap: nowrap;
+    }
     section._minhasMatriculas ._matriculasList._expanded ._matricula {
-        max-width: 100%;
+        max-width: 35rem;
     }
     section._minhasMatriculas ._matriculasList ._matricula {
         max-width: 28rem;
@@ -1525,13 +1528,19 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
         text-align: center;
         gap: 4rem;
     }
+    section.s_identificacao .container-fav ._half .content ._offtitle {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
     section._menu {
         display: none;
         padding: 2rem;
     }
     ._menuMax {
         display: block;
-        margin-top: 44px;
+        padding-top: 44px;
+        padding-bottom: 10px;
         background: white;
     }
     body._carrinho header .container-fav ._first ._duvidas {
