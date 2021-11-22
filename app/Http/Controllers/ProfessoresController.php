@@ -67,8 +67,4 @@ class ProfessoresController extends Controller
         return redirect()->back();
     }
 
-    public function hotsite(){
-        return view("painel.professores.hotsite");
-    }
-
 }

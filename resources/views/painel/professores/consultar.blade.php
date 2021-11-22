@@ -63,7 +63,7 @@ Projeto / <a style="color: unset" href="{{route('painel.professores')}}">Profess
                                                 <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
                                                 <div class="dropdown-menu" style="margin: 0px;">
                                                     <a class="dropdown-item" href="{{ route('painel.professores.editar', ['professor' => $professor]) }}">Editar</a>
-                                                    <a class="dropdown-item" href="{{ route('painel.professores.hotsite') }}">Hotsite</a>
+                                                    <a class="dropdown-item" href="{{ route('painel.professores.hotsite', ['professor' => $professor]) }}">Hotsite</a>
                                                     <div class="dropdown-divider"></div>
                                                     <a class="dropdown-item" href="{{ route('painel.professores.deletar', ['professor' => $professor]) }}" style="color: red" href="#">Excluir</a>
                                                 </div>

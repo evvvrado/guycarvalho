@@ -71,40 +71,40 @@
             <div class="card inicio">
                 <div class="card-body">
                     <h4 class="card-title">Informações</h4>
-                    <form>
+                    <form action="{{route('painel.professores.hotsite.informacoes.salvar', ['professor' => $professor])}}" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="productname">Nome Visível</label>
-                                    <input id="productname" name="productname" type="text" placeholder="Insira o Nome"
+                                    <input id="productname" name="nome" type="text" @if($hotsite) value="{{$hotsite->nome}}" @endif placeholder="Insira o Nome"
                                         class="form-control">
                                 </div>
                                 <div class="mb-3">
                                     <label for="price">Telefone</label>
-                                    <input class="form-control" type="tel" placeholder="Insira o telefone"
+                                    <input class="form-control" name="telefone" type="tel" @if($hotsite) value="{{$hotsite->telefone}}" @endif placeholder="Insira o telefone"
                                         id="example-tel-input">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="manufacturername">Site</label>
-                                    <input class="form-control" type="url" placeholder="Insira a URL"
+                                    <input class="form-control" name="site" type="url" @if($hotsite) value="{{$hotsite->site}}" @endif placeholder="Insira a URL"
                                         id="example-url-input">
                                 </div>
                                 <div class="mb-3">
                                     <label for="manufacturername">E-mail</label>
-                                    <input class="form-control" type="email" placeholder="Insira o e-mail"
+                                    <input class="form-control" name="email" type="email" @if($hotsite) value="{{$hotsite->email}}" @endif placeholder="Insira o e-mail"
                                         id="example-email-input">
                                 </div>
                             </div>
                             <div class="col-12 mb-3">
                                 <label for="manufacturername">Video Principal</label>
-                                <input class="form-control" type="url" placeholder="Insira a URL" id="example-url-input">
+                                <input class="form-control" name="video" type="url" @if($hotsite) value="{{$hotsite->video}}" @endif placeholder="Insira a URL" id="example-url-input">
                             </div>
                             <div class="col-12 mb-3">
                                 <label for="">Sobre</label>
-                                <textarea class="form-control" name="resumo" style="min-height: 200px!important;"
-                                    rows="6"></textarea>
+                                <textarea class="form-control" name="sobre" style="min-height: 200px!important;" rows="6">@if($hotsite){!! $hotsite->sobre !!}@endif</textarea>
                             </div>
                             <div class="d-flex flex-wrap gap-2">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
@@ -198,16 +198,17 @@
             <div class="card textos">
                 <div class="card-body">
                     <h4 class="card-title">Textos</h4>
-                    <form>
+                    <form action="{{route('painel.professores.hotsite.textos.salvar', ['professor' => $professor])}}" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="mb-3">
                                 <label for="productname">Sessão 1</label>
-                                <input id="productname" name="productname" type="text" placeholder="Título da Sessão"
+                                <input id="productname" name="sessao1_titulo" type="text" @if($hotsite) value="{{$hotsite->sessao1_titulo}}" @endif placeholder="Título da Sessão"
                                     class="form-control">
                             </div>
                             <div class="col-12 mb-3">
-                                <textarea class="form-control" name="resumo" placeholder="Paragrafo da Sesão"
-                                    style="min-height: 200px!important;" rows="6"></textarea>
+                                <textarea class="form-control" name="sessao1_texto" placeholder="Paragrafo da Sessão"
+                                    style="min-height: 200px!important;" rows="6">@if($hotsite){!! $hotsite->sessao1_texto !!}@endif</textarea>
                             </div>
                         </div>
 
@@ -215,12 +216,12 @@
                         <div class="row">
                             <div class="mb-3">
                                 <label for="productname">Sessão 2</label>
-                                <input id="productname" name="productname" type="text" placeholder="Título da Sessão"
+                                <input id="productname" name="sessao2_titulo" type="text" @if($hotsite) value="{{$hotsite->sessao2_titulo}}" @endif placeholder="Título da Sessão"
                                     class="form-control">
                             </div>
                             <div class="col-12 mb-3">
-                                <textarea class="form-control" name="resumo" placeholder="Paragrafo da Sesão"
-                                    style="min-height: 200px!important;" rows="6"></textarea>
+                                <textarea class="form-control" name="sessao3_texto" placeholder="Paragrafo da Sessão"
+                                    style="min-height: 200px!important;" rows="6">@if($hotsite){!! $hotsite->sessao1_texto !!}@endif</textarea>
                             </div>
                         </div>
 
@@ -230,12 +231,12 @@
                         <div class="row">
                             <div class="mb-3">
                                 <label for="productname">Sessão 3</label>
-                                <input id="productname" name="productname" type="text" placeholder="Título da Sessão"
+                                <input id="productname" name="sessao3_titulo" type="text" @if($hotsite) value="{{$hotsite->sessao3_titulo}}" @endif placeholder="Título da Sessão"
                                     class="form-control">
                             </div>
                             <div class="col-12 mb-3">
-                                <textarea class="form-control" name="resumo" placeholder="Paragrafo da Sesão"
-                                    style="min-height: 200px!important;" rows="6"></textarea>
+                                <textarea class="form-control" name="sessao3_texto" placeholder="Paragrafo da Sesão"
+                                    style="min-height: 200px!important;" rows="6">@if($hotsite){!! $hotsite->sessao1_texto !!}@endif</textarea>
                             </div>
                         </div>
 
@@ -255,48 +256,49 @@
                     <h4 class="card-title">Cadastro de Depoimento <i> *Máximo de 4</i></h4>
 
 
-
-                    <form>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label for="productname">Nome</label>
-                                    <input id="productname" name="productname" type="text" class="form-control"
-                                        placeholder="Insira o nome">
+                    @if($hotsite->depoimentos->where("video", false)->count() < 4)
+                        <form action="{{route('painel.professores.hotsite.depoimento.salvar', ['professor' => $professor])}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label for="productname">Nome</label>
+                                        <input id="productname" name="nome" type="text" class="form-control"
+                                            placeholder="Insira o nome">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label for="manufacturerbrand">Depoimento</label>
+                                        <textarea id="textarea" name="depoimento" class="form-control" maxlength="107" rows="3"
+                                            placeholder="Limite de 107 Caracteres"></textarea>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label for="manufacturerbrand">Depoimento</label>
-                                    <textarea id="textarea" class="form-control" maxlength="107" rows="3"
-                                        placeholder="Limite de 107 Caracteres"></textarea>
+                            <div class="col-12 mt-3">
+                                <div class="row">
+                                    <div class="col-12 text-center d-flex align-items-center justify-content-center">
+                                        <picture
+                                            style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                            <img id="depoimento-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                                style="height: 100%;" alt="">
+                                        </picture>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-12 text-center">
+                                        <label class="btn btn-primary" for="depoimento-upload">Escolher</label>
+                                        <input name="foto" id="depoimento-upload" style="display: none;" type="file">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="d-flex flex-wrap gap-2">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
-                        </div>
-                    </form>
-
-
-                    <h4 class="card-title my-3">Foto do depoimento</h4>
-                    <div class="col-12 mt-3">
-                        <div class="row">
-                            <div class="col-12 text-center d-flex align-items-center justify-content-center">
-                                <picture
-                                    style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                    <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
-                                        style="height: 100%;" alt="">
-                                </picture>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
                             </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12 text-center">
-                                <label class="btn btn-primary" for="banner-upload">Escolher</label>
-                                <input name="banner" id="banner-upload" style="display: none;" type="file">
-                            </div>
-                        </div>
-                    </div>
+                        </form>
+                    @else
+                        <span style="color: red;">Você atingiu o número de depoimentos. Exclua um para cadastrar um novo.</span>
+                    @endif
                 </div>
                 <div class="card-body">
                     <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
@@ -322,22 +324,23 @@
 
 
                                 <tbody>
-                                    <tr class="odd">
-                                        <td class="sorting_1 dtr-control">Everaldo Júnior</td>
-                                        <td>Meu nome é Everaldo e eu moro em alfenas mas queria estar
-                                            morando em alfenas onde posso comprar todos os alfenas de toda alfenas</td>
-                                        <td>
-                                            <div class="btn-group edit-table-button ">
-                                                <button type="button" class="btn btn-info dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"
-                                                    style="height: 34px!important;"><i class="bx bx-edit"></i></button>
-                                                <div class="dropdown-menu" style="margin: 0px;">
-                                                    <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                    @foreach($hotsite->depoimentos->where("video", false) as $depoimento)
+                                        <tr class="odd">
+                                            <td class="sorting_1 dtr-control">{{$depoimento->nome}}</td>
+                                            <td>{!! $depoimento->depoimento !!}</td>
+                                            <td>
+                                                <div class="btn-group edit-table-button ">
+                                                    <button type="button" class="btn btn-info dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style="height: 34px!important;"><i class="bx bx-edit"></i></button>
+                                                    <div class="dropdown-menu" style="margin: 0px;">
+                                                        <a class="dropdown-item" style="color: red" href="{{route('painel.professores.hotsite.depoimento.excluir', ['depoimento' => $depoimento])}}">Excluir</a>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -354,28 +357,33 @@
                     <h4 class="card-title">Cadastro de Depoimento <i> *Máximo de 6</i></h4>
 
 
-
-                    <form>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label for="productname">Nome</label>
-                                    <input id="productname" name="productname" type="text" class="form-control"
-                                        placeholder="Insira o nome">
+                    @if($hotsite->depoimentos->where("video", true)->count() < 6)
+                        <form action="{{route('painel.professores.hotsite.depoimento.salvar', ['professor' => $professor])}}" method="POST">
+                            @csrf
+                            <input type="hidden" name="video" value="1">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label for="productname">Nome</label>
+                                        <input id="productname" name="nome" type="text" class="form-control"
+                                            placeholder="Insira o nome">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label for="manufacturerbrand">URL Do Vídeo</label>
+                                        <input class="form-control" name="url" type="url" placeholder="Insira a URL"
+                                            id="example-url-input">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label for="manufacturerbrand">URL Do Vídeo</label>
-                                    <input class="form-control" type="url" placeholder="Insira a URL"
-                                        id="example-url-input">
-                                </div>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
                             </div>
-                        </div>
-                        <div class="d-flex flex-wrap gap-2">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
-                        </div>
-                    </form>
+                        </form>
+                    @else
+                        <span style="color: red;">Você atingiu o número de depoimentos com vídeo. Exclua um para cadastrar um novo.</span>
+                    @endif
                 </div>
                 <div class="card-body">
                     <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
@@ -401,21 +409,23 @@
 
 
                                 <tbody>
-                                    <tr class="odd">
-                                        <td class="sorting_1 dtr-control">Everaldo Júnior</td>
-                                        <td>www.youtube.com/videolegalfenomenal
-                                        <td>
-                                            <div class="btn-group edit-table-button ">
-                                                <button type="button" class="btn btn-info dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"
-                                                    style="height: 34px!important;"><i class="bx bx-edit"></i></button>
-                                                <div class="dropdown-menu" style="margin: 0px;">
-                                                    <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                    @foreach($hotsite->depoimentos->where("video", true) as $depoimento)
+                                        <tr class="odd">
+                                            <td class="sorting_1 dtr-control">{{$depoimento->nome}}</td>
+                                            <td>{{ $depoimento->url }}</td>
+                                            <td>
+                                                <div class="btn-group edit-table-button ">
+                                                    <button type="button" class="btn btn-info dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style="height: 34px!important;"><i class="bx bx-edit"></i></button>
+                                                    <div class="dropdown-menu" style="margin: 0px;">
+                                                        <a class="dropdown-item" style="color: red" href="{{route('painel.professores.hotsite.depoimento.excluir', ['depoimento' => $depoimento])}}">Excluir</a>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -440,15 +450,19 @@
                             <div class="col-12 text-center d-flex align-items-center justify-content-center">
                                 <picture
                                     style="height: 464px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                    <img id="principal-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                    <img id="principal-preview" @if(!$hotsite || !$hotsite->foto) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($hotsite->foto) }}" @endif
                                         style="height: 100%;" alt="">
                                 </picture>
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-12 text-center">
-                                <label class="btn btn-primary" for="principal-upload">Escolher</label>
-                                <input name="principal" id="principal-upload" style="display: none;" type="file">
+                                <form id="form-foto" action="{{route('painel.professores.hotsite.foto.salvar', ['professor' => $professor])}}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <label class="btn btn-primary" id="select-principal-upload" for="principal-upload">Escolher</label>
+                                    <input name="foto" id="principal-upload" style="display: none;" type="file">
+                                    <img id="ajax_loading" src="{{ asset('site/img/ajax-loading.gif') }}" alt="" style="display:none; margin: 0 auto;" width="50">
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -525,19 +539,20 @@
 
 
 
-                    <form>
+                    <form action="{{route('painel.professores.hotsite.duvida.salvar', ['professor' => $professor])}}" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="productname">Dúvida</label>
-                                    <input id="productname" name="productname" type="text" class="form-control"
+                                    <input id="productname" name="duvida" type="text" class="form-control"
                                         placeholder="Insira o nome">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="manufacturerbrand">Resposta</label>
-                                    <textarea id="textarea" class="form-control" maxlength="107" rows="3"
+                                    <textarea id="textarea" name="resposta" class="form-control" maxlength="107" rows="3"
                                         placeholder="Limite de 107 Caracteres"></textarea>
                                 </div>
                             </div>
@@ -571,22 +586,23 @@
 
 
                                 <tbody>
-                                    <tr class="odd">
-                                        <td class="sorting_1 dtr-control">Quem é Everaldo?</td>
-                                        <td>Meu nome é Everaldo e eu moro em alfenas mas queria estar
-                                            morando em alfenas onde posso comprar todos os alfenas de toda alfenas</td>
-                                        <td>
-                                            <div class="btn-group edit-table-button ">
-                                                <button type="button" class="btn btn-info dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"
-                                                    style="height: 34px!important;"><i class="bx bx-edit"></i></button>
-                                                <div class="dropdown-menu" style="margin: 0px;">
-                                                    <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                    @foreach($hotsite->duvidas as $duvida)
+                                        <tr class="odd">
+                                            <td class="sorting_1 dtr-control">{{$duvida->duvida}}</td>
+                                            <td>{{ $duvida->resposta }}</td>
+                                            <td>
+                                                <div class="btn-group edit-table-button ">
+                                                    <button type="button" class="btn btn-info dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style="height: 34px!important;"><i class="bx bx-edit"></i></button>
+                                                    <div class="dropdown-menu" style="margin: 0px;">
+                                                        <a class="dropdown-item" style="color: red" href="{{route('painel.professores.hotsite.duvida.excluir', ['duvida' => $duvida])}}">Excluir</a>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -621,12 +637,31 @@
             };
             reader.readAsDataURL(file);
         }, false);
+
+        var inp = document.getElementById('depoimento-upload');
+        if(inp){
+            inp.addEventListener('change', function(e) {
+                var file = this.files[0];
+                var reader = new FileReader();
+                reader.onload = function() {
+                    document.getElementById('depoimento-preview').src = this.result;
+                };
+                reader.readAsDataURL(file);
+            }, false);
+        }
+
         $('.filters span').click(function() {
             $('.card').hide();
             $(`.${$(this).data('filter')}`).show();
             $('.filters span').removeClass('active');
             $(this).addClass('active');
         })
+
+        $("#principal-upload").change(function() {
+            $("#select-principal-upload").hide();
+            $("#ajax_loading").show();
+            $("#form-foto").submit();
+        });
 
         $(document).ready(function() {
             $('#summernote').summernote({

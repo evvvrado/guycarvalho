@@ -78,9 +78,6 @@ class ExpositoresController extends Controller
     }
     
     
-    public function hotsite(){
-        return view("painel.expositores.hotsite");
-    }
-
+    
 
 }
