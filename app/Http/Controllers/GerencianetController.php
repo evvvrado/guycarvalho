@@ -74,12 +74,14 @@ class GerencianetController extends Controller
             $venda->aluno_id = $aluno->id;
             $venda->carrinho_id = $carrinho->id;
             $venda->codigo = date("Ymd") . str_pad($carrinho->id, 8, "0", STR_PAD_LEFT);
-            $venda->total = $carrinho->total - ($carrinho->total * $desconto / 100);
+            $venda->total = $carrinho->total - $desconto;
             $venda->status = 0;
             $venda->gateway = 0;
             $venda->parcelas = $parcelas;
             if ($parcelas > 1) {
                 $venda->forma = 2;
+            } else {
+                $venda->forma = 0;
             }
             $venda->valor_parcela = number_format($venda->total / $parcelas, 2, ".", "");
             $venda->desconto = ($carrinho->total * $desconto / 100);
@@ -98,7 +100,7 @@ class GerencianetController extends Controller
                 $boleto->status = $res["data"]["status"];
                 $boleto->total = $res["data"]["total"];
                 $boleto->save();
-                // $gerencianet->enviarBoletoEmail($boleto->charge_id, $aluno->email);
+                $gerencianet->enviarBoletoEmail($boleto->charge_id, $aluno->email);
             } else {
                 $carne = new PagamentoCarne;
                 $carne->venda_id = $venda->id;
@@ -118,6 +120,8 @@ class GerencianetController extends Controller
                     $parcela->save();
                 }
             }
+            $carrinho->aberto = false;
+            $carrinho->save();
             session()->forget("carrinho");
             session()->put(["venda_finalizada" => $venda->id]);
             return redirect()->route("site.carrinho-confirmacao");
