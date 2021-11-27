@@ -221,7 +221,7 @@
                             </div>
                             <div class="col-12 mb-3">
                                 <textarea class="form-control" name="sessao2_texto" placeholder="Paragrafo da Sessão"
-                                    style="min-height: 200px!important;" rows="6">@if($hotsite){!! $hotsite->sessao1_texto !!}@endif</textarea>
+                                    style="min-height: 200px!important;" rows="6">@if($hotsite){!! $hotsite->sessao2_texto !!}@endif</textarea>
                             </div>
                         </div>
 
