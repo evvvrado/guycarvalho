@@ -228,20 +228,16 @@
         <section class="container-fluid h_galeria">
             <div class="container-fav">
                 <div class="_title">
-                    <h6>Serviços</h6>
-                    <h3>Lorem ipsum dolor site amter. consectetur adipiscing</h3>
+                    <h6>{{$hotsite->galeria1_titulo}}</h6>
+                    <h3>{{$hotsite->galeria1_descricao}}</h3>
                 </div>
 
                 <div class="_images fade">
-                    <picture>
-                        <img src="{{ asset('site/img/hotsite/rede/imgGaleria1.png') }}" alt="Imagem de Galeria" />
-                    </picture>
-                    <picture>
-                        <img src="{{ asset('site/img/hotsite/rede/imgGaleria2.png') }}" alt="Imagem de Galeria" />
-                    </picture>
-                    <picture>
-                        <img src="{{ asset('site/img/hotsite/rede/imgGaleria3.png') }}" alt="Imagem de Galeria" />
-                    </picture>
+                    @foreach($hotsite->fotos->where("galeria", 1) as $foto)
+                        <picture>
+                            <img src="{{ asset($foto->foto) }}" alt="Imagem de Galeria" />
+                        </picture>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -249,20 +245,16 @@
         <section class="container-fluid h_galeria">
             <div class="container-fav">
                 <div class="_title">
-                    <h6>Serviços</h6>
-                    <h3>Lorem ipsum dolor site amter. consectetur adipiscing</h3>
+                    <h6>{{$hotsite->galeria2_titulo}}</h6>
+                    <h3>{{$hotsite->galeria2_descricao}}</h3>
                 </div>
 
                 <div class="_images fade">
-                    <picture>
-                        <img src="{{ asset('site/img/hotsite/rede/imgGaleria1.png') }}" alt="Imagem de Galeria" />
-                    </picture>
-                    <picture>
-                        <img src="{{ asset('site/img/hotsite/rede/imgGaleria2.png') }}" alt="Imagem de Galeria" />
-                    </picture>
-                    <picture>
-                        <img src="{{ asset('site/img/hotsite/rede/imgGaleria3.png') }}" alt="Imagem de Galeria" />
-                    </picture>
+                    @foreach($hotsite->fotos->where("galeria", 2) as $foto)
+                        <picture>
+                            <img src="{{ asset($foto->foto) }}" alt="Imagem de Galeria" />
+                        </picture>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -272,146 +264,33 @@
                 <div class="_top"><h4>Dúvidas Frequentes</h4></div>
 
                 <div class="_duvidas">
-                    <div class="_box">
-                        <div class="_main">
-                            <span style="color: #ff7b0e">Lorem ipsum dolor sit amet</span>
-                            <div style="color: #ff7b0e" class="_icon">
-                                <svg
-                                    width="19"
-                                    height="10"
-                                    viewBox="0 0 19 10"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M1.65234 1.00049L9.65234 9.00049L17.6523 1.00049"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
+                    @foreach($hotsite->duvidas as $duvida)
+                        <div class="_box">
+                            <div class="_main">
+                                <span style="color: {{$hotsite->cor_destaque}}">{{$duvida->duvida}}</span>
+                                <div style="color: {{$hotsite->cor_destaque}}" class="_icon">
+                                    <svg
+                                        width="19"
+                                        height="10"
+                                        viewBox="0 0 19 10"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M1.65234 1.00049L9.65234 9.00049L17.6523 1.00049"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                    </svg>
+                                </div>
                             </div>
+                            <p>
+                                {{$duvida->resposta}}
+                            </p>
                         </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id aenean
-                            tempus lobortis tristique condimentum. At blandit integer eu volutpat
-                            fermentum, tortor. Egestas scelerisque arcu auctor blandit semper ornare
-                            nam. Egestas lacus volutpat blandit viverra hendrerit.
-                        </p>
-                    </div>
-                    <div class="_box">
-                        <div class="_main">
-                            <span style="color: #ff7b0e">Lorem ipsum dolor sit amet</span>
-                            <div style="color: #ff7b0e" class="_icon">
-                                <svg
-                                    width="19"
-                                    height="10"
-                                    viewBox="0 0 19 10"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M1.65234 1.00049L9.65234 9.00049L17.6523 1.00049"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-                            </div>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id aenean
-                            tempus lobortis tristique condimentum. At blandit integer eu volutpat
-                            fermentum, tortor. Egestas scelerisque arcu auctor blandit semper ornare
-                            nam. Egestas lacus volutpat blandit viverra hendrerit.
-                        </p>
-                    </div>
-                    <div class="_box">
-                        <div class="_main">
-                            <span style="color: #ff7b0e">Lorem ipsum dolor sit amet</span>
-                            <div style="color: #ff7b0e" class="_icon">
-                                <svg
-                                    width="19"
-                                    height="10"
-                                    viewBox="0 0 19 10"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M1.65234 1.00049L9.65234 9.00049L17.6523 1.00049"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-                            </div>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id aenean
-                            tempus lobortis tristique condimentum. At blandit integer eu volutpat
-                            fermentum, tortor. Egestas scelerisque arcu auctor blandit semper ornare
-                            nam. Egestas lacus volutpat blandit viverra hendrerit.
-                        </p>
-                    </div>
-                    <div class="_box">
-                        <div class="_main">
-                            <span style="color: #ff7b0e">Lorem ipsum dolor sit amet</span>
-                            <div style="color: #ff7b0e" class="_icon">
-                                <svg
-                                    width="19"
-                                    height="10"
-                                    viewBox="0 0 19 10"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M1.65234 1.00049L9.65234 9.00049L17.6523 1.00049"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-                            </div>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id aenean
-                            tempus lobortis tristique condimentum. At blandit integer eu volutpat
-                            fermentum, tortor. Egestas scelerisque arcu auctor blandit semper ornare
-                            nam. Egestas lacus volutpat blandit viverra hendrerit.
-                        </p>
-                    </div>
-                    <div class="_box">
-                        <div class="_main">
-                            <span style="color: #ff7b0e">Lorem ipsum dolor sit amet</span>
-                            <div style="color: #ff7b0e" class="_icon">
-                                <svg
-                                    width="19"
-                                    height="10"
-                                    viewBox="0 0 19 10"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M1.65234 1.00049L9.65234 9.00049L17.6523 1.00049"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-                            </div>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id aenean
-                            tempus lobortis tristique condimentum. At blandit integer eu volutpat
-                            fermentum, tortor. Egestas scelerisque arcu auctor blandit semper ornare
-                            nam. Egestas lacus volutpat blandit viverra hendrerit.
-                        </p>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -591,7 +470,7 @@
                     </div>
                 </div>
                 <div class="_form">
-                    <p style="color: #ff7b0e">
+                    <p style="color: {{$hotsite->cor_destaque}}">
                         Entre em contato conosco através do formulário abaixo que teremos o prazer
                         de atendê-lo
                     </p>
@@ -673,6 +552,6 @@
 
 <style>
     body#hotsite section.h_duvidas .container-fav ._duvidas ._box.active {
-        border-color: #ff7b0e;
+        border-color: {{$hotsite->cor_destaque}};
     }
 </style>
