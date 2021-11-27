@@ -56,7 +56,7 @@ Route::get('/blog/', [\App\Http\Controllers\SiteController::class, 'blogGrid'])-
 Route::get('/artigos/', [\App\Http\Controllers\SiteController::class, 'artigoGrid'])->name("site.artigo-grid");
 Route::get('/blog/blog', [\App\Http\Controllers\SiteController::class, 'blogPost'])->name("site.blog");
 
-Route::get('/treinador', [\App\Http\Controllers\TreinadorController::class, 'treinador'])->name("site.treinador");
+Route::get('/treinador/{professor}', [\App\Http\Controllers\TreinadorController::class, 'treinador'])->name("site.treinador");
 Route::get('/hotsite', [\App\Http\Controllers\SiteController::class, 'hotsite'])->name("site.hotsite");
 
 

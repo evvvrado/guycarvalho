@@ -12,4 +12,8 @@ class Professor extends Model
     public function hotsite(){
         return $this->hasOne(ProfessorHotsite::class);
     }
+
+    public function cursos(){
+        return $this->belongsToMany(Curso::class, "curso_professors", "professor_id", "curso_id");
+    }
 }

@@ -137,8 +137,18 @@
                     <div class="mb-3">
                         <label class="control-label">Expositor</label>
                         <select class="form-control" name="expositor_id">
+                            <option value="-1">Todos</option>
                             @foreach(\App\Models\Expositor::all() as $expositor)
                                 <option value="{{$expositor->id}}" @if(isset($filtros) && isset($filtros["expositor_id"]) && $filtros["expositor_id"]==$expositor->id) selected @endif>{{$expositor->nome}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoria">Categoria</label>
+                        <select id="categoria" name="categoria" class="form-control">
+                            <option value="-1">Todas</option>
+                            @foreach (config('expositores.categorias_nome') as $codigo => $nome)
+                            <option value="{{ $codigo }}">{{ $nome }}</option>
                             @endforeach
                         </select>
                     </div>

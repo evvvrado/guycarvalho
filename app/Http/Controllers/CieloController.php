@@ -35,7 +35,7 @@ class CieloController extends Controller
 
         if($res["status"] == 200){
 
-            if($res["retorno"] == "04" || $res["retorno"] == "06"){
+            if($res["retorno"] == "00" || $res["retorno"] == "11"){
                 $venda = new Venda;
                 $venda->aluno_id = session()->get("aluno")["id"];
                 $venda->carrinho_id = $carrinho->id;

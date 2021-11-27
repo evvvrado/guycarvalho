@@ -37,6 +37,13 @@
                                     <input id="price" name="valor" type="tel" class="form-control"
                                         placeholder="Insira o valor" value="{{$contrato->valor}}">
                                 </div>
+                                <div class="mb-3 ">
+                                    <label for="productdesc">Ativo / Inativo</label>
+                                    <div class="form-check form-switch form-switch-lg pt-3 ">
+                                        <input class="form-check-input form-control" name="ativo" type="checkbox"
+                                            id="SwitchCheckSizelg" @if($contrato->ativo) checked @endif>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
@@ -53,14 +60,13 @@
                                     <label for="manufacturerbrand">Fim de Contrato</label>
                                     <input class="form-control" name="fim" type="date" value="{{$contrato->fim}}" id="example-date-input">
                                 </div>
-
-
-                                <div class="mb-3 ">
-                                    <label for="productdesc">Ativo / Inativo</label>
-                                    <div class="form-check form-switch form-switch-lg pt-3 ">
-                                        <input class="form-check-input form-control" name="ativo" type="checkbox"
-                                            id="SwitchCheckSizelg" @if($contrato->ativo) checked @endif>
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="categoria">Categoria</label>
+                                    <select id="categoria" name="categoria" class="form-control">
+                                        @foreach (config('expositores.categorias_nome') as $codigo => $nome)
+                                        <option value="{{ $codigo }}" @if($contrato->categoria == $codigo) selected @endif>{{ $nome }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>

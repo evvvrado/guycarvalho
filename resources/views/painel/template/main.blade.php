@@ -294,7 +294,7 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                                 <span key="t-dashboards">Catálogo</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('painel.categorias') }}" key="t-default">Categorias</a></li>
+                                <li><a href="{{ route('painel.categorias') }}" key="t-default">Anunciantes</a></li>
                                 <li><a href="{{ route('painel.expositores') }}" key="t-default">Expositores</a></li>
                             </ul>
                         </li>
