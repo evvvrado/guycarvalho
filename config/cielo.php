@@ -21,6 +21,17 @@ return [
         "91" => "Banco fora do ar.",
         "96" => "Erro ao efetuar a transação. Tente novamente"
     ],
+    'bandeiras' => [
+        "Visa" => "Visa",
+        "Mastercard" => "Master",
+        "American Express" => "Amex",
+        "Elo" => "Elo",
+        "Aura" => "Aura",
+        "Diners Club" => "Diners Club",
+        "JCB" => "JCB",
+        "Discover" => "Discover",
+        "Hipercard" => "Hipercard"
+    ]
 ];
 
 ?>

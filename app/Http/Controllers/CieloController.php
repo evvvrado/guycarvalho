@@ -18,19 +18,22 @@ class CieloController extends Controller
     public function finalizar_credito(Request $request){
         $carrinho = Carrinho::find(session()->get("carrinho"));
         $codigo = date("Ymd") . str_pad($carrinho->id, 8, "0", STR_PAD_LEFT);
-        // $validator = new CreditCardValidator();
-        // $valido = $validator->isValid($request->numero)
-        // if($valido){
-        //     $bandeira = $validator->getType($request->numero)->getType();
-        // }
-        $bandeira = 'visa';
+        $validator = new CreditCardValidator();
+        $valido = $validator->isValid(str_replace(" ", "", $request->numero));
+        if ($valido) {
+            $bandeira = $validator->getType(str_replace(" ", "", $request->numero))->getNiceType();
+        } else {
+            session()->flash("erro", "Número de cartão inválido");
+            return redirect()->back();
+        }
+        // $bandeira = 'visa';
         $cielo = new CieloRequisicaoCredito();
 
         $cielo->addSale($codigo);
         $cielo->addCustomer($request->nome);
         $cielo->addPayment($carrinho->total);
         // $cielo->addCreditCard($request->numero, $bandeira, $request->expiracao, $request->cvv, $request->nome, $request->parcelas);
-        $cielo->addCreditCard($request->numero, $bandeira, $request->expiracao, $request->cvv, $request->nome, $request->parcelas);
+        $cielo->addCreditCard(str_replace(" ", "", $request->numero), config("cielo.bandeiras")[$bandeira], $request->expiracao, $request->cvv, $request->nome, $request->parcelas);
         $res = $cielo->efetuar();
 
         if($res["status"] == 200){
@@ -91,10 +94,12 @@ class CieloController extends Controller
         
     }
 
-    public function capturar(){
-        $pagamento = PagamentoCartao::first();
+    public function capturar(Venda $venda)
+    {
+        $pagamento = $venda->cartao;
         $cielo = new CieloRequisicaoCredito();
         $res = $cielo->capturar($pagamento->codigo, $pagamento->venda->total);
+        dd($res);
     }
     
 }
