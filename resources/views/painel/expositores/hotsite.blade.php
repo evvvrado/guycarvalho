@@ -258,24 +258,26 @@
                                 </thead>
 
 
-                                <tbody>
-                                    @foreach($hotsite->parceiros as $parceiro)
-                                        <tr class="odd">
-                                            <td class="sorting_1 dtr-control">{{$parceiro->nome}}</td>
-                                            <td>{{$parceiro->url}}</td>
-                                            <td>
-                                                <div class="btn-group edit-table-button ">
-                                                    <button type="button" class="btn btn-info dropdown-toggle"
-                                                        data-bs-toggle="dropdown" aria-expanded="false"
-                                                        style="height: 34px!important;"><i class="bx bx-edit"></i></button>
-                                                    <div class="dropdown-menu" style="margin: 0px;">
-                                                        <a class="dropdown-item" style="color: red" href="{{route('painel.expositores.hotsite.parceiro.excluir', ['parceiro' => $parceiro])}}">Excluir</a>
+                                <tbody>]
+                                    @if($hotsite)
+                                        @foreach($hotsite->parceiros as $parceiro)
+                                            <tr class="odd">
+                                                <td class="sorting_1 dtr-control">{{$parceiro->nome}}</td>
+                                                <td>{{$parceiro->url}}</td>
+                                                <td>
+                                                    <div class="btn-group edit-table-button ">
+                                                        <button type="button" class="btn btn-info dropdown-toggle"
+                                                            data-bs-toggle="dropdown" aria-expanded="false"
+                                                            style="height: 34px!important;"><i class="bx bx-edit"></i></button>
+                                                        <div class="dropdown-menu" style="margin: 0px;">
+                                                            <a class="dropdown-item" style="color: red" href="{{route('painel.expositores.hotsite.parceiro.excluir', ['parceiro' => $parceiro])}}">Excluir</a>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -637,23 +639,25 @@
 
 
                                 <tbody>
-                                    @foreach($hotsite->duvidas as $duvida)
-                                        <tr class="odd">
-                                            <td class="sorting_1 dtr-control">{{$duvida->duvida}}</td>
-                                            <td>{{ $duvida->resposta }}</td>
-                                            <td>
-                                                <div class="btn-group edit-table-button ">
-                                                    <button type="button" class="btn btn-info dropdown-toggle"
-                                                        data-bs-toggle="dropdown" aria-expanded="false"
-                                                        style="height: 34px!important;"><i class="bx bx-edit"></i></button>
-                                                    <div class="dropdown-menu" style="margin: 0px;">
-                                                        <a class="dropdown-item" style="color: red" href="{{route('painel.expositores.hotsite.duvida.excluir', ['duvida' => $duvida])}}">Excluir</a>
+                                    @if($hotsite)
+                                        @foreach($hotsite->duvidas as $duvida)
+                                            <tr class="odd">
+                                                <td class="sorting_1 dtr-control">{{$duvida->duvida}}</td>
+                                                <td>{{ $duvida->resposta }}</td>
+                                                <td>
+                                                    <div class="btn-group edit-table-button ">
+                                                        <button type="button" class="btn btn-info dropdown-toggle"
+                                                            data-bs-toggle="dropdown" aria-expanded="false"
+                                                            style="height: 34px!important;"><i class="bx bx-edit"></i></button>
+                                                        <div class="dropdown-menu" style="margin: 0px;">
+                                                            <a class="dropdown-item" style="color: red" href="{{route('painel.expositores.hotsite.duvida.excluir', ['duvida' => $duvida])}}">Excluir</a>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
