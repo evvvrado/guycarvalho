@@ -71,6 +71,13 @@ class ExpositorHotsiteController extends Controller
             $hotsite->expositor_id = $expositor->id;
         }
 
+        if($request->file("logo")){
+            Storage::delete($hotsite->logo);
+            $hotsite->logo = $request->file('logo')->store(
+                'site/imagens/expositores/'. $expositor->id.'/hotsite', 'local'
+            );
+        }
+
         if($request->file("foto1")){
             Storage::delete($hotsite->foto1);
             $hotsite->foto1 = $request->file('foto1')->store(

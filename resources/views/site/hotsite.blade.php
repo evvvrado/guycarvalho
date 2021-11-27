@@ -1,34 +1,32 @@
 @include('site.includes.head')
 
-    <body id="hotsite" style="background-color: #ff7b0e">
+    <body id="hotsite" style="background-color: {!! $hotsite->cor_fundo !!}">
         
 @include('site.includes.navbar')
 
-        <section class="h_hero container-fluid" style="background-color: #ff7b0e">
+        <section class="h_hero container-fluid" style="background-color: {!! $hotsite->cor_fundo !!}">
             <div class="container-fav">
                 <div class="_image">
                     <div class="_col">
                         <h1>{!! $hotsite->slogan !!}</h1>
                     </div>
                     <div class="_banner">
-                        <img src="{{ asset('site/img/hotsite/rede/rede-hero.png') }}" alt="Imagem Personalizada" />
+                        <img src="{{ asset($hotsite->foto1) }}" style="max-width: 100%;" alt="Imagem Personalizada" />
                         <img src="{{ asset('site/img/hotsite/chatbox.png') }}" alt="Chatbox" />
                     </div>
                     <div class="_col">
                         <div>
-                            <h2>A gestão da sua empresa na palma da mão</h2>
+                            <h2>{!! $hotsite->sessao1_titulo !!}</h2>
                         </div>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam euismod
-                            semper vulputate ligula. Consectetur gravida auctor dolor, mi,
-                            scelerisque sit.
+                            {!! $hotsite->sessao1_texto !!}
                         </p>
                     </div>
                 </div>
 
                 <div class="_content fade">
                     <div class="logo">
-                        <a href="https://rede.com.br" target="_blank">
+                        <a href="{{ $hotsite->site }}" target="_blank">
                             <img src="{{ asset($hotsite->logo) }}" alt="Logo do expositor"
                         /></a>
                     </div>
@@ -57,9 +55,9 @@
                                     stroke-linejoin="round"
                                 />
                             </svg>
-                            <span>https://rede.com</span>
+                            <span><a href="{{ $hotsite->site }}">{!! $hotsite->site !!}</a></span>
                         </a>
-                        <a href="mailto:rede@atendimentorede.com.br">
+                        <a href="mailto:{{$hotsite->email}}">{{$hotsite->email}}">
                             <svg
                                 width="32"
                                 height="18"
@@ -83,7 +81,7 @@
                                 />
                             </svg>
 
-                            <span>rede@atendimentorede.com.br</span>
+                            <span><a href="mailto:{{$hotsite->email}}">{{$hotsite->email}}</a></span>
                         </a>
                         <a href="tel:41336144550">
                             <svg
@@ -153,13 +151,13 @@
                                 />
                             </svg>
 
-                            <span>(41) 3614-4450</span>
+                            <span><a href="tel:{{$hotsite->telefone}}">{{$hotsite->telefone}}</a></span>
                         </a>
                     </div>
                 </div>
 
                 <div class="hero_endtext">
-                    <p>
+                    <p style="color: {!! $hotsite->cor_destaque !!} !important">
                         Entre em contato conosco através do formulário abaixo que teremos o prazer
                         de atendê-lo.
                     </p>
@@ -192,36 +190,21 @@
             <div class="container-fav">
                 <div class="_left">
                     <h6>Sobre</h6>
-                    <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
+                    <h3>{!! $hotsite->coluna1_titulo !!}</h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis sit et
-                        blandit pretium, libero eu. Dignissim nibh iaculis viverra fermentum nec
-                        tortor tellus lacus a. Id in lectus cras nisl, sit habitant tortor.
+                        {!! $hotsite->coluna1_texto !!}
                     </p>
 
                     <picture>
-                        <img src="{{ asset('site/img/hotsite/rede/sobre_img.jpg') }}" alt="Imagem Personalizada" />
+                        <img src="{{ asset($hotsite->foto2) }}" alt="Imagem Personalizada" />
                     </picture>
                 </div>
 
                 <div class="_right">
-                    <h3>Por que somos <br />diferentes</h3>
+                    <h3>{!! $hotsite->coluna2_titulo !!}</h3>
 
                     <p>
-                        Ac lectus diam mi feugiat sagittis, turpis faucibus vitae. Vivamus sagittis
-                        turpis fusce volutpat bibendum pellentesque malesuada. Aenean placerat eget
-                        libero quis donec. Mauris nulla viverra platea et neque et. Amet ut erat
-                        libero ultrices mattis mi aenean. Tellus orci amet, dignissim tellus risus
-                        viverra enim.
-                    </p>
-
-                    <p>
-                        Ac lectus diam mi feugiat sagittis, turpis faucibus vitae. Vivamus sagittis
-                        turpis fusce volutpat bibendum pellentesque malesuada. Aenean placerat eget
-                        libero quis donec. Mauris nulla viverra platea et neque et. Amet ut erat
-                        libero ultrices mattis mi aenean. Tellus orci amet, dignissim tellus risus
-                        viverra enim. Ac lectus diam mi feugiat sagittis, turpis faucibus vitae.
-                        Vivamus sagittis turpis fusce volutpat bibendum pellentesque malesuada.
+                        {!! $hotsite->coluna2_texto !!}
                     </p>
                 </div>
             </div>
@@ -231,61 +214,13 @@
             <div class="container-fav">
                 <h2>Veja quem confia em nós</h2>
                 <div class="_list">
-                    <div class="listItem">
-                        <picture>
-                            <img src="{{ asset('site/img/hotsite/rede/logo 1') }}.png" alt="Logo de Empresa" />
-                        </picture>
-                        <picture>
-                            <img src="{{ asset('site/img/hotsite/rede/logo 2') }}.png" alt="Logo de Empresa" />
-                        </picture>
-                        <picture>
-                            <img src="{{ asset('site/img/hotsite/rede/logo 3') }}.png" alt="Logo de Empresa" />
-                        </picture>
-                    </div>
-                    <div class="listItem">
-                        <picture>
-                            <img src="{{ asset('site/img/hotsite/rede/logo 2') }}.png" alt="Logo de Empresa" />
-                        </picture>
-                        <picture>
-                            <img src="{{ asset('site/img/hotsite/rede/logo 4') }}.png" alt="Logo de Empresa" />
-                        </picture>
-                        <picture>
-                            <img src="{{ asset('site/img/hotsite/rede/logo 1') }}.png" alt="Logo de Empresa" />
-                        </picture>
-                    </div>
-                    <div class="listItem">
-                        <picture>
-                            <img src="{{ asset('site/img/hotsite/rede/logo 3') }}.png" alt="Logo de Empresa" />
-                        </picture>
-                        <picture>
-                            <img src="{{ asset('site/img/hotsite/rede/logo 1') }}.png" alt="Logo de Empresa" />
-                        </picture>
-                        <picture>
-                            <img src="{{ asset('site/img/hotsite/rede/logo 4') }}.png" alt="Logo de Empresa" />
-                        </picture>
-                    </div>
-                    <div class="listItem">
-                        <picture>
-                            <img src="{{ asset('site/img/hotsite/rede/logo 4') }}.png" alt="Logo de Empresa" />
-                        </picture>
-                        <picture>
-                            <img src="{{ asset('site/img/hotsite/rede/logo 3') }}.png" alt="Logo de Empresa" />
-                        </picture>
-                        <picture>
-                            <img src="{{ asset('site/img/hotsite/rede/logo 2') }}.png" alt="Logo de Empresa" />
-                        </picture>
-                    </div>
-                    <div class="listItem">
-                        <picture>
-                            <img src="{{ asset('site/img/hotsite/rede/logo 5') }}.png" alt="Logo de Empresa" />
-                        </picture>
-                        <picture>
-                            <img src="{{ asset('site/img/hotsite/rede/logo 2') }}.png" alt="Logo de Empresa" />
-                        </picture>
-                        <picture>
-                            <img src="{{ asset('site/img/hotsite/rede/logo 3') }}.png" alt="Logo de Empresa" />
-                        </picture>
-                    </div>
+                    @foreach($hotsite->parceiros as $parceiro)
+                        <div class="listItem">
+                            <picture>
+                                <img src="{{ asset($parceiro->logo) }}" alt="{{$parceiro->nome}}" />
+                            </picture>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </section>

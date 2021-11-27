@@ -461,15 +461,15 @@
                                 <div class="col-12 text-center d-flex align-items-center justify-content-center">
                                     <picture
                                         style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                        <img id="secundaria-preview" @if(!$hotsite || !$hotsite->foto2) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($hotsite->foto2) }}" @endif
+                                        <img id="logo-preview" @if(!$hotsite || !$hotsite->logo) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($hotsite->logo) }}" @endif
                                             style="height: 100%;" alt="">
                                     </picture>
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-12 text-center">
-                                    <label class="btn btn-primary" for="secundaria-upload">Escolher</label>
-                                    <input name="foto2" id="secundaria-upload" style="display: none;" type="file">
+                                    <label class="btn btn-primary" for="logo-upload">Escolher</label>
+                                    <input name="logo" id="logo-upload" style="display: none;" type="file">
                                 </div>
                             </div>
                         </div>
@@ -749,6 +749,15 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="{{ asset('admin/libs/select2/js/select2.min.js') }}"></script>
     <script>
+        var inp = document.getElementById('logo-upload');
+        inp.addEventListener('change', function(e) {
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function() {
+                document.getElementById('logo-preview').src = this.result;
+            };
+            reader.readAsDataURL(file);
+        }, false);
         var inp = document.getElementById('principal-upload');
         inp.addEventListener('change', function(e) {
             var file = this.files[0];

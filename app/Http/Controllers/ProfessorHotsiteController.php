@@ -132,7 +132,7 @@ class ProfessorHotsiteController extends Controller
         }
 
         $duvida = new ProfessorHotsiteDuvida;
-        $duvida->professor_hotsite_id = $professor->id;
+        $duvida->professor_hotsite_id = $hotsite->id;
         $duvida->duvida = $request->duvida;
         $duvida->resposta = $request->resposta;
 
