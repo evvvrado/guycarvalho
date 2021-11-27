@@ -209,6 +209,15 @@
             $('#select_categoria').select2({
                 tags: true
             });
+                
+                $('.select2-selection--multiple').addClass('form-control');
+
+
+                $('.select2-selection--single').height('53px')
+                $('.select2-selection--single').css('display', 'flex');
+                $('.select2-selection--single').css('align-items', 'center');
+                $('.select2-container--default .select2-selection--single').css('border', '1px solid #ced4da');
         });
+        
     </script>
 @endsection

@@ -88,7 +88,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label for="manufacturername">Site</label>
+                                    <label for="manufacturername">Slug</label>
                                     <input class="form-control" name="site" type="url" @if($hotsite) value="{{$hotsite->site}}" @endif placeholder="Insira a URL"
                                         id="example-url-input">
                                 </div>

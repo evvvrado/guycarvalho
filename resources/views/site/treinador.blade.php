@@ -1,5 +1,5 @@
 @include("site.includes.head")
-
+<title>ENAF - {{ $professor->hotsite->nome }}</title>
 
 <body id="treinador">
 
@@ -12,15 +12,20 @@
                 <h6>Professor</h6>
                 <h1>{{ $professor->hotsite->nome }}</h1>
             </div>
+
+            <div class="trainer">
+                <img src="{{asset($professor->hotsite->foto)}}" alt="Foto do treinador">
+            </div>
         </div>
     </section>
 
     <section class="container-fluid s_treinadorVideo">
         <div class="container-fav">
             {!! \App\Classes\Util::convertYoutube($professor->hotsite->video) !!}
+
+
         </div>
 
-        <div class="blackout"></div>
     </section>
 
     <section class="container-fluid s_programas">
@@ -48,43 +53,43 @@
             </div>
 
             @if($professor->cursos->count() > 3)
-                <div class="_menu">
-                    <div class="_buttons">
-                        <div class="_previous _button">
-                            <img src="{{ asset('/site/img/halfarrowleft.svg') }}" alt="Seta indicando a esquerda" />
-                        </div>
+            <div class="_menu">
+                <div class="_buttons">
+                    <div class="_previous _button">
+                        <img src="{{ asset('/site/img/halfarrowleft.svg') }}" alt="Seta indicando a esquerda" />
+                    </div>
 
-                        <div class="_indicator">
-                            <img class="active" alt="Indicador da lista" />
-                            <img alt="Indicador da lista" />
-                            <img alt="Indicador da lista" />
-                        </div>
+                    <div class="_indicator">
+                        <img class="active" alt="Indicador da lista" />
+                        <img alt="Indicador da lista" />
+                        <img alt="Indicador da lista" />
+                    </div>
 
-                        <div class="_next _button">
-                            <img src="{{ asset('/site/img/halfarrowright.svg') }}" alt="Seta indicando a direita" />
-                        </div>
+                    <div class="_next _button">
+                        <img src="{{ asset('/site/img/halfarrowright.svg') }}" alt="Seta indicando a direita" />
                     </div>
                 </div>
+            </div>
             @endif
 
             <div class="_content fade">
                 <div class="_cursoList">
                     @foreach($professor->cursos as $curso)
-                        <div class="_curso">
-                            <div class="_pic">
-                                <img src="{{ asset($curso->thumbnail) }}" alt="{{$curso->nome}}" />
-                            </div>
-                            <main>
-                                <div class="_top">
-                                    <h6>{{$curso->nome}}</h6>
-                                    <p>{{$curso->descricao}}</p>
-                                </div>
-                                <div class="_bottom">
-                                    <strong>R$ {{number_format($curso->valor, 2, ",", ".")}}</strong>
-                                    <button>Comprar</button>
-                                </div>
-                            </main>
+                    <div class="_curso">
+                        <div class="_pic">
+                            <img src="{{ asset($curso->thumbnail) }}" alt="{{$curso->nome}}" />
                         </div>
+                        <main>
+                            <div class="_top">
+                                <h6>{{$curso->nome}}</h6>
+                                <p>{{$curso->descricao}}</p>
+                            </div>
+                            <div class="_bottom">
+                                <strong>R$ {{number_format($curso->valor, 2, ",", ".")}}</strong>
+                                <button>Comprar</button>
+                            </div>
+                        </main>
+                    </div>
                     @endforeach
                 </div>
             </div>
@@ -103,7 +108,7 @@
 
             <div class="_videos">
                 @foreach($professor->hotsite->depoimentos->where("video", true) as $depoimento)
-                    {!! \App\Classes\Util::convertYoutube($depoimento->url) !!}
+                {!! \App\Classes\Util::convertYoutube($depoimento->url) !!}
                 @endforeach
             </div>
         </div>
@@ -120,25 +125,23 @@
                 <div class="_content">
                     <div class="_depoimentoList">
                         @foreach($professor->hotsite->depoimentos->where("video", false) as $depoimento)
-                            <div class="_depoimento">
-                                <p class="_text">
-                                    {!! $depoimento->depoimento !!}
-                                </p>
-                                <div class="_end">
-                                    <div class="_pic">
-                                        <img src="{{ asset($depoimento->foto) }}"
-                                            alt="{{$depoimento->nome}}" style="width: 50px; height: 50px;" />
-                                    </div>
-                                    <p>{{$depoimento->nome}}</p>
-                                    {{-- <a href="/">
-                                        <div class="_icon">
-                                            <img src="{{ asset('/site/img/logo_instagram_depoimento.svg') }}"
-                                                alt="Logo Instagram" />
-                                        </div>
-                                        @rodrigo
-                                    </a> --}}
+                        <div class="_depoimento">
+                            <p class="_text">
+                                {!! $depoimento->depoimento !!}
+                            </p>
+                            <div class="_end">
+                                <div class="_pic">
+                                    <img src="{{ asset($depoimento->foto) }}" alt="{{$depoimento->nome}}" style="width: 50px; height: 50px;" />
                                 </div>
+                                <p>{{$depoimento->nome}}</p>
+                                {{-- <a href="/">
+                                    <div class="_icon">
+                                        <img src="{{ asset('/site/img/logo_instagram_depoimento.svg') }}" alt="Logo Instagram" />
+                                    </div>
+                                    @rodrigo
+                                </a> --}}
                             </div>
+                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -302,17 +305,17 @@
 
             <div class="_duvidas">
                 @foreach($professor->hotsite->duvidas as $duvida)
-                    <div class="_box">
-                        <div class="_main">
-                            <span>{{$duvida->duvida}}</span>
-                            <div class="_icon">
-                                <img src="{{ asset('/site/img/arrowbottom.svg') }}" alt="Seta para baixo" />
-                            </div>
+                <div class="_box">
+                    <div class="_main">
+                        <span>{{$duvida->duvida}}</span>
+                        <div class="_icon">
+                            <img src="{{ asset('/site/img/arrowbottom.svg') }}" alt="Seta para baixo" />
                         </div>
-                        <p>
-                            {!! $duvida->resposta !!}
-                        </p>
                     </div>
+                    <p>
+                        {!! $duvida->resposta !!}
+                    </p>
+                </div>
                 @endforeach
             </div>
         </div>
@@ -336,17 +339,15 @@
                         dúvidas.
                     </p>
                     <p>
-                        Você também pode ligar para <i>11 98809 4203</i> Ou enviar um e-mail para
-                        <i>Pauloguerra@enaf.com.br</i>
+                        Você também pode ligar para <i>{{$professor->hotsite->telefone}}</i> Ou enviar um e-mail para
+                        <i>{{$professor->hotsite->email}}</i>
                     </p>
 
                     <div class="_download">
                         <p>Baixe nosso app</p>
                         <div class="_buttons">
-                            <a href="/"><img src="{{ asset('site/img/download_google.png') }} "
-                                    alt="Download na playstore" /></a>
-                            <a href="/"> <img src="{{ asset('site/img/download_app.png') }}   "
-                                    alt="Download na App Store" /></a>
+                            <a href="/"><img src="{{ asset('site/img/download_google.png') }} " alt="Download na playstore" /></a>
+                            <a href="/"> <img src="{{ asset('site/img/download_app.png') }}   " alt="Download na App Store" /></a>
                         </div>
                     </div>
                 </div>
