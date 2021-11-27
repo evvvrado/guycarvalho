@@ -16,6 +16,7 @@ use App\Models\Aluno;
 use App\Models\Venda;
 use App\Models\Matricula;
 use App\Models\Expositor;
+use App\Models\ExpositorHotsite;
 use App\Models\Contrato;
 use Illuminate\Support\Facades\Storage;
 
@@ -353,9 +354,15 @@ class SiteController extends Controller
         return view("site.clinica", ["evento" => $evento]);
     }
 
-    public function hotsite()
+    public function hotsite($slug)
     {
-        return view("site.hotsite");
+        $hotsite = ExpositorHotsite::where("slug", $slug)->first();
+        if($hotsite){
+            return view("site.hotsite", ["hotsite" => $hotsite]);
+        }else{
+            return redirect()->route("site.index");
+        }
+        
     }
 
     // ARTIGO

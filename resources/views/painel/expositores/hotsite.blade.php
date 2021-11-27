@@ -455,7 +455,25 @@
                 <div class="card-body">
                     <form class="row" action="{{route('painel.expositores.hotsite.foto.salvar', ['expositor' => $expositor])}}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="col-12 col-md-6 mt-3 text-center">
+                        <div class="col-12 col-md-4 mt-3 text-center">
+                            <h4 class="card-title">Logo</h4>
+                            <div class="row">
+                                <div class="col-12 text-center d-flex align-items-center justify-content-center">
+                                    <picture
+                                        style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                        <img id="secundaria-preview" @if(!$hotsite || !$hotsite->foto2) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($hotsite->foto2) }}" @endif
+                                            style="height: 100%;" alt="">
+                                    </picture>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12 text-center">
+                                    <label class="btn btn-primary" for="secundaria-upload">Escolher</label>
+                                    <input name="foto2" id="secundaria-upload" style="display: none;" type="file">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 mt-3 text-center">
                             <h4 class="card-title">Foto Principal</h4>
                             <div class="row">
 
@@ -474,7 +492,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-6 mt-3 text-center">
+                        <div class="col-12 col-md-4 mt-3 text-center">
                             <h4 class="card-title">Foto da segunda sessão</h4>
                             <div class="row">
                                 <div class="col-12 text-center d-flex align-items-center justify-content-center">

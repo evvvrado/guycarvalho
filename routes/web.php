@@ -57,7 +57,7 @@ Route::get('/artigos/', [\App\Http\Controllers\SiteController::class, 'artigoGri
 Route::get('/blog/blog', [\App\Http\Controllers\SiteController::class, 'blogPost'])->name("site.blog");
 
 Route::get('/treinador/{professor}', [\App\Http\Controllers\TreinadorController::class, 'treinador'])->name("site.treinador");
-Route::get('/hotsite', [\App\Http\Controllers\SiteController::class, 'hotsite'])->name("site.hotsite");
+Route::get('/hotsite/{slug}', [\App\Http\Controllers\SiteController::class, 'hotsite'])->name("site.hotsite");
 
 
 

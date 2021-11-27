@@ -256,7 +256,7 @@
                     <h4 class="card-title">Cadastro de Depoimento <i> *Máximo de 4</i></h4>
 
 
-                    @if($hotsite->depoimentos->where("video", false)->count() < 4)
+                    @if(!$hotsite || $hotsite->depoimentos->where("video", false)->count() < 4)
                         <form action="{{route('painel.professores.hotsite.depoimento.salvar', ['professor' => $professor])}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
@@ -324,23 +324,25 @@
 
 
                                 <tbody>
-                                    @foreach($hotsite->depoimentos->where("video", false) as $depoimento)
-                                        <tr class="odd">
-                                            <td class="sorting_1 dtr-control">{{$depoimento->nome}}</td>
-                                            <td>{!! $depoimento->depoimento !!}</td>
-                                            <td>
-                                                <div class="btn-group edit-table-button ">
-                                                    <button type="button" class="btn btn-info dropdown-toggle"
-                                                        data-bs-toggle="dropdown" aria-expanded="false"
-                                                        style="height: 34px!important;"><i class="bx bx-edit"></i></button>
-                                                    <div class="dropdown-menu" style="margin: 0px;">
-                                                        <a class="dropdown-item" style="color: red" href="{{route('painel.professores.hotsite.depoimento.excluir', ['depoimento' => $depoimento])}}">Excluir</a>
+                                    @if($hotsite)
+                                        @foreach($hotsite->depoimentos->where("video", false) as $depoimento)
+                                            <tr class="odd">
+                                                <td class="sorting_1 dtr-control">{{$depoimento->nome}}</td>
+                                                <td>{!! $depoimento->depoimento !!}</td>
+                                                <td>
+                                                    <div class="btn-group edit-table-button ">
+                                                        <button type="button" class="btn btn-info dropdown-toggle"
+                                                            data-bs-toggle="dropdown" aria-expanded="false"
+                                                            style="height: 34px!important;"><i class="bx bx-edit"></i></button>
+                                                        <div class="dropdown-menu" style="margin: 0px;">
+                                                            <a class="dropdown-item" style="color: red" href="{{route('painel.professores.hotsite.depoimento.excluir', ['depoimento' => $depoimento])}}">Excluir</a>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -357,7 +359,7 @@
                     <h4 class="card-title">Cadastro de Depoimento <i> *Máximo de 6</i></h4>
 
 
-                    @if($hotsite->depoimentos->where("video", true)->count() < 6)
+                    @if(!$hotsite || $hotsite->depoimentos->where("video", true)->count() < 6)
                         <form action="{{route('painel.professores.hotsite.depoimento.salvar', ['professor' => $professor])}}" method="POST">
                             @csrf
                             <input type="hidden" name="video" value="1">
@@ -409,22 +411,24 @@
 
 
                                 <tbody>
-                                    @foreach($hotsite->depoimentos->where("video", true) as $depoimento)
-                                        <tr class="odd">
-                                            <td class="sorting_1 dtr-control">{{$depoimento->nome}}</td>
-                                            <td>{{ $depoimento->url }}</td>
-                                            <td>
-                                                <div class="btn-group edit-table-button ">
-                                                    <button type="button" class="btn btn-info dropdown-toggle"
-                                                        data-bs-toggle="dropdown" aria-expanded="false"
-                                                        style="height: 34px!important;"><i class="bx bx-edit"></i></button>
-                                                    <div class="dropdown-menu" style="margin: 0px;">
-                                                        <a class="dropdown-item" style="color: red" href="{{route('painel.professores.hotsite.depoimento.excluir', ['depoimento' => $depoimento])}}">Excluir</a>
+                                    @if($hotsite)
+                                        @foreach($hotsite->depoimentos->where("video", true) as $depoimento)
+                                            <tr class="odd">
+                                                <td class="sorting_1 dtr-control">{{$depoimento->nome}}</td>
+                                                <td>{{ $depoimento->url }}</td>
+                                                <td>
+                                                    <div class="btn-group edit-table-button ">
+                                                        <button type="button" class="btn btn-info dropdown-toggle"
+                                                            data-bs-toggle="dropdown" aria-expanded="false"
+                                                            style="height: 34px!important;"><i class="bx bx-edit"></i></button>
+                                                        <div class="dropdown-menu" style="margin: 0px;">
+                                                            <a class="dropdown-item" style="color: red" href="{{route('painel.professores.hotsite.depoimento.excluir', ['depoimento' => $depoimento])}}">Excluir</a>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                            </td>
-                                        </tr>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     @endforeach
                                 </tbody>
                             </table>
@@ -586,22 +590,24 @@
 
 
                                 <tbody>
-                                    @foreach($hotsite->duvidas as $duvida)
-                                        <tr class="odd">
-                                            <td class="sorting_1 dtr-control">{{$duvida->duvida}}</td>
-                                            <td>{{ $duvida->resposta }}</td>
-                                            <td>
-                                                <div class="btn-group edit-table-button ">
-                                                    <button type="button" class="btn btn-info dropdown-toggle"
-                                                        data-bs-toggle="dropdown" aria-expanded="false"
-                                                        style="height: 34px!important;"><i class="bx bx-edit"></i></button>
-                                                    <div class="dropdown-menu" style="margin: 0px;">
-                                                        <a class="dropdown-item" style="color: red" href="{{route('painel.professores.hotsite.duvida.excluir', ['duvida' => $duvida])}}">Excluir</a>
+                                    @if($hotsite)
+                                        @foreach($hotsite->duvidas as $duvida)
+                                            <tr class="odd">
+                                                <td class="sorting_1 dtr-control">{{$duvida->duvida}}</td>
+                                                <td>{{ $duvida->resposta }}</td>
+                                                <td>
+                                                    <div class="btn-group edit-table-button ">
+                                                        <button type="button" class="btn btn-info dropdown-toggle"
+                                                            data-bs-toggle="dropdown" aria-expanded="false"
+                                                            style="height: 34px!important;"><i class="bx bx-edit"></i></button>
+                                                        <div class="dropdown-menu" style="margin: 0px;">
+                                                            <a class="dropdown-item" style="color: red" href="{{route('painel.professores.hotsite.duvida.excluir', ['duvida' => $duvida])}}">Excluir</a>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                            </td>
-                                        </tr>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     @endforeach
                                 </tbody>
                             </table>

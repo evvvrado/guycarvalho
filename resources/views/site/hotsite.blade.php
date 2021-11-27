@@ -8,7 +8,7 @@
             <div class="container-fav">
                 <div class="_image">
                     <div class="_col">
-                        <h1>A Rede confia no ENAF</h1>
+                        <h1>{!! $hotsite->slogan !!}</h1>
                     </div>
                     <div class="_banner">
                         <img src="{{ asset('site/img/hotsite/rede/rede-hero.png') }}" alt="Imagem Personalizada" />
@@ -29,7 +29,7 @@
                 <div class="_content fade">
                     <div class="logo">
                         <a href="https://rede.com.br" target="_blank">
-                            <img src="{{ asset('site/img/hotsite/rede/logo-rede') }}.png" alt="Logo do expositor"
+                            <img src="{{ asset($hotsite->logo) }}" alt="Logo do expositor"
                         /></a>
                     </div>
 
