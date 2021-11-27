@@ -16,4 +16,8 @@ class ExpositorHotsite extends Model
     public function duvidas(){
         return $this->hasMany(ExpositorHotsiteDuvida::class);
     }
+
+    public function fotos(){
+        return $this->hasMany(ExpositorHotsiteFoto::class);
+    }
 }
