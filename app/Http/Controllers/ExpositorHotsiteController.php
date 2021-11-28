@@ -31,7 +31,7 @@ class ExpositorHotsiteController extends Controller
         $hotsite->site = $request->site;
         $hotsite->telefone = $request->telefone;
         $hotsite->email = $request->email;
-        $hotsite->endereco = $request->slogan;
+        $hotsite->endereco = $request->endereco;
         $hotsite->cor_fundo = $request->cor_fundo;
         $hotsite->cor_destaque = $request->cor_destaque;
 
