@@ -36,7 +36,7 @@
                 </div>
                 <div class="_box">
                     <div class="_icon">
-                        <img src="{{ asset('site/img/icon_layers.svg') }}" alt="Ícone de Páginas" />
+                        <img src="{{ asset('site/img/icon_folder@x2.svg') }}" alt="Ícone de Páginas" />
                     </div>
                     <span class="counting">4563</span>
                     <p>Cursos</p>
@@ -46,74 +46,88 @@
 
         <div class="_depoimentos">
             <div class="_title">
-                <h6>Reconhecimento de Grandes Referências</h6>
+                <h6>Certificações</h6>
             </div>
 
             <div class="_content">
                 <div class="_depoimentosList">
 
-                    @foreach(\App\Models\Depoimento::take(3)->get() as $depoimento)
                     <div class="_depoimento">
                         <div class="_pic">
-                            <img src="{{ asset($depoimento->foto) }}" alt="{{$depoimento->nome}}" />
+                            <img src="{{ asset('site/img/logo_illy.svg') }}" alt="Foto de Dr. Turíbio" />
                         </div>
                         <div class="_text">
                             <p>
-                                {{$depoimento->depoimento}}
+                                Especialista em Agronegócio do Café pela Universidade Illy
                             </p>
-                            <h5>{{$depoimento->nome}}</h5>
-                        </div>
-                    </div>
-                    @endforeach
-
-
-
-
-
-                    {{-- <div class="_depoimento">
-                        <div class="_pic">
-                            <img src="{{ asset('site/img/depoimento_Pic (2).jpg') }}" alt="Foto de Dr. Turíbio" />
-                        </div>
-                        <div class="_text">
-                            <p>
-                                O ENAF plantou a semente da ciência na Educação Física no Brasil. A árvore
-                                nasceu, cresceu e hoje, 30 anos após, todos nós estamos colhendo seus frutos.
-                            </p>
-                            <h5>Dr. Turíbio Leite B. Neto</h5>
                         </div>
                     </div>
                     <div class="_depoimento">
                         <div class="_pic">
-                            <img src="{{ asset('site/img/depoimento_Pic (3).jpg') }}" alt="Foto de Dr. Turíbio" />
+                            <img src="{{ asset('site/img/logo-fgv.svg') }}" alt="Foto de Dr. Turíbio" />
                         </div>
                         <div class="_text">
                             <p>
-                                O ENAF plantou a semente da ciência na Educação Física no Brasil. A árvore
-                                nasceu, cresceu e hoje, 30 anos após, todos nós estamos colhendo seus frutos.
+                                MBA em Gestão em Agronegócios pela FGV
                             </p>
-                            <h5>Dr. Turíbio Leite B. Neto</h5>
                         </div>
-                    </div> --}}
-                </div>
-            </div>
-
-            <div class="_menu">
-                <div class="_buttons">
-                    <div class="_previous _button">
-                        <img src="{{ asset('site/img/halfarrowleft_alternative.svg') }}" alt="Seta indicando a esquerda" />
                     </div>
-
-                    <div class="_indicator">
-                        <img class="active" alt="Indicador da lista" />
-                        <img alt="Indicador da lista" />
-                        <img alt="Indicador da lista" />
-                    </div>
-
-                    <div class="_next _button">
-                        <img src="{{ asset('site/img/halfarrowright_alternative.svg') }}" alt="Seta indicando a direita" />
+                    <div class="_depoimento">
+                        <div class="_pic">
+                            <img src="{{ asset('site/img/logo-agronomia.svg') }}" alt="Foto de Dr. Turíbio" />
+                        </div>
+                        <div class="_text">
+                            <p>
+                                Graduado em Engenharia Agronômica
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
+
+        </div>
+
+        <div class="_depoimentos">
+            <div class="_title">
+                <h6>Parceiros</h6>
+            </div>
+
+            <div class="_content">
+                <div class="_depoimentosList">
+
+                    <div class="_depoimento">
+                        <div class="_pic">
+                            <img src="{{ asset('site/img/ufla.svg') }}" alt="Foto de Dr. Turíbio" />
+                        </div>
+                    </div>
+                    <div class="_depoimento">
+                        <div class="_pic">
+                            <img src="{{ asset('site/img/ifsulminas.svg') }}" alt="Foto de Dr. Turíbio" />
+                        </div>
+                    </div>
+                    <div class="_depoimento">
+                        <div class="_pic">
+                            <img src="{{ asset('site/img/lac.svg') }}" alt="Foto de Dr. Turíbio" />
+                        </div>
+                    </div>
+                    <div class="_depoimento">
+                        <div class="_pic">
+                            <img src="{{ asset('site/img/procafe.svg') }}" alt="Foto de Dr. Turíbio" />
+                        </div>
+                    </div>
+                    <div class="_depoimento">
+                        <div class="_pic">
+                            <img src="{{ asset('site/img/epamig.svg') }}" alt="Foto de Dr. Turíbio" />
+                        </div>
+                    </div>
+                    <div class="_depoimento">
+                        <div class="_pic">
+                            <img src="{{ asset('site/img/empraga.svg') }}" alt="Foto de Dr. Turíbio" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>

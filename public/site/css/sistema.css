@@ -21,21 +21,21 @@
 
     --wine1: #103a51;
     --wine2: #89143a;
-    --wine3: #20356f;
+    --wine3: #32383e;
     --wine4: #570d25;
     --wine5: #90143c;
     --wine6: #560d24;
     --wine7: #1ac6d634;
-    --wine8: #1ac7d6;
+    --wine8: #859668;
     --wine9: #a72b43;
     --wine10: #911941;
     --wine11: #d1f4f7;
-    --wine12: #20356f;
+    --wine12: #32383e;
 
-    --lightbrown: #1ac7d6;
-    --lightred: #1ac7d6;
-    --orange: #1ac7d6;
-    --orange2: #1ac7d6;
+    --lightbrown: #859668;
+    --lightred: #859668;
+    --orange: #859668;
+    --orange2: #859668;
 
     --white: #fff;
     --black: #000;
@@ -1222,7 +1222,7 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._topInfo .row
 }
 body._carrinho section.s_identificacao .container-fav ._pagamento ._topInfo .row p {
     font-size: 1.4rem;
-    color: #1ac7d6;
+    color: #859668;
 }
 body._carrinho section.s_identificacao .container-fav ._pagamento ._cupom {
     width: 100%;
@@ -1698,7 +1698,7 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
 
     padding-bottom: 2.9rem;
 
-    border-bottom: 2px solid #1ac7d6;
+    border-bottom: 2px solid #859668;
 }
 .detalhesdeCurso .container-fav main {
     position: relative;
@@ -1722,7 +1722,7 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
     font-size: 1.269rem;
     line-height: 1.5rem;
 
-    color: #1ac7d6;
+    color: #859668;
 }
 
 .detalhesdeCurso .container-fav main .list article picture {
@@ -1746,7 +1746,7 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
     font-size: 1.8rem;
     line-height: 1.8rem;
 
-    color: #1ac7d6;
+    color: #859668;
 }
 
 .detalhesdeCurso .container-fav main::after {
@@ -1766,7 +1766,7 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
     width: 100%;
     max-width: 19.5rem;
 
-    background: #20356f;
+    background: #32383e;
 
     color: white;
     font-weight: bold;
@@ -2262,7 +2262,7 @@ div.d_carrinho ._header span {
     font-size: 1.8rem;
     letter-spacing: 0.02em;
     font-weight: 500;
-    color: #20356f;
+    color: #32383e;
 }
 div.d_carrinho ._header ._close {
     cursor: pointer;
@@ -2398,7 +2398,7 @@ div.d_carrinho ._bottom div button {
     margin-top: 2.5rem;
     display: inline-block;
     height: 5.2rem;
-    background-color: #1ac7d6;
+    background-color: #859668;
     border-radius: 0.6rem;
     padding: 0 5rem;
     font-weight: bold;
@@ -2413,8 +2413,8 @@ div.d_carrinho ._bottom div button {
 }
 div.d_carrinho ._bottom div button:hover {
     background-color: #fff;
-    color: #1ac7d6;
-    border: solid 1px #1ac7d6;
+    color: #859668;
+    border: solid 1px #859668;
 }
 /*! CSS Used fontfaces */
 @font-face {

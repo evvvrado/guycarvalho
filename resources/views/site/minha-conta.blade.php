@@ -106,7 +106,7 @@
                                                         waves-effect
                                                         waves-light
                                                         " style="
-                                                        background-color: #1ac7d6;
+                                                        background-color: #859668;
                                                         color: white;
                                                         " type="submit">
                                                     Entrar
@@ -231,7 +231,7 @@
                                                         w-md
                                                         waves-effect
                                                         waves-light
-                                                        " onclick="$('.forgot-password').hide(); $('.send-email').show();" style="background-color: #1ac7d6;color: white;" type="submit">
+                                                        " onclick="$('.forgot-password').hide(); $('.send-email').show();" style="background-color: #859668;color: white;" type="submit">
                                                     Enviar
                                                 </button>
                                             </div>

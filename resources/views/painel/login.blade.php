@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>ENAF - Painel do Sistema</title>
+    <title>Seja Bem-Vindo - Guy Carvalho</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="Painel de controle " name="description" />
     <meta content="Luis Gustavo de Souza Carvalho" name="author" />
@@ -96,7 +96,7 @@
                                     </div> --}}
 
                                     <div class="mt-3 d-grid">
-                                        <button class="btn btn-primary waves-effect waves-light" style="background-color: #1ac7d6;color: white;" type="submit">Entrar</button>
+                                        <button class="btn btn-primary waves-effect waves-light" style="background-color: #859668;color: white;" type="submit">Entrar</button>
                                     </div>
 
                                     {{-- <div class="mt-4 text-center">
@@ -175,7 +175,7 @@
 
                                     <div class="text-end">
                                         <button onclick="$('.send-email').hide(); $('.verify-email').show()" class="btn btn-primary w-md waves-effect waves-light" type="submit"
-                                            style="background-color: #1ac7d6;color: white;">Recuperar</button>
+                                            style="background-color: #859668;color: white;">Recuperar</button>
                                     </div>
 
                                 </form>

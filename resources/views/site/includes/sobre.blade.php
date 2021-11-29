@@ -1,12 +1,12 @@
 <section class="container-fluid s_sobre">
     <div class="container-fav">
         <div class="_left">
-            <h4>Sobre o Enaf</h4>
+            <h4>Sobre Guy Carvalho</h4>
             <p>
-                Ao longo desses 35 anos, colecionados não apenas número, mas também histórias inspiradoras. Nosso principal compromisso é oferecer o melhor do universo fitness para todas as pessoas
-                que estarão presentes conosco, de forma online ou presencial. <br /><br />
-                Somos o maior evento de Sport & Fitness e Saúde realizado nas Américas e um dos mais importantes do mundo, e iniciamos agora um novo ciclo - CONECTAR PARA EVOLUIR, trazendo toda nossa
-                experiência presencial para dentro das telas.
+                E não poderia ser diferente, Guy cresceu em meio aos pés de cafés, formou-se para trabalhar na área e não deixou de buscar mais conhecimentos, possuindo MBA em Gestão em Agronegócios,
+                pela FGV e Especialização em Agronegócio do Café pela Universidade Illy.
+
+                Além disso, Guy aplica suas pesquisas na prática, atuando como cafeicultor nos municípios de Guaranésia e Cabo Verde.
 
 
             </p>
@@ -31,19 +31,19 @@
                     <div class="_icon">
                         <img src="{{ asset('site/img/icon_form.svg') }}" alt="Papel preenchido" />
                     </div>
-                    <span>Técnicas e Conceitos</span>
+                    <span>Visita técnica com avaliação</span>
                 </div>
                 <div class="_case">
                     <div class="_icon">
                         <img src="{{ asset('site/img/icon_screen.svg') }}" alt="Monitor" />
                     </div>
-                    <span>Treinamentos e Aulas</span>
+                    <span>Acompanhamento agronômico </span>
                 </div>
                 <div class="_case">
                     <div class="_icon">
                         <img src="{{ asset('site/img/icon_folder.svg') }}" alt="Papel limpo" />
                     </div>
-                    <span>Dicas e Estratégias</span>
+                    <span>Palestras Técnicas e treinamentosicon</span>
                 </div>
             </div>
 

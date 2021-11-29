@@ -36,6 +36,13 @@
                     @include circle-btn(4.3rem, $color-featured);
                 }
             }
+            ._svg {
+                width: 100%;
+                @include flex(row, center, center);
+
+                margin-top: 4rem;
+                margin-bottom: 4rem;
+            }
             h6 {
                 font-weight: 400;
                 font-size: 2.6rem;
@@ -46,7 +53,7 @@
                 word-break: break-all;
                 animation: typing infinite ease-in-out 4s;
                 &::after {
-                    content: "A MAIOR FEIRA FITNESS DO BRASIL";
+                    content: "MAIOR CANAL DE SOBRE CAFÉ DO BRASIL";
                     animation: changetext infinite linear 8s;
                 }
             }

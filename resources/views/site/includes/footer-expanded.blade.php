@@ -19,7 +19,7 @@
         <div class="container-fav">
             <div class="_top">
                 <div class="_logo">
-                    <img src="{{ asset('/site/img/_logo45.svg') }}" alt="Logo Enaf" />
+                    <img src="{{ asset('/site/img/_logo45.png') }}" alt="Logo Guy Carvalho" />
                 </div>
 
                 <div class="_whatsapp"><a style="color: white;" target="_blank" href="https://web.whatsapp.com/send?phone=35997259528">Whats: (35) 99725-9528</a></div>

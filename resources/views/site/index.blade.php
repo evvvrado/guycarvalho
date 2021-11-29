@@ -1,6 +1,6 @@
 @include("site.includes.head")
 
-<title>ENAF - Esporte, Fitness e Saúde</title>
+<title>Seja Bem-Vindo - Guy Carvalho</title>
 
 
 <body id="home">
@@ -10,15 +10,19 @@
     <section class="container-fluid s_hero">
         <div class="container-fav">
             <div class="_h1 fade">
-                <h6>UM NOVO CICLO</h6>
-                <h1>Conectar para<br> evoluir</h1>
+                <h6>Conhecimento para<br> o segmento cafeeiro.</h6>
+                <h1>Guy Carvalho </h1>
                 <p>
-                    No mundo, tudo evolui e se transforma. E para nós, que trabalharmos com movimento, não poderia ser diferente. Você está preparado para estabelecer as conexões que irão impactar sua
-                    vida?
+                    Guy Carvalho é uma referência em cafeicultura, produtor de cafés especiais, consultor agronômico há mais de 25 anos e Coffee Producer Influencer.
                 </p>
-                <button name="hero_button">
-                    <img src="{{ asset('site/img/arrowright.svg') }}" alt="" />
-                </button>
+
+
+                <div>
+                    <p>Apoio:</p>
+                    <picture>
+                        <img src="{{ asset('/site/img/logo_coxupe.png')}}" alt="">
+                    </picture>
+                </div>
             </div>
         </div>
     </section>
@@ -27,37 +31,37 @@
 
 
     @php
-        $evento = $eventos->first();
+    $evento = $eventos->first();
     @endphp
 
     @if($evento)
-        <section class="container-fluid s_nextEvent">
-            <div class="container-fav">
-                <div class="_case fade">
-                    {{-- <div class="_buttons">
-                        <div class="_previous">
-                            <img src="{{ asset('site/img/halfarrowleft.svg') }}" alt="Evento Anterior" />
-                        </div>
-                        <div class="_next">
-                            <img src="{{ asset('site/img/halfarrowright.svg') }}" alt="Próximo Evento" />
-                        </div>
-                    </div> --}}
-                    <div class="_img">
-                        <img src="{{ asset($evento->thumbnail) }}" alt="Próximo evento aqui no ENAF" />
+    <section class="container-fluid s_nextEvent">
+        <div class="container-fav">
+            <div class="_case fade">
+                {{-- <div class="_buttons">
+                    <div class="_previous">
+                        <img src="{{ asset('site/img/halfarrowleft.svg') }}" alt="Evento Anterior" />
                     </div>
-                </div>
-                <div class="_content">
-                    <h6>Próximo evento</h6>
-                    <h2 class="event_name">{{$evento->nome}}</h2>
-                    <span class="event_date">{{date('d/m', strtotime($evento->inicio))}} a {{date('d/m', strtotime($evento->fim))}}<br> {{ $evento->hora_inicio }} às {{ $evento->hora_fim
-                        }}</span>
-                    <p class="event_local">{{$evento->local_endereco}}</p>
-                    <button name="event_button" onclick="window.location.href = '{{route('site.clinica', ['slug' => $evento->slug])}}'">
-                        <img src="{{ asset('site/img/arrowright_white.svg') }}" alt="Vamos nessa!" title="Vamos nessa!" />
-                    </button>
+                    <div class="_next">
+                        <img src="{{ asset('site/img/halfarrowright.svg') }}" alt="Próximo Evento" />
+                    </div>
+                </div> --}}
+                <div class="_img">
+                    <img src="{{ asset($evento->thumbnail) }}" alt="Próximo evento aqui no ENAF" />
                 </div>
             </div>
-        </section>
+            <div class="_content">
+                <h6>Próximo evento</h6>
+                <h2 class="event_name">{{$evento->nome}}</h2>
+                <span class="event_date">{{date('d/m', strtotime($evento->inicio))}} a {{date('d/m', strtotime($evento->fim))}}<br> {{ $evento->hora_inicio }} às {{ $evento->hora_fim
+                    }}</span>
+                <p class="event_local">{{$evento->local_endereco}}</p>
+                <button name="event_button" onclick="window.location.href = '{{route('site.clinica', ['slug' => $evento->slug])}}'">
+                    <img src="{{ asset('site/img/arrowright_white.svg') }}" alt="Vamos nessa!" title="Vamos nessa!" />
+                </button>
+            </div>
+        </div>
+    </section>
     @endif
 
     <section class="container-fluid s_events">
@@ -146,7 +150,10 @@
 
     @include('site.includes.destaque')
 
-    @include('site.includes.cursos')
+
+    @include('site.includes.blog-noticias')
+
+    {{-- @include('site.includes.cursos') --}}
 
     @include('site.includes.publicidade')
 
@@ -157,7 +164,7 @@
     <section class="container-fluid s_professores">
         <div class="container-fav">
             <div class="_left">
-                <h4>Nosso Time de Professores Online</h4>
+                <h4>Experiências relevantes para a cafeicultura</h4>
                 <p>É hora de se capacitar com professores que são referência em seus nichos de atuação.
                 </p>
                 <span>E o melhor: você tem flexibilidade de horários, estuda de onde quiser e com a mesma qualidade. </span>
@@ -185,11 +192,10 @@
     @include('site.includes.numeros')
 
 
-    @include('site.includes.blog-noticias')
 
     @include('site.includes.publicidade')
 
-    @include('site.includes.blog-artigos')
+    {{-- @include('site.includes.blog-artigos') --}}
 
 
     @include("site.includes.parceiros")
